@@ -234,15 +234,15 @@ reg				dis_spr_access;
 //
 // icpu_adr_o
 //
-`ifdef OR1200_REGISTERED_OUTPUTS
+//`ifdef OR1200_REGISTERED_OUTPUTS
 always @(posedge rst or posedge clk)
 	if (rst)
 		icpu_adr_o <= #1 32'h0000_0100;
 	else
 		icpu_adr_o <= #1 icpu_adr_i;
-`else
-Unsupported !!!
-`endif
+//`else
+//Unsupported !!!
+//`endif
 
 //
 // Page cross

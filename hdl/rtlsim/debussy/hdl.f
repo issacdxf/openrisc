@@ -1,3 +1,4 @@
++define+DUMP_FSDB
 +incdir+../../../xeclib/unisims +libext+.v
 +incdir+../../rtl
 -y ../../../xeclib/unisims
