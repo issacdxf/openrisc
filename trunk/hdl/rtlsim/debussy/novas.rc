@@ -250,7 +250,7 @@ Comment-FontBold = FALSE
 Comment-FontItalic = FALSE
 Comment-FontOverride = FALSE
 [FSM_Dlg-Print]
-Orientation = Landscape     
+Orientation = Landscape   
 [Form]
 version = 5.4v9
 wave\getSignal.fm = 100,100,880,600
@@ -259,7 +259,7 @@ wave\openWFile.fm = 100,100,741,591
 openfile.fm = 100,100,741,555
 hb\hbTopWin.fm = 1,0,1150,834
 propertyTable.fm = 100,100,488,671
-text\textViewTop.fm = 389,260,445,487
+text\textViewTop.fm = 396,377,445,487
 opendir.fm = 100,100,363,460
 hb\importOptions.fm = 100,100,478,268
 hb\importDsg.fm = 100,100,698,728
@@ -276,7 +276,7 @@ cmd_enter_form = FALSE
 ErrWindow_Font = Helvetica_M_R_12
 [HB]
 ViewSchematic = FALSE
-windowLayout = 1 0 1150 834 280 542 1138 179
+windowLayout = 1 0 1150 834 280 595 1138 127
 import_filter = *.v; *.vc; *.f
 designTreeFont = -adobe-helvetica-medium-r-normal--14-*-75-75-*-*-iso8859-*
 import_filter_vhdl = *.vhd; *.vhdl; *.f
@@ -1047,7 +1047,7 @@ SigHeight = 20
 Spacing = 10
 SnapToTransitions = TRUE
 [turboSchema_Printer_Options]
-Orientation = Landscape     
+Orientation = Landscape   
 [verisity]
 TPLanguage = Verilog
 TPName = "Verisity SpeXsim"

@@ -36,10 +36,10 @@ module mem_U1 (
 				3'h5: dat_o = dat_o_5;
 				3'h6: dat_o = dat_o_6;
 				3'h7: dat_o = dat_o_7;
-				default: dat_o = 8'bx;
+				default: dat_o = 8'h0;
 			endcase
 		else
-			dat_o = 8'bz;
+			dat_o = 8'h0;
 
 RAMB16_S9 #(
 	.INIT(9'h000),					// Value of output RAM registers at startup
