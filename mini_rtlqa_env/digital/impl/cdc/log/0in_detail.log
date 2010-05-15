@@ -1,0 +1,108 @@
+
+0-In: 0-In Functional Verification System V2.5d (suse9_x86) 06/05/07
+
+#############################################################################
+#                                                                           #
+#              Copyright 1995-2007 Mentor Graphics Corporation              #
+#                           All Rights Reserved.                            #
+#                                                                           #
+#              THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY              #
+#            INFORMATION WHICH IS THE PROPERTY OF MENTOR GRAPHICS           #
+#           CORPORATION OR ITS LICENSORS AND IS SUBJECT TO LICENSE          #
+#                                  TERMS.                                   #
+#                                                                           #
+#       U.S. Patent Numbers 6,175,946, 6,292,765, 6,609,229, 6,848,088      #
+#                               and 6,885,983                               #
+#                                                                           #
+#############################################################################
+
+0in log created Thu Sep 17 11:47:43 2009
+
+
+0in
+
+Command: cdc
+Command arguments:
+    -d des
+    -f ../../../hdl/des/list/des.lst
+        ../../../hdl/des/des_cop.v
+        ../../../hdl/des/des_dat.v
+        ../../../hdl/des/des_iv.v
+        ../../../hdl/des/des_key.v
+        ../../../hdl/des/des.v
+        ../../../hdl/des/tiny_des_round.v
+        ../../../hdl/des/tiny_des.v
+    -ctrl cdc_control.v
+    -wd ../work
+
+
+## Generating Internal Simulator Arguments File...
+
+## Generating Internal VHDL Simulator Arguments File...
+
+## Analyzing CDC Design...
+Reading internal mapping file for library mapping
+Parsing files...
+Info    : Parsing file '../../../hdl/des/des_cop.v'.
+Parsing checker control files.
+Info    : Parsing file 'cdc_control.v'.
+Identified prefix 'des'.
+Analyzing designs.
+Info    : Elaborating module 'des_key'.
+Info    : Elaborating module 'des_iv'.
+Info    : Elaborating module 'des_dat'.
+Info    : Elaborating module 'tiny_des_round'.
+Info    : Elaborating module 'tiny_des'.
+Info    : Elaborating module 'des_cop'.
+Info    : Elaborating module 'des'.
+Info    : Flattening design 'des'.
+Info    : Detected asynchronous reset 'hresetn' (active low).
+Info    : Detected asynchronous reset 'POR' (active low).
+Processing CDC checks for module 'des'
+Info    : Detected asynchronous reset 'hresetn' (active low).
+Info    : Detected asynchronous reset 'POR' (active low).
+Info    : Detected posedge clock 'hclk'.
+Info    : Generating design report.
+Warning : Port assigned to inferred clock domain.  Port 'hsel', File '/export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/../../../hdl/des/des.v', Line 78.  [hdl-51]
+        : Check and assign the appropriate clock domain.
+Warning : Port assigned to inferred clock domain.  Port 'hwdata', File '/export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/../../../hdl/des/des.v', Line 79.  [hdl-51]
+        : Check and assign the appropriate clock domain.
+Warning : Port assigned to inferred clock domain.  Port 'haddr', File '/export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/../../../hdl/des/des.v', Line 80.  [hdl-51]
+        : Check and assign the appropriate clock domain.
+Warning : Port assigned to inferred clock domain.  Port 'hwrite', File '/export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/../../../hdl/des/des.v', Line 81.  [hdl-51]
+        : Check and assign the appropriate clock domain.
+Warning : Port assigned to inferred clock domain.  Port 'htrans', File '/export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/../../../hdl/des/des.v', Line 83.  [hdl-51]
+        : Check and assign the appropriate clock domain.
+Warning : Port assigned to inferred clock domain.  Port 'hsize', File '/export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/../../../hdl/des/des.v', Line 84.  [hdl-51]
+        : Check and assign the appropriate clock domain.
+Warning : Port assigned to inferred clock domain.  Port 'hburst', File '/export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/../../../hdl/des/des.v', Line 85.  [hdl-51]
+        : Check and assign the appropriate clock domain.
+Warning : Port assigned to inferred clock domain.  Port 'hready', File '/export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/../../../hdl/des/des.v', Line 82.  [hdl-51]
+        : Check and assign the appropriate clock domain.
+Print cdb
+
+CDC Summary
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+Total                                                        (0)
+
+
+See '/export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/0in_cdc_design.rpt' for detailed design information.
+
+See '/export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/0in_cdc.rpt' for detailed CDC report.
+
+To view CDC information, use 0-In CDC as follows:
+      0in_cdc /export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/0in_cdc.db
+
+
+Error/Warning Summary (Look in /export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/0in_detail.log for more information)
+-----------------------------------------------------------
+Count  Type     Message ID         Summary
+-----------------------------------------------------------
+    8  Warning  hdl-51             Port assigned to inferred clock domain.
+
+Summary: 8 Warnings in cdc
+Final Process Statistics: Max memory 47MB, CPU time 3s, Total time 10s
+End 0in log Thu Sep 17 11:47:52 2009
+
+

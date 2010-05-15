@@ -1,0 +1,820 @@
+#@ # 
+#@ # Running leda Version B-2008.09-ICC-INTERNAL for linux -- May 29, 2008
+#@ # Date:   Thu Sep 17 11:42:20 2009
+#@ # Run by: wangyl@shserver28
+#@ 
+
+source /ecad/synopsys/leda_b200806/linux/.leda_config.files//.synopsys_leda.setup
+#@ ## LEDA Default setup file
+#@ 
+#@ 
+#@ rule_set_parameter -rule G_527_1 -parameter LINE_LENGTH -value {72}
+#@ 
+#@ rule_set_parameter -rule A_3C_R -parameter SYNCHRONIZER_FF_NUMBER -value {1}
+#@ rule_set_parameter -rule B_1006 -parameter MODULE_NAME -value {^TOP}
+#@ rule_set_parameter -rule B_1202 -parameter NB_MAX_CLOCKS -value {1}
+#@ rule_set_parameter -rule C_1200 -parameter NB_MAX_CLOCKS -value {1}
+#@ rule_set_parameter -rule C_1202 -parameter SYNCHRONIZER_FF_NUMBER -value {1}
+#@ rule_set_parameter -rule C_1204 -parameter UNIT_NAME -value {^CKGEN$}
+#@ rule_set_parameter -rule B_1405 -parameter NB_MAX_ASYNC_RESETS -value {1}
+#@ rule_set_parameter -rule B_1406 -parameter NB_MAX_SYNC_RESETS -value {1}
+#@ rule_set_parameter -rule B_1409 -parameter NB_MAX_ASYNC_RESETS -value {1}
+#@ rule_set_parameter -rule B_1410 -parameter NB_MAX_SYNC_RESETS -value {1}
+#@ rule_set_parameter -rule B_1411 -parameter NB_MAX_ASYNC_RESETS -value "1"
+#@ rule_set_parameter -rule B_1412 -parameter NB_MAX_SYNC_SETS -value "1"
+#@ rule_set_parameter -rule B_1413 -parameter NB_MAX_ASYNC_SETS -value "1"
+#@ rule_set_parameter -rule B_1414 -parameter NB_MAX_SYNC_SETS -value "1"
+#@ rule_set_parameter -rule B_1415 -parameter NB_MAX_ASYNC_LOADS -value "1"
+#@ rule_set_parameter -rule B_1416 -parameter NB_MAX_SYNC_LOADS -value "1"
+#@ rule_set_parameter -rule B_1417 -parameter NB_MAX_ASYNC_LOADS -value "1"
+#@ rule_set_parameter -rule B_1418 -parameter NB_MAX_SYNC_LOADS -value "1"
+#@ rule_set_parameter -rule C_1400 -parameter NB_MAX_RESETS -value {1}
+#@ rule_set_parameter -rule C_1402 -parameter UNIT_NAME -value {RSTGEN}
+#@ rule_set_parameter -rule B_3606 -parameter STATE_NAME -value {_cs$}
+#@ rule_set_parameter -rule B_3608 -parameter NB_MAX_STATES -value {40}
+#@ rule_set_parameter -rule B_4200 -parameter ENTITY_NAME -value {_ENT$}
+#@ rule_set_parameter -rule B_4201 -parameter FILENAME -value {<entity>.vhd}
+#@ rule_set_parameter -rule B_4202 -parameter ARCHITECTURE_NAME -value {_ARC$}
+#@ rule_set_parameter -rule B_4203 -parameter MODULE_NAME -value {_MOD$}
+#@ rule_set_parameter -rule B_4204 -parameter FILENAME -value {<architecture>.vhd}
+#@ rule_set_parameter -rule B_4205 -parameter FILENAME -value {<module>.v}
+#@ rule_set_parameter -rule B_4206 -parameter PACKAGE_NAME -value {_PACK$}
+#@ rule_set_parameter -rule B_4207 -parameter FILENAME -value {<package>.vhd}
+#@ rule_set_parameter -rule B_4208 -parameter FILENAME -value {<package>_body.vhd}
+#@ rule_set_parameter -rule B_4209 -parameter CONFIGURATION_NAME -value {_CONF$}
+#@ rule_set_parameter -rule B_4210 -parameter FILENAME -value {<configuration>.vhd}
+#@ rule_set_parameter -rule B_4211 -parameter SIGNAL_NAME -value {^S}
+#@ rule_set_parameter -rule B_4212 -parameter VARIABLE_NAME -value {^V}
+#@ rule_set_parameter -rule B_4213 -parameter CONSTANT_NAME -value {^C}
+#@ rule_set_parameter -rule B_4214 -parameter COMPONENT_NAME -value {^COMP}
+#@ rule_set_parameter -rule B_4215 -parameter TYPE_NAME -value {^T}
+#@ rule_set_parameter -rule B_4216 -parameter SUBTYPE_NAME -value {^ST}
+#@ rule_set_parameter -rule B_4217 -parameter FUNCTION_NAME -value {^F}
+#@ rule_set_parameter -rule B_4218 -parameter PROCEDURE_NAME -value {^P}
+#@ rule_set_parameter -rule B_4219 -parameter INSTANCE_NAME -value {^U_}
+#@ rule_set_parameter -rule B_4220 -parameter BLOCK_NAME -value {_BLOCK$}
+#@ rule_set_parameter -rule B_4221 -parameter GENERATE_NAME -value {_GEN$}
+#@ rule_set_parameter -rule B_4222 -parameter ALWAYS_NAME -value {_ALW$}
+#@ rule_set_parameter -rule B_4223 -parameter PROCESS_NAME -value {_PROC$}
+#@ rule_set_parameter -rule B_4224 -parameter PRIMITIVE_NAME -value {^P_}
+#@ rule_set_parameter -rule B_4225 -parameter REGISTER_NAME -value {_r$}
+#@ rule_set_parameter -rule B_4226 -parameter NET_NAME -value {^w}
+#@ rule_set_parameter -rule B_4227 -parameter INPUT_PORT_NAME -value {_in$}
+#@ rule_set_parameter -rule B_4228 -parameter OUTPUT_PORT_NAME -value {_out$}
+#@ rule_set_parameter -rule B_4229 -parameter INOUT_PORT_NAME -value {_inout$}
+#@ rule_set_parameter -rule B_4230 -parameter TASK_NAME -value {^T_}
+#@ rule_set_parameter -rule B_4231 -parameter INITIAL_NAME -value {_INIT$}
+#@ rule_set_parameter -rule B_4400 -parameter LATCH_INPUT_NAME -value {_d$}
+#@ rule_set_parameter -rule B_4401 -parameter LATCH_OUTPUT_NAME -value {_q$}
+#@ rule_set_parameter -rule B_4402 -parameter FF_INPUT_NAME -value {_d$}
+#@ rule_set_parameter -rule B_4403 -parameter FF_OUTPUT_NAME -value {_r$}
+#@ rule_set_parameter -rule B_4404 -parameter CLK_NAME -value {^clk}
+#@ rule_set_parameter -rule B_4405 -parameter ASYNC_RST_NAME -value {^rst}
+#@ rule_set_parameter -rule B_4406 -parameter SYNC_RST_NAME -value {^rst}
+#@ rule_set_parameter -rule B_4407 -parameter TRISTATE_NAME -value {_z$}
+#@ rule_set_parameter -rule FM_1_3 -parameter MODULE_NAME -value {^DW}
+#@ rule_set_parameter -rule VER_1_1_1_1 -parameter FILENAME -value {^<module>.v$}
+#@ rule_set_parameter -rule VER_1_1_1_3A -parameter CASE_SENSITIVE -value {0}
+#@ rule_set_parameter -rule R_529_1 -parameter CASE_SENSITIVE -value {0}
+#@ rule_set_parameter -rule VER_1_1_1_4 -parameter SIGNAL_NAME -value {[Gg][nN][dD]\|[vV][dD][dD]\|[vV][sS][sS]\|[vV][cC][cC]}
+#@ rule_set_parameter -rule VER_1_1_1_7 -parameter SIGNAL_NAME -value {_X$\|_N$}
+#@ rule_set_parameter -rule VER_1_1_1_8 -parameter INSTANCE_NAME -value {^<module>$\|^<module>[0-9_]+$}
+#@ rule_set_parameter -rule VER_1_1_1_9A -parameter MAX_TOP_NAME_LENGTH -value {16}
+#@ rule_set_parameter -rule VER_1_1_1_9C -parameter MAX_TOP_PORT_NAME_LENGTH -value {16}
+#@ rule_set_parameter -rule VER_1_1_2_1A -parameter MIN_MODULE_NAME_LENGTH -value {2}
+#@ rule_set_parameter -rule VER_1_1_2_1B -parameter MAX_MODULE_NAME_LENGTH -value {32}
+#@ rule_set_parameter -rule VER_1_1_2_1C -parameter MIN_INSTANCE_NAME_LENGTH -value {2}
+#@ rule_set_parameter -rule VER_1_1_2_1D -parameter MAX_INSTANCE_NAME_LENGTH -value {32}
+#@ rule_set_parameter -rule VER_1_1_3_3A -parameter MIN_CHARS -value {2}
+#@ rule_set_parameter -rule VER_1_1_3_3B -parameter MAX_CHARS -value {40}
+#@ rule_set_parameter -rule VER_1_1_4_1 -parameter FILENAME -value {^.+.h$\|^.+.vh$\|^.+.inc$\|^.+.ht$\|^.+.tsk$}
+#@ rule_set_parameter -rule VER_1_1_4_2 -parameter PARAMETER_NAME -value {^P_}
+#@ rule_set_parameter -rule VER_1_1_5_1A -parameter FF_OUTPUT_NAME -value {_REG$\|_reg$}
+#@ rule_set_parameter -rule VER_1_1_5_1B -parameter FF_OUTPUT_NAME -value {^<clock>\|<clock>$}
+#@ rule_set_parameter -rule VER_1_1_5_2A -parameter CLK_NAME -value {^CLK$\|^CK$\|^CLK[0-9_]+$\|^CK[0-9_]+$\|^CLK[a-zA-Z0-9_]$\|^CLK[a-zA-Z0-9_][a-zA-Z0-9_]*$\|^CK[a-zA-Z0-9_]$\|^CK[a-zA-Z0-9_][a-zA-Z0-9_]*$}
+#@ rule_set_parameter -rule VER_1_1_5_2B -parameter RST_NAME -value {^RST$\|^RST[0-9_]+$\|^RST[a-zA-Z0-9_]$\|^RST[a-zA-Z0-9_][a-zA-Z0-9_]*$}
+#@ rule_set_parameter -rule VER_1_2_1_1A -parameter NB_MAX_CLOCKS -value {1}
+#@ rule_set_parameter -rule VER_1_3_2_1 -parameter UNIT_NAME -value {GENRST}
+#@ rule_set_parameter -rule VER_1_4_1_1 -parameter UNIT_NAME -value {GENCLK}
+#@ rule_set_parameter -rule VER_1_4_4_1 -parameter NB_MAX_CLOCKS -value {1}
+#@ rule_set_parameter -rule VER_1_5_1_1 -parameter SYNCHRONIZER_FF_NUMBER -value {1}
+#@ rule_set_parameter -rule VER_1_6_4_3 -parameter NB_MAX_PORTS -value {200}
+#@ rule_set_parameter -rule VER_2_5_1_4 -parameter MAX_DRIVERS -value {5}
+#@ rule_set_parameter -rule VER_2_6_1_3 -parameter NB_MAX_OUTPUTS -value {5}
+#@ rule_set_parameter -rule VER_2_6_1_4 -parameter NB_MAX_LINES -value {200}
+#@ rule_set_parameter -rule VER_2_8_2_1 -parameter NB_MAX_BITS -value {16}
+#@ rule_set_parameter -rule VER_2_8_2_2 -parameter NB_MAX_CASE_ITEMS -value {100}
+#@ rule_set_parameter -rule VER_2_11_1_4 -parameter NB_MAX_STATES -value {40}
+#@ rule_set_parameter -rule VER_3_2_5_2 -parameter NB_MAX_BITS -value {15}
+#@ rule_set_parameter -rule VER_3_5_3_1A -parameter HEADER_CONTENT -value {FILENAME}
+#@ rule_set_parameter -rule VER_3_5_3_1B -parameter HEADER_CONTENT -value {TYPE}
+#@ rule_set_parameter -rule VER_3_5_3_1C -parameter HEADER_CONTENT -value {FUNCTION}
+#@ rule_set_parameter -rule VER_3_5_3_1D -parameter HEADER_CONTENT -value {edit}
+#@ rule_set_parameter -rule VER_3_5_3_1E -parameter HEADER_CONTENT -value {Author}
+#@ rule_set_parameter -rule VER_3_5_3_1F -parameter HEADER_CONTENT -value {Date}
+#@ rule_set_parameter -rule VHD_1_1_1_1 -parameter FILENAME -value {^<entity>.vhd$}
+#@ rule_set_parameter -rule VHD_1_1_1_4 -parameter SIGNAL_NAME -value {[Gg][nN][dD]\|[vV][dD][dD]\|[vV][sS][sS]\|[vV][cC][cC]}
+#@ rule_set_parameter -rule VHD_1_1_1_7 -parameter SIGNAL_NAME -value {_X$\|_N$}
+#@ rule_set_parameter -rule VHD_1_1_1_8 -parameter INSTANCE_NAME -value {^U<entity>$\|^U_<entity>$\|^U<entity>_[0-9]$\|^U_<entity>_[0-9]$\|^U<entity>_[0-9][0-9]*$\|^U_<entity>_[0-9][0-9]*$}
+#@ rule_set_parameter -rule VHD_1_1_1_9A -parameter MAX_ENTITY_NAME_LENGTH -value {16}
+#@ rule_set_parameter -rule VHD_1_1_1_9C -parameter MAX_PORT_NAME_LENGTH -value {16}
+#@ rule_set_parameter -rule VHD_1_1_2_1A -parameter MIN_ENTITY_NAME_LENGTH -value {2}
+#@ rule_set_parameter -rule VHD_1_1_2_1B -parameter MAX_ENTITY_NAME_LENGTH -value {32}
+#@ rule_set_parameter -rule VHD_1_1_2_1C -parameter MIN_INSTANCE_NAME_LENGTH -value {2}
+#@ rule_set_parameter -rule VHD_1_1_2_1D -parameter MAX_INSTANCE_NAME_LENGTH -value {32}
+#@ rule_set_parameter -rule VHD_1_1_3_3A -parameter MIN_CHARS -value {2}
+#@ rule_set_parameter -rule VHD_1_1_3_3B -parameter MAX_CHARS -value {40}
+#@ rule_set_parameter -rule VHD_1_1_4_1 -parameter FILENAME -value {_pac.vhd$}
+#@ rule_set_parameter -rule VHD_1_1_4_2B -parameter CONSTANT_NAME -value {^C_\|^P_}
+#@ rule_set_parameter -rule VHD_1_1_5_1A -parameter FF_OUTPUT_NAME -value {_REG$\|_reg$}
+#@ rule_set_parameter -rule VHD_1_1_5_1B -parameter FF_OUTPUT_NAME -value {<clock>}
+#@ rule_set_parameter -rule VHD_1_1_5_2A -parameter CLK_NAME -value {^CLK$\|^CK$\|^CLK[0-9_]+$\|^CK[0-9_]+$\|^CLK[A-Z0-9_]$\|^CLK[A-Z0-9_][A-Z0-9_]*$\|^CLK[A-Z0-9_][A-Z0-9_]*$\|^CK[A-Z0-9_]$\|^CK[A-Z0-9_][A-Z0-9_]*$}
+#@ rule_set_parameter -rule VHD_1_1_5_2B -parameter RST_NAME -value {^RST$\|^RST[0-9_]+$\|^RST[a-zA-Z0-9_]$\|^RST[a-zA-Z0-9_][a-zA-Z0-9_]*$}
+#@ rule_set_parameter -rule VHD_1_1_6_1 -parameter ARCHITECTURE_NAME -value {^RTL$\|^BEH$\|^TB$\|^SIM$}
+#@ rule_set_parameter -rule VHD_1_2_1_1A -parameter NB_MAX_CLOCKS -value {1}
+#@ rule_set_parameter -rule VHD_1_3_2_1 -parameter UNIT_NAME -value {GENRST}
+#@ rule_set_parameter -rule VHD_1_4_1_1 -parameter UNIT_NAME -value {GENCLK}
+#@ rule_set_parameter -rule VHD_1_4_4_1 -parameter NB_MAX_CLOCKS -value {1}
+#@ rule_set_parameter -rule VHD_1_5_1_1 -parameter SYNCHRONIZER_FF_NUMBER -value {1}
+#@ rule_set_parameter -rule VHD_1_6_4_3 -parameter NB_MAX_PORTS -value {200}
+#@ rule_set_parameter -rule VHD_2_1_5_1 -parameter NB_MAX_LEVELS -value {5}
+#@ rule_set_parameter -rule VHD_2_3_3_1 -parameter NB_MAX_CLOCK_EDGE -value {1}
+#@ rule_set_parameter -rule VHD_2_5_1_4 -parameter MAX_DRIVERS -value {5}
+#@ rule_set_parameter -rule VHD_2_6_1_3 -parameter NB_MAX_OUTPUTS -value {5}
+#@ rule_set_parameter -rule VHD_2_6_1_4 -parameter NB_MAX_LINES -value {200}
+#@ rule_set_parameter -rule VHD_2_7_3_1 -parameter NB_MAX_LEVELS -value {5}
+#@ rule_set_parameter -rule VHD_2_8_2_2 -parameter NB_MAX_CASE_ITEMS -value {100}
+#@ rule_set_parameter -rule VHD_2_11_1_4 -parameter NB_MAX_STATES -value {40}
+#@ rule_set_parameter -rule VHD_3_1_4_5 -parameter LINE_LENGTH -value {110}
+#@ rule_set_parameter -rule VHD_3_5_3_1A -parameter HEADER_CONTENT -value {FILENAME}
+#@ rule_set_parameter -rule VHD_3_5_3_1B -parameter HEADER_CONTENT -value {TYPE}
+#@ rule_set_parameter -rule VHD_3_5_3_1C -parameter HEADER_CONTENT -value {FUNCTION}
+#@ rule_set_parameter -rule VHD_3_5_3_1D -parameter HEADER_CONTENT -value {edit}
+#@ rule_set_parameter -rule VHD_3_5_3_1E -parameter HEADER_CONTENT -value {Author}
+#@ rule_set_parameter -rule VHD_3_5_3_1F -parameter HEADER_CONTENT -value {Date}
+#@ 
+#@ 
+#@ rule_set_parameter -rule NTL_CLK01 -parameter NB_MAX_CLOCKS -value {1}
+#@ rule_set_parameter -rule NTL_CLK02 -parameter NB_MAX_CLOCKS -value {1}
+#@ rule_set_parameter -rule NTL_CLK03 -parameter NTL_CLK03_IGNORE_CLOCK_NEGEDGE_IN_MODULES, -value { }
+#@ rule_set_parameter -rule NTL_CLK03 -parameter NTL_CLK03_IGNORE_CLOCK_POSEDGE_IN_MODULES, -value { }
+#@ rule_set_parameter -rule NTL_CLK05 -parameter SYNCHRONIZER_FF_NUMBER -value {2}
+#@ rule_set_parameter -rule NTL_CLK05 -parameter ALLOW_LOGIC_BEFORE_SYNC -value {0}
+#@ rule_set_parameter -rule NTL_CLK05 -parameter ALLOW_BUF_INV_IN_SYNC_FFS -value {1}
+#@ rule_set_parameter -rule NTL_CLK05 -parameter ALLOW_INVERTED_CLOCK -value {1}
+#@ rule_set_parameter -rule NTL_CLK05 -parameter CHECK_DIFFERENT_CLOCK_ORIGINS -value {0}
+#@ rule_set_parameter -rule NTL_CLK10 -parameter ONLY_CHECK_2X1_OR_GATES -value {0}
+#@ rule_set_parameter -rule NTL_CLK10 -parameter NEED_MORE_INFO -value {0}
+#@ rule_set_parameter -rule NTL_CLK10 -parameter REPORT_GATED_CLOCK_IN_COMPLEX_CELL -value {1}
+#@ rule_set_parameter -rule NTL_CLK11 -parameter ONLY_CHECK_2X1_AND_GATES -value {0}
+#@ rule_set_parameter -rule NTL_CLK11 -parameter NEED_MORE_INFO -value {0}
+#@ rule_set_parameter -rule NTL_CLK11 -parameter REPORT_GATED_CLOCK_IN_COMPLEX_CELL -value {1}
+#@ rule_set_parameter -rule NTL_CLK05 -parameter ALLOW_LOGIC_AMONG_SYNC -value {0}
+#@ rule_set_parameter -rule NTL_CLK17 -parameter ALLOW_CLOCK_GATING_INTEGRATED_CELL -value {1}
+#@ rule_set_parameter -rule NTL_CLK23 -parameter SYNCHRONIZER_FF_NUMBER -value {2}
+#@ rule_set_parameter -rule NTL_CLK23 -parameter PIPELINE_STAGE_MIN -value {2}
+#@ rule_set_parameter -rule NTL_CLK23 -parameter SOURCE_CLOCK_DOMAIN_CHECK -value {1}
+#@ rule_set_parameter -rule NTL_CLK28 -parameter CLOCK_GATING_CELLS -value {AN2}
+#@ rule_set_parameter -rule NTL_CLK29 -parameter REPORT_FILE -value {PI_RESET_CLOCK_MAP.tcl}
+#@ rule_set_parameter -rule NTL_CLK31 -parameter MUX_LIST -value {TB2MUXBFXH}
+#@ rule_set_parameter -rule VER_1_4_3_4A -parameter MUX_LIST -value {TB2MUXBFXH}
+#@ rule_set_parameter -rule NTL_CLK33 -parameter MUX_LIST -value {TB2MUXBFXH}
+#@ rule_set_parameter -rule NTL_CON04 -parameter ONLY_APPLY_ON_LEAF_CELL -value {1}
+#@ rule_set_parameter -rule NTL_CON04 -parameter APPLY_ONLY_ON_INPUTS -value {0}
+#@ rule_set_parameter -rule NTL_CON05 -parameter ONLY_APPLY_ON_LEAF_CELL -value {1}
+#@ rule_set_parameter -rule NTL_CON05 -parameter APPLY_ONLY_ON_INPUTS -value {0}
+#@ rule_set_parameter -rule NTL_CON06 -parameter ONLY_APPLY_ON_LEAF_CELL -value {1}
+#@ rule_set_parameter -rule NTL_CON06 -parameter APPLY_ONLY_ON_INPUTS -value {0}
+#@ rule_set_parameter -rule NTL_CON08 -parameter ONLY_APPLY_ON_LEAF_CELL -value {1}
+#@ rule_set_parameter -rule NTL_CON08 -parameter APPLY_ONLY_ON_OUTPUTS -value {0}
+#@ rule_set_parameter -rule NTL_CON09 -parameter ONLY_APPLY_ON_LEAF_CELL -value {1}
+#@ rule_set_parameter -rule NTL_CON09 -parameter APPLY_ONLY_ON_OUTPUTS -value {0}
+#@ rule_set_parameter -rule NTL_CON10 -parameter ONLY_APPLY_ON_LEAF_CELL -value {1}
+#@ rule_set_parameter -rule NTL_CON10 -parameter APPLY_ONLY_ON_OUTPUTS -value {0}
+#@ rule_set_parameter -rule NTL_CON12 -parameter APPLY_UNUSED_PORT -value {1}
+#@ rule_set_parameter -rule NTL_CON12A -parameter NTL_CON12A_APPLY_ON_UNUSED_NET -value {1}
+#@ rule_set_parameter -rule NTL_CON12B -parameter NTL_CON12B_APPLY_ON_UNUSED_PIN -value {1}
+#@ rule_set_parameter -rule NTL_CON12C -parameter NTL_CON12C_APPLY_ON_UNUSED_PORT -value {1}
+#@ rule_set_parameter -rule NTL_CON13 -parameter APPLY_UNUSED_PORT -value {1}
+#@ rule_set_parameter -rule NTL_CON13 -parameter NTL_CON13_IGNORE_SUPPLY_ASSIGNMENT -value {0}
+#@ rule_set_parameter -rule NTL_CON13A -parameter NTL_CON13A_APPLY_ON_UNUSED_NET -value {1}
+#@ rule_set_parameter -rule NTL_CON13A -parameter NTL_CON13A_IGNORE_SUPPLY_ASSIGNMENT -value {0}
+#@ rule_set_parameter -rule NTL_CON13B -parameter NTL_CON13B_APPLY_ON_UNUSED_PIN -value {1}
+#@ rule_set_parameter -rule NTL_CON13B -parameter NTL_CON13B_IGNORE_SUPPLY_ASSIGNMENT -value {0}
+#@ rule_set_parameter -rule NTL_CON13C -parameter NTL_CON13C_APPLY_ON_UNUSED_PORT -value {1}
+#@ rule_set_parameter -rule NTL_CON13C -parameter NTL_CON13C_IGNORE_SUPPLY_ASSIGNMENT -value {0}
+#@ rule_set_parameter -rule NTL_CON14 -parameter ONLY_APPLY_ON_LEAF_CELL -value {1}
+#@ rule_set_parameter -rule NTL_CON14 -parameter APPLY_ONLY_ON_INPUTS -value {0}
+#@ rule_set_parameter -rule NTL_CON14 -parameter NTL_CON14_ONLY_CHECK_OUTSIDE_CONNECTIVITY -value {0}
+#@ 
+#@ rule_set_parameter -rule NTL_CON15 -parameter VDD -value {VDD}
+#@ rule_set_parameter -rule NTL_CON15 -parameter GND -value {GND}
+#@ rule_set_parameter -rule NTL_CON15 -parameter ANALOG_VDD -value {VDDA}
+#@ rule_set_parameter -rule NTL_CON15 -parameter ANALOG_GND -value {GNDA}
+#@ rule_set_parameter -rule NTL_CON15 -parameter STRICTLY_CHECK -value {FALSE}
+#@ 
+#@ rule_set_parameter -rule NTL_CON17 -parameter TIE_OFF_CELLS -value {tohlsx1, tohlx1, tohsx1, tohx1, tolsx1, tolx1}
+#@ rule_set_parameter -rule NTL_CON20 -parameter PROTECTION_DIODE -value {}
+#@ rule_set_parameter -rule NTL_CON21 -parameter PROTECTION_DIODE -value {}
+#@ rule_set_parameter -rule NTL_CON25 -parameter NEED_DETAIL_INFO -value {0}
+#@ rule_set_parameter -rule NTL_CON26 -parameter INHIBIT_MODULE_CONNECTION -value {}
+#@ rule_set_parameter -rule NTL_CON26 -parameter INHIBIT_INSTANCE_CONNECTION -value {}
+#@ rule_set_parameter -rule NTL_CON27 -parameter MANDATORY_MODULE_CONNECTION -value {}
+#@ rule_set_parameter -rule NTL_CON27 -parameter MANDATORY_INSTANCE_CONNECTION -value {}
+#@ rule_set_parameter -rule NTL_CON28 -parameter CON28_APPLY_MODULE -value {}
+#@ rule_set_parameter -rule NTL_CON28 -parameter CON28_APPLY_INSTANCE -value {}
+#@ rule_set_parameter -rule NTL_CON32 -parameter CON32_MAX_LOOP_DEPTH -value {500}
+#@ rule_set_parameter -rule NTL_CON33 -parameter CON33_MAX_LOOP_DEPTH -value {500}
+#@ rule_set_parameter -rule NTL_DFT10 -parameter NB_MAX_FFS -value {1}
+#@ rule_set_parameter -rule NTL_DFT28 -parameter SCAN_CLK_PREFIX -value {scan_clk}
+#@ rule_set_parameter -rule NTL_LAN15 -parameter UNUSED_SIGNAL -value {INPUT, INOUT,OUTPUT,INT_SIGNAL}
+#@ rule_set_parameter -rule NTL_NAM02 -parameter CLOCK_PORT_NAME -value {clk}
+#@ rule_set_parameter -rule NTL_NAM03 -parameter RESET_PORT_NAME -value {rst}
+#@ rule_set_parameter -rule NTL_NAM05 -parameter ASYN_SIG_NAME -value {_a}
+#@ rule_set_parameter -rule NTL_NAM07 -parameter REG_OUT_NAME -value {_r}
+#@ rule_set_parameter -rule NTL_NAM09 -parameter LATCHED_SIG_NAME -value {_q}
+#@ rule_set_parameter -rule NTL_NAM16 -parameter LOW_SIG_NAME -value {_X, _N}
+#@ rule_set_parameter -rule NTL_NAM18 -parameter USER_BUF_NAME -value {GTECH_BUF}
+#@ rule_set_parameter -rule NTL_NAM18 -parameter USER_INV_NAME -value {GTECH_NOT}
+#@ rule_set_parameter -rule NTL_NAM20 -parameter HIER_LEVEL_ID_CHAR -value {3}
+#@ rule_set_parameter -rule NTL_NAM21 -parameter HIER_LEVEL_ID_OUTPUT -value {3}
+#@ rule_set_parameter -rule NTL_PAD05 -parameter SUPPLY_LOW_LIST -value {VSS}
+#@ rule_set_parameter -rule NTL_PAD05 -parameter CTRL_PULL_UP_PIN -value {PULLQ}
+#@ rule_set_parameter -rule NTL_PAD06 -parameter SUPPLY_HIGH_LIST -value {VDD}
+#@ rule_set_parameter -rule NTL_PAD06 -parameter CTRL_PULL_DOWN_PIN -value {PULL}
+#@ rule_set_parameter -rule NTL_PAD07 -parameter SUPPLY_LOW_LIST -value {VSS}
+#@ rule_set_parameter -rule NTL_PAD07 -parameter PUSH_PULL_EN_PIN -value {PP_EN}
+#@ rule_set_parameter -rule NTL_PAD08 -parameter SUPPLY_HIGH_LIST -value {VDD}
+#@ rule_set_parameter -rule NTL_PAD08 -parameter INPUT_EN_PIN -value {ENABQ}
+#@ rule_set_parameter -rule NTL_PAD09 -parameter SUPPLY_LIST -value {pad_rules.p_out2, pad_rules.net30, pad_rules.p_out1,pad_rules.net49, pad_rules.p_clock}
+#@ rule_set_parameter -rule NTL_PAD10 -parameter SUPPLY_LOW_LIST -value {VSS}
+#@ rule_set_parameter -rule NTL_PAD10 -parameter OUTPUT_EN_PIN -value {ENQ}
+#@ rule_set_parameter -rule NTL_RST01 -parameter NB_MAX_RESETS -value {1}
+#@ rule_set_parameter -rule NTL_RST05 -parameter CHECK_ASYNCHRONOUS_RESET_ONLY -value {0}
+#@ rule_set_parameter -rule NTL_RST06 -parameter CHECK_ASYNCHRONOUS_RESET_ONLY -value {0}
+#@ rule_set_parameter -rule NTL_RST06 -parameter NTL_RST06_GIVE_SEQ_SAMPLE -value {0}
+#@ rule_set_parameter -rule NTL_RST21 -parameter CLOCKS -value {}
+#@ rule_set_parameter -rule NTL_RST21 -parameter RESETs -value {}
+#@ rule_set_parameter -rule NTL_RST23 -parameter IGNORE_RESET -value {}
+#@ rule_set_parameter -rule NTL_RST24 -parameter IGNORE_SRC_RST -value {}
+#@ rule_set_parameter -rule NTL_RST24 -parameter IGNORE_SRC_FF -value {}
+#@ rule_set_parameter -rule NTL_RST24 -parameter IGNORE_DES_RST -value {}
+#@ rule_set_parameter -rule NTL_RST24 -parameter IGNORE_DES_FF -value {}
+#@ rule_set_parameter -rule NTL_RST24 -parameter CHECK_FILTER -value {0}
+#@ rule_set_parameter -rule NTL_RST24 -parameter IGNORE_SRC_DES_RST_PAIRS -value {}
+#@ rule_set_parameter -rule NTL_SET01 -parameter NB_MAX_SETS -value {1}
+#@ rule_set_parameter -rule NTL_STR03 -parameter MIN_UNIT_SIZE -value {20}
+#@ rule_set_parameter -rule NTL_STR04 -parameter TRISTATE_TEMPLATE_NAME -value {TRI_}
+#@ rule_set_parameter -rule NTL_STR08 -parameter NB_MAX_GATES -value {10}
+#@ rule_set_parameter -rule NTL_STR15 -parameter SYNCHRONIZER_NAME -value {_sync}
+#@ rule_set_parameter -rule NTL_STR20 -parameter MAX_DRIVING_NUMBER -value {6}
+#@ rule_set_parameter -rule NTL_STR21 -parameter NB_MAX_HIERARCHY_LEVEL -value {5}
+#@ rule_set_parameter -rule NTL_STR23 -parameter NB_MAX_FANOUT -value {10}
+#@ rule_set_parameter -rule NTL_STR24 -parameter MAX_LOGIC_LEVEL -value {15}
+#@ rule_set_parameter -rule NTL_STR28 -parameter IDENTICAL_CELLS_NB -value {3}
+#@ rule_set_parameter -rule NTL_STR30 -parameter MIN_SHIFT_REGISTER_FF_NB -value {8}
+#@ rule_set_parameter -rule NTL_STR33 -parameter STOP_ON_LATCH -value {0}
+#@ rule_set_parameter -rule VER_1_2_1_3 -parameter STOP_ON_LATCH -value {0}
+#@ rule_set_parameter -rule NTL_STR33 -parameter TRACE_FROM_SIGNAL -value {0}
+#@ rule_set_parameter -rule VER_1_2_1_3 -parameter TRACE_FROM_SIGNAL -value {0}
+#@ 
+#@ rule_set_parameter -rule NTL_STR34 -parameter TRISTATE_TEMPLATE_NAME -value {TRI_}
+#@ rule_set_parameter -rule NTL_STR37 -parameter TRISTATE_TEMPLATE_NAME -value {TRI_}
+#@ rule_set_parameter -rule NTL_STR43 -parameter TRISTATE_TEMPLATE_NAME -value {TRI_}
+#@ rule_set_parameter -rule NTL_STR44 -parameter TRISTATE_TEMPLATE_NAME -value {TRI_}
+#@ rule_set_parameter -rule NTL_STR48 -parameter GENERIC_LATCHES -value {LD1_GENERIC, LD2_GENERIC}
+#@ rule_set_parameter -rule NTL_STR56 -parameter ONLY_APPLY_ON_FF -value {0}
+#@ rule_set_parameter -rule NTL_STR65 -parameter BUFFERS_PERCENT -value {5}
+#@ rule_set_parameter -rule NTL_STR65 -parameter BUFS_INVS_PERCENT -value {10}
+#@ rule_set_parameter -rule NTL_STR65 -parameter INVERTERS_PERCENT -value {5}
+#@ rule_set_parameter -rule NTL_STR66 -parameter PRE_LAYOUT_ILLEGAL_BUFFERS -value {BF4T16, BF4T32}
+#@ rule_set_parameter -rule NTL_STR67 -parameter MAX_FFS_NUMBER -value {32}
+#@ rule_set_parameter -rule NTL_STR68 -parameter ILLEGAL_CELL -value {BF2T8, BF2T16}
+#@ rule_set_parameter -rule NTL_STR77 -parameter PROHIBITED_CELLS -value {FD1P, FD2P}
+#@ rule_set_parameter -rule NTL_STR77 -parameter MSG_ON_EACH_INSTANCE -value {0}
+#@ rule_set_parameter -rule NTL_STR77A -parameter ALLOWED_CELLS -value { }
+#@ rule_set_parameter -rule NTL_STR77A -parameter MSG_ON_EACH_INSTANCE -value {0}
+#@ rule_set_parameter -rule NTL_STR86 -parameter SYNCHRONIZER_FF_NUMBER -value {2}
+#@ rule_set_parameter -rule NTL_STR89 -parameter APPLY_ONLY_ON_OUTPUTS -value {1}
+#@ rule_set_parameter -rule NTL_STR90 -parameter MAX_BACKTRACK -value {1000000}
+#@ rule_set_parameter -rule NTL_STR90 -parameter STR90_ALLOW_BUS_HOLD -value {0}
+#@ rule_set_parameter -rule NTL_STR91 -parameter MAX_BACKTRACK -value {1000000}
+#@ rule_set_parameter -rule NTL_STR91 -parameter CONTROL_ONLY -value {TRUE}
+#@ rule_set_parameter -rule NTL_STR99 -parameter MAX_AREA_SIZE -value {10000}
+#@ rule_set_parameter -rule NTL_STR99 -parameter AREA_LIB -value {vcorelib}
+#@ rule_set_parameter -rule NTL_STR100 -parameter MAX_AREA_SIZE -value {10000}
+#@ rule_set_parameter -rule NTL_STR100 -parameter AREA_LIB -value {vcorelib}
+#@ rule_set_parameter -rule SDC_HFN20 -parameter MAX_FANOUT -value {100000}
+#@ rule_set_parameter -rule SDC_FLP06 -parameter ASYNC_CLOCKS -value {CLK, CLK1}
+#@ 
+#@ 
+#@ 
+#@ rule_set_parameter -rule SDC_IDL08 -parameter INPUT_DELAY_CLK_RATIO -value {20}
+#@ rule_set_parameter -rule SDC_ODL08 -parameter OUTPUT_DELAY_CLK_RATIO -value {20}
+#@ 
+#@ rule_set_parameter -rule NTL_CDC01 -parameter SHOW_ALL_PATHS -value {0}
+#@ rule_set_parameter -rule NTL_CDC01 -parameter SHOW_CONTROL_PATHS -value {0}
+#@ rule_set_parameter -rule NTL_CDC02 -parameter CHECK_CONTROL_PATHS -value {1}
+#@ rule_set_parameter -rule NTL_CDC02 -parameter CHECK_DATA_PATHS -value {0}
+#@ rule_set_parameter -rule NTL_CDC02 -parameter GIVE_FULL_CDC_PATH_INFO -value {0}
+#@ rule_set_parameter -rule NTL_CDC03 -parameter CHECK_CONTROL_PATHS -value {1}
+#@ rule_set_parameter -rule NTL_CDC03 -parameter CHECK_DATA_PATHS -value {1}
+#@ rule_set_parameter -rule NTL_CDC03 -parameter GIVE_ONE_EXAMPLE -value {1}
+#@ rule_set_parameter -rule NTL_CDC03 -parameter GIVE_FULL_CDC_PATH_INFO -value {0}
+#@ rule_set_parameter -rule NTL_CDC04 -parameter GIVE_ONE_EXAMPLE -value {1}
+#@ rule_set_parameter -rule NTL_CDC04 -parameter GIVE_FULL_CDC_PATH_INFO -value {0}
+#@ rule_set_parameter -rule NTL_CDC05 -parameter CHECK_CONTROL_PATHS -value {1}
+#@ rule_set_parameter -rule NTL_CDC05 -parameter CHECK_DATA_PATHS -value {0}
+#@ rule_set_parameter -rule NTL_CDC05 -parameter CHECK_SOURCE_CLOCK_DOMAIN -value {1}
+#@ rule_set_parameter -rule NTL_CDC05 -parameter MAX_SEQUENTIAL_DEPTH -value {10}
+#@ rule_set_parameter -rule NTL_CDC05 -parameter SHOW_COMPLETE_SOURCES_PATHS -value {1}
+#@ rule_set_parameter -rule NTL_CDC07 -parameter MAX_SEQUENTIAL_DEPTH -value {10}
+#@ rule_set_parameter -rule NTL_CDC07 -parameter SHOW_COMPLETE_SOURCES_PATHS -value {1}
+#@ 
+#@ # -- End source /ecad/synopsys/leda_b200806/linux/.leda_config.files//.synopsys_leda.setup
+
+#@ #----------------------------------------------------------------------
+#@ #********************************************************************
+#@ #
+#@ #      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#@ #
+#@ #********************************************************************
+#@ #
+#@ #      FILENAME:      run_leda.tcl
+#@ #
+#@ #      DESCRIPTION:
+#@ #
+#@ #      REVISION:      initial version by juxiaobo 2007/08/15
+#@ #
+#@ #----------------------------------------------------------------------
+#@ 
+#@ #================ Parameters Setting ===============#
+#@ set runSetType          LEDA            ;# runSetType defines script category,RTL-QA flow will use this
+#@ ;# variable to setup stage-process environments
+#@ set projectName         des             ;#
+#@ set topModuleName       des             ;# Define top-module name of the whole chip.RTL-QA flow will use
+#@ ;# this variable to link designs,define transformed data name etc.
+#@ set CheckDC		false           ;# true/false
+#@ set CheckDW		false           ;# true/false
+#@ set CheckDFT		false		;# true/false
+#@ set CheckFM		false           ;# true/false
+#@ 
+#@ # ===================== Flow Control ========================#
+#@ #-----------------------------------#
+#@ # Include Environment Setup Script
+#@ #-----------------------------------#
+#@ 
+#@ source -echo -verbose ../../script/con/setupEnv.tcl
+#@ #********************************************************************
+#@ #
+#@ #      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#@ #
+#@ #********************************************************************
+#@ #
+#@ #      FILENAME:      setupEnv.tcl
+#@ #
+#@ #      DESCRIPTION:
+#@ #         This script is used to setup environment for R2N flow
+#@ #
+#@ #      REVISION:      initial version by juxiaobo 2007/08/15
+#@ #
+#@ #--------------------------------------------------------------
+#@ 
+#@ set RUN_DIR             [pwd]
+#@ cd ../../
+#@ set IMP_HOME            [pwd]
+#@ cd ../
+#@ set ENV_HOME            [pwd]
+#@ cd ../
+#@ set PJT_HOME		[pwd]
+#@ 
+#@ if { $runSetType == "DC" } {
+#@   set LibrarySetupPath	  $IMP_HOME/script/con
+#@ #  set dcScriptPath        $ENV_HOME/impl_env/syn
+#@   set dcScriptPath        $IMP_HOME/script/syn
+#@   set dtclConstraintPath  $IMP_HOME/script/syn
+#@   set workPath            $IMP_HOME/syn/work
+#@   set rptDir 		  $IMP_HOME/syn/rpts
+#@   set netlistFilePath     $workPath/SourceDB
+#@   set milkywayPath        $workPath/milkyway
+#@   cd $RUN_DIR
+#@   if { [info exists hdlFilePath] == 0 } {
+#@     set hdlFilePath         $ENV_HOME/hdl/$projectName
+#@   }
+#@   if { [info exists hdlFileList] == 0 } {
+#@     set hdlFileList    	  $hdlFilePath/list/$projectName.lst
+#@   }
+#@   set_svf 		  $workPath/svf_dir/$topModuleName.svf
+#@ } elseif { $runSetType == "LEDA" } {
+#@ 
+#@   set LibrarySetupPath	  $IMP_HOME/script/con
+#@   if { [info exists hdlFilePath] == 0 } {
+#@     set hdlFilePath         $ENV_HOME/hdl/$projectName
+#@   }
+#@   if { [info exists hdlFileList] == 0 } {
+#@     set hdlFileList    	  $hdlFilePath/list/$topModuleName.leda.lst
+#@   }
+#@ #  set ledaScriptPath 	  $ENV_HOME/impl_env/leda
+#@   set ledaScriptPath 	  $IMP_HOME/script/leda
+#@   set ledaConstrainPath	  $IMP_HOME/script/leda
+#@   set workPath		  $IMP_HOME/leda/work
+#@   set rptDir		  $IMP_HOME/leda/rpts
+#@   cd  $RUN_DIR
+#@ }
+#@ 
+#@ # -- End source ../../script/con/setupEnv.tcl
+
+#@ source -echo -verbose ../../script/con/setupVar.tcl
+#@ #********************************************************************
+#@ #
+#@ #      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#@ #
+#@ #********************************************************************
+#@ #
+#@ #      FILENAME:      setupVar.tcl
+#@ #
+#@ #      DESCRIPTION:
+#@ #         This script is used to setup variables for R2N flow
+#@ #
+#@ #      REVISION:      initial version by juxiaobo 2007/08/15
+#@ #
+#@ #--------------------------------------------------------------
+#@ 
+#@ if { $runSetType == "DC" } {
+#@ #  set prestoHdlCompiler   true
+#@   set hdlin_auto_save_templates true
+#@   set hdlin_work_directory $workPath/template/
+#@   set hdlin_check_no_latch true
+#@   set compile_no_new_cells_at_top_level true
+#@   set compile_preserve_subdesign_interfaces true
+#@   set hdlin_latch_always_async_set_reset true
+#@ #  set timing_self_loops_no_skew true
+#@   set enable_recovery_removal_arcs true
+#@   set verilogout_no_tri true
+#@   set power_cg_flatten true
+#@   set verilogout_show_unconnected_pins true
+#@   set dcVersion           2007.03sp1
+#@   set DC_ULTRA            true
+#@   define_design_lib work -path $workPath/template/
+#@   suppress_message {UISN-26 VER-129 VER-130 VER-173}
+#@   if { $clockgating == "true" } {
+#@     set power_cg_gated_clock_net_naming_style "CLKGATING_%c_%g_%d"
+#@     set power_cg_module_naming_style "POWERMODULE_%e_%p_%d"
+#@     set power_cg_cell_naming_style "POWERGATING_%c_%n_%d"
+#@   }
+#@ } elseif { $runSetType == "PT" } {
+#@   set link_create_black_boxes false
+#@   set timing_clock_reconvergence_pessimism normal
+#@   set timing_remove_clock_reconvergence_pessimism true
+#@   set svr_keep_unconnected_nets  true
+#@   set timing_slew_propagation_mode worst_slew
+#@ #  set case_analysis_sequential_propagation always
+#@   suppress_message PARA-023
+#@   if { $EnablePTSI == "true" } {
+#@     set si_enable_analysis true
+#@     set si_xtalk_reselect_critical_path false
+#@     set si_xtalk_reselect_clock_network true
+#@     set si_xtalk_reselect_delta_delay 0.3
+#@     set si_xtalk_reselect_delta_delay_ratio 0.95
+#@     set si_xtalk_reselect_max_mode_slack 0
+#@     set si_xtalk_reselect_min_mode_slack 0
+#@     set si_xtalk_exit_on_max_iteration_count 3
+#@   }
+#@ } elseif { $runSetType == "POWER"} {
+#@ 	set power_enable_analysis true 
+#@ 	set power_default_static_probability 0.5
+#@ 	set power_default_toggle_rate 0.5
+#@ 	set power_clock_network_include_clock_gating_network true
+#@ } elseif { $runSetType == "FM" } {
+#@   set my_dc_shell_file [exec which dc_shell-t]
+#@   set my_dc_shell_install   	[string range $my_dc_shell_file 0 [expr [string last "/" $my_dc_shell_file] - 4]]
+#@ #  set my_dc_shell_install /ecad/synopsys/newtool/synthesis_z2007.03_sp1 
+#@   set hdlin_dwroot $my_dc_shell_install
+#@   set hdlin_synroot $my_dc_shell_install
+#@ 
+#@   set hdlin_ignore_dc_script true
+#@ #  set verification_passing_mode consistency
+#@   set hdlin_error_on_mismatch_message false
+#@   set verification_clock_gate_hold_mode any
+#@   set hdlin_warn_on_mismatch_message "FMR_ELAB-146 FMR_ELAB-034"
+#@ #  set verification_verify_directly_undriven_output false
+#@ 
+#@   set hdlin_unresolved_modules "black_box"
+#@ # set verification_clock_gate_hold_mode low
+#@   set verification_blackbox_match_mode identity
+#@ # set verification_set_undriven_signals "X"
+#@   set verification_constant_prop_mode top
+#@ } elseif { $runSetType == "DFT" } {
+#@ #  set prestoHdlCompiler   true
+#@   set hdlin_auto_save_templates true
+#@   set hdlin_check_no_latch true
+#@   set case_analysis_with_logic_constants true
+#@   set case_analysis_with_logic_constants true
+#@   set test_default_bidir_delay 0
+#@   set test_default_delay 0
+#@   set test_default_strobe 40
+#@   set test_dft_drc_ungate_clocks true
+#@   set test_enable_dft_drc true
+#@   #set test_preset_bidi_signals false
+#@   #set test_setup_additional_clock_pulse true
+#@   set compile_no_new_cells_at_top_level true
+#@   #set test_dedicated_subdesign_scan_outs false
+#@   set test_stil_netlist_format verilog
+#@   set test_use_test_models true
+#@   set verilogout_no_tri true
+#@ #  set timing_self_loops_no_skew true
+#@   #set_auto_disable_drc_nets -clock true -constant true
+#@   set enable_recovery_removal_arcs true
+#@   suppress_message {UISN-26 VER-129 VER-130 VER-173}
+#@   define_design_lib work -path $workPath/template/
+#@ } elseif { $runSetType == "BSD"} {
+#@ #	set prestoHdlCompiler   true
+#@   set hdlin_auto_save_templates true
+#@   set hdlin_check_no_latch true
+#@   set case_analysis_with_logic_constants true
+#@   set case_analysis_with_logic_constants true
+#@   set test_default_bidir_delay 0
+#@   set test_default_delay 0
+#@   set test_default_strobe 40
+#@   set test_dft_drc_ungate_clocks true
+#@   set test_enable_dft_drc true
+#@   #set test_preset_bidi_signals false
+#@   #set test_setup_additional_clock_pulse true
+#@   set compile_no_new_cells_at_top_level true
+#@   #set test_dedicated_subdesign_scan_outs false
+#@   set test_stil_netlist_format verilog
+#@   set test_use_test_models true
+#@   set verilogout_no_tri true
+#@ # set timing_self_loops_no_skew true
+#@ #	set_auto_disable_drc_nets -clock true -constant true
+#@   set enable_recovery_removal_arcs true
+#@   suppress_message {UISN-26 VER-129 VER-130 VER-173}
+#@   define_design_lib work -path $workPath/template/
+#@ } elseif { $runSetType == "TMAX" } {
+#@ 
+#@ } elseif { $runSetType == "LEDA" } {
+#@ 
+#@ } 
+#@ # -- End source ../../script/con/setupVar.tcl
+
+#@ 
+#@ #-----------------------------------#
+#@ # Include Library Setup Script
+#@ #-----------------------------------#
+#@ source -echo -verbose $LibrarySetupPath/setupLib.tcl
+#@ #********************************************************************
+#@ #
+#@ #      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#@ #
+#@ #********************************************************************
+#@ #
+#@ #      FILENAME:      setupLib.tcl
+#@ #
+#@ #      DESCRIPTION:
+#@ #         This script is used to setup libraries for R2N flow
+#@ #
+#@ #      REVISION:      initial version by juxiaobo 2007/08/15
+#@ #
+#@ #--------------------------------------------------------------
+#@ 
+#@ set maxOptCond WCCOM 
+#@ set maxLibName fsa0a_c_sc_wc
+#@ set minOptCond BCCOM
+#@ set minLibName fsa0a_c_sc_bc
+#@ set typOptcond TCCOM
+#@ set typLibName fsa0a_c_sc_tc
+#@ set wireLoadModelName none
+#@ 
+#@ set slew_lower_threshold_pct_rise 10
+#@ set slew_lower_threshold_pct_fall 10
+#@ set slew_upper_threshold_pct_rise 90
+#@ set slew_upper_threshold_pct_fall 90
+#@ set input_threshold_pct_rise  50
+#@ set input_threshold_pct_fall  50
+#@ set output_threshold_pct_rise 50
+#@ set output_threshold_pct_fall 50
+#@ 
+#@ if { $runSetType == "DC" } {
+#@ 
+#@   set search_path   ".                       $search_path .                      $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                      $ENV_HOME/hdl/des                      "
+#@ 
+#@   set target_library "fsa0a_c_sc_wc.db"
+#@   
+#@   set synthetic_library "standard.sldb dw_foundation.sldb"
+#@   
+#@   set link_library [concat *                     $target_library                     $synthetic_library                    ]
+#@   
+#@   set_dont_use {fsa0a_c_sc_wc/JK* fsa0a_c_sc_wc/BUF*CK}
+#@   set_dont_use {fsa0a_c_sc_wc/RAM*}
+#@   set_dont_use {fsa0a_c_sc_wc/DLY*}
+#@   remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCB*] dont_use
+#@   remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCK*] dont_use
+#@   remove_attribute [get_lib_cells fsa0a_c_sc_wc/TIE*] dont_use
+#@   set auto_wire_load_selection true
+#@ 
+#@ } elseif { $runSetType == "PT" } {
+#@   set search_path  ".                        $search_path .                    $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                    $ENV_HOME/hdl/des"
+#@ 
+#@   if { $OperatingCondition == "WC" || $OperatingCondition == "BCWC" } {                       
+#@     set target_library      "fsa0a_c_sc_wc.db"
+#@     set link_library [concat *                       $target_library                       ]
+#@ 
+#@   } elseif { $OperatingCondition == "BC" } {
+#@     set target_library      "fsa0a_c_sc_bc.db"
+#@     set link_library [concat *                       $target_library                      ]
+#@   }
+#@   if { $OperatingCondition == "BCWC" } {
+#@     set_min_library fsa0a_c_sc_wc.db     -min_version fsa0a_c_sc_bc.db
+#@   }
+#@ } elseif { $runSetType == "POWER" } {
+#@   set search_path ".                        $search_path .                    $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                    $ENV_HOME/hdl/des"
+#@ 
+#@   if { $OperatingCondition == "WC" || $OperatingCondition == "BCWC" } {                       
+#@     set target_library      "fsa0a_c_sc_wc.db"
+#@     set link_library [concat *                       $target_library                       ]
+#@ 
+#@   } elseif { $OperatingCondition == "BC" } {
+#@     set target_library      "fsa0a_c_sc_bc.db"
+#@     set link_library [concat *                       $target_library                       ]
+#@   } elseif { $OperatingCondition == "TC" } {
+#@     set target_library      "fsa0a_c_sc_tc.db"
+#@     set link_library [concat *                       $target_library                       ]
+#@   }
+#@   if { $OperatingCondition == "BCWC" } {
+#@     set_min_library fsa0a_c_sc_wc.db -min_version fsa0a_c_sc_bc.db
+#@ 
+#@   }
+#@ } elseif { $runSetType == "FM" } {
+#@   set target_library  "fsa0a_c_sc_wc.db"
+#@   set search_path     "$search_path .                        $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                        $ENV_HOME/hdl/des"
+#@   set link_library [list                     fsa0a_c_sc_wc.db                     ]
+#@ 
+#@   foreach lib $link_library {
+#@     if { $lib == "*" } { continue }
+#@     read_db -technology_library $lib
+#@   }
+#@ } elseif { $runSetType == "DFT" || $runSetType == "BSD" } {
+#@ 
+#@   set search_path  "$search_path .                     $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                     $ENV_HOME/hdl/des                     "
+#@   set target_library  "fsa0a_c_sc_wc.db"
+#@   
+#@   set synthetic_library "standard.sldb dw_foundation.sldb"
+#@   
+#@   set link_library [concat *                     $target_library                     $synthetic_library                     ]
+#@   
+#@   #set_dont_use {fsa0a_c_sc_wc/TIE1 fsa0a_c_sc_wc/TIE0 fsa0a_c_sc_wc/JK* fsa0a_c_sc_wc/BUF*CK}
+#@   set_dont_use {fsa0a_c_sc_wc/JK* fsa0a_c_sc_wc/BUF*CK}
+#@   set_dont_use {fsa0a_c_sc_wc/RAM*}
+#@   set_dont_use {fsa0a_c_sc_wc/DLY*}
+#@   remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCB*] dont_use
+#@   remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCK*] dont_use
+#@   remove_attribute [get_lib_cells fsa0a_c_sc_wc/TIE*] dont_use
+#@   
+#@   set auto_wire_load_selection true
+#@   
+#@   set test_simulation_library [list                                $PJT_HOME/techlib/memory/verilog/memory.v]
+#@ 
+#@ } elseif { $runSetType == "TMAX" } {
+#@ 	
+#@ } elseif { $runSetType == "LEDA" } {
+#@ 
+#@   set search_path    "$search_path .                       $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                       $ENV_HOME/hdl/des                       "
+#@ 
+#@   set target_library    "fsa0a_c_sc_wc.db"
+#@ 
+#@   set link_library [concat *                     $target_library                    ]
+#@ }
+#@ 
+#@ # -- End source /export/home/user/wangyl/mini_rtlqa_env/digital/impl/script/con/setupLib.tcl
+
+#@ 
+#@ source -echo -verbose $ledaScriptPath/designReadIn.tcl
+#@ rule_select -file $ledaScriptPath/leda_default.tcl
+#@ rule_deselect -all
+#@ rule_select -rule DCHDL_115 -ruleset RTL -policy DC
+#@ rule_select -rule DCHDL_178 -ruleset RTL -policy DC
+#@ rule_select -rule DCVER_192 -ruleset RTL -policy DC
+#@ rule_select -rule DCVER_274 -ruleset RTL -policy DC
+#@ rule_select -rule DCVHDL_165 -ruleset RTL -policy DC
+#@ rule_select -rule DFT_021 -ruleset INFORMATIONAL -policy DFT
+#@ rule_select -rule DFT_022 -ruleset INFORMATIONAL -policy DFT
+#@ rule_select -rule FM_2_10 -ruleset SIMULATION_MISMATCH -policy FORMALITY
+#@ rule_select -rule FM_2_12 -ruleset SIMULATION_MISMATCH -policy FORMALITY
+#@ rule_select -rule FM_2_13 -ruleset SIMULATION_MISMATCH -policy FORMALITY
+#@ rule_select -rule FM_2_18 -ruleset SIMULATION_MISMATCH -policy FORMALITY
+#@ rule_select -rule FM_2_4 -ruleset SIMULATION_MISMATCH -policy FORMALITY
+#@ rule_select -rule FM_2_7 -ruleset SIMULATION_MISMATCH -policy FORMALITY
+#@ rule_select -rule FM_2_9 -ruleset SIMULATION_MISMATCH -policy FORMALITY
+#@ rule_select -rule B_1204 -ruleset CLOCKS -policy LEDA
+#@ rule_select -rule C_1201 -ruleset CLOCKS -policy LEDA
+#@ rule_select -rule C_1203 -ruleset CLOCKS -policy LEDA
+#@ rule_select -rule C_1204 -ruleset CLOCKS -policy LEDA
+#@ rule_select -rule B_3010 -ruleset DATA_TYPES -policy LEDA
+#@ rule_select -rule B_1001 -ruleset DESIGN_STRUCTURE -policy LEDA
+#@ rule_select -rule B_1002 -ruleset DESIGN_STRUCTURE -policy LEDA
+#@ rule_select -rule B_1011 -ruleset DESIGN_STRUCTURE -policy LEDA
+#@ rule_select -rule C_1000 -ruleset DESIGN_STRUCTURE -policy LEDA
+#@ rule_select -rule C_1001 -ruleset DESIGN_STRUCTURE -policy LEDA
+#@ rule_select -rule C_1005 -ruleset DESIGN_STRUCTURE -policy LEDA
+#@ rule_select -rule C_1007 -ruleset DESIGN_STRUCTURE -policy LEDA
+#@ rule_select -rule C_1009 -ruleset DESIGN_STRUCTURE -policy LEDA
+#@ rule_select -rule C_1406 -ruleset RESETS -policy LEDA
+#@ rule_select -rule B_3203 -ruleset EXPRESSIONS -policy LEDA
+#@ rule_select -rule B_3208 -ruleset EXPRESSIONS -policy LEDA
+#@ rule_select -rule B_3209 -ruleset EXPRESSIONS -policy LEDA
+#@ rule_select -rule B_2001 -ruleset RTL_SYNTHESIS -policy LEDA
+#@ rule_select -rule B_2011 -ruleset RTL_SYNTHESIS -policy LEDA
+#@ rule_select -rule B_3602 -ruleset STATE_MACHINES -policy LEDA
+#@ rule_select -rule B_3604 -ruleset STATE_MACHINES -policy LEDA
+#@ rule_select -rule B_3605_A -ruleset STATE_MACHINES -policy LEDA
+#@ rule_select -rule B_3605_B -ruleset STATE_MACHINES -policy LEDA
+#@ rule_select -rule B_3607 -ruleset STATE_MACHINES -policy LEDA
+#@ rule_select -rule B_3408 -ruleset STATEMENTS -policy LEDA
+#@ rule_select -rule B_3409 -ruleset STATEMENTS -policy LEDA
+#@ rule_select -rule B_3410 -ruleset STATEMENTS -policy LEDA
+#@ rule_select -rule B_3416 -ruleset STATEMENTS -policy LEDA
+#@ rule_select -rule B_3417 -ruleset STATEMENTS -policy LEDA
+#@ rule_select -rule B_3419 -ruleset STATEMENTS -policy LEDA
+#@ rule_select -rule R_521_10 -ruleset BASIC_CODING_PRACTICES -policy RMM_RTL_CODING_GUIDELINES
+#@ rule_select -rule R_529_1 -ruleset BASIC_CODING_PRACTICES -policy RMM_RTL_CODING_GUIDELINES
+#@ rule_select -rule G_546_1 -ruleset CLOCKS_AND_RESETS -policy RMM_RTL_CODING_GUIDELINES
+#@ rule_select -rule G_551_1_B -ruleset CODING_FOR_SYNTHESIS -policy RMM_RTL_CODING_GUIDELINES
+#@ rule_select -file /export/home/project/juxb/project/ttt/rtlqa_lib/digital/impl_env/leda/leda_default.tcl
+#@ rule_select -file /export/home/user/zhouq/mini_rtlqa/impl/script/leda/leda_default.tcl
+#@ rule_select -file /export/home/user/zhouq/mini_rtlqa/impl/script/leda/leda_default.tcl
+#@ rule_select -file /export/home/user/zhouq/mini_rtlqa_env/digital/impl/script/leda/leda_default.tcl
+#@ # -- End source /export/home/user/wangyl/mini_rtlqa_env/digital/impl/leda/run_dir/.leda_config.tcl
+
+#@ 
+#@ if { $CheckDC == "true" } {
+#@ rule_select -file $ledaScriptPath/leda_dc.tcl
+#@ }
+#@ if { $CheckDW == "true" } {
+#@ rule_select -file $ledaScriptPath/leda_designware.tcl
+#@ }
+#@ if { $CheckDFT == "true" } {
+#@ rule_select -file $ledaScriptPath/leda_dft.tcl
+#@ }
+#@ if { $CheckFM == "true" } {
+#@ rule_select -file $ledaScriptPath/leda_formality.tcl
+#@ }
+#@ 
+#@ set RTLFileList [exec cat $hdlFileList]
+#@ foreach rtlfile $RTLFileList {
+#@   echo "\n\n\nPerform $rtlfile Reading ..........................\n\n\n"
+#@   if { [file exists $hdlFilePath/$rtlfile] == 1 } {
+#@     if { [file extension $rtlfile ] == ".v" || [file extension $rtlfile ] == ".V" || [file extension $rtlfile ] == ".vg" || [file extension $rtlfile] == ".VG" || [file extension $rtlfile] == ".inc" || [file extension $rtlfile] == ".INC"} {
+#@       read_verilog [file join $hdlFilePath $rtlfile] +v2k
+#@     } elseif { [file extension $rtlfile] == ".vhdl" || [file extension $rtlfile] == ".VHDL" || [file extension $rtlfile] == ".vhd" || [file extension $rtlfile] == ".VHD"} {
+#@       read_vhdl $hdlFilePath/$rtlfile
+#@     } else {
+#@       echo "\n\n\nERROR: File $rtlfile can not be recognized\n\n\n"
+#@       quit
+#@     }
+#@   } else {
+#@     echo "\n\nCan not find file $rtlfile! Please check it.\n\n"
+#@     quit
+#@   }
+#@ }
+#@ current_design $topModuleName
+#@ elaborate 
+#@ 
+#@ # -- End source /export/home/user/wangyl/mini_rtlqa_env/digital/impl/script/leda/designReadIn.tcl
+
+#@ source -echo -verbose $ledaScriptPath/designRpt.tcl
+#@ if { [ file exists $rptDir ] == 1 } {
+#@ } else {
+#@   file mkdir $rptDir
+#@ }
+#@ 
+#@ if { [ file exists $rptDir/current ] == 1 } {
+#@   exec mv $rptDir/current $rptDir/20[clock format [clock seconds] -format "%y%m%d_%H%M"]
+#@ }
+#@ 
+#@ file mkdir $rptDir/current
+#@ set rptDir $rptDir/current
+#@ 
+#@ current_design $topModuleName
+#@ check
+#@ 
+#@ redirect [file join $rptDir report_rulecheck.rpt] {
+#@   report
+#@ }
+#@ # -- End source /export/home/user/wangyl/mini_rtlqa_env/digital/impl/script/leda/designRpt.tcl
+
+#@ 
+#@ gui_start
+#@ project_specify_options -format verilog -version 01
+#@ project_specify_files -format verilog /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/../des/des_cop.v
+#@ project_specify_files -format verilog /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/../des/des_dat.v
+#@ project_specify_files -format verilog /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/../des/des_iv.v
+#@ project_specify_files -format verilog /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/../des/des_key.v
+#@ project_specify_files -format verilog /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/../des/tiny_des_round.v
+#@ project_specify_files -format verilog /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/../des/tiny_des.v
+#@ project_specify_files -format verilog /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/../des/des.v
+#@ checker_set_design_constraints -top des
+#@ checker_set_design_constraints
+#@ # -- End source /export/home/user/wangyl/mini_rtlqa_env/digital/impl/leda/run_dir/leda.pro
+
+#@ # -- End source ./run_leda.tcl
+

@@ -1,0 +1,5 @@
+../../../hdl/afifo.v
+../../../hdl/bin2gray.v
+../../../hdl/crc_logic_rf.v
+../../../hdl/gray2bin.v
+../../../hdl/rf_if.v
