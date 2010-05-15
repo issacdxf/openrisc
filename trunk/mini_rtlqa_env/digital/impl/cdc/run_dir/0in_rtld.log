@@ -1,0 +1,2 @@
+openDatabase -path 0in_cdc.db
+closeDatabase

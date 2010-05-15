@@ -1,0 +1,523 @@
+
+                 Leda (TM) Design & Constraint Checker
+           Version B-2008.06 for linux -- September 17, 2009
+              Copyright (c) 2000-2008 by Synopsys, Inc.
+                         ALL RIGHTS RESERVED
+
+This software and  the associated documentation  are confidential and
+proprietary to Synopsys, Inc. Your use or disclosure of this software
+is subject to the terms and conditions of a written license agreement
+between you, or your company, and Synopsys, Inc.
+
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      setupEnv.tcl
+#
+#      DESCRIPTION:
+#         This script is used to setup environment for R2N flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+set RUN_DIR             [pwd]
+/export/home/user/wangyl/mini_rtlqa_env/digital/impl/leda/run_dir
+cd ../../
+set IMP_HOME            [pwd]
+/export/home/user/wangyl/mini_rtlqa_env/digital/impl
+cd ../
+set ENV_HOME            [pwd]
+/export/home/user/wangyl/mini_rtlqa_env/digital
+cd ../
+set PJT_HOME		[pwd]
+/export/home/user/wangyl/mini_rtlqa_env
+if { $runSetType == "DC" } {
+  set LibrarySetupPath	  $IMP_HOME/script/con
+#  set dcScriptPath        $ENV_HOME/impl_env/syn
+  set dcScriptPath        $IMP_HOME/script/syn
+  set dtclConstraintPath  $IMP_HOME/script/syn
+  set workPath            $IMP_HOME/syn/work
+  set rptDir 		  $IMP_HOME/syn/rpts
+  set netlistFilePath     $workPath/SourceDB
+  set milkywayPath        $workPath/milkyway
+  cd $RUN_DIR
+  if { [info exists hdlFilePath] == 0 } {
+    set hdlFilePath         $ENV_HOME/hdl/$projectName
+  }
+  if { [info exists hdlFileList] == 0 } {
+    set hdlFileList    	  $hdlFilePath/list/$projectName.lst
+  }
+  set_svf 		  $workPath/svf_dir/$topModuleName.svf
+} elseif { $runSetType == "LEDA" } {
+
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  if { [info exists hdlFilePath] == 0 } {
+    set hdlFilePath         $ENV_HOME/hdl/$projectName
+  }
+  if { [info exists hdlFileList] == 0 } {
+    set hdlFileList    	  $hdlFilePath/list/$topModuleName.leda.lst
+  }
+#  set ledaScriptPath 	  $ENV_HOME/impl_env/leda
+  set ledaScriptPath 	  $IMP_HOME/script/leda
+  set ledaConstrainPath	  $IMP_HOME/script/leda
+  set workPath		  $IMP_HOME/leda/work
+  set rptDir		  $IMP_HOME/leda/rpts
+  cd  $RUN_DIR
+}
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      setupVar.tcl
+#
+#      DESCRIPTION:
+#         This script is used to setup variables for R2N flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+if { $runSetType == "DC" } {
+#  set prestoHdlCompiler   true
+  set hdlin_auto_save_templates true
+  set hdlin_work_directory $workPath/template/
+  set hdlin_check_no_latch true
+  set compile_no_new_cells_at_top_level true
+  set compile_preserve_subdesign_interfaces true
+  set hdlin_latch_always_async_set_reset true
+#  set timing_self_loops_no_skew true
+  set enable_recovery_removal_arcs true
+  set verilogout_no_tri true
+  set power_cg_flatten true
+  set verilogout_show_unconnected_pins true
+  set dcVersion           2007.03sp1
+  set DC_ULTRA            true
+  define_design_lib work -path $workPath/template/
+  suppress_message {UISN-26 VER-129 VER-130 VER-173}
+  if { $clockgating == "true" } {
+    set power_cg_gated_clock_net_naming_style "CLKGATING_%c_%g_%d"
+    set power_cg_module_naming_style "POWERMODULE_%e_%p_%d"
+    set power_cg_cell_naming_style "POWERGATING_%c_%n_%d"
+  }
+} elseif { $runSetType == "PT" } {
+  set link_create_black_boxes false
+  set timing_clock_reconvergence_pessimism normal
+  set timing_remove_clock_reconvergence_pessimism true
+  set svr_keep_unconnected_nets  true
+  set timing_slew_propagation_mode worst_slew
+#  set case_analysis_sequential_propagation always
+  suppress_message PARA-023
+  if { $EnablePTSI == "true" } {
+    set si_enable_analysis true
+    set si_xtalk_reselect_critical_path false
+    set si_xtalk_reselect_clock_network true
+    set si_xtalk_reselect_delta_delay 0.3
+    set si_xtalk_reselect_delta_delay_ratio 0.95
+    set si_xtalk_reselect_max_mode_slack 0
+    set si_xtalk_reselect_min_mode_slack 0
+    set si_xtalk_exit_on_max_iteration_count 3
+  }
+} elseif { $runSetType == "POWER"} {
+	set power_enable_analysis true 
+	set power_default_static_probability 0.5
+	set power_default_toggle_rate 0.5
+	set power_clock_network_include_clock_gating_network true
+} elseif { $runSetType == "FM" } {
+  set my_dc_shell_file [exec which dc_shell-t]
+  set my_dc_shell_install   	[string range $my_dc_shell_file 0 [expr [string last "/" $my_dc_shell_file] - 4]]
+#  set my_dc_shell_install /ecad/synopsys/newtool/synthesis_z2007.03_sp1 
+  set hdlin_dwroot $my_dc_shell_install
+  set hdlin_synroot $my_dc_shell_install
+
+  set hdlin_ignore_dc_script true
+#  set verification_passing_mode consistency
+  set hdlin_error_on_mismatch_message false
+  set verification_clock_gate_hold_mode any
+  set hdlin_warn_on_mismatch_message "FMR_ELAB-146 FMR_ELAB-034"
+#  set verification_verify_directly_undriven_output false
+
+  set hdlin_unresolved_modules "black_box"
+# set verification_clock_gate_hold_mode low
+  set verification_blackbox_match_mode identity
+# set verification_set_undriven_signals "X"
+  set verification_constant_prop_mode top
+} elseif { $runSetType == "DFT" } {
+#  set prestoHdlCompiler   true
+  set hdlin_auto_save_templates true
+  set hdlin_check_no_latch true
+  set case_analysis_with_logic_constants true
+  set case_analysis_with_logic_constants true
+  set test_default_bidir_delay 0
+  set test_default_delay 0
+  set test_default_strobe 40
+  set test_dft_drc_ungate_clocks true
+  set test_enable_dft_drc true
+  #set test_preset_bidi_signals false
+  #set test_setup_additional_clock_pulse true
+  set compile_no_new_cells_at_top_level true
+  #set test_dedicated_subdesign_scan_outs false
+  set test_stil_netlist_format verilog
+  set test_use_test_models true
+  set verilogout_no_tri true
+#  set timing_self_loops_no_skew true
+  #set_auto_disable_drc_nets -clock true -constant true
+  set enable_recovery_removal_arcs true
+  suppress_message {UISN-26 VER-129 VER-130 VER-173}
+  define_design_lib work -path $workPath/template/
+} elseif { $runSetType == "BSD"} {
+#	set prestoHdlCompiler   true
+  set hdlin_auto_save_templates true
+  set hdlin_check_no_latch true
+  set case_analysis_with_logic_constants true
+  set case_analysis_with_logic_constants true
+  set test_default_bidir_delay 0
+  set test_default_delay 0
+  set test_default_strobe 40
+  set test_dft_drc_ungate_clocks true
+  set test_enable_dft_drc true
+  #set test_preset_bidi_signals false
+  #set test_setup_additional_clock_pulse true
+  set compile_no_new_cells_at_top_level true
+  #set test_dedicated_subdesign_scan_outs false
+  set test_stil_netlist_format verilog
+  set test_use_test_models true
+  set verilogout_no_tri true
+# set timing_self_loops_no_skew true
+#	set_auto_disable_drc_nets -clock true -constant true
+  set enable_recovery_removal_arcs true
+  suppress_message {UISN-26 VER-129 VER-130 VER-173}
+  define_design_lib work -path $workPath/template/
+} elseif { $runSetType == "TMAX" } {
+
+} elseif { $runSetType == "LEDA" } {
+
+} 
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      setupLib.tcl
+#
+#      DESCRIPTION:
+#         This script is used to setup libraries for R2N flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+set maxOptCond WCCOM 
+WCCOM
+set maxLibName fsa0a_c_sc_wc
+fsa0a_c_sc_wc
+set minOptCond BCCOM
+BCCOM
+set minLibName fsa0a_c_sc_bc
+fsa0a_c_sc_bc
+set typOptcond TCCOM
+TCCOM
+set typLibName fsa0a_c_sc_tc
+fsa0a_c_sc_tc
+set wireLoadModelName none
+none
+set slew_lower_threshold_pct_rise 10
+10
+set slew_lower_threshold_pct_fall 10
+10
+set slew_upper_threshold_pct_rise 90
+90
+set slew_upper_threshold_pct_fall 90
+90
+set input_threshold_pct_rise  50
+50
+set input_threshold_pct_fall  50
+50
+set output_threshold_pct_rise 50
+50
+set output_threshold_pct_fall 50
+50
+if { $runSetType == "DC" } {
+
+  set search_path   ".                       $search_path .                      $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                      $ENV_HOME/hdl/des                      "
+
+  set target_library "fsa0a_c_sc_wc.db"
+  
+  set synthetic_library "standard.sldb dw_foundation.sldb"
+  
+  set link_library [concat *                     $target_library                     $synthetic_library                    ]
+  
+  set_dont_use {fsa0a_c_sc_wc/JK* fsa0a_c_sc_wc/BUF*CK}
+  set_dont_use {fsa0a_c_sc_wc/RAM*}
+  set_dont_use {fsa0a_c_sc_wc/DLY*}
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCB*] dont_use
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCK*] dont_use
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/TIE*] dont_use
+  set auto_wire_load_selection true
+
+} elseif { $runSetType == "PT" } {
+  set search_path  ".                        $search_path .                    $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                    $ENV_HOME/hdl/des"
+
+  if { $OperatingCondition == "WC" || $OperatingCondition == "BCWC" } {                       
+    set target_library      "fsa0a_c_sc_wc.db"
+    set link_library [concat *                       $target_library                       ]
+
+  } elseif { $OperatingCondition == "BC" } {
+    set target_library      "fsa0a_c_sc_bc.db"
+    set link_library [concat *                       $target_library                      ]
+  }
+  if { $OperatingCondition == "BCWC" } {
+    set_min_library fsa0a_c_sc_wc.db     -min_version fsa0a_c_sc_bc.db
+  }
+} elseif { $runSetType == "POWER" } {
+  set search_path ".                        $search_path .                    $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                    $ENV_HOME/hdl/des"
+
+  if { $OperatingCondition == "WC" || $OperatingCondition == "BCWC" } {                       
+    set target_library      "fsa0a_c_sc_wc.db"
+    set link_library [concat *                       $target_library                       ]
+
+  } elseif { $OperatingCondition == "BC" } {
+    set target_library      "fsa0a_c_sc_bc.db"
+    set link_library [concat *                       $target_library                       ]
+  } elseif { $OperatingCondition == "TC" } {
+    set target_library      "fsa0a_c_sc_tc.db"
+    set link_library [concat *                       $target_library                       ]
+  }
+  if { $OperatingCondition == "BCWC" } {
+    set_min_library fsa0a_c_sc_wc.db -min_version fsa0a_c_sc_bc.db
+
+  }
+} elseif { $runSetType == "FM" } {
+  set target_library  "fsa0a_c_sc_wc.db"
+  set search_path     "$search_path .                        $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                        $ENV_HOME/hdl/des"
+  set link_library [list                     fsa0a_c_sc_wc.db                     ]
+
+  foreach lib $link_library {
+    if { $lib == "*" } { continue }
+    read_db -technology_library $lib
+  }
+} elseif { $runSetType == "DFT" || $runSetType == "BSD" } {
+
+  set search_path  "$search_path .                     $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                     $ENV_HOME/hdl/des                     "
+  set target_library  "fsa0a_c_sc_wc.db"
+  
+  set synthetic_library "standard.sldb dw_foundation.sldb"
+  
+  set link_library [concat *                     $target_library                     $synthetic_library                     ]
+  
+  #set_dont_use {fsa0a_c_sc_wc/TIE1 fsa0a_c_sc_wc/TIE0 fsa0a_c_sc_wc/JK* fsa0a_c_sc_wc/BUF*CK}
+  set_dont_use {fsa0a_c_sc_wc/JK* fsa0a_c_sc_wc/BUF*CK}
+  set_dont_use {fsa0a_c_sc_wc/RAM*}
+  set_dont_use {fsa0a_c_sc_wc/DLY*}
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCB*] dont_use
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCK*] dont_use
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/TIE*] dont_use
+  
+  set auto_wire_load_selection true
+  
+  set test_simulation_library [list                                $PJT_HOME/techlib/memory/verilog/memory.v]
+
+} elseif { $runSetType == "TMAX" } {
+	
+} elseif { $runSetType == "LEDA" } {
+
+  set search_path    "$search_path .                       $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                       $ENV_HOME/hdl/des                       "
+
+  set target_library    "fsa0a_c_sc_wc.db"
+
+  set link_library [concat *                     $target_library                    ]
+}
+* fsa0a_c_sc_wc.db
+rule_select -file $ledaScriptPath/leda_default.tcl
+Loading policy CONSTRAINTS...
+Loading policy CONSTRAINTS done
+Loading policy CUSTOM...
+Loading policy CUSTOM done
+Loading policy DC...
+Loading policy DC done
+Loading policy DESIGNWARE...
+Loading policy DESIGNWARE done
+Loading policy DESIGN...
+Loading policy DESIGN done
+Loading policy DFT...
+Loading policy DFT done
+Loading policy FORMALITY...
+Loading policy FORMALITY done
+Loading policy IEEE_RTL_SYNTH_SUBSET...
+Loading policy IEEE_RTL_SYNTH_SUBSET done
+Loading policy LEDA...
+Loading policy LEDA done
+Loading policy POWER...
+Loading policy POWER done
+Loading policy RMM_RTL_CODING_GUIDELINES...
+Loading policy RMM_RTL_CODING_GUIDELINES done
+Loading policy VCS...
+Loading policy VCS done
+Loading policy VERILINT...
+Loading policy VERILINT done
+Loading policy VER_STARC_DSG...
+Loading policy VER_STARC_DSG done
+Loading policy XILINX...
+Loading policy XILINX done
+Loading policy SCIROCCO_CYCLE...
+Loading policy SCIROCCO_CYCLE done
+Loading policy VHD_STARC_DSG...
+Loading policy VHD_STARC_DSG done
+if { $CheckDC == "true" } {
+rule_select -file $ledaScriptPath/leda_dc.tcl
+}
+if { $CheckDW == "true" } {
+rule_select -file $ledaScriptPath/leda_designware.tcl
+}
+if { $CheckDFT == "true" } {
+rule_select -file $ledaScriptPath/leda_dft.tcl
+}
+if { $CheckFM == "true" } {
+rule_select -file $ledaScriptPath/leda_formality.tcl
+}
+set RTLFileList [exec cat $hdlFileList]
+../des/des_cop.v
+../des/des_dat.v
+../des/des_iv.v
+../des/des_key.v
+../des/tiny_des_round.v
+../des/tiny_des.v
+../des/des.v
+foreach rtlfile $RTLFileList {
+  echo "\n\n\nPerform $rtlfile Reading ..........................\n\n\n"
+  if { [file exists $hdlFilePath/$rtlfile] == 1 } {
+    if { [file extension $rtlfile ] == ".v" || [file extension $rtlfile ] == ".V" || [file extension $rtlfile ] == ".vg" || [file extension $rtlfile] == ".VG" || [file extension $rtlfile] == ".inc" || [file extension $rtlfile] == ".INC"} {
+      read_verilog [file join $hdlFilePath $rtlfile] +v2k
+    } elseif { [file extension $rtlfile] == ".vhdl" || [file extension $rtlfile] == ".VHDL" || [file extension $rtlfile] == ".vhd" || [file extension $rtlfile] == ".VHD"} {
+      read_vhdl $hdlFilePath/$rtlfile
+    } else {
+      echo "\n\n\nERROR: File $rtlfile can not be recognized\n\n\n"
+      quit
+    }
+  } else {
+    echo "\n\nCan not find file $rtlfile! Please check it.\n\n"
+    quit
+  }
+}
+
+
+
+Perform ../des/des_cop.v Reading ..........................
+
+
+
+Reading file des_cop.v (no check)
+
+
+
+Perform ../des/des_dat.v Reading ..........................
+
+
+
+Reading file des_dat.v (no check)
+
+
+
+Perform ../des/des_iv.v Reading ..........................
+
+
+
+Reading file des_iv.v (no check)
+
+
+
+Perform ../des/des_key.v Reading ..........................
+
+
+
+Reading file des_key.v (no check)
+
+
+
+Perform ../des/tiny_des_round.v Reading ..........................
+
+
+
+Reading file tiny_des_round.v (no check)
+
+
+
+Perform ../des/tiny_des.v Reading ..........................
+
+
+
+Reading file tiny_des.v (no check)
+
+
+
+Perform ../des/des.v Reading ..........................
+
+
+
+Reading file des.v (no check)
+current_design $topModuleName
+elaborate 
+The current configuration is saved into /export/home/user/wangyl/mini_rtlqa_env/digital/impl/leda/run_dir/.leda_config.tcl
+Building project...
+Reading file /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des_cop.v
+Reading file /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des_dat.v
+Reading file /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des_iv.v
+Reading file /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des_key.v
+Reading file /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/tiny_des_round.v
+Reading file /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/tiny_des.v
+Reading file /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des.v
+Compiling Module Declaration des_cop
+Compiling Module Declaration des_dat
+Compiling Module Declaration des_iv
+Compiling Module Declaration des_key
+Compiling Module Declaration tiny_des_round
+Compiling Module Declaration tiny_des
+Compiling Module Declaration des
+Building project done
+Executing elaboration of top unit des ...
+Elaboration of top unit des completed.
+Dumping the design hierarchy...
+Design hierarchy dump completed.
+0
+if { [ file exists $rptDir ] == 1 } {
+} else {
+  file mkdir $rptDir
+}
+if { [ file exists $rptDir/current ] == 1 } {
+  exec mv $rptDir/current $rptDir/20[clock format [clock seconds] -format "%y%m%d_%H%M"]
+}
+file mkdir $rptDir/current
+set rptDir $rptDir/current
+/export/home/user/wangyl/mini_rtlqa_env/digital/impl/leda/rpts/current
+current_design $topModuleName
+check
+Executing chip-level checks on design des ...
+Chip-level checks on design des completed.
+Executing netlist checks on design des ...
+Netlist checks on design des completed.
+Executing block-level checks on library LEDA_WORK ...
+Executing block-level checks on unit LEDA_WORK.tiny_des ...
+Executing block-level checks on unit LEDA_WORK.des ...
+Executing block-level checks on unit LEDA_WORK.des_cop ...
+Executing block-level checks on unit LEDA_WORK.des_key ...
+Executing block-level checks on unit LEDA_WORK.tiny_des_round ...
+Executing block-level checks on unit LEDA_WORK.des_iv ...
+Executing block-level checks on unit LEDA_WORK.des_dat ...
+Executing block-level checks on library LEDA_WORK ...
+Note: Execute the command "report" to display violations
+0
+redirect [file join $rptDir report_rulecheck.rpt] {
+  report
+}
+Reading file des_cop.v (no check)
+Reading file des_dat.v (no check)
+Reading file des_iv.v (no check)
+Reading file des_key.v (no check)
+Reading file tiny_des_round.v (no check)
+Reading file tiny_des.v (no check)
+Reading file des.v (no check)
+Loading project leda.pro done
+leda> leda> 

@@ -1,0 +1,188 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    73: output   [31:0]      hrdata;
+                             ^
+des.v:73: DESIGN> [ERROR] C_1005: Top-level output port is not registered: des.hrdata
+#UNIT: VERILOG LEDA_WORK des /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des.v
+#RULE: LEDA DESIGN_STRUCTURE $LEDA_PATH/rules/leda/./LEDA.sl 267 M_0279
+#HTM1: "pol_leda.html#C_1005"
+#HTM2: 
+#TRAK: $0®200®IN   0®OUT des°desctrl[0-0] 1®OBJ des°&AS2°~ff10 21 (1)¦ $0®175®IN des°desctrl[0-0] 0®OUT des°data_out[0-0] 1®OBJ des°&CAS18°~condmux31 25¦ $0®369®IN des°data_out[0-0] 0®OUT des°hrdata[0-0] 1®OBJ des°&AS5°~condmux31 25
+
+
+-- [WARNING] Cannot find the file /export/home/project/juxb/project/ttt/rtlqa_lib/digital/impl_env/leda/leda_default.tcl in command rule_select
+-- [WARNING] Cannot find the file /export/home/user/zhouq/mini_rtlqa/impl/script/leda/leda_default.tcl in command rule_select
+-- [WARNING] Cannot find the file /export/home/user/zhouq/mini_rtlqa/impl/script/leda/leda_default.tcl in command rule_select
+
+	-----------------------------------------
+	-- Checking policy XILINX  B200806     --
+	-----------------------------------------
+
+
+	---------------------------------------------
+	-- Checking policy DESIGNWARE  B200806     --
+	---------------------------------------------
+
+
+	-----------------------------------------
+	-- Checking policy CUSTOM  B200806     --
+	-----------------------------------------
+
+
+	-------------------------------------------
+	-- Checking policy VERILINT  B200806     --
+	-------------------------------------------
+
+
+	------------------------------------------------------------
+	-- Checking policy RMM_RTL_CODING_GUIDELINES  B200806     --
+	------------------------------------------------------------
+
+
+	--------------------------------------
+	-- Checking policy DFT  B200806     --
+	--------------------------------------
+
+
+	-------------------------------------
+	-- Checking policy DC  B200806     --
+	-------------------------------------
+
+
+	----------------------------------------------
+	-- Checking policy CONSTRAINTS  B200806     --
+	----------------------------------------------
+
+
+	--------------------------------------
+	-- Checking policy VCS  B200806     --
+	--------------------------------------
+
+
+	---------------------------------------
+	-- Checking policy LEDA  B200806     --
+	---------------------------------------
+
+
+	--------------------------------------------
+	-- Checking policy FORMALITY  B200806     --
+	--------------------------------------------
+
+
+	----------------------------------------
+	-- Checking policy POWER  B200806     --
+	----------------------------------------
+
+
+	------------------------------------------------
+	-- Checking policy VER_STARC_DSG  B200806     --
+	------------------------------------------------
+
+
+	-----------------------------------------
+	-- Checking policy DESIGN  B200806     --
+	-----------------------------------------
+
+
+	--------------------------------------------------------
+	-- Checking policy IEEE_RTL_SYNTH_SUBSET  B200806     --
+	--------------------------------------------------------
+
+
+--- Executing block-level checks on unit LEDA_WORK.tiny_des ... ---
+
+
+   107:                 round[3:0] <= #1 round[3:0] + 1;
+                                   ^
+tiny_des.v:107: DESIGN> [WARNING] B_1001: Reading from output port round
+#UNIT: VERILOG LEDA_WORK tiny_des /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/tiny_des.v
+#RULE: LEDA DESIGN_STRUCTURE $LEDA_PATH/rules/leda/./LEDA.sl 74 M_0311
+#HTM1: "pol_leda.html#B_1001"
+
+    83:             1'b0 :
+                    ^
+tiny_des.v:83: STATE_> [WARNING] B_3605_A: Use parameter declarations to define the state vector of a state machine
+#UNIT: VERILOG LEDA_WORK tiny_des /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/tiny_des.v
+#RULE: LEDA STATE_MACHINES $LEDA_PATH/rules/leda/./LEDA.sl 0 M_0797
+#HTM1: "pol_leda.html#B_3605_A"
+
+    88:             1'b1 :
+                    ^
+tiny_des.v:88: STATE_> [WARNING] B_3605_A: Use parameter declarations to define the state vector of a state machine
+#UNIT: VERILOG LEDA_WORK tiny_des /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/tiny_des.v
+#RULE: LEDA STATE_MACHINES $LEDA_PATH/rules/leda/./LEDA.sl 0 M_0797
+#HTM1: "pol_leda.html#B_3605_A"
+
+    76: always @(posedge hclk or negedge hresetn) 
+        ^^^^^^
+tiny_des.v:76: STATE_> [WARNING] B_3604: Assign a default state to the state machines
+#UNIT: VERILOG LEDA_WORK tiny_des /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/tiny_des.v
+#RULE: LEDA STATE_MACHINES $LEDA_PATH/rules/leda/./LEDA.sl 3846 M_0796
+#HTM1: "pol_leda.html#B_3604"
+
+--- Block-level checks on unit LEDA_WORK.tiny_des completed ---
+
+
+--- Executing block-level checks on unit LEDA_WORK.des ... ---
+
+
+--- Block-level checks on unit LEDA_WORK.des completed ---
+
+
+--- Executing block-level checks on unit LEDA_WORK.des_cop ... ---
+
+
+--- Block-level checks on unit LEDA_WORK.des_cop completed ---
+
+
+--- Executing block-level checks on unit LEDA_WORK.des_key ... ---
+
+
+--- Block-level checks on unit LEDA_WORK.des_key completed ---
+
+
+--- Executing block-level checks on unit LEDA_WORK.tiny_des_round ... ---
+
+
+--- Block-level checks on unit LEDA_WORK.tiny_des_round completed ---
+
+
+--- Executing block-level checks on unit LEDA_WORK.des_iv ... ---
+
+
+--- Block-level checks on unit LEDA_WORK.des_iv completed ---
+
+
+--- Executing block-level checks on unit LEDA_WORK.des_dat ... ---
+
+
+--- Block-level checks on unit LEDA_WORK.des_dat completed ---
+
+-- [WARNING] Cannot find the file /export/home/project/juxb/project/ttt/rtlqa_lib/digital/impl_env/leda/leda_default.tcl in command rule_select
+-- [WARNING] Cannot find the file /export/home/user/zhouq/mini_rtlqa/impl/script/leda/leda_default.tcl in command rule_select
+-- [WARNING] Cannot find the file /export/home/user/zhouq/mini_rtlqa/impl/script/leda/leda_default.tcl in command rule_select
+
+--- Executing block-level checks on library LEDA_WORK ... ---
+
+-- [WARNING] Cannot find the file /export/home/project/juxb/project/ttt/rtlqa_lib/digital/impl_env/leda/leda_default.tcl in command rule_select
+-- [WARNING] Cannot find the file /export/home/user/zhouq/mini_rtlqa/impl/script/leda/leda_default.tcl in command rule_select
+-- [WARNING] Cannot find the file /export/home/user/zhouq/mini_rtlqa/impl/script/leda/leda_default.tcl in command rule_select
+
+--- Executing block-level checks on library LEDA_WORK ...
+
+
+--- Block-level checks on library LEDA_WORK completed ---

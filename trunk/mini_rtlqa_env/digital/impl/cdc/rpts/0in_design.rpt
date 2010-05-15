@@ -1,0 +1,22 @@
+----------------------------
+-- Instance Usage Summary --
+----------------------------
+
+Count  Module          Location
+-------------------------------
+   1   des_cop         /export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/../../../hdl/des/des_cop.v (Line 21)
+   1   des_dat         /export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/../../../hdl/des/des_dat.v (Line 21)
+   1   des_iv          /export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/../../../hdl/des/des_iv.v (Line 21)
+   1   des_key         /export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/../../../hdl/des/des_key.v (Line 21)
+   1   tiny_des        /export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/../../../hdl/des/tiny_des.v (Line 25)
+   1   tiny_des_round  /export/home/user/wangyl/mini_rtlqa_env/digital/impl/cdc/run_dir/../../../hdl/des/tiny_des_round.v (Line 20)
+
+
+
+---------------------------
+-- Unused Module Summary --
+---------------------------
+
+Module          Location
+------------------------
+

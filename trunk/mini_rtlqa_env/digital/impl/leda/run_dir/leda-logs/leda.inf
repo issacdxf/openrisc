@@ -1,0 +1,1753 @@
+-----------------------------------------------------------------
+Checker: LEDA v B-2008.06
+Date: Thu Sep 17 11:47:08 2009
+
+
+Command line: Run from GUI on the unit des of library /export/home/user/wangyl/mini_rtlqa_env/digital/impl/leda/run_dir/leda-libs/LEDA_WORK of the project leda 
+    chip level checker options:  -top des
+
+-----------------------------------------------------------------
+Environment variables:
+LEDA_PATH /ecad/synopsys/leda_b200806
+LEDA_CONFIG Not defined
+LEDA_RESOURCES Not defined
+search_path  .                       /export/home/user/wangyl/mini_rtlqa_env/techlib/std_cell/FrontEnd/synopsys                       /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des                       
+link_library * fsa0a_c_sc_wc.db
+leda plibs files: /ecad/synopsys/leda_b200806/resources/resource_93/plibs
+
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+--  Summary
+
+--  Rules violated	 :    4
+--	Including FATAL  :    0
+--	Including ERROR  :    1
+--	Including WARNING:    4
+--	Including NOTE  :    0
+
+--  Violations per rule:
+--
+--	   1 x B_1001: Reading from output port round
+--	   1 x B_3604: Assign a default state to the state machines
+--	   2 x B_3605_A: Use parameter declarations to define the state vector of a state machine
+--	   1 x C_1005: Top-level output port is not registered: des.hrdata
+--  	---------------------
+--  	Total violations:    5
+
+--  Files with error   :    2
+
+--  Violations per file:
+--
+--	   1 in des.v
+--	   4 in tiny_des.v
+--  	---------------------
+--  	Total violations:    5
+
+
+-----------------------------------------------------------------
+Checker Deselection Pragma summary:
+
+-----------------------------------------------------------------
+--                  Verilog violations                         --
+-----------------------------------------------------------------
+
+	Violations in library /export/home/user/wangyl/mini_rtlqa_env/digital/impl/leda/run_dir/leda-libs/LEDA_WORK 
+
+
+
+Violations per unit:
+	4 violations in unit tiny_des (/export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/tiny_des.v)
+	0 violations in unit des (/export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des.v)
+	0 violations in unit des_cop (/export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des_cop.v)
+	0 violations in unit des_key (/export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des_key.v)
+	0 violations in unit tiny_des_round (/export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/tiny_des_round.v)
+	0 violations in unit des_iv (/export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des_iv.v)
+	0 violations in unit des_dat (/export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des_dat.v)
+
+Violations per file:
+	0 violations in file /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des_cop.v (179 lines)
+	0 violations in file /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des_dat.v (135 lines)
+	0 violations in file /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des_iv.v (99 lines)
+	0 violations in file /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des_key.v (85 lines)
+	0 violations in file /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/tiny_des_round.v (1813 lines)
+	4 violations in file /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/tiny_des.v (305 lines)
+	0 violations in file /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des.v (391 lines)
+
+Total number of violations: 4
+Total number of source code lines: 3007
+
+Violations per rule:
+
+Policy "XILINX", Ruleset "XILINX_VIRTEX2":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x XV2_1002 [WARNING]: "Internally generated asynchronous reset detected (block level). Xilinx recommends that you avoid using internally generated asynchronous reset."
+	0/0 x XV2_1003 [WARNING]: "Multiple asynchronous resets detected in this unit/module."
+	0/0 x XV2_1004 [WARNING]: "Multiple asynchronous resets detected in always/process block."
+	0/0 x XV2_1006 [WARNING]: "Multiple synchronous resets detected in this unit/module."
+	0/0 x XV2_1007 [WARNING]: "Multiple synchronous resets detected in always/process block."
+	0/0 x XV2_1200 [ERROR]: "Multiple clocks detected in always/process block. Xilinx recommends that you specify only one clock signal in an always/process block."
+	0/0 x XV2_1404 [WARNING]: "Unequal length between case expression and case item condition in case, casex or casez statements detected."
+	0/0 x XV2_1405 [WARNING]: "Number of nested elements in if_statement should be less than 7"
+	0/0 x XV2_1601 [WARNING]: "Inferred module/unit level tristates detected. Xilinx recommends that you avoid using tri-state buffers and use other logic resources when available"
+	0/0 x XV2_1602 [WARNING]: "[STRONG WARNING] VHDL key word detected. Xilinx warns that you avoid using VHDL reserved words as identifiers in your Verilog code. "
+	0/0 x XV2_1603 [WARNING]: "Instantiated shift register SRL16 detected. Xilinx recommends that you register the last bit of the shift register for best performance."
+	0/0 x XV2_1604 [WARNING]: "Reversed Bit numbering detected. Xilinx recommends that you designate the right most bit as the LSB (a.k.a little endian) for multibit buses in your design."
+	0/0 x XV2_1605 [WARNING]: "[STRONG WARNING] Unequal length LHS and RHS in assignment detected."
+	0/0 x XV2_1607 [WARNING]: "Multiplier has been detected."
+	0/0 x XV2_1609 [WARNING]: "[STRONG WARNING] Very long port name detected"
+	0/0 x XV2_1610 [WARNING]: "[STRONG WARNING] Detected two-dimensional array, could be opportunity for RAM inference"
+	0/0 x XV2_1800 [WARNING]: "Unconnected ports detected. Xilinx requires that all ports be connected."
+	0/0 x XV2_1801 [ERROR]: "Missing signal in sensitivity list of combinational block detected."
+	0/0 x XV2_1806 [WARNING]: "High fan-out net/port detected. Xilinx recommends register duplication to reduce the fan-out."
+	0/0 x XV2_1807 [WARNING]: "Unequal length port and connection in module instantiation detected."
+	0/0 x XV2_1808 [ERROR]: "Redundant signals in sensitivity list detected."
+	0/0 x XV2_1809 [WARNING]: "Positional association in port mapping of an instance detected."
+	0/0 x XV2_2000 [WARNING]: "Non Moore style state machine is detected."
+	0/0 x XV2_2001 [WARNING]: "No asynchronous logic detection will be performed in the module/unit of a finite state machine. Xilinx warns that you ensure proper coding for any asynchronous logic in the module/unit of a finite state machine."
+	0/0 x XV2_2002 [WARNING]: "Use parameter declarations to define the state vector of a state machine"
+	0/0 x XV2_2003 [WARNING]: "[STRONG WARNING] Xilinx recommends not using 'define"
+	0/0 x XV2_3000 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use the Architecture Wizard to create the IBUFG/DCM/BUFG."
+	0/0 x XV2_3001 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use RAMB16_Sx or RAMB16_Sx_Sy."
+	0/0 x XV2_3002 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use STARTUP_VIRTEX2."
+	0/0 x XV2_3003 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use BSCAN_VIRTEX2."
+	0/0 x XV2_3004 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use CAPTURE_VIRTEX2."
+	0/0 x XV2_3005 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use IBUF(G)/IBUF(G)DS."
+	0/0 x XV2_3006 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use IOBUF/IOBUFDS."
+	0/0 x XV2_3007 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use OBUF/OBUFDS or OBUFT/OBUFTDS."
+	0/0 x XV2_3008 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use IBUFG, BUFG or IBUFG, DCM, BUFG."
+
+Policy "XILINX", Ruleset "XILINX_VIRTEX2PRO":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x XV2P_1002 [WARNING]: "Internally generated asynchronous reset detected (block level). Xilinx recommends that you avoid using internally generated asynchronous reset."
+	0/0 x XV2P_1003 [WARNING]: "Multiple asynchronous resets detected in this unit/module."
+	0/0 x XV2P_1004 [WARNING]: "Multiple asynchronous resets detected in always/process block."
+	0/0 x XV2P_1006 [WARNING]: "Multiple synchronous resets detected in this unit/module."
+	0/0 x XV2P_1007 [WARNING]: "Multiple synchronous resets detected in always/process block."
+	0/0 x XV2P_1200 [ERROR]: "Multiple clocks detected in always/process block. Xilinx recommends that you specify only one clock signal in an always/process block."
+	0/0 x XV2P_1404 [WARNING]: "Unequal length between case expression and case item condition in case, casex or casez statements detected."
+	0/0 x XV2P_1405 [WARNING]: "Number of nested elements in if_statement should be less than 7"
+	0/0 x XV2P_1601 [WARNING]: "Inferred module/unit level tristates detected. Xilinx recommends that you avoid using tri-state buffers and use other logic resources when available"
+	0/0 x XV2P_1602 [WARNING]: "[STRONG WARNING] VHDL key word detected. Xilinx warns that you avoid using VHDL reserved words as identifiers in your Verilog code. "
+	0/0 x XV2P_1603 [WARNING]: "Instantiated shift register SRL16 detected. Xilinx recommends that you register the last bit of the shift register for best performance."
+	0/0 x XV2P_1604 [WARNING]: "Reversed Bit numbering detected. Xilinx recommends that you designate the right most bit as the LSB (a.k.a little endian) for multibit buses in your design."
+	0/0 x XV2P_1605 [WARNING]: "[STRONG WARNING] Unequal length LHS and RHS in assignment detected."
+	0/0 x XV2P_1607 [WARNING]: "Multiplier has been detected."
+	0/0 x XV2P_1609 [WARNING]: "[STRONG WARNING] Very long port name detected"
+	0/0 x XV2P_1610 [WARNING]: "[STRONG WARNING] Detected two-dimensional array, could be opportunity for RAM inference"
+	0/0 x XV2P_1800 [WARNING]: "Unconnected ports detected. Xilinx requires that all ports be connected."
+	0/0 x XV2P_1801 [ERROR]: "Missing signal in sensitivity list of combinational block detected."
+	0/0 x XV2P_1806 [WARNING]: "High fan-out net/port detected. Xilinx recommends register duplication to reduce the fan-out."
+	0/0 x XV2P_1807 [WARNING]: "Unequal length port and connection in module instantiation detected."
+	0/0 x XV2P_1808 [ERROR]: "Redundant signals in sensitivity list detected."
+	0/0 x XV2P_1809 [WARNING]: "Positional association in port mapping of an instance detected."
+	0/0 x XV2P_2000 [WARNING]: "Non Moore style state machine is detected."
+	0/0 x XV2P_2001 [WARNING]: "No asynchronous logic detection will be performed in the module/unit of a finite state machine. Xilinx warns that you ensure proper coding for any asynchronous logic in the module/unit of a finite state machine."
+	0/0 x XV2P_2002 [WARNING]: "Use parameter declarations to define the state vector of a state machine"
+	0/0 x XV2P_2003 [WARNING]: "[STRONG WARNING] Xilinx recommends not using 'define"
+	0/0 x XV2P_3000 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use the Architecture Wizard to create the IBUFG/DCM/BUFG."
+	0/0 x XV2P_3001 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use RAMB16_Sx or RAMB16_Sx_Sy."
+	0/0 x XV2P_3002 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use STARTUP_VIRTEX2."
+	0/0 x XV2P_3003 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use BSCAN_VIRTEX2."
+	0/0 x XV2P_3004 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use CAPTURE_VIRTEX2."
+	0/0 x XV2P_3005 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use IBUF(G)/IBUF(G)DS."
+	0/0 x XV2P_3006 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use IOBUF/IOBUFDS."
+	0/0 x XV2P_3007 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use OBUF/OBUFDS or OBUFT/OBUFTDS."
+	0/0 x XV2P_3008 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use IBUFG, BUFG or IBUFG, DCM, BUFG."
+
+Policy "XILINX", Ruleset "XILINX_VIRTEX4":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x XV4_1002 [WARNING]: "Internally generated asynchronous reset detected (block level). Xilinx recommends that you avoid using internally generated asynchronous reset."
+	0/0 x XV4_1003 [WARNING]: "Multiple asynchronous resets detected in this unit/module."
+	0/0 x XV4_1004 [WARNING]: "Multiple asynchronous resets detected in always/process block."
+	0/0 x XV4_1006 [WARNING]: "Multiple synchronous resets detected in this unit/module."
+	0/0 x XV4_1007 [WARNING]: "Multiple synchronous resets detected in always/process block."
+	0/0 x XV4_1200 [ERROR]: "Multiple clocks detected in always/process block. Xilinx recommends that you specify only one clock signal in an always/process block."
+	0/0 x XV4_1404 [WARNING]: "Unequal length between case expression and case item condition in case, casex or casez statements detected."
+	0/0 x XV4_1405 [WARNING]: "Number of nested elements in if_statement should be less than 7"
+	0/0 x XV4_1601 [WARNING]: "Inferred module/unit level tristates detected. Xilinx recommends that you avoid using tri-state buffers and use other logic resources when available"
+	0/0 x XV4_1602 [WARNING]: "[STRONG WARNING] VHDL key word detected. Xilinx warns that you avoid using VHDL reserved words as identifiers in your Verilog code. "
+	0/0 x XV4_1603 [WARNING]: "Instantiated shift register SRL16 detected. Xilinx recommends that you register the last bit of the shift register for best performance."
+	0/0 x XV4_1604 [WARNING]: "Reversed Bit numbering detected. Xilinx recommends that you designate the right most bit as the LSB (a.k.a little endian) for multibit buses in your design."
+	0/0 x XV4_1605 [WARNING]: "[STRONG WARNING] Unequal length LHS and RHS in assignment detected."
+	0/0 x XV4_1607 [WARNING]: "Multiplier has been detected."
+	0/0 x XV4_1609 [WARNING]: "[STRONG WARNING] Very long port name detected"
+	0/0 x XV4_1610 [WARNING]: "[STRONG WARNING] Detected two-dimensional array, could be opportunity for RAM inference"
+	0/0 x XV4_1800 [WARNING]: "Unconnected ports detected. Xilinx requires that all ports be connected."
+	0/0 x XV4_1801 [ERROR]: "Missing signal in sensitivity list of combinational block detected."
+	0/0 x XV4_1806 [WARNING]: "High fan-out net/port detected. Xilinx recommends register duplication to reduce the fan-out."
+	0/0 x XV4_1807 [WARNING]: "Unequal length port and connection in module instantiation detected."
+	0/0 x XV4_1808 [ERROR]: "Redundant signals in sensitivity list detected."
+	0/0 x XV4_1809 [WARNING]: "Positional association in port mapping of an instance detected."
+	0/0 x XV4_2000 [WARNING]: "Non Moore style state machine is detected."
+	0/0 x XV4_2001 [WARNING]: "No asynchronous logic detection will be performed in the module/unit of a finite state machine. Xilinx warns that you ensure proper coding for any asynchronous logic in the module/unit of a finite state machine."
+	0/0 x XV4_2002 [WARNING]: "Use parameter declarations to define the state vector of a state machine"
+	0/0 x XV4_2003 [WARNING]: "[STRONG WARNING] Xilinx recommends not using 'define"
+	0/0 x XV4_3000 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use the Architecture Wizard to create the IBUFG/DCM/BUFG."
+	0/0 x XV4_3001 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use RAMB16_Sx or RAMB16_Sx_Sy."
+	0/0 x XV4_3002 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use STARTUP_VIRTEX2."
+	0/0 x XV4_3003 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use BSCAN_VIRTEX2."
+	0/0 x XV4_3004 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use CAPTURE_VIRTEX2."
+	0/0 x XV4_3005 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use IBUF(G)/IBUF(G)DS."
+	0/0 x XV4_3006 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use IOBUF/IOBUFDS."
+	0/0 x XV4_3007 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use OBUF/OBUFDS or OBUFT/OBUFTDS."
+	0/0 x XV4_3008 [ERROR]: "Obsolete component detected.  Xilinx recommends that you use IBUFG, BUFG or IBUFG, DCM, BUFG."
+	0/0 x XV4_3009 [ERROR]: "Obsolete component GT* detected.  Xilinx recommends that you use GT11."
+	0/0 x XV4_3010 [ERROR]: "Obsolete component RAMB4* detected.  Xilinx recommends that you use RAMB16."
+	0/0 x XV4_3011 [ERROR]: "Obsolete component IFDDR* detected.  Xilinx recommends that you use IDDR."
+	0/0 x XV4_3012 [ERROR]: "Obsolete component OFDDR* detected.  Xilinx recommends that you use ODDR."
+
+Policy "XILINX", Ruleset "XILINX_VIRTEX_SPARTAN2":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x XVSP2_1200 [ERROR]: "Multiple clocks detected in always/process block. Xilinx recommends that you specify only one clock signal in an always/process block. "
+	0/0 x XVSP2_1400 [WARNING]: "Case/casex/casez statement without default clause detected. Xilinx recommends that you provide a default clause for the case statements in your design."
+	0/0 x XVSP2_1601 [WARNING]: "Inferred module/unit level tristates detected. Xilinx recommends that you avoid using tri-state buffers and use other logic resources when available"
+	0/0 x XVSP2_1602 [WARNING]: "[STRONG WARNING] VHDL key word detected. Xilinx warns that you avoid using VHDL reserved words as identifiers in your Verilog code. "
+	0/0 x XVSP2_1604 [WARNING]: "Reversed Bit numbering detected. Xilinx recommends that you designate the right most bit as the LSB (a.k.a little endian) for multibit buses in your design."
+	0/0 x XVSP2_1607 [WARNING]: "Multiplier has been detected."
+	0/0 x XVSP2_1800 [WARNING]: "Unconnected ports detected. Xilinx requires that all ports be connected."
+
+Policy "DESIGNWARE", Ruleset "CODING_STYLE":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x CS_1C_R [ERROR]: "<%value> blocks used to code state machine.One block should be used."
+	0/0 x CS_2C_R [ERROR]: "Naming convention for state variables: name should end in _cs"
+	0/0 x CS_7C_R_A [ERROR]: "Global variable <%item> is referenced in a function"
+	0/0 x CS_7C_R_B [ERROR]: "Do not assign a global variable <%item> in a function"
+
+Policy "DESIGNWARE", Ruleset "ARCHITECTURE":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x A_12C_R [ERROR]: "Bus naming convention is HIGH to LOW"
+
+Policy "DESIGNWARE", Ruleset "COMBINATIONAL":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x C_1C_R [ERROR]: "No delay values are allowed in RTL code"
+
+Policy "DESIGNWARE", Ruleset "INSTANTIATION":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x I_1C_R [ERROR]: "Map module ports in instantiation by named association, not by position"
+	0/0 x I_3C_G [WARNING]: "Begin Instance names with U_"
+	0/0 x I_6C_R [ERROR]: "No logical expressions are allowed in port maps"
+
+Policy "DESIGNWARE", Ruleset "MODULE_FILE":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x MF_1C_R_A [ERROR]: "In module name DW_<PRODUCT_NAME>_<MODULE>: <MODULE> has to have up to 8 characters"
+	0/0 x MF_1C_R_B [ERROR]: "In module name DW_<PRODUCT_NAME>_<MODULE>: <PRODUCT_NAME> has to have up to 8 characters"
+	0/0 x MF_1C_R_C [ERROR]: "In module name DW_<PRODUCT_NAME>_<MODULE>: <PRODUCT_NAME> must be the DesignWare product"
+	0/0 x MF_1C_R_D [ERROR]: "The module name has to be of the form DW_<PRODUCT_NAME>_<MODULE>"
+	0/0 x MF_3C_R [ERROR]: "The module name should be the same as the file name"
+	0/0 x MF_4C_R [ERROR]: "In module name DW_<PRODUCT_NAME>_<MODULE>: No hierarchy in <MODULE>"
+	0/0 x MF_7C_R [ERROR]: "Include the specified informational header in every source file"
+	0/0 x MF_8C_R [ERROR]: "Include comments with I/O declarations"
+
+Policy "DESIGNWARE", Ruleset "NAMES":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x N_10P_R_B [ERROR]: "Use lower case for function name"
+	0/0 x N_10P_R_C [ERROR]: "Use lower case for reg name"
+	0/0 x N_10P_R_D [ERROR]: "Use lower case for net name"
+	0/0 x N_1P_R_A [ERROR]: "A signal or port name should have less than 20 characters"
+	0/0 x N_1P_R_B [ERROR]: "A signal or port name must have a max of 32 characters"
+	0/0 x N_2C_R_A [ERROR]: "Only legal names for clock are clk and clk_<name>"
+	0/0 x N_2C_R_B [ERROR]: "Only legal names for reset are rst_n and rst_<name>_n"
+
+Policy "DESIGNWARE", Ruleset "PARAMETER":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+
+Policy "DESIGNWARE", Ruleset "PORTS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x PWR_1C_G_A [WARNING]: "Only lowercase characters are allowed in input port names"
+	0/0 x PWR_1C_G_C [WARNING]: "Only lowercase characters are allowed in output port names"
+	0/0 x PWR_2C_R [ERROR]: "Module name is not allowed as a port name"
+	0/0 x PWR_6C_G [WARNING]: "Include comments for each wire or reg declaration"
+
+Policy "DESIGNWARE", Ruleset "SEQUENTIAL":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x S_2C_R [ERROR]: "Use rising edge flipflop"
+
+Policy "DESIGNWARE", Ruleset "TEXT_KEYWORDS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+
+Policy "CUSTOM", Ruleset "EXPRESSIONS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x BTTF_C001 [ERROR]: "Unequal length operand in bit/arithmetic operator"
+
+Policy "CUSTOM", Ruleset "DESIGN_STRUCTURE":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x BTTF_A001 [ERROR]: "unresolved module instantiation"
+	0/0 x BTTF_A002 [WARNING]: "Net not driving anything detected, or all bits of bus not used"
+	0/0 x BTTF_A002 [WARNING]: "Reg not driving anything detected, or all bits of bus not used"
+	0/0 x BTTF_A004 [WARNING]: "Declaration is not used, or not all bits of bus are used"
+	0/0 x BTTF_A005 [WARNING]: "Declaration is not used, or not all bits of bus are used"
+	0/0 x BTTF_A007 [ERROR]: "Implicit net declaration is not supported"
+
+Policy "CUSTOM", Ruleset "LEDA_COMPAT":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x BTTF_D001 [WARNING]: "Unequal length operand in comparison operator"
+	0/0 x BTTF_D002 [WARNING]: "Unequal length LHS and RHS in assignment"
+
+Policy "CUSTOM", Ruleset "RTL_NAMING":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x BTTF_B001 [WARNING]: "Use lowercase letters (_L suffix and TEST__ prefix ok) for all signal reg, net and port names"
+	0/0 x BTTF_B002 [WARNING]: "Use lowercase letters for all module names"
+	0/0 x BTTF_B003 [ERROR]: "Keyword identified"
+
+Policy "VERILINT", Ruleset "CHECKER_ERROR":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x W218 [WARNING]: "Illegal Event Expression"
+	0/0 x E54 [ERROR]: "Instance name required for module"
+	0/0 x E268 [ERROR]: "Index out of bound"
+	0/0 x W19 [WARNING]: "Truncation of extra bits"
+	0/0 x W110 [WARNING]: "Incompatible width"
+	0/0 x W112 [WARNING]: "Nested event control construct"
+	0/0 x W122 [WARNING]: "Variable <%item> is not in the sensitivity list"
+	0/0 x W129 [WARNING]: "Delay is not a constant"
+	0/0 x W131 [WARNING]: "Potential loss of precision in multiplication"
+	0/0 x W154 [WARNING]: "Implicit wire declaration"
+	0/0 x W159 [WARNING]: "Constant condition expression"
+	0/0 x W161 [WARNING]: "Constant expression in conditional select"
+	0/0 x W163 [WARNING]: "Truncation of bits in constant. Most significant bits are lost"
+	0/0 x W187 [WARNING]: "Default clause is not the last clause in case statement"
+	0/0 x W188 [WARNING]: "Destination variable is input"
+	0/0 x W192 [WARNING]: "Empty block"
+	0/0 x W215 [WARNING]: "Bit select for integer or time variable"
+	0/0 x W216 [WARNING]: "Range select for integer or time variable"
+	0/0 x W224 [WARNING]: "Multi-bit expression when one bit expression is expected"
+	0/0 x W225 [WARNING]: "Case item expression is not constant"
+	0/0 x W226 [WARNING]: "Case-select expression is constant"
+	0/0 x W244 [WARNING]: "Shift by non-constant"
+	0/0 x W257 [WARNING]: "Delays ignored by synthesis tools"
+	0/0 x W263 [WARNING]: "Case expression out of range"
+	0/0 x W287 [WARNING]: "Unconnected port <%formal>"
+	0/0 x W289 [WARNING]: "Multiply connected port"
+	0/0 x W292 [WARNING]: "Real operands in comparison"
+	0/0 x W306 [WARNING]: "Converting integer to real"
+	0/0 x W307 [WARNING]: "Converting unsigned to real"
+	0/0 x W308 [WARNING]: "Converting real to integer"
+	0/0 x W311 [WARNING]: "Converting real to unsigned"
+	0/0 x W312 [WARNING]: "Converting real to single bit (logical)"
+	0/0 x W313 [WARNING]: "Converting integer to single bit (logical)"
+	0/0 x W314 [WARNING]: "Converting vector (unsigned) to single bit (logical)"
+	0/0 x W332 [WARNING]: "Not all possible cases covered  but default case exists"
+	0/0 x W337 [WARNING]: "Real comparison in case item"
+	0/0 x W341 [WARNING]: "Extension of zero bits in a constant"
+	0/0 x W342 [WARNING]: "Extension of X bits in a constant"
+	0/0 x W343 [WARNING]: "Extension of Z bits in a constant"
+	0/0 x W359 [WARNING]: "For-condition expression is constant"
+	0/0 x W389 [WARNING]: "<%value> clocks in the module"
+	0/0 x W390 [WARNING]: "Multiple resets in the module"
+	0/0 x W396 [WARNING]: "A flipflop without reset"
+	0/0 x W397 [WARNING]: "Destination bit is input"
+	0/0 x W401 [WARNING]: "Clock <%item> is not an input to the module"
+	0/0 x W402 [WARNING]: "Reset <%item> is not an input to the module"
+	0/0 x W416 [WARNING]: "Instance connections not by name"
+	0/0 x W424 [WARNING]: "Function sets a global variable <%item>"
+	0/0 x W425 [WARNING]: "Function uses a global variable <%item>"
+	0/0 x W446 [WARNING]: "Reading from an output port <%item>"
+	0/0 x W450 [WARNING]: "Multi-bit expression (e.g a[2:0]) used as clock"
+	0/0 x W455 [WARNING]: "Not all cases are covered in full case"
+	0/0 x W456 [WARNING]: "Variable <%item> is in the sensitivity list but not used in the block"
+	0/0 x W467 [WARNING]: "'?' in based number constant"
+	0/0 x W478 [WARNING]: "Bad loop initialization statement"
+	0/0 x W479 [WARNING]: "Bad loop step statement"
+	0/0 x W484 [WARNING]: "Possible loss of carry/borrow in addition/subtraction"
+	0/0 x W485 [WARNING]: "Non-negative (reg) is compared to 0"
+	0/0 x W488 [WARNING]: "Bus variable in the sensitivity list but not all its bits are used in the block"
+	0/0 x W489 [WARNING]: "Last function statement does not assign to the function"
+	0/0 x W490 [WARNING]: "Tristate control expression is not a variable name"
+	0/0 x W491 [WARNING]: "Extension of ? bits in a constant"
+	0/0 x W499 [WARNING]: "Last function statement does not assign to all the bits of the function"
+	0/0 x W502 [WARNING]: "A variable in the sensitivity list is modified inside the block"
+	0/0 x W504 [WARNING]: "Integer <%item> is used in port expression"
+	0/0 x W521 [WARNING]: "Not all the bits of the variable are in the sensitivity list"
+	0/0 x W526 [WARNING]: "Nested ifs. Consider using case or casex statement instead"
+	0/0 x W531 [WARNING]: "Truncating leading zeros (or x's or z's)"
+	0/0 x W541 [WARNING]: "Tristate is inferred"
+	0/0 x W547 [WARNING]: "Redundant case expression"
+	0/0 x W549 [WARNING]: "Asynchronous flipflop is inferred"
+	0/0 x W550 [WARNING]: "Mux is inferred"
+	0/0 x W551 [WARNING]: "full_case has a default clause"
+	0/0 x W556 [WARNING]: "Complex condition expression. Could be as a result of wrong interpretation of operator precedence"
+	0/0 x W557 [WARNING]: "Illegal use of range for scalar parameter"
+	0/0 x W558 [WARNING]: "Illegal use of bit select for scalar parameter"
+	0/0 x W561 [WARNING]: "Based number with 0 width is extended to the implied width of 32 bits"
+	0/0 x W562 [WARNING]: "Variable is assigned in both blocking and nonblocking assignments"
+	0/0 x W563 [WARNING]: "Reduction of a single bit expression is redundant"
+	0/0 x W575 [WARNING]: "Logical NOT_OP operating on a vector"
+	0/0 x W576 [WARNING]: "Multibit operand in a logical expression"
+	0/0 x W592 [WARNING]: "Constant (parameter or specparam) is used in event control expression"
+	0/0 x W599 [WARNING]: "This construct is not supported by Synopsys"
+	0/0 x W601 [WARNING]: "The loop index is being modified"
+	0/0 x W639 [WARNING]: "For synthesis,  operands of a division or modulo operation need to be constants"
+
+Policy "RMM_RTL_CODING_GUIDELINES", Ruleset "CODING_FOR_PORTABILITY":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+
+Policy "RMM_RTL_CODING_GUIDELINES", Ruleset "BASIC_CODING_PRACTICES":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x G_521_2_B [WARNING]: "Use lowercase letters for all signal reg, net and port names"
+	0/0 x G_521_5 [WARNING]: "Name is too long - Max 20 characters"
+	0/0 x G_521_6 [WARNING]: "Clock name should be clk or prefixed with clk"
+	0/238 x R_521_10 [ERROR]: "Always use descending range for multi-bit signals and ports"
+	0/0 x G_521_11 [WARNING]: "Use same name/similar names for ports (<%formal>) and signals (<%actual>)"
+	0/0 x G_521_13_B [WARNING]: "Flipflop outputs should have suffix _r"
+	0/0 x R_524_1_A [ERROR]: "Header comments are missing"
+	0/0 x R_525_1_B [ERROR]: "Function must have a header comment"
+	0/0 x R_526_1 [ERROR]: "Use a separate line for each HDL statement"
+	0/0 x R_5210_1_B [ERROR]: "Ports must be declared in the following order: input inout output"
+	0/0 x G_5210_2 [WARNING]: "Declare one port per line"
+	0/0 x R_5211_1 [ERROR]: "Use named association when instantiating design units"
+	0/0 x G_5214_2 [WARNING]: "Use Vector operations on arrays rather than for loops"
+	0/0 x R_5215_3 [ERROR]: "Every instance must have a (meaningful) label"
+	0/0 x G_5215_4 [WARNING]: "Instance names should begin with U_"
+
+Policy "RMM_RTL_CODING_GUIDELINES", Ruleset "CLOCKS_AND_RESETS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+
+Policy "RMM_RTL_CODING_GUIDELINES", Ruleset "CODING_FOR_SYNTHESIS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/23 x G_551_1_B [WARNING]: "The always keyword must be followed by an event list @(...) in a sequential block"
+	0/0 x R_554_1_A [ERROR]: "Redundant signal <%item> in sensitivity list"
+	0/0 x R_554_1_B [ERROR]: "Missing signal <%item> in sensitivity list"
+	0/0 x G_559_1 [WARNING]: "<%value> blocks used to code state machine.Two blocks should be used"
+	0/0 x G_559_2_A [WARNING]: "Use parameter statements to define the state vector of a state machine"
+	0/0 x G_559_4 [WARNING]: "Assign a default state to the state machine"
+
+Policy "RMM_RTL_CODING_GUIDELINES", Ruleset "PARTITIONING_FOR_SYNTHESIS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+
+Policy "DFT", Ruleset "FAULT_COVERAGE":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x DFT_006 [ERROR]: "<%value> clocks in a block"
+	0/0 x DFT_008 [ERROR]: "Tri-state is detected"
+
+Policy "DFT", Ruleset "DATA_CAPTURE":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+
+Policy "DFT", Ruleset "INFORMATIONAL":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x DFT_019 [NOTE]: "Asynchronous reset/set/load <%item> detected"
+	0/13 x DFT_022 [ERROR]: "Incomplete case statement"
+
+Policy "DFT", Ruleset "SCAN_INSERTION":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+
+Policy "DC", Ruleset "RTL":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x DCHDL_140_A [WARNING]: "Use of ? in assignment is forbiden"
+	0/0 x DCVER_4 [WARNING]: "Incompatible port connection in module instantiation"
+	0/0 x DCVER_91 [WARNING]: "Module contains a supply1 variable . Replace with wire driven by continuous assignment to 1."
+	0/0 x DCVER_129 [WARNING]: "Intraassignment delays for blocking statements are ignored"
+	0/0 x DCVER_130 [WARNING]: "Intraassignment delays for nonblocking statements are ignored"
+	0/0 x DCVER_131 [WARNING]: "This design contains event in verilog blocking assignment"
+	0/0 x DCVER_132 [WARNING]: "This design contains event in verilog non-blocking assignment"
+	0/0 x DCVER_154 [WARNING]: "Gate instance with too few ports.Port <%formal> is not completely connected"
+	0/0 x DCVER_173 [WARNING]: "Delays for continuous assignment are ignored"
+	0/0 x DCVER_176 [WARNING]: "Delay statements are ignored for synthesis"
+	0/0 x DCVER_179 [ERROR]: "TRIAND declarations are not supported by synthesis"
+	0/0 x DCVER_180 [ERROR]: "TRIOR declarations are not supported by synthesis"
+	0/0 x DCVER_181 [ERROR]: "TRI0 declarations are not supported by synthesis"
+	0/0 x DCVER_182 [ERROR]: "TRI1 declarations are not supported by synthesis"
+	0/0 x DCVER_183 [ERROR]: "TRIREG declarations are not supported by synthesis"
+	0/0 x DCVER_189 [ERROR]: "CASE EQUALITY (===) is not supported by synthesis"
+	0/0 x DCVER_190 [ERROR]: "CASE INEQUALITY (!==) is not supported by synthesis"
+	0/0 x DCVER_310 [WARNING]: "Keyword 'scalared' is ignored"
+	0/0 x DCVER_976 [WARNING]: "The delay specification for net declaration is ignored"
+	0/0 x DCVER_194 [WARNING]: "Unintended | or || in event control"
+
+Policy "DC", Ruleset "SYSTEMVERILOG":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x DC_55 [ERROR]: "Nested module/interface declaration is not supported"
+	0/0 x DCVER_515 [WARNING]: "Discarding function's return value"
+	0/0 x DCVER_721 [ERROR]: "Unsupported for Synthesis: Autoassignment as expressions."
+	0/0 x DCELAB_800 [ERROR]: "Loop variable is not initiated to a constant"
+	0/0 x DCELAB_286 [ERROR]: "Type conversion on formal port is not supported"
+	0/0 x DCSV_113 [ERROR]: "In an interface or module instantiation, interface instances cannot connect to  modport ports of lower-level modules"
+	0/0 x DCELAB_398 [ERROR]: "Synthesis does not support implicit ref port"
+	0/0 x DCVER_329 [WARNING]: "Parameter has been used in a local parameter declaration"
+	0/0 x DCELAB_347 [WARNING]: "Division by 0 evaluates to 'x'"
+	0/0 x DCVER_322 [ERROR]: "A packed object cannot contain unpacked data"
+
+Policy "VCS", Ruleset "RACE":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+
+Policy "VCS", Ruleset "SYSTEMVERILOG":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x VCS_33 [ERROR]: "unique/priority not supported in conditional statement"
+	0/0 x VCS_34 [ERROR]: "unique/priority not supported in case/casex/casez"
+	0/0 x VCS_55 [ERROR]: "Nested module/interface declaration is not supported"
+
+Policy "VCS", Ruleset "VCS_PERFORMANCE":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+
+Policy "LEDA", Ruleset "DATA_TYPES":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x B_3001 [ERROR]: "Array of integer is not allowed"
+	0/0 x B_3003 [ERROR]: "Test expression in if_statement is expected to be one bit wide"
+	0/0 x B_3004_A [WARNING]: "Unrecommended blocking assignment (converting integer to real)"
+	0/0 x B_3004_B [WARNING]: "Unrecommended non blocking assignment (converting integer to real)"
+	0/0 x B_3005_A [WARNING]: "Unrecommended blocking assignment (converting unsigned to real)"
+	0/0 x B_3005_B [WARNING]: "Unrecommended non blocking assignment (converting unsigned to real)"
+	0/0 x B_3006_A [WARNING]: "Unrecommended blocking assignment (converting real to integer)"
+	0/0 x B_3006_B [WARNING]: "Unrecommended non blocking assignment (converting real to integer)"
+	0/0 x B_3008_A [WARNING]: "Unrecommended blocking assignment (converting integer to unsigned)"
+	0/0 x B_3008_B [WARNING]: "Unrecommended non blocking assignment (converting integer to unsigned)"
+	0/0 x B_3008_E [WARNING]: "Unrecommended continuous assignment (converting integer to unsigned)"
+	0/0 x B_3009_A [WARNING]: "Unrecommended blocking assignment (converting real to unsigned)"
+	0/0 x B_3009_B [WARNING]: "Unrecommended non blocking assignment (converting real to unsigned)"
+	0/0 x B_3009_E [WARNING]: "Unrecommended continuous assignment (converting real to unsigned)"
+	0/1 x B_3010 [ERROR]: "Loop index must be declared as integer"
+
+Policy "LEDA", Ruleset "CLOCKS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x B_1202 [WARNING]: "<%value> clocks in this unit detected"
+	0/0 x B_1206 [WARNING]: "Do not use event definitions for clocks"
+
+Policy "LEDA", Ruleset "DESIGN_STRUCTURE":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x B_1000 [WARNING]: "Module/unit without I/O's"
+	1/16 x B_1001 [WARNING]: "Reading from output port <%item>"
+	0/0 x B_1010 [WARNING]: "Feedthrough detected for port <%context>"
+	0/6 x B_1011 [WARNING]: "Module instantiation is not fully bound. Port <%formal> is not completely connected"
+	0/0 x B_1013 [WARNING]: "Signal <%context> should not drive multiple ports"
+
+Policy "LEDA", Ruleset "EXPRESSIONS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x B_3200 [WARNING]: "Unequal length operand in bit/arithmetic operator LHS : <%size>, RHS : <%size>"
+	0/0 x B_3201 [WARNING]: "Unequal length operand in comparison operator LHS : <%size>, RHS : <%size>"
+	0/0 x B_3202 [ERROR]: "Delay is not constant expression"
+	0/1 x B_3203 [WARNING]: "The expression in for loop must not be constant"
+	0/878 x B_3208 [WARNING]: "Unequal length LHS and RHS in assignment LHS : <%size>, RHS : <%size>"
+	0/6 x B_3209 [WARNING]: "Unequal length port and connection in module instantiation Formal : <%size>, Actual : <%size>"
+	0/0 x B_3210 [WARNING]: "Unequal length arguments in function call or task enable Formal : <%size>, Actual : <%size>"
+	0/0 x B_3211 [WARNING]: "Unequal length between case expression and case item condition in case, casex or casez : Expression : <%size>, Item : <%size>"
+	0/0 x B_3212 [WARNING]: "Signed and unsigned operands should not be used in same operation"
+
+Policy "LEDA", Ruleset "HDL_NAMING":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x B_4203 [WARNING]: "Naming conventions for module name: Name should end in _MOD"
+	0/0 x B_4205 [WARNING]: "Naming conventions for module filename: File name should be <module>.v"
+	0/0 x B_4217 [WARNING]: "Naming conventions for function name: Name should begin with F"
+	0/0 x B_4225 [WARNING]: "Naming conventions for register name: Name should end in _r"
+	0/0 x B_4226 [WARNING]: "Naming conventions for net name: Name should begin with w"
+	0/0 x B_4228 [WARNING]: "Naming conventions for output port name: Name should end in _out"
+
+Policy "LEDA", Ruleset "RESETS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x B_1400 [WARNING]: "Asynchronous reset/set/load signal <%item> is not a primary input to the current unit"
+	0/0 x B_1402 [WARNING]: "Do not use event definitions for asynchronous resets/sets/loads"
+	0/0 x B_1403 [WARNING]: "Flip-flop assigned but not initialized"
+	0/0 x B_1404 [WARNING]: "Asynchronous reset/set/load <%item> exists in module/unit"
+	0/0 x B_1405 [WARNING]: "<%value> asynchronous resets in this unit detected"
+	0/0 x B_1406 [WARNING]: "<%value> synchronous resets in this unit detected"
+	0/0 x B_1407 [ERROR]: "Do not use active high asynchronous reset/set/load"
+	0/0 x B_1409 [WARNING]: "<%value> asynchronous resets in always/process block"
+	0/0 x B_1410 [WARNING]: "<%value> synchronous resets in always/process block"
+	0/0 x B_1411 [WARNING]: "<%value> asynchronous sets in this unit detected"
+	0/0 x B_1412 [WARNING]: "<%value> synchronous sets in this unit detected"
+	0/0 x B_1413 [WARNING]: "<%value> asynchronous sets in always/process block"
+	0/0 x B_1414 [WARNING]: "<%value> synchronous sets in always/process block"
+	0/0 x B_1415 [WARNING]: "<%value> asynchronous loads in this unit detected"
+	0/0 x B_1416 [WARNING]: "<%value> synchronous loads in this unit detected"
+	0/0 x B_1417 [WARNING]: "<%value> asynchronous loads in always/process block"
+	0/0 x B_1418 [WARNING]: "<%value> synchronous loads in always/process block"
+
+Policy "LEDA", Ruleset "RTL_NAMING":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x B_4403 [WARNING]: "Naming conventions for flipflop output: Name should end in _r"
+	0/0 x B_4404 [WARNING]: "Naming conventions for clock: Name should begin with clk"
+	0/0 x B_4405 [WARNING]: "Naming conventions for asynchronous reset name: Name should begin with rst"
+
+Policy "LEDA", Ruleset "RTL_SYNTHESIS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/491 x B_2001 [ERROR]: "Shift by a non constant value is not allowed"
+	0/0 x B_2005 [ERROR]: "Functions of type real are not synthesizable"
+	0/0 x B_2007 [WARNING]: "Same operand on both sides of assignment detected"
+	0/0 x B_2031 [WARNING]: "Both Edges of the signal used in the sensitivity list"
+	0/0 x B_2034 [WARNING]: "Reset Signal use mode not same as its pragma mode"
+
+Policy "LEDA", Ruleset "STATEMENTS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x B_3400 [WARNING]: "Empty block found: No statements in block"
+	0/0 x B_3401 [WARNING]: "Blocking delay not allowed in non-blocking assignment"
+	0/0 x B_3403 [WARNING]: "Case statement should have a default case"
+	0/0 x B_3418 [ERROR]: "Redundant signal <%item> in sensitivity list"
+	0/23 x B_3419 [ERROR]: "Missing signal <%item> in sensitivity list"
+
+Policy "LEDA", Ruleset "STATE_MACHINES":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x B_3600 [WARNING]: "<%value> blocks used to code state machine.One block should be used"
+	0/0 x B_3601 [WARNING]: "<%value> blocks used to code state machine.Two blocks should be used"
+	0/1 x B_3602 [WARNING]: "Moore style description of state machines is recommended"
+	0/0 x B_3603 [WARNING]: "Mealy style description of state machines is recommended"
+	1/1 x B_3604 [WARNING]: "Assign a default state to the state machines"
+	2/1 x B_3605_A [WARNING]: "Use parameter declarations to define the state vector of a state machine"
+	0/0 x B_3606 [WARNING]: "Naming convention for state variables: name should end in _cs"
+	0/1 x B_3607 [WARNING]: "The number of states in a state machine should be a power of 2"
+	0/0 x B_3608 [WARNING]: "The number of states in a state machine should be less than 40"
+	0/0 x B_3610 [WARNING]: "Unsynthesizable modelling style for a squential machine,clock or reset  cannot be inferred"
+	0/0 x B_3611 [WARNING]: "Unsynthesizable modelling style for a squential machine,state updation on multiple clock phase"
+	0/0 x B_3612 [WARNING]: "Unsynthesizable modelling style for a squential machine,multiple edge expression in same event control"
+
+Policy "LEDA", Ruleset "SYSTEMVERILOG":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x B_5012 [WARNING]: "Always_comb, always_latch, always_ff statements used - a SystemVerilog feature"
+	0/0 x B_5016 [WARNING]: "unique/priority keywords used for conditional and case statements not allowed - a SystemVerilog feature"
+	0/0 x B_5018 [WARNING]: "Scope/lifetime specified for functions & tasks"
+	0/0 x B_5022 [WARNING]: "Continuous assign used for variables - a SystemVerilog feature"
+	0/0 x B_5206 [WARNING]: "Nested module(s) found- a SystemVerilog feature"
+	0/0 x B_5208 [WARNING]: "Implicit .* port connections used - a SystemVerilog feature"
+	0/0 x B_5035 [WARNING]: "System Verilog reserved used as identifier"
+	0/0 x B_5036 [WARNING]: "V2K reserved used as identifier"
+
+Policy "FORMALITY", Ruleset "HARD_CASE":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x FM_1_3 [WARNING]: "Identifier of instance starts with <FM_1_3_MODULE_NAME>. If it is a DesignWareFoundation cell, then Formality requires extra settings"
+	0/0 x FM_1_5 [WARNING]: "Unit name should not be same as library cell"
+	0/0 x FM_1_6 [ERROR]: "Use only one asynchronous set/reset signal per process"
+	0/0 x FM_1_7 [WARNING]: "Signal assigned more than once in a single flow of control"
+
+Policy "FORMALITY", Ruleset "SIMULATION_MISMATCH":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x FM_2_1A [ERROR]: "Redundant signal <%item> in the sensitivity list"
+	0/0 x FM_2_1B [ERROR]: "Missing signal <%item> in the sensitivity list"
+	0/539 x FM_2_10 [ERROR]: "Using X,Z values or ? in case items is not recommended (such items may be ignored by synthesis tools)"
+	0/13 x FM_2_12 [ERROR]: "Incomplete case_statement using full_case directive is not recommended (not supported by some imulation tools)"
+	0/0 x FM_2_17 [ERROR]: "Avoid operand size mismatch assignments"
+	0/13 x FM_2_18 [ERROR]: "Case choice after the default may be ignored by some simulation tools"
+	0/0 x FM_2_19 [ERROR]: "Using net type other than wire (wand, wor, ...) is not recommended (can generate mismatch during simulation)"
+	0/0 x FM_2_2 [ERROR]: "Delays are ignored by synthesis tools"
+	0/0 x FM_2_20 [ERROR]: "Do not use event_control in assignments (not handled by all tools)"
+	0/0 x FM_2_21 [ERROR]: "Do not use duplicated port definitions (some tools rename duplicated ports automatically)"
+	0/0 x FM_2_22 [WARNING]: "Possible range overflow"
+	0/0 x FM_2_25 [WARNING]: "Operator === is treated as =="
+	0/0 x FM_2_26 [WARNING]: "Operator !== is treated as !="
+	0/1502 x FM_2_4 [ERROR]: "Assignment to X is not recommended (handled differently by simulation and synthesis tools)"
+	0/0 x FM_2_6B [ERROR]: "Do not use assignment in net/signal declaration"
+	0/6 x FM_2_7 [WARNING]: "Use named association in port map"
+	0/232 x FM_2_9 [ERROR]: "Using X,Z values or ? for comparison is not recommended (differently handled by simulation/synthesis tools)"
+	0/0 x FM_2_33A [WARNING]: "Do not use map_to_module attribute"
+	0/0 x FM_2_33B [WARNING]: "Do not use one_cold or one_hot attributes"
+	0/0 x FM_2_33D [WARNING]: "Do not use translate_on/off or synthesis_on/off pragmas"
+	0/0 x FM_2_33E [WARNING]: "Do not use enum or state_vector attributes"
+	0/0 x FM_2_35 [WARNING]: "Use fully assigned variables in function"
+
+Policy "FORMALITY", Ruleset "SYSTEM_VERILOG":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x FM_200 [WARNING]: "The intent of the always_latch construct is not verified by Formality."
+
+Policy "FORMALITY", Ruleset "V2K":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x FM_106 [ERROR]: "Do not use power operator"
+	0/0 x FM_108 [ERROR]: "Do not use recursive task or function"
+	0/0 x FM_117 [ERROR]: "Do not use variable initial value"
+
+Policy "POWER", Ruleset "RTL":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x RTLISO08 [WARNING]: "Each signal in $isolate must appear in sensitivity list of enclosing always block."
+
+Policy "VER_STARC_DSG", Ruleset "S_1_1_NAMING_CONVENTIONS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x VER_1_1_1_1 [WARNING]: "File names should be as follows :  <module name>.v"
+	0/0 x VER_1_1_1_2A [FATAL]: "Only alphanumeric characters and the underscore '_' should be used"
+	0/0 x VER_1_1_1_2B [FATAL]: "The first character should be a letter of the alphabet"
+	0/0 x VER_1_1_1_3B [FATAL]: "Do not use SDF, EDIF or Window keywords"
+	0/0 x VER_1_1_1_4 [FATAL]: "Do not use following expressions in names <VER_1_1_1_4_SIGNAL_NAME>"
+	0/0 x VER_1_1_1_8 [WARNING]: "Instance names should include the reference module name. For multiple instances, add numbers as prefixes"
+	0/0 x VER_1_1_1_10 [FATAL]: "Do not use module names or instance names that are the same as library cell names"
+	0/0 x VER_1_1_2_1A [FATAL]: "Module name should be at least 2 characters"
+	0/0 x VER_1_1_2_1B [FATAL]: "Module name should not exceed 32 characters"
+	0/0 x VER_1_1_2_1C [FATAL]: "Instance name should be at least 2 characters"
+	0/0 x VER_1_1_2_1D [FATAL]: "Instance name should not exceed 32 characters"
+	0/0 x VER_1_1_2_6 [WARNING]: "In module instantiation, pin name and net name should be the same"
+	0/0 x VER_1_1_3_3A [FATAL]: "Signal names, port names, parameter names, define names and function names should be at least 2 characters"
+	0/0 x VER_1_1_3_3B [FATAL]: "Signal names, port names, parameter names, define names and function names should not exceed 40 characters"
+	0/0 x VER_1_1_4_6 [ERROR]: "Do not propagate parameters through ports"
+	0/0 x VER_1_1_5_1A [WARNING]: "Register name should end with _reg or _REG"
+	0/0 x VER_1_1_5_1B [WARNING]: "Register name should include the driving clock name"
+	0/0 x VER_1_1_5_2A [WARNING]: "Clock names should use CK or CLK, plus up to 3 extra characters when multiple clocks exist"
+
+Policy "VER_STARC_DSG", Ruleset "S_1_2_SYNCHRONOUS_DESIGN":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+
+Policy "VER_STARC_DSG", Ruleset "S_1_3_INITIAL_RESET":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x VER_1_3_1_5 [WARNING]: "Do not use the Design Compiler directive //synopsys_sync_set_reset"
+
+Policy "VER_STARC_DSG", Ruleset "S_1_4_CLOCKS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x VER_1_4_3_6 [ERROR]: "Do not use negative edge flipflop"
+	0/0 x VER_1_4_4_1 [NOTE]: "Do not use multiple clocks in a module.<%value> clocks detected"
+
+Policy "VER_STARC_DSG", Ruleset "S_1_5_ASYNCHRONOUS_CIRCUITS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+
+Policy "VER_STARC_DSG", Ruleset "S_1_6_HIERARCHICAL_DESIGN":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x VER_1_6_4_3 [WARNING]: "Number of I/O ports should not exceed 200. This module has <%value> ports"
+
+Policy "VER_STARC_DSG", Ruleset "S_2_10_OPERATOR_DESCRIPTION":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x VER_2_10_3_1 [WARNING]: "Operand size mismatch in relational operator"
+	0/0 x VER_2_10_3_2 [ERROR]: "Operand size mismatch in signal assignment"
+	0/0 x VER_2_10_3_3 [ERROR]: "The right-hand side of an assignment must not be wider than the left-hand side"
+	0/0 x VER_2_10_3_3A [ERROR]: "The right-hand side of an assignment (not include arithmetic function) must not be wider than the left-hand side"
+	0/0 x VER_2_10_3_4 [WARNING]: "The left-hand side of assignment should not be wider than the right-hand side"
+	0/0 x VER_2_10_3_5 [WARNING]: "Specify base format ('d,'b,'h,'o) for constant"
+	0/0 x VER_2_10_3_6 [FATAL]: "Vector size missing in constant assignment"
+	0/0 x VER_2_10_4_1 [FATAL]: "Do not use data types, except wire,reg,integer"
+	0/0 x VER_2_10_4_4 [NOTE]: "Pay attention when comparing integer variables and reg/wire variables"
+	0/0 x VER_2_10_4_5 [FATAL]: "Do not assign negative values to integers"
+	0/0 x VER_2_10_4_6 [WARNING]: "Do not assign negative values to wires/registers"
+	0/0 x VER_2_10_5_3A [NOTE]: "Always construct contains 2 shared arithmetic operations"
+	0/0 x VER_2_10_5_3B [ERROR]: "Always construct contains more than 3 shared arithmetic operations"
+	0/0 x VER_2_10_6_3 [WARNING]: "Do not mix signed and unsigned operands in same operation"
+	0/0 x VER_2_10_6_6 [FATAL]: "Do not use division (/)"
+	0/0 x VER_2_10_7_1 [ERROR]: "Do not use arithmetic operation in the conditional expression of if statements"
+
+Policy "VER_STARC_DSG", Ruleset "S_2_11_STATE_MACHINE_DESCRIPTION":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x VER_2_11_1_1 [WARNING]: "Moore style is recommended for FSM"
+	0/0 x VER_2_11_1_3 [WARNING]: "Define FSM state value by using parameters"
+	0/0 x VER_2_11_1_4 [WARNING]: "Number of states in FSM should not exceed 40"
+	0/0 x VER_2_11_3_1 [WARNING]: "Separate the flip-flop statements and state machine description case statements in the FSM"
+
+Policy "VER_STARC_DSG", Ruleset "S_2_1_COMBINATIONAL_LOGIC":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x VER_2_1_1_2 [FATAL]: "Use fully assigned variables in function"
+	0/0 x VER_2_1_2_1 [FATAL]: "Function should be called from continuous assignment only"
+	0/0 x VER_2_1_2_2 [FATAL]: "Non-blocking assignment (<=) in function statement is prohibited"
+	0/0 x VER_2_1_2_3 [FATAL]: "Avoid directly referring global signals <%item> from the function"
+	0/0 x VER_2_1_2_5 [FATAL]: "Event_control (@posedge clk) should not be used in task"
+	0/0 x VER_2_1_3_1 [FATAL]: "Operand size mismatch in function call"
+	0/0 x VER_2_1_3_4 [ERROR]: "Function descriptions should end with return statements"
+	0/0 x VER_2_1_3_5 [FATAL]: "Do not use global signal assignments (assignment to <%item>) in function statements"
+	0/0 x VER_2_1_3_5A [FATAL]: "Do not use global signal assignments (assignment to <%item>) in function statements"
+	0/0 x VER_2_1_4_2 [NOTE]: "Use bit-wise operators (&, |, ~) instead of logic operators (&&, ||, !), even in single-bit operation expressions"
+	0/0 x VER_2_1_4_5 [ERROR]: "Do not use logical operators(&&,||,!) for multiple bits"
+	0/0 x VER_2_1_5_1 [WARNING]: "Do not nest conditional expression"
+	0/0 x VER_2_1_5_3 [WARNING]: "Do not use vector in the condition of if statement or in conditional expression"
+	0/0 x VER_2_1_6_1 [WARNING]: "Specification of array should be [MSB:LSB]"
+	0/0 x VER_2_1_6_4 [WARNING]: "Index array should be in the specified range during definition"
+	0/0 x VER_2_1_6_5 [FATAL]: "For an array index, x and z should not be used"
+
+Policy "VER_STARC_DSG", Ruleset "S_2_2_ALWAYS_COMBINATIONAL_LOGIC":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+
+Policy "VER_STARC_DSG", Ruleset "S_2_3_FF_INFERENCE":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x VER_2_3_1_4 [ERROR]: "Using delay values in assignments other than those inferring flip-flops is not recommended"
+	0/0 x VER_2_3_1_7 [FATAL]: "Do not use multiple asynchronous resets or multiple asynchronous sets in an always block"
+	0/0 x VER_2_3_6_2 [WARNING]: "Asynchronous reset/set/load signals must be active low"
+
+Policy "VER_STARC_DSG", Ruleset "S_2_4_LATCH_INFERENCE":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+
+Policy "VER_STARC_DSG", Ruleset "S_2_5_TRISTATE_BUFFERS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x VER_2_5_1_1 [WARNING]: "Tristate detected; make sure that it has its own hierarchy"
+	0/0 x VER_2_5_1_7 [WARNING]: "Tri-state output should not be used in a conditional expression of an if statement"
+	0/0 x VER_2_5_1_8 [WARNING]: "Tri-state output should not be used in a conditional expression of an case statement (make sure that 'X' is assigned in defalut clause)"
+
+Policy "VER_STARC_DSG", Ruleset "S_2_6_ALWAYS_CONSTRUCT_DESCRIPTION":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x VER_2_6_1_3 [WARNING]: "<%value> output signals from always block detected. There should be less than 5"
+	0/0 x VER_2_6_1_4 [WARNING]: "The number of lines in always statements should not exceed <VER_2_6_1_4_NB_MAX_LINES>"
+	0/0 x VER_2_6_2_1A [FATAL]: "Do not use multiple if statements in the same always statement"
+	0/0 x VER_2_6_2_1B [FATAL]: "Do not use multiple case statements in the same always statement"
+
+Policy "VER_STARC_DSG", Ruleset "S_2_7_IF_STATEMENT_DESCRIPTION":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x VER_2_7_3_1 [WARNING]: "Number of nested elements in if_statement should be 5 or less"
+
+Policy "VER_STARC_DSG", Ruleset "S_2_8_CASE_STATEMENT_DESCRIPTION":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x VER_2_8_1_3 [ERROR]: "Duplicated case item detected"
+	0/0 x VER_2_8_1_5 [FATAL]: "Do not use full_case directives in case statements"
+	0/0 x VER_2_8_1_6 [WARNING]: "Operand size mismatch between the case expression and the case item expression"
+	0/0 x VER_2_8_2_1 [WARNING]: "Case item should not exceed 16 bits width"
+	0/0 x VER_2_8_2_2 [WARNING]: "Case item should be less than 100. <%value> items counted"
+	0/0 x VER_2_8_3_4 [WARNING]: "Do not use the signal to which a don t-care condition is assigned for a conditional expression of an if statement"
+	0/0 x VER_2_8_3_5 [FATAL]: "Default clause must be the last item of a case statement"
+	0/0 x VER_2_8_5_1 [ERROR]: "Do not use parallel_case directive in case_statement"
+	0/0 x VER_2_8_5_2 [ERROR]: "Do not use constant value in the expression of a case_statement"
+	0/0 x VER_2_8_5_3 [FATAL]: "Case item in case statements must be constant"
+	0/0 x VER_2_8_5_4 [WARNING]: "Do not use logical/arithmetic operator in the expression of a case_statement"
+
+Policy "VER_STARC_DSG", Ruleset "S_2_9_FOR_STATEMENT_DESCRIPTION":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x VER_2_9_1_2 [FATAL]: "Do not change values inside loop variables"
+
+Policy "VER_STARC_DSG", Ruleset "S_3_1_CREATE_FUNCTION_LIBRARIES":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x VER_3_1_2_7 [FATAL]: "Do not use embedded dc_shell scripts in the source code"
+	0/0 x VER_3_1_3_2 [WARNING]: "Port order should be the following: input, output, inout"
+	0/0 x VER_3_1_3_4A [WARNING]: "Define one signal per line in I/O, register declarations, and wire declarations"
+	0/0 x VER_3_1_3_4B [WARNING]: "Always add comments in I/O, register declarations, and wire declarations"
+	0/0 x VER_3_1_4_4 [WARNING]: "Do not have multiple assignments in one line"
+
+Policy "VER_STARC_DSG", Ruleset "S_3_2_USING_FUNCTION_LIBRARIES":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x VER_3_2_2_1 [WARNING]: "Use parameter to define constant value, except numeric values of 0-7 and vector values of all 0 and all 1"
+	0/0 x VER_3_2_2_5 [WARNING]: "Do not use nested macros"
+	0/0 x VER_3_2_2_7 [WARNING]: "Do not use `define"
+	0/0 x VER_3_2_3_1 [FATAL]: "Instantiate modules by name. Instantiating by position can cause errors"
+	0/0 x VER_3_2_3_2 [FATAL]: "In module instantiations, respect the bus size when connecting a wire to a pin"
+	0/0 x VER_3_2_4_2B [FATAL]: "Too many parameter assignments in instantiation"
+
+Policy "VER_STARC_DSG", Ruleset "S_3_3_TEST_FACILITATION_DESIGN":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+
+Policy "VER_STARC_DSG", Ruleset "S_3_5_DESIGN_MANAGEMENT":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x VER_3_5_3_1 [ERROR]: "Module declaration must have header comments"
+	0/0 x VER_3_5_3_1A [WARNING]: "Indicate the 'FILENAME' in the header"
+	0/0 x VER_3_5_3_1B [WARNING]: "Indicate the 'TYPE' in the header"
+	0/0 x VER_3_5_3_1C [WARNING]: "Indicate the 'FUNCTION' in the header"
+	0/0 x VER_3_5_3_1D [WARNING]: "Indicate the 'edit' in the header"
+	0/0 x VER_3_5_3_1E [WARNING]: "Indicate the 'Author' in the header"
+	0/0 x VER_3_5_3_1F [WARNING]: "Indicate the 'Date' in the header"
+	0/0 x VER_3_5_6_7 [WARNING]: "Comments should start with '//'"
+
+Policy "IEEE_RTL_SYNTH_SUBSET", Ruleset "BEHAVIORAL_MODELING":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x SYN9_1 [ERROR]: "Illegal always construct : Does not model any combinational logic or sequential logic"
+	0/0 x SYN9_2 [ERROR]: "Missing or redundant signal <%item> in the sensitivity list of an always block"
+	0/0 x SYN9_22 [WARNING]: "Delay values are ignored in synthesis"
+	0/0 x SYN9_26 [ERROR]: "Expression bound in for loop statements should be statically computable"
+	0/0 x SYN9_27 [ERROR]: "Initial reg assignment bound in for loop statements should be statically computable"
+
+Policy "IEEE_RTL_SYNTH_SUBSET", Ruleset "ASSIGNMENTS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x SYN6_1_1 [ERROR]: "Do not use assignment in net declaration"
+	0/0 x SYN6_1_5 [WARNING]: "Delay values in continuous assign statements are ignored"
+
+Policy "IEEE_RTL_SYNTH_SUBSET", Ruleset "DATA_TYPES":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x SYN3_2_1_B [ERROR]: "trireg nets are not supported for synthesis"
+	0/0 x SYN3_2_10 [ERROR]: "trior nets are not supported for synthesis"
+	0/0 x SYN3_2_4 [WARNING]: "Delays in net declaration are ignored"
+	0/0 x SYN3_2_7 [ERROR]: "tri1 nets are not supported for synthesis"
+	0/0 x SYN3_2_8 [ERROR]: "triand nets are not supported for synthesis"
+	0/0 x SYN3_2_9 [ERROR]: "tri0 nets are not supported for synthesis"
+
+Policy "IEEE_RTL_SYNTH_SUBSET", Ruleset "EXPRESSIONS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x SYN4_1_2 [ERROR]: "The case equality operator '===' is not supported in binary operations"
+	0/0 x SYN4_1_3 [ERROR]: "The case inequality operator '!==' is not supported in binary operations"
+	0/0 x SYN4_1_4 [ERROR]: "Real numbers are not supported for synthesis"
+
+Policy "IEEE_RTL_SYNTH_SUBSET", Ruleset "GATE_AND_SWITCH_LEVEL_MODELING":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x SYN7_1_18 [WARNING]: "Delay values in n input gate instantiations are ignored"
+	0/0 x SYN7_1_20 [WARNING]: "Delay values in n_output gate instantiations are ignored"
+	0/0 x SYN7_1_23 [WARNING]: "Delay values in enable gate instantiations are ignored"
+
+Policy "IEEE_RTL_SYNTH_SUBSET", Ruleset "HIERARCHICAL_STRUCTURES":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x SYN12_1 [ERROR]: "Macromodules are not supported for synthesis"
+	0/0 x SYN12_2 [ERROR]: "Input ports must not be assigned a value"
+
+Policy "IEEE_RTL_SYNTH_SUBSET", Ruleset "SPECIFY_BLOCKS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+
+Policy "IEEE_RTL_SYNTH_SUBSET", Ruleset "SYSTEM_TASKS_AND_FUNCTIONS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+
+Policy "IEEE_RTL_SYNTH_SUBSET", Ruleset "TASKS_AND_FUNCTIONS":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+	0/0 x SYN10_1 [ERROR]: "Writing to global variable <%item> in a function is not supported for synthesis"
+
+Policy "IEEE_RTL_SYNTH_SUBSET", Ruleset "USER_DEFINED_PRIMITIVES":
+	<violated>/<checked> x <label> [<severity>]:<message>
+	--------------------   ------- ----------------------
+
+
+-----------------------------------------------------------------
+--                    DESIGN violations                        --
+-----------------------------------------------------------------
+
+[WARNING] Some DFT rules among (TEST_953,TEST_954,TEST_966,TEST967,TEST_970,TEST_971,TEST_972,TEST_973)
+are selected but no test_clk, test_asynch are specified, so those checks are skipped !!
+
+Violations per rule:
+Policy: DFT  Ruleset: DATA_CAPTURE
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x DFT_003 [WARNING]: "Avoid using both positive-edge and negative-edge triggered flip-flops in your design"
+	0/1 x TEST_975 [ERROR]: "Latch enabled by a clock affects data input of flipflops clocked by the trailing edge of the same clock"
+	0/1 x TEST_978 [ERROR]: "Latch data gates clocks of flipflops. Combination of latch data and clock signal to clock a flipflop is not allowed"
+	0/1 x TEST_980 [ERROR]: "Flipflop data gates clocks to flipflops. Combination of flipflop data and clock signal to clock a flipflop is not allowed"
+	0/1 x TEST_994 [ERROR]: "Clock affects multiple clock or async ports of register"
+	0/1 x TEST_974 [ERROR]: "Latch enabled by a clock feeds latches enabled by the same clock"
+	0/1 x TEST_979 [ERROR]: "Latch data gates clocks enabling latches. Combination of latch data and clock signal to clock a latch is not allowed"
+	0/1 x TEST_981 [ERROR]: "Flipflop data gates clocks enabling latches. Combination of flipflop data and clock signal to clock a latch is not allowed"
+
+Policy: DFT  Ruleset: FAULT_COVERAGE
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x DFT_009 [ERROR]: "Register all outputs from the block for improved coverage: <%item>"
+	0/1 x TEST_960 [ERROR]: "Avoid asynchronous feedback loops"
+	0/1 x TEST_977 [ERROR]: "Flipflops capture only when more than one clock is on"
+	0/1 x TEST_976 [ERROR]: "Latches capture only when more than one clock is on"
+
+Policy: DFT  Ruleset: SCAN_INSERTION
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x DFT_002 [ERROR]: "Internally generated clock detected"
+	0/1 x TEST_963 [ERROR]: "Flipflops have clocks with no off-state controllability. Test Clock reaches flipflops but does not control them at beginning of cycle"
+	0/1 x TEST_968 [ERROR]: "Flipflops have asynchs that cannot be disabled. Test Asynch reaches flipflops but cannot disable their asynch controls"
+	0/1 x TEST_964 [ERROR]: "Latches have clocks with no off-state controllability. Test Clock reaches latches but does not control them at beginning of cycle"
+	0/1 x TEST_965 [ERROR]: "Latches not holding data in off-state. Test Clock reaches latch <%item> but does not hold data at beginning of cycle"
+	0/1 x TEST_969 [ERROR]: "Latches have asynchs that cannot be disabled. Test Asynch reaches latches  but cannot disable their asynch controls"
+
+Policy: DC  Ruleset: RTL
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x DCHDL_175 [ERROR]: "Clock variable is being used as data"
+
+Policy: VHD_STARC_DSG  Ruleset: S_1_2_SYNCHRONOUS_DESIGN
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VHD_1_2_1_1B [ERROR]: "Avoid using both positive-edge and negative-edge triggered flip-flops in your design"
+
+	0/1 x VHD_1_2_1_1A [ERROR]: "Avoid using multiple clocks in your design. <%value> clocks have been detected"
+
+
+Policy: VHD_STARC_DSG  Ruleset: S_2_4_LATCH_INFERENCE
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VHD_2_4_1_5 [ERROR]: "Latch enabled by a clock feeds latches enabled by the same clock"
+
+
+Policy: VHD_STARC_DSG  Ruleset: S_1_6_HIERARCHICAL_DESIGN
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VHD_1_6_2_1A [WARNING]: "Top level output ports should be registered."
+
+	0/1 x VHD_1_6_4_1 [FATAL]: "Do not include glue logic at top level"
+
+
+Policy: VHD_STARC_DSG  Ruleset: S_1_4_CLOCKS
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VHD_1_4_3_2 [ERROR]: "Internally generated clock detected"
+
+	0/1 x VHD_1_4_3_4 [ERROR]: "Do not use clock as data"
+
+	0/1 x VHD_1_4_1_1 [ERROR]: "Use gated clocks only in GENCLK block."
+
+	0/1 x VHD_1_4_2_1 [NOTE]: "Do not add buffer on clock trees"
+
+
+Policy: VHD_STARC_DSG  Ruleset: S_3_3_TEST_FACILITATION_DESIGN
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+
+Policy: VHD_STARC_DSG  Ruleset: S_1_3_INITIAL_RESET
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VHD_1_3_2_1 [ERROR]: "No gated reset/set/load except in reset generator GENRST : <%item> "
+
+	0/1 x VHD_1_3_2_2 [ERROR]: "Internally generated asynchronous reset/set/load <%item> detected"
+
+	0/1 x VHD_1_3_1_6 [FATAL]: "The same reset/set/load line <%item> should not be used as asynchronously and synchronously "
+
+
+Policy: VHD_STARC_DSG  Ruleset: S_1_5_ASYNCHRONOUS_CIRCUITS
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VHD_1_5_1_1 [FATAL]: "To avoid metastability, do not place logic between asynchronous clocks"
+
+
+Policy: VHD_STARC_DSG  Ruleset: S_2_3_FF_INFERENCE
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VHD_2_3_5_1 [ERROR]: "Flip-flop inputs should not be constants."
+
+
+Policy: VHD_STARC_DSG  Ruleset: S_2_5_TRISTATE_BUFFERS
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VHD_2_5_1_5 [FATAL]: "Do not use multiple drivers except for tri-state"
+
+
+Policy: VERILINT  Ruleset: CHECKER_ERROR
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x W403 [WARNING]: "Clock is used as data"
+	0/1 x W415 [WARNING]: "Multiple drivers to net <%item> detected"
+
+Policy: VCS  Ruleset: VCS_PERFORMANCE
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VCS_1 [WARNING]: "Avoid asynchronous feedback loops"
+
+Policy: VCS  Ruleset: RACE
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VCS_17 [WARNING]: "Regs must be assigned by one block only to avoid race conditions. Multiple drivers detected for <%item>"
+
+Policy: VER_STARC_DSG  Ruleset: S_1_2_SYNCHRONOUS_DESIGN
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VER_1_2_1_1B [ERROR]: "Avoid using both positive-edge and negative-edge triggered flip-flops in your design"
+
+	0/1 x VER_1_2_1_1A [ERROR]: "Avoid using multiple clocks in your design. <%value> clocks have been detected"
+
+
+Policy: VER_STARC_DSG  Ruleset: S_2_4_LATCH_INFERENCE
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VER_2_4_1_5 [ERROR]: "Latch enabled by a clock feeds latches enabled by the same clock"
+
+
+Policy: VER_STARC_DSG  Ruleset: S_1_6_HIERARCHICAL_DESIGN
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VER_1_6_2_1A [WARNING]: "Top level output ports should be registered."
+
+	0/1 x VER_1_6_4_1 [FATAL]: "Do not include glue logic at top level"
+
+
+Policy: VER_STARC_DSG  Ruleset: S_1_4_CLOCKS
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VER_1_4_3_2 [ERROR]: "Internally generated clock detected"
+
+	0/1 x VER_1_4_3_4 [ERROR]: "Do not use clock as data"
+
+	0/1 x VER_1_4_1_1 [ERROR]: "Use gated clocks only in GENCLK block."
+
+	0/1 x VER_1_4_2_1 [NOTE]: "Do not add buffer on clock trees"
+
+
+Policy: VER_STARC_DSG  Ruleset: S_3_3_TEST_FACILITATION_DESIGN
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+
+Policy: VER_STARC_DSG  Ruleset: S_1_3_INITIAL_RESET
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VER_1_3_2_1 [ERROR]: "No gated reset/set/load except in reset generator GENRST : <%item> "
+
+	0/1 x VER_1_3_2_2 [ERROR]: "Internally generated asynchronous reset/set/load <%item> detected"
+
+	0/1 x VER_1_3_1_6 [FATAL]: "The same reset/set/load line <%item> should not be used as asynchronously and synchronously "
+
+
+Policy: VER_STARC_DSG  Ruleset: S_1_5_ASYNCHRONOUS_CIRCUITS
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VER_1_5_1_1 [FATAL]: "To avoid metastability, do not place logic between asynchronous clocks"
+
+
+Policy: VER_STARC_DSG  Ruleset: S_2_3_FF_INFERENCE
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VER_2_3_5_1 [ERROR]: "Flip-flop inputs should not be constants."
+
+
+Policy: VER_STARC_DSG  Ruleset: S_2_5_TRISTATE_BUFFERS
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x VER_2_5_1_5 [FATAL]: "Do not use multiple drivers except for tri-state"
+
+
+Policy: RMM_RTL_CODING_GUIDELINES  Ruleset: CLOCKS_AND_RESETS
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x G_541_1 [WARNING]: "Avoid using both positive-edge and negative-edge triggered flip-flops in your design"
+	0/1 x G_544_1 [WARNING]: "Clock should be visible from top unit"
+	0/1 x G_546_1 [WARNING]: "Avoid internally generated reset/set/load <%item>"
+	0/1 x G_542_1 [WARNING]: "Buffers should not be explicitly added to clock path"
+	0/1 x G_543_1 [WARNING]: "Gated clocks are not allowed in the design."
+	0/1 x G_546_1 [WARNING]: "Avoid internally generated reset/set/load <%item>"
+
+Policy: RMM_RTL_CODING_GUIDELINES  Ruleset: PARTITIONING_FOR_SYNTHESIS
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x G_561_1 [WARNING]: "Drivers of output ports should be registered: <%item>"
+	0/1 x G_564_1 [WARNING]: "Avoid using asynchronous logic"
+	0/1 x G_568_1 [WARNING]: "Avoid glue logic at top level"
+
+Policy: RMM_RTL_CODING_GUIDELINES  Ruleset: CODING_FOR_SYNTHESIS
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x G_553_1 [WARNING]: "Avoid asynchronous feedback loops"
+
+Policy: XILINX  Ruleset: XILINX_VIRTEX2
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x XV2_1802 [ERROR]: "Combinational feedback loop detected. Xilinx requires that all combinational feedback loops be eliminated if possible."
+	0/1 x XV2_1205 [ERROR]: "Clocks must not be used as data"
+	0/1 x XV2_1204 [WARNING]: "[STRONG WARNING] Module/Unit with more than one clock detected. Xilinx strongly recommends that you do not include logic associated with multiple clocking domains in a single module/unit."
+	0/1 x XV2_1008 [ERROR]: "Reset line used both as synchronous and asynchronous reset is detected."
+	0/1 x XV2_1202 [WARNING]: "[STRONG WARNING] Clock gating detected. Xilinx warns that you avoid gating the clock and instead use the CE input of the sequential elements for controlling the clock. "
+	0/1 x XV2_1009 [WARNING]: "Register with fixed value reset is detected."
+
+Policy: XILINX  Ruleset: XILINX_VIRTEX2PRO
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x XV2P_1802 [ERROR]: "Combinational feedback loop detected. Xilinx requires that all combinational feedback loops be eliminated if possible."
+	0/1 x XV2P_1205 [ERROR]: "Clocks must not be used as data"
+	0/1 x XV2P_1204 [WARNING]: "[STRONG WARNING] Module/Unit with more than one clock detected. Xilinx strongly recommends that you do not include logic associated with multiple clocking domains in a single module/unit."
+	0/1 x XV2P_1008 [ERROR]: "Reset line used both as synchronous and asynchronous reset is detected."
+	0/1 x XV2P_1202 [WARNING]: "[STRONG WARNING] Clock gating detected. Xilinx warns that you avoid gating the clock and instead use the CE input of the sequential elements for controlling the clock. "
+	0/1 x XV2P_1009 [WARNING]: "Register with fixed value reset is detected."
+
+Policy: XILINX  Ruleset: XILINX_VIRTEX4
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x XV4_1802 [ERROR]: "Combinational feedback loop detected. Xilinx requires that all combinational feedback loops be eliminated if possible."
+	0/1 x XV4_1205 [ERROR]: "Clocks must not be used as data"
+	0/1 x XV4_1204 [WARNING]: "[STRONG WARNING] Module/Unit with more than one clock detected. Xilinx strongly recommends that you do not include logic associated with multiple clocking domains in a single module/unit."
+	0/1 x XV4_1008 [ERROR]: "Reset line used both as synchronous and asynchronous reset is detected."
+	0/1 x XV4_1202 [WARNING]: "[STRONG WARNING] Clock gating detected. Xilinx warns that you avoid gating the clock and instead use the CE input of the sequential elements for controlling the clock. "
+	0/1 x XV4_1009 [WARNING]: "Register with fixed value reset is detected."
+
+Policy: XILINX  Ruleset: XILINX_VIRTEX_SPARTAN2
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x XVSP2_1802 [ERROR]: "Combinational feedback loop detected. Xilinx requires that all combinational feedback loops be eliminated if possible."
+	0/1 x XVSP2_1203 [WARNING]: "Detected internally generated clocks."
+	0/1 x XVSP2_1204 [WARNING]: "[STRONG WARNING] Module/Unit with more than one clock detected. Xilinx strongly recommends that you do not include logic associated with multiple clocking domains in a single module/unit."
+	0/1 x XVSP2_1202 [WARNING]: "[STRONG WARNING] Clock gating detected. Xilinx warns that you avoid gating the clock and instead use the CE input of the sequential elements for controlling the clock. "
+
+Policy: FORMALITY  Ruleset: HARD_CASE
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x FM_1_1 [FATAL]: "Avoid asynchronous feedback loops"
+	0/1 x FM_1_2 [WARNING]: "Usage of complex arithmetic operations that include multiplication, division, remainder or modulus is not recommended (important memory usage)"
+
+Policy: FORMALITY  Ruleset: SIMULATION_MISMATCH
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x FM_2_8 [WARNING]: "Multiple non-tristate drivers detected for <%item>"
+
+Policy: DESIGNWARE  Ruleset: SEQUENTIAL
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x S_6C_R_A [ERROR]: "All outputs should be registered."
+
+Policy: DESIGNWARE  Ruleset: COMBINATIONAL
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x C_8C_R [ERROR]: "Avoid asynchronous feedback loop"
+
+Policy: DESIGNWARE  Ruleset: ARCHITECTURE
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x A_5C_R_A [ERROR]: "Buffers must not be explicitly added to clock path"
+	0/1 x A_3C_R [ERROR]: "Data must be registered by 2 flipflops when changing clock domains"
+	0/1 x A_8C_R [ERROR]: "No glue logic at top level"
+	0/1 x A_5C_R_B [ERROR]: "Gated clocks are not allowed in the design."
+	0/1 x A_5C_R_D [ERROR]: "Gated reset/set/load is not allowed in a design"
+	0/1 x A_5C_R_C [ERROR]: "Buffers must not be explicitly added to reset/set/load paths"
+
+Policy: LEDA  Ruleset: DESIGN_STRUCTURE
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	1/1 x C_1005 [ERROR]: "Top-level output port is not registered: <%item>"
+	0/1 x C_1000 [ERROR]: "Asynchronous feedback loop detected"
+	0/1 x C_1004 [ERROR]: "Glue logic at top-level is detected"
+	0/1 x C_1001 [ERROR]: "Flipflop with fixed value data input is detected"
+	0/1 x C_1009 [ERROR]: "Multiple non-tristate drivers to signal <%item> detected"
+	0/1 x C_1003 [ERROR]: "Latch detected in design (inferred or instantiated): <%item>"
+	0/1 x C_1006 [ERROR]: "Top-level inputs are not registered: <%item>"
+	0/1 x C_1007 [WARNING]: "Pulse generator detected"
+	0/1 x C_1008 [ERROR]: "Multiple drivers to signal <%item> detected"
+	0/1 x C_1002 [ERROR]: "Latch with fixed value data input is detected"
+
+Policy: LEDA  Ruleset: CLOCKS
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x C_1203 [ERROR]: "Internally generated clock detected (chip level)"
+	0/1 x C_1201 [ERROR]: "Clocks must not be used as data"
+	0/1 x C_1200 [ERROR]: "Only one clock allowed in the design. <%value> clocks have been identified"
+	0/1 x C_1204 [ERROR]: "No gated clock except in clock generator CKGEN."
+	0/1 x C_1206 [ERROR]: "Buffers must not be explicitly added to clock path"
+	0/1 x C_1202 [ERROR]: "Data must be registered by 2 flipflops when changing clock domain"
+	0/1 x C_1207 [ERROR]: "Avoid gated clocks in the design."
+	0/1 x C_1205 [ERROR]: "Use rising edge clock in the design"
+	0/1 x C_1208 [WARNING]: "Multiplexed clock is detected"
+	0/1 x C_1209 [ERROR]: "Register with fixed value clock is detected"
+
+Policy: LEDA  Ruleset: RESETS
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x C_1402 [ERROR]: "No gated reset/set/load except in reset/set/load generator RSTGEN"
+	0/1 x C_1404 [ERROR]: "Signal is used both as synchronous and asynchronous reset/set/load"
+	0/1 x C_1401 [ERROR]: "Avoid gated resets/sets/loads in design."
+	0/1 x C_1405 [ERROR]: "Register with fixed value reset/set/load is detected"
+	0/1 x C_1403 [ERROR]: "Buffers must not be explicitly added to reset/set/load paths"
+	0/1 x C_1406 [ERROR]: "Register with no reset/set is detected"
+	0/1 x C_1400 [ERROR]: "Only 1 reset/set/load allowed in the design. <%value>  have been detected"
+
+Policy: SCIROCCO_CYCLE  Ruleset: SLOW_SIM
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x SC_204 [WARNING]: "Use of both rising and falling edge triggered logic will yield extra cycle mode triggers which in turn will degrade simulation performance."
+
+Policy: SCIROCCO_CYCLE  Ruleset: CHIP_LEVEL
+	<violated>/<checked> x <label> [<severity>]:<message>
+	------- --------------------- ----------------------
+	0/1 x SC_305 [WARNING]: "Asynchronous feedback loops are not recommended in cycle mode."
+	0/1 x SC_301 [NOTE]: "In any cycle mode partitioned block, the clock should be an input to the block."
+	0/1 x SC_303 [NOTE]: "<%value> clocks have been detected in this cycle mode partitioned block"
+	0/1 x SC_302 [NOTE]: "In any cycle mode partitioned block, the asynchronous reset/set/load should be an input to the block; <%item> is not an input"
+	0/1 x SC_300 [WARNING]: "Gated clocks create extra cycle mode triggers."
+	0/1 x SC_304 [NOTE]: "<%value> resets have been detected in this cycle mode partitioned block"
+
+Total number of violations: 1
+
+Policy: DESIGN  Ruleset: CDC
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x NTL_CDC01 [FATAL]: "no synchronization scheme found for signals crossing clock domains"
+	0/1 x NTL_CDC01_0 [WARNING]: "Flip-flop Synchronizer Detected"
+	0/1 x NTL_CDC01_1 [WARNING]: "Logic Synchronizer Detected"
+	0/1 x NTL_CDC01_2 [WARNING]: "Protocol Synchronizer Detected"
+	0/1 x NTL_CDC01_3 [WARNING]: "Complex Synchronizer Detected"
+	0/1 x NTL_CDC01_4 [WARNING]: "User defined Synchronizer Detected"
+	0/1 x NTL_CDC01_5 [WARNING]: "Fifo Synchronizer Detected"
+	0/1 x NTL_CDC01_6 [WARNING]: "Handshake Synchronizer Detected"
+	0/1 x NTL_CDC02 [WARNING]: "Convergence found in clock domain crossing path"
+	0/1 x NTL_CDC03 [WARNING]: "Divergence found in clock domain crossing path"
+	0/1 x NTL_CDC04 [WARNING]: "Divergence of meta-stable signal detected"
+	0/1 x NTL_CDC05 [FATAL]: "Convergence between signals coming from different synchronizers"
+	0/1 x NTL_CDC06 [WARNING]: "CDC control signal must be stable enough (property generated)"
+	0/1 x NTL_CDC07 [FATAL]: "Reconverging control path detected"
+	0/1 x NTL_CDC08 [WARNING]: "Multiple CDC control signals must be gray coded, property generated"
+	0/1 x NTL_CDC10 [WARNING]: "Different Clock Polarity FFs in a Simple Synchronizer"
+	0/1 x NTL_CDC11 [WARNING]: "A single bit CDC signal is synchronized by a FF synchronizer where one of the synchronizing FF (in that FF synchronizer) has a Gated Clock"
+	0/1 x NTL_CDC12 [WARNING]: "A CDC vector signal is being synched by a set of FF synchronizers where at least one of the FF synchronizers has a synchronizing FF with a gated clock "
+	0/1 x NTL_CDC13 [WARNING]: "A CDC signal has an Asynchronous reset port and the reset port is fed by a signal from a different clock domain"
+	0/1 x NTL_CDC14 [WARNING]: "Control and Data Signals of a MUX (Logic) Synchronizer must be Stable Enough (Property Generated)"
+	0/1 x NTL_CDC15 [WARNING]: "A Handshake Synchronizer Must Implement The Handshake Protocol and Data Stability Correctly (Property Generated)"
+	0/1 x NTL_CDC16 [WARNING]: "A FIFO Synchronizer Must Implement the FIFO Protocol and Data Stability Correctly (Property Generated)"
+
+
+Policy: DESIGN  Ruleset: CLOCKS
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x NTL_CLK01 [ERROR]: "Use only one clock domain"
+	0/1 x NTL_CLK02 [ERROR]: "Use only one clock signal per unit"
+	0/1 x NTL_CLK03 [ERROR]: "Use only one edge of the clock"
+	0/1 x NTL_CLK05 [ERROR]: "Data must be registered by 2 or more flipflops when crossing clock domain"
+	0/1 x NTL_CLK07 [ERROR]: "Avoid gated clocks unless absolutely necessary"
+	0/1 x NTL_CLK08 [ERROR]: "If gated clocks are necessary, isolate them and make them global"
+	0/1 x NTL_CLK09 [ERROR]: "All clock signals should be generated in a module driven by a single external clock"
+	0/1 x NTL_CLK10 [ERROR]: "Clock signal gated with an OR gate"
+	0/1 x NTL_CLK11 [ERROR]: "Clock signal gated with an AND gate"
+	0/1 x NTL_CLK13 [ERROR]: "Buffer on clock path detected"
+	0/1 x NTL_CLK14 [ERROR]: "Inverter on clock path detected"
+	0/1 x NTL_CLK15 [ERROR]: "Clock pin not connected to clock net"
+	0/1 x NTL_CLK17 [ERROR]: "Reconvergent path on clock tree detected"
+	0/1 x NTL_CLK19 [ERROR]: "Do not add XOR or XNOR on clock path"
+	0/1 x NTL_CLK20 [ERROR]: "Use only OR gate for joined clock"
+	0/1 x NTL_CLK21 [ERROR]: "Pulse generator created by self flip-flop"
+	0/1 x NTL_CLK22 [ERROR]: "Clock chopper/extender detection"
+	0/1 x NTL_CLK23 [ERROR]: "Multiple asynchronous clock domain signals converging on"
+	0/1 x NTL_CLK24 [NOTE]: "Multibit Control signal crossing clock domain should be Gray coded"
+	0/1 x NTL_CLK25 [NOTE]: "Control signal crossing clock domain"
+	0/1 x NTL_CLK26 [NOTE]: "Control signal crossing clock domain with data transfer"
+	0/1 x NTL_CLK27 [WARNING]: "Control signal crossing clock domain without data transfer"
+	0/1 x NTL_CLK28 [WARNING]: "Use only user specified cells for clock gating"
+	0/1 x NTL_CLK29 [NOTE]: "Primary Input feeds multiple clock domain"
+	0/1 x NTL_CLK30 [WARNING]: "Reset is used in multiple clock domain"
+	0/1 x NTL_CLK33 [WARNING]: "Detect the combinational circuit other than selector(multiplexor) which merges the multiple clocks"
+	0/1 x NTL_CLK34 [ERROR]: "Do not use meta-stable filpflop"
+	0/1 x NTL_CLK35 [ERROR]: "Do not use internally generated clock derived from sequential element"
+	0/1 x NTL_CLK36 [ERROR]: "Do not use cells that has sdf_cond attribute in clock line."
+	0/1 x NTL_CLK37 [WARNING]: "Gated clock cell which has more than 2 inputs is found"
+	0/1 x NTL_CLK38 [ERROR]: "Loop is found, output of FF is connected own reset/set/clock pin."
+	0/1 x NTL_CLK39 [WARNING]: "Multiple combinational blocks are found on the clock path:"
+	0/1 x NTL_CLK42 [WARNING]: "SET and RESET of F/F which drives enable signal must be clamped:"
+	0/1 x NTL_CLK44 [WARNING]: "Clock gating enable is illegal:"
+	0/1 x NTL_CLK44A [WARNING]: "Illegal clock gater:"
+	0/1 x NTL_CLK45 [ERROR]: "Do not assign fix value to enable signal of clock gating cell "
+	0/1 x NTL_CLK46 [ERROR]: "Do not put DB cell that does not have timing-arc in out-pin on clock line:"
+	0/1 x NTL_CLK47 [ERROR]: "Clock of flip-flop/latch is unconstrained"
+	0/1 x NTL_CLK48 [ERROR]: "Clock is constrained and tied to constant in test mode"
+	0/1 x NTL_CLK49 [ERROR]: "Clock signal gated with a XOR gate"
+	0/1 x NTL_CLK50 [ERROR]: "Clock signal gated with a MUX"
+	0/1 x NTL_CLK51 [ERROR]: "Identical gated clocks detected"
+	0/1 x NTL_CLK52 [ERROR]: "Detected the cell which contains a latch controlling the gated clock inside"
+	0/1 x NTL_CLK53 [ERROR]: "Detected the cell which contains multiple gated clocks"
+
+
+Policy: DESIGN  Ruleset: CONNECTIVITY
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x NTL_CON01 [ERROR]: "Unconnected top level input port"
+	0/1 x NTL_CON02 [ERROR]: "Unconnected top level output port"
+	0/1 x NTL_CON03 [ERROR]: "Unconnected top level inout port"
+	0/1 x NTL_CON04 [ERROR]: "All input pins tied together"
+	0/1 x NTL_CON05 [ERROR]: "Some input pins tied together"
+	0/1 x NTL_CON06 [ERROR]: "input pin tied to supply"
+	0/1 x NTL_CON08 [ERROR]: "floating output pin"
+	0/1 x NTL_CON09 [ERROR]: "all output pins are unconnected (dead gates)"
+	0/1 x NTL_CON10 [ERROR]: "output tied to supply"
+	0/1 x NTL_CON12 [ERROR]: "undriven net"
+	0/1 x NTL_CON12A [ERROR]: "undriven internal net"
+	0/1 x NTL_CON12B [ERROR]: "undriven hierarchical pin"
+	0/1 x NTL_CON12C [ERROR]: "undriven port"
+	0/1 x NTL_CON13 [ERROR]: "non driving net"
+	0/1 x NTL_CON13A [ERROR]: "non driving internal net"
+	0/1 x NTL_CON13B [ERROR]: "non driving hierarchical pin"
+	0/1 x NTL_CON13C [ERROR]: "non driving port"
+	0/1 x NTL_CON14 [ERROR]: "All input pins must be connected"
+	0/1 x NTL_CON15 [ERROR]: "Power rails belonging to different supply types should not short"
+	0/1 x NTL_CON16 [ERROR]: "Nets or cell pins should not be tied to logic 0 / logic 1"
+	0/1 x NTL_CON17 [ERROR]: "Do not connect tie off cell to logic 0 /logic 1"
+	0/1 x NTL_CON18 [ERROR]: "There is output port, but it is not connected internally"
+	0/1 x NTL_CON19 [ERROR]: "There is input port that is connected to both input and output of cell"
+	0/1 x NTL_CON20 [ERROR]: "Connection of diodes"
+	0/1 x NTL_CON21 [WARNING]: "Diodes should be used at top level"
+	0/1 x NTL_CON22 [ERROR]: "Incorrect connection: module input is connected to output of its sub-module"
+	0/1 x NTL_CON23 [ERROR]: "Incorrect connection: module output is connected to input of its sub-module"
+	0/1 x NTL_CON24 [WARNING]: "Cells output is fixed value"
+	0/1 x NTL_CON25 [WARNING]: "Number of pin-pairs in design"
+	0/1 x NTL_CON26 [WARNING]: "Do not connect the block to the prohibited pin: "
+	0/1 x NTL_CON27 [WARNING]: "The specified pin of the block should be connected to the designated pin: "
+	0/1 x NTL_CON28 [ERROR]: "Should not use inout ports in user defined modules/instances "
+	0/1 x NTL_CON29 [ERROR]: "Should not connect the output ports of user defined modules/instances to VDD/GND internally"
+	0/1 x NTL_CON32 [ERROR]: "Change on net has no effect on any of the outputs"
+	0/1 x NTL_CON33 [ERROR]: "None of the inputs have any effect on net"
+
+
+Policy: DESIGN  Ruleset: DFT
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x NTL_DFT02 [ERROR]: "Separate DFT functionality from regular functionality"
+	0/1 x NTL_DFT03 [ERROR]: "Full scan test is required"
+	0/1 x NTL_DFT07 [ERROR]: "Internally generated output enable signal must be observable/controllable"
+	0/1 x NTL_DFT08 [ERROR]: "No contention may take place during scan-test mode"
+	0/1 x NTL_DFT09 [ERROR]: "Scan-input and scan output must be a primary input/output"
+	0/1 x NTL_DFT10 [ERROR]: "Scan chain too long"
+	0/1 x NTL_DFT11 [ERROR]: "Flip-flops in a scan chain must have a common scan clock"
+	0/1 x NTL_DFT12 [ERROR]: "Separate scan chain for different clocks domain"
+	0/1 x NTL_DFT13 [ERROR]: "Use a single clock edge for a given scan-chain"
+	0/1 x NTL_DFT14 [ERROR]: "Use a single clock for a given scan-chain"
+	0/1 x NTL_DFT15 [ERROR]: "All scan-in input port must be controllable from the top"
+	0/1 x NTL_DFT16 [ERROR]: "All scan-out output port must be observable from the top"
+	0/1 x NTL_DFT17 [ERROR]: "Scan-in used in combinatorial part"
+	0/1 x NTL_DFT22 [ERROR]: "Use one synchronous clock (positive or negative edge) during test"
+	0/1 x NTL_DFT23 [ERROR]: "Clock signal must be controllable"
+	0/1 x NTL_DFT24 [ERROR]: "Internally generated clock must be observable/controllable"
+	0/1 x NTL_DFT25 [ERROR]: "Make sure that all sequential scan-cells are driven with a test clock while the scan mode is active"
+	0/1 x NTL_DFT26 [ERROR]: "Scan clock control flipflop data"
+	0/1 x NTL_DFT27 [ERROR]: "Scan clock control I/O cell"
+	0/1 x NTL_DFT28 [ERROR]: "Scan clock should be called scan_clk..."
+	0/1 x NTL_DFT29 [ERROR]: "Asynchronous set/reset inputs of flipflops must be inactive during scantest"
+	0/1 x NTL_DFT30 [ERROR]: "Do not use asynchronous presets or clears driven by combinatorial logic or by the output of a flip flop"
+	0/1 x NTL_DFT31 [ERROR]: "Internally generated reset/set must be observable/controllable"
+	0/1 x NTL_DFT32 [ERROR]: "Connect all non-observable nodes of the design to a Xor tree"
+	0/1 x NTL_DFT34 [ERROR]: "Use data-look-up latches for clock domain crossings"
+	0/1 x NTL_DFT36 [ERROR]: "Do not use scan-type flip flops for functional mode"
+	0/1 x NTL_DFT37 [ERROR]: "Insert scan flip-flop around Black box"
+	0/1 x NTL_DFT38 [ERROR]: "Flip-flop without reset detected"
+	0/1 x NTL_DFT39 [ERROR]: "Flip-flop without scan-in detected"
+	0/1 x NTL_DFT40 [ERROR]: "Flip-flop without scan-enable detected"
+	0/1 x NTL_DFT42 [ERROR]: "Flip-flop input pin is unconnected"
+	0/1 x NTL_DFT43 [ERROR]: "Flip-flop reset pin is unconnected"
+	0/1 x NTL_DFT44 [ERROR]: "Flip-flop set pin is unconnected"
+	0/1 x NTL_DFT45 [ERROR]: "Flip-flop clock pin is unconnected"
+	0/1 x NTL_DFT46 [ERROR]: "Flip-flop scan-in pin is unconnected"
+	0/1 x NTL_DFT47 [ERROR]: "Flip-flop scan-enable pin is unconnected"
+	0/1 x NTL_DFT48 [ERROR]: "Flip-flop scan-enable pin not connected to scan-enable signal"
+	0/1 x NTL_DFT49 [ERROR]: "Flip-flop scan-out pin is unconnected"
+	0/1 x NTL_DFT50 [ERROR]: "All sequential cells must be connected to a test clock in test mode"
+	0/1 x NTL_DFT52 [ERROR]: "All set/reset pins must be controllable during test mode"
+	0/1 x NTL_DFT53 [ERROR]: "Scan-enable must be controllable from the top"
+	0/1 x NTL_DFT54 [ERROR]: "Insert test enable for scan test"
+	0/1 x NTL_DFT55 [ERROR]: "Test-enable signal must be generated from the scan-mode or directly from the primary inputs"
+	0/1 x NTL_DFT56 [ERROR]: "Scan-enable used in combinatorial part"
+	0/1 x NTL_DFT57 [ERROR]: "Inputs and Outputs of Black Box should be connected to FFs"
+	0/1 x NTL_DFT58 [WARNING]: "Gate signal of latch should be thru during test mode:"
+
+
+Policy: DESIGN  Ruleset: LANGUAGE
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x NTL_LAN01 [ERROR]: "Tri assignment target must be a port"
+	0/1 x NTL_LAN15 [ERROR]: "Unused signals"
+	0/1 x NTL_LAN21 [ERROR]: "Netlist and libraries shall not have upper-lower case clash"
+	0/1 x NTL_LAN22 [ERROR]: "Do not use escaped names"
+	0/1 x NTL_LAN24 [WARNING]: "Do not distinguish names by using upper or lower case English letters in the same module"
+
+
+Policy: DESIGN  Ruleset: NAMING
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x NTL_NAM01 [ERROR]: "Use the same name for all clocks that are driven from the same source"
+	0/1 x NTL_NAM02 [ERROR]: "Clock ports must be assigned to internal clock signals that start with clk"
+	0/1 x NTL_NAM03 [ERROR]: "A reset port must be assigned to an internal reset signal that starts with rst"
+	0/1 x NTL_NAM07 [ERROR]: "A registered output port should end with _r"
+	0/1 x NTL_NAM09 [ERROR]: "Intentionally latched signals must end with _q"
+	0/1 x NTL_NAM16 [ERROR]: "Active low signals must end with "
+	0/1 x NTL_NAM18 [ERROR]: "A signal fed through an inverter or buffer may only have its suffix changed"
+
+
+Policy: DESIGN  Ruleset: PAD
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x NTL_PAD04 [ERROR]: "Cell whose PAD pin is not connected to an external signal of the top unit"
+	0/1 x NTL_PAD05 [ERROR]: "Controllable pull-up"
+	0/1 x NTL_PAD06 [ERROR]: "Controllable pull-down"
+	0/1 x NTL_PAD07 [ERROR]: "Push pull always disabled"
+	0/1 x NTL_PAD08 [ERROR]: "Input port always disabled"
+	0/1 x NTL_PAD09 [ERROR]: "Forbidden PAD connection"
+	0/1 x NTL_PAD10 [ERROR]: "Output port always disabled"
+	0/1 x NTL_PAD11 [ERROR]: "Isolate I/O PAD from the core logic"
+	0/1 x NTL_PAD13 [ERROR]: "Primary inputs of the core must be connected to exactly 1 PAD cell"
+	0/1 x NTL_PAD14 [ERROR]: "The PAD terminal of I/O buffer should be connected to primary port only"
+	0/1 x NTL_PAD15 [ERROR]: "Primary ports must be connected to PAD cell"
+
+
+Policy: DESIGN  Ruleset: PARAM
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x NTL_PARAM01 [WARNING]: "Overridden Parameter"
+
+
+Policy: DESIGN  Ruleset: PARTITIONING
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x NTL_PAR12 [ERROR]: "Separate flip-flops with asynchronous sets or resets into separate modules"
+	0/1 x NTL_PAR13 [ERROR]: "Separate the design according to clock domains"
+	0/1 x NTL_PAR17 [ERROR]: "Asynchronous parts should be placed in separate units"
+	0/1 x NTL_PAR18 [ERROR]: "Clock and Reset generators should be located at the top of the design in a dedicated module"
+	0/1 x NTL_PAR19 [ERROR]: "Clock generation logic should be put in a particular module"
+
+
+Policy: DESIGN  Ruleset: RESETS
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x NTL_RST01 [ERROR]: "Use only one reset domain"
+	0/1 x NTL_RST02 [ERROR]: "A system reset must be defined"
+	0/1 x NTL_RST03 [ERROR]: "All registers must be asynchronously set or reset"
+	0/1 x NTL_RST04 [ERROR]: "Reset/set must not be used as data"
+	0/1 x NTL_RST07 [ERROR]: "Don't use one reset signal for both asynchronous reset and synchronous reset"
+	0/1 x NTL_RST08 [ERROR]: "Locally gated asynchronous resets should be avoided"
+	0/1 x NTL_RST09 [ERROR]: "Reset signal gated with an OR gate"
+	0/1 x NTL_RST10 [ERROR]: "Reset signal gated with an AND gate"
+	0/1 x NTL_RST11 [ERROR]: "Reset signal gated with another combinatorial cell"
+	0/1 x NTL_RST12 [ERROR]: "Buffer on reset path detected"
+	0/1 x NTL_RST13 [ERROR]: "Inverter on reset path detected"
+	0/1 x NTL_RST14 [ERROR]: "Reset pin not connected to reset net"
+	0/1 x NTL_RST16 [ERROR]: "Reconvergent path on reset tree detected"
+	0/1 x NTL_RST17 [ERROR]: "Reset gating must take care of the flip-flop triggering edge. Flip-flop must be of opposite edge."
+	0/1 x NTL_RST18 [ERROR]: "Reset/Set signal must not interact with the other latch pins"
+	0/1 x NTL_RST19 [ERROR]: "Use only one edge of the reset"
+	0/1 x NTL_RST20 [ERROR]: "All latches must be asynchronously set or reset"
+	0/1 x NTL_RST21 [NOTE]: "Generates Clock-to-Preset/Clear usage matrix for specified clock and preset/clear signals"
+	0/1 x NTL_RST22 [ERROR]: "If you internally generate reset signals, do so in a single module instantiated at the top-level of the design:"
+	0/1 x NTL_RST24 [WARNING]: "Source and Destination flip-flops use different asynchronous resets, Source flip-flop:"
+	0/1 x NTL_SET01 [ERROR]: "Use only one set domain"
+	0/1 x NTL_SET02 [ERROR]: "Use only one edge of the set"
+	0/1 x NTL_SET03 [ERROR]: "Don't use one set signal for both asynchronous set and synchronous set"
+	0/1 x NTL_SET04 [ERROR]: "Locally gated asynchronous sets should be avoided"
+
+
+Policy: DESIGN  Ruleset: STRUCTURE
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x NTL_STR01 [ERROR]: "Use only fully synchronous flip-flops"
+	0/1 x NTL_STR02 [ERROR]: "Avoid asynchronous design ."
+	0/1 x NTL_STR03 [ERROR]: "Input pins should be registered."
+	0/1 x NTL_STR04 [ERROR]: "Enable signals of bidirectional PADs should be registered before being connected to an output"
+	0/1 x NTL_STR05 [ERROR]: "A signal that passes through several hierarchical levels must have the same name throughout ."
+	0/1 x NTL_STR06 [ERROR]: "Top level output should be registered"
+	0/1 x NTL_STR07 [ERROR]: "Avoid glue logic at top level"
+	0/1 x NTL_STR08 [ERROR]: "The number of gates instantiation should not exceed "
+	0/1 x NTL_STR09 [ERROR]: "Avoid snake paths"
+	0/1 x NTL_STR11 [ERROR]: "VDD and GND must not be fed directly into logic"
+	0/1 x NTL_STR12 [ERROR]: "Avoid nets  that branch out to two different ports of the same module"
+	0/1 x NTL_STR13 [ERROR]: "Re-entrant outputs are not allowed (except for bi-directional pins)"
+	0/1 x NTL_STR14 [ERROR]: "Check that circuits labeled _meta are really proper metastable circuits"
+	0/1 x NTL_STR15 [ERROR]: "Give unique names to synchronizers so that they can be identified"
+	0/1 x NTL_STR16 [ERROR]: "Do not use bi-directional ports in sub-modules of your design"
+	0/1 x NTL_STR19 [ERROR]: "Detected multiply driven signal"
+	0/1 x NTL_STR20 [ERROR]: "Each output enable signal should be assigned to no more than"
+	0/1 x NTL_STR21 [ERROR]: "The level of the design hierarchy should not exceed "
+	0/1 x NTL_STR23 [ERROR]: "Max number of fanout between modules"
+	0/1 x NTL_STR24 [ERROR]: "Number of logical levels between 2 flipflops exceeds maximum limit"
+	0/1 x NTL_STR26 [ERROR]: "No INOUT's at any top level block, although acceptable they consume a lot of resources in the box"
+	0/1 x NTL_STR27 [ERROR]: "Parallel inverters"
+	0/1 x NTL_STR28 [ERROR]: "Delay line"
+	0/1 x NTL_STR29 [ERROR]: "Pulse generator"
+	0/1 x NTL_STR30 [ERROR]: "Shift registers"
+	0/1 x NTL_STR31 [ERROR]: "Netlist not uniquified"
+	0/1 x NTL_STR32 [ERROR]: "Reconvergent path detected"
+	0/1 x NTL_STR34 [ERROR]: "No internal three-state buffers are allowed."
+	0/1 x NTL_STR43 [ERROR]: "Use template for inferred tri-state buffer"
+	0/1 x NTL_STR44 [ERROR]: "A core tri-state signal must be driven from a separate module"
+	0/1 x NTL_STR45 [ERROR]: "Single tri-state detected"
+	0/1 x NTL_STR47 [ERROR]: "Do not use latch"
+	0/1 x NTL_STR48 [ERROR]: "Latches shall be instantiated using the VLSI generic latch components"
+	0/1 x NTL_STR50 [ERROR]: "Inhibit: Latch to Latch path detected"
+	0/1 x NTL_STR51 [ERROR]: "Inhibit: Latch with set&reset"
+	0/1 x NTL_STR52 [ERROR]: "Flip-flop not active in test mode"
+	0/1 x NTL_STR53 [ERROR]: "Anti-skew latch enable not controlled by main clock"
+	0/1 x NTL_STR55 [ERROR]: "Do not use bi-directional ports for scan enable"
+	0/1 x NTL_STR57 [ERROR]: "Inhibit: multiple asynchronous reset(set) signal."
+	0/1 x NTL_STR58 [ERROR]: "Register controled by multiple clock"
+	0/1 x NTL_STR59 [ERROR]: "Inout signal connect to register clock"
+	0/1 x NTL_STR60 [ERROR]: "Do not use bi-directional ports for clocks"
+	0/1 x NTL_STR62 [ERROR]: "Netlist shall not have parallel drive situations"
+	0/1 x NTL_STR63 [ERROR]: "Tristate and non tristate drivers are driving the same net"
+	0/1 x NTL_STR65 [ERROR]: "The number of buffers/inverters should not exceed the user specified percentage of total cell count"
+	0/1 x NTL_STR66 [ERROR]: "Do not instantiated big buffers"
+	0/1 x NTL_STR67 [ERROR]: "The max number of flip-flops that belong to one clock domain should not exceed"
+	0/1 x NTL_STR68 [ERROR]: "Don't use that cell"
+	0/1 x NTL_STR69 [ERROR]: "Do not use feedthrough"
+	0/1 x NTL_STR70 [ERROR]: "Set and reset signal must not come from a common source"
+	0/1 x NTL_STR71 [ERROR]: "Do not use ring oscillator"
+	0/1 x NTL_STR72 [ERROR]: "A not-tristate net can have only one non-tristate driver"
+	0/1 x NTL_STR73 [ERROR]: "A tristate net shall have exactly 1 bus keeper cell"
+	0/1 x NTL_STR74 [ERROR]: "A non tristate net shall have zero bus keeper"
+	0/1 x NTL_STR75 [ERROR]: "Different Vt cells used"
+	0/1 x NTL_STR76 [ERROR]: "A non-tristate net can have only one non-tristate driver except in case of parallel driver"
+	0/1 x NTL_STR77 [ERROR]: "Prohibited Cell"
+	0/1 x NTL_STR77A [ERROR]: "Prohibited cell found"
+	0/1 x NTL_STR78 [ERROR]: "Output of latch is connected to self input"
+	0/1 x NTL_STR79 [ERROR]: "Redundant logic"
+	0/1 x NTL_STR80 [NOTE]: "The total cell area"
+	0/1 x NTL_STR81 [ERROR]: "When use FF/LATCH with both set and reset, either set or reset should be connected to fixed value(VDD/GND)"
+	0/1 x NTL_STR82 [ERROR]: "Reset/Set of FF/LATCH should be connected to system reset/set or noise cancel circuit"
+	0/1 x NTL_STR83 [ERROR]: "Use only parallel connections that are supported by Primetime"
+	0/1 x NTL_STR84 [ERROR]: "Latch enabled by a clock feeds latches enabled by the same clock"
+	0/1 x NTL_STR86 [ERROR]: "No Fanout within synchronizer"
+	0/1 x NTL_STR87 [NOTE]: "The name and number of all cells"
+	0/1 x NTL_STR88 [NOTE]: "The number of ports"
+	0/1 x NTL_STR89 [NOTE]: "Signal driven by multiple modules"
+	0/1 x NTL_STR90 [ERROR]: "No bus contention on"
+
+
+Policy: POWER  Ruleset: ISOLATION_CELLS
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x ICINSALL [ERROR]: "Missing isolation cell"
+	0/1 x ICINSIN [ERROR]: "Missing isolation cell"
+	0/1 x ICINSOUT [ERROR]: "Missing isolation cell"
+	0/1 x ICLOCALL [ERROR]: "Isolation cell must be located outside power domain"
+	0/1 x ICNOBUF [ERROR]: "No buffer is allowed between output port"
+	0/1 x ICNONEED [ERROR]: "Isolation cell is unnecessary"
+	0/1 x ICNONEEDIN [ERROR]: "Isolation cell is unnecessary"
+	0/1 x ICOFFVAL [ERROR]: "Isolation cell power off value mismatch with control specification of power domain"
+	0/1 x ICPINVOLT [ERROR]: "Pin of isolation cell"
+
+
+Policy: POWER  Ruleset: LEVEL_SHIFTERS
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x LSINSALL [ERROR]: "Missing level shifter"
+	0/1 x LSINSH2L [ERROR]: "Missing level shifter"
+	0/1 x LSINSL2H [ERROR]: "Missing level shifter"
+	0/1 x LSLOCALL [WARNING]: "Level shifter must be located in the lower voltage domain"
+	0/1 x LSLOCH2L [WARNING]: "Level shifter (high to low) must be located in the lower voltage domain"
+	0/1 x LSLOCL2H [WARNING]: "Level shifter (low to high) must be located in the higher voltage domain"
+	0/1 x LSNONEED [ERROR]: "Unnecessary level shifter"
+	0/1 x LSPINVOLT [ERROR]: "Level shifter badly connected"
+	0/1 x LSPOWALL [ERROR]: "Level shifter must be located outside power domain"
+	0/1 x LSREDPAR [ERROR]: "Better split out wires after level shifters than before:"
+	0/1 x LSREDSER [ERROR]: "Level shifter is unnecessary (redundant with"
+	0/1 x VDPAR [WARNING]: "Avoid disjoint voltage domains:"
+
+
+Policy: POWER  Ruleset: RTL
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x RTLPOW22 [WARNING]: "Extra drivers detected for powerup_ack_net signal:"
+	0/1 x RTLPOW23 [WARNING]: "Non edge-sensitive logic detected on boundary of power-down region:"
+	0/1 x RTLPOW24 [WARNING]: "Nested non-contiguous power regions detected:"
+
+
+Policy: VER_STARC_DSG  Ruleset: S_1_2_SYNCHRONOUS_DESIGN
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x VER_1_2_1_3 [FATAL]: "Asynchronous feedback loop detected"
+"
+
+
+Policy: VER_STARC_DSG  Ruleset: S_1_3_INITIAL_RESET
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x VER_1_3_1_3 [ERROR]: "Do not use asynchronous set or reset pins for anything other than initial reset"
+"
+	0/1 x VER_1_3_1_2 [WARNING]: "Use asynchronous reset for initial reset to register"
+"
+	0/1 x VER_1_3_1_7 [ERROR]: "Do not use asynchronous reset and asynchronous set in same flipflop "
+"
+
+
+Policy: VER_STARC_DSG  Ruleset: S_1_4_CLOCKS
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x VER_1_4_3_4A [ERROR]: "Clock signal is connected to the select pin of the MUX"
+
+
+Policy: VER_STARC_DSG  Ruleset: S_1_6_HIERARCHICAL_DESIGN
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x VER_1_6_1_2 [ERROR]: "Hierarchy should contain 2000-10000 gates"
+"
+	0/1 x VER_1_6_1_1 [WARNING]: "Limit gate size of a single level to 10000 gates"
+"
+
+
+Policy: VER_STARC_DSG  Ruleset: S_2_5_TRISTATE_BUFFERS
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x VER_2_5_1_2 [WARNING]: "Do not use logic in conditional expression to infer tristate"
+"
+
+
+Policy: VER_STARC_DSG  Ruleset: S_3_3_TEST_FACILITATION_DESIGN
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x VER_3_3_1_3 [ERROR]: "The output of random logic should not be used as a clock"
+"
+	0/1 x VER_3_3_3_2 [WARNING]: "VDD or GND should not be connected to the D input of a flipflop"
+"
+	0/1 x VER_3_3_6_3 [FATAL]: "A flipflop output must not be directly connected to an asynchronous set or reset:"
+"
+	0/1 x VER_3_3_6_2 [FATAL]: "Do not mix clock and reset lines"
+"
+	0/1 x VER_3_3_8_2 [WARNING]: "Tristate enable signals should be controllable from the outside"
+"
+	0/1 x VER_3_3_3_1 [FATAL]: "A clock must not be connected to the D input of a flipflop"
+"
+
+
+Policy: VER_STARC_DSG  Ruleset: S_3_4_LOW_POWER
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x VER_3_4_1_1 [FATAL]: "Gated clocks can only be used at the top level"
+"
+
+
+Policy: XILINX  Ruleset: XILINX_VIRTEX4
+	<violated>/<checked> x <label> [<severity>]:<message>
+	---------- ------------------- ----------------------
+	0/1 x XV4_1203 [ERROR]: "Detected internally generated clocks."
+	0/1 x XV4_1614 [WARNING]: "Black-Box component not in Xilinx DB libraries is detected"
+	0/1 x XV4_1616 [WARNING]: "Flip-flop that likely to be merged in synthesis is detected"
+	0/1 x XV4_1206 [NOTE]: "Detected input DDR flip-flop"
+	0/1 x XV4_1615 [WARNING]: "Output Double Data Rate Register functionality is detected"
+
+
+-----------------------------------------------------------------
+--                    DESIGN REPORT                            --
+-----------------------------------------------------------------
+
+Name of the top:        des
+
+Library containing the top unit:        /export/home/user/wangyl/mini_rtlqa_env/digital/impl/leda/run_dir/leda-libs/LEDA_WORK
+
+Number of design pins:  89
+
+Number of hierarchy levels in the design:       4
+
+Number of flipflops and latches that LEDA tools has inferred
+        Number of flipflops:    476
+        Number of latches:      0
+
+Number of clock origins:	1
+Number of reset origins:	2
+List of clock origins:
+        des.hclk
+
+List of reset origins:
+        des.hresetn
+        des.POR
+
+
+List of source paths:
+	$0 = /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des.v
+	$1 = /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des_key.v
+	$2 = /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des_iv.v
+	$3 = /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/tiny_des.v
+	$4 = /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des_cop.v
+	$5 = /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/tiny_des_round.v
+	$6 = 
+	$7 = /export/home/user/wangyl/mini_rtlqa_env/digital/hdl/des/des_dat.v
