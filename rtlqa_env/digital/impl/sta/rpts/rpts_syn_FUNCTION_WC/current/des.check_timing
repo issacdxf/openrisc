@@ -1,0 +1,415 @@
+###############################################################################
+Performing check_timing with timing_enable_multiple_clocks_per_reg set to true.
+###############################################################################
+Warning: Some timing arcs have been disabled for breaking timing loops
+	or because of constant propagation. Use the 'report_disable_timing'
+	command to get the list of these disabled timing arcs. (PTE-003)
+Information: Using automatic max wire load selection group 'DEFAULT'. (ENV-003)
+Information: Using automatic min wire load selection group 'DEFAULT'. (ENV-003)
+Information: Checking 'no_clock'.
+Information: Checking 'data_check_multiple_clock'.
+Information: Checking 'data_check_no_clock'.
+Information: Checking 'no_input_delay'.
+Information: Checking 'partial_input_delay'.
+Information: Checking 'ideal_clocks'.
+Warning: There is 1 active clocks which are ideal.
+
+Clocks
+------------------------------------------------------------
+hclk
+
+Information: Checking 'no_driving_cell'.
+Information: Checking 'unconstrained_endpoints'.
+Information: Checking 'unexpandable_clocks'.
+Information: Checking 'generic'.
+Information: Checking 'ms_separation'.
+Information: Checking 'latch_fanout'.
+Information: Checking 'loops'.
+Information: Checking 'generated_clocks'.
+Information: Checking 'retain'.
+Information: Checking 'signal_level'.
+Rail to rail mismatch threshold  voltage 0  percent 0  strategy all
+Information: Checking 'clock_crossing'.
+Information: Checking 'latency_override'.
+###############################################################################
+Performing check_timing with timing_enable_multiple_clocks_per_reg set to false.
+###############################################################################
+Warning: Some timing arcs have been disabled for breaking timing loops
+	or because of constant propagation. Use the 'report_disable_timing'
+	command to get the list of these disabled timing arcs. (PTE-003)
+Information: Checking 'multiple_clock'.
+check_timing succeeded.
+###############################################################################
+Performing report_disable_timing.
+###############################################################################
+Warning: Some timing arcs have been disabled for breaking timing loops
+	or because of constant propagation. Use the 'report_disable_timing'
+	command to get the list of these disabled timing arcs. (PTE-003)
+****************************************
+Report : disable_timing
+Design : des
+Version: B-2008.06-SP3
+Date   : Fri Sep 11 18:42:54 2009
+****************************************
+
+Flags :     c  case-analysis
+            C  Conditional arc
+            d  default conditional arc
+            f  false net-arc
+            l  loop breaking
+            L  db inherited loop breaking
+	    m  mode
+            p  propagated constant
+            u  user-defined
+            U  User-defined library arcs
+
+Cell or Port                From    To      Sense           Flag  Reason
+--------------------------------------------------------------------------------
+u_des_spares_0/SPARE_UF01   CK      D       setup_clk_rise  p     D = 0
+u_des_spares_0/SPARE_UF01   CK      D       hold_clk_rise   p     D = 0
+u_des_spares_0/SPARE_UF01   CK      RB      recovery_rise_clk_rise
+                                                            p     D = 0
+u_des_spares_0/SPARE_UF01   CK      RB      removal_rise_clk_rise
+                                                            p     D = 0
+u_des_spares_0/SPARE_UF01   RB      RB      clock_pulse_width_low
+                                                            p     D = 0
+desdat_unit/POWERGATING_hclk_N70_0/latch
+                            CK      TE      clock_gating_setup_clk_rise
+                                                            p     TE = 0
+desdat_unit/POWERGATING_hclk_N70_0/latch
+                            CK      TE      clock_gating_hold_clk_rise
+                                                            p     TE = 0
+deskey_unit/POWERGATING_hclk_N179_0/latch
+                            CK      TE      clock_gating_setup_clk_rise
+                                                            p     TE = 0
+deskey_unit/POWERGATING_hclk_N179_0/latch
+                            CK      TE      clock_gating_hold_clk_rise
+                                                            p     TE = 0
+deskey_unit/POWERGATING_hclk_N147_0/latch
+                            CK      TE      clock_gating_setup_clk_rise
+                                                            p     TE = 0
+deskey_unit/POWERGATING_hclk_N147_0/latch
+                            CK      TE      clock_gating_hold_clk_rise
+                                                            p     TE = 0
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/latch
+                            CK      TE      clock_gating_setup_clk_rise
+                                                            p     TE = 0
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/latch
+                            CK      TE      clock_gating_hold_clk_rise
+                                                            p     TE = 0
+deskey_unit/POWERGATING_hclk_N83_0/latch
+                            CK      TE      clock_gating_setup_clk_rise
+                                                            p     TE = 0
+deskey_unit/POWERGATING_hclk_N83_0/latch
+                            CK      TE      clock_gating_hold_clk_rise
+                                                            p     TE = 0
+desiv_unit/POWERGATING_hclk_N66_0/latch
+                            CK      TE      clock_gating_setup_clk_rise
+                                                            p     TE = 0
+desiv_unit/POWERGATING_hclk_N66_0/latch
+                            CK      TE      clock_gating_hold_clk_rise
+                                                            p     TE = 0
+u_des_spares_0/SPARE_UF03   CK      D       setup_clk_rise  p     D = 0
+u_des_spares_0/SPARE_UF03   CK      D       hold_clk_rise   p     D = 0
+u_des_spares_0/SPARE_UF03   CK      RB      recovery_rise_clk_rise
+                                                            p     D = 0
+u_des_spares_0/SPARE_UF03   CK      RB      removal_rise_clk_rise
+                                                            p     D = 0
+u_des_spares_0/SPARE_UF03   RB      RB      clock_pulse_width_low
+                                                            p     D = 0
+desdat_unit/POWERGATING_hclk_N134_0/latch
+                            CK      TE      clock_gating_setup_clk_rise
+                                                            p     TE = 0
+desdat_unit/POWERGATING_hclk_N134_0/latch
+                            CK      TE      clock_gating_hold_clk_rise
+                                                            p     TE = 0
+deskey_unit/POWERGATING_hclk_N243_0/latch
+                            CK      TE      clock_gating_setup_clk_rise
+                                                            p     TE = 0
+deskey_unit/POWERGATING_hclk_N243_0/latch
+                            CK      TE      clock_gating_hold_clk_rise
+                                                            p     TE = 0
+deskey_unit/POWERGATING_hclk_N211_0/latch
+                            CK      TE      clock_gating_setup_clk_rise
+                                                            p     TE = 0
+deskey_unit/POWERGATING_hclk_N211_0/latch
+                            CK      TE      clock_gating_hold_clk_rise
+                                                            p     TE = 0
+desiv_unit/POWERGATING_hclk_N130_0/latch
+                            CK      TE      clock_gating_setup_clk_rise
+                                                            p     TE = 0
+desiv_unit/POWERGATING_hclk_N130_0/latch
+                            CK      TE      clock_gating_hold_clk_rise
+                                                            p     TE = 0
+deskey_unit/POWERGATING_hclk_N115_0/latch
+                            CK      TE      clock_gating_setup_clk_rise
+                                                            p     TE = 0
+deskey_unit/POWERGATING_hclk_N115_0/latch
+                            CK      TE      clock_gating_hold_clk_rise
+                                                            p     TE = 0
+des_cop_unit/U17            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U17            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U17            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U17            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U17            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U17            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U17            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U17            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U17            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U17            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U17            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U17            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U17            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U17            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U17            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U17            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U17            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U17            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U17            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U17            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U17            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U17            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U17            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U17            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U17            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U17            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U17            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U17            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U17            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U17            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U16            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U16            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U16            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U16            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U16            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U16            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U16            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U16            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U16            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U16            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U16            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U16            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U16            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U16            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U16            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U16            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U16            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U16            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U16            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U16            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U16            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U16            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U16            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U16            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U16            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U16            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U16            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U16            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U16            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U16            C2      O       positive_unate  C     A1 = 0, B1 = 0
+u_des_spares_0/SPARE_UE02   I1      O       negative_unate  d     I2 = 0
+u_des_spares_0/SPARE_UE02   I1      O       positive_unate  C     I2 = 0
+u_des_spares_0/SPARE_UE02   I2      O       positive_unate  C     I1 = 0
+u_des_spares_0/SPARE_UE02   I2      O       negative_unate  d     I1 = 0
+des_cop_unit/U21            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U21            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U21            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U21            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U21            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U21            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U21            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U21            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U21            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U21            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U21            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U21            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U21            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U21            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U21            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U21            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U21            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U21            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U21            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U21            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U21            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U21            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U21            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U21            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U21            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U21            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U21            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U21            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U21            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U21            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U22            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U22            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U22            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U22            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U22            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U22            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U22            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U22            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U22            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U22            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U22            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U22            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U22            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U22            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U22            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U22            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U22            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U22            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U22            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U22            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U22            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U22            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U22            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U22            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U22            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U22            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U22            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U22            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U22            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U22            C2      O       positive_unate  C     A1 = 0, B1 = 0
+u_des_spares_0/SPARE_UE01   S       O       positive_unate  d     B = 1, A = 0
+u_des_spares_0/SPARE_UE01   S       O       negative_unate  C     B = 1, A = 0
+u_des_spares_0/SPARE_UE01   A       O       positive_unate  C     B = 1
+u_des_spares_0/SPARE_UE01   A       O       positive_unate  d     B = 1
+u_des_spares_0/SPARE_UE01   B       O       positive_unate  d     A = 0
+u_des_spares_0/SPARE_UE01   B       O       positive_unate  C     A = 0
+u_des_spares_0/SPARE_UE01   B       O       positive_unate  c     B = 1; O = 0
+u_des_spares_0/SPARE_UE00   I1      O       negative_unate  d     I2 = 0
+u_des_spares_0/SPARE_UE00   I1      O       positive_unate  C     I2 = 0
+u_des_spares_0/SPARE_UE00   I2      O       positive_unate  C     I1 = 0
+u_des_spares_0/SPARE_UE00   I2      O       negative_unate  d     I1 = 0
+des_cop_unit/U18            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U18            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U18            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U18            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U18            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U18            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U18            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U18            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U18            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U18            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U18            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U18            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U18            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U18            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U18            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U18            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U18            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U18            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U18            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U18            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U18            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U18            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U18            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U18            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U18            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U18            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U18            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U18            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U18            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U18            C2      O       positive_unate  C     A1 = 0, B1 = 0
+u_des_spares_0/SPARE_UE03   S       O       positive_unate  d     B = 1, A = 0
+u_des_spares_0/SPARE_UE03   S       O       negative_unate  C     B = 1, A = 0
+u_des_spares_0/SPARE_UE03   A       O       positive_unate  C     B = 1
+u_des_spares_0/SPARE_UE03   A       O       positive_unate  d     B = 1
+u_des_spares_0/SPARE_UE03   B       O       positive_unate  d     A = 0
+u_des_spares_0/SPARE_UE03   B       O       positive_unate  C     A = 0
+u_des_spares_0/SPARE_UE03   B       O       positive_unate  c     B = 1; O = 0
+des_cop_unit/U23            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U23            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U23            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U23            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U23            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U23            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U23            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U23            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U23            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U23            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U23            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U23            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U23            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U23            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U23            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U23            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U23            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U23            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U23            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U23            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U23            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U23            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U23            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U23            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U23            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U23            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U23            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U23            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U23            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U23            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U19            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U19            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U19            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U19            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U19            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U19            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U19            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U19            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U19            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U19            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U19            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U19            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U19            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U19            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U19            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U19            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U19            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U19            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U19            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U19            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U19            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U19            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U19            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U19            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U19            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U19            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U19            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U19            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U19            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U19            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U20            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U20            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U20            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U20            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U20            A1      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U20            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U20            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U20            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U20            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U20            A2      O       positive_unate  C     C1 = 0, B1 = 0
+des_cop_unit/U20            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U20            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U20            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U20            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U20            B1      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U20            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U20            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U20            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U20            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U20            B2      O       positive_unate  C     C1 = 0, A1 = 0
+des_cop_unit/U20            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U20            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U20            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U20            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U20            C1      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U20            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U20            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U20            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U20            C2      O       positive_unate  C     A1 = 0, B1 = 0
+des_cop_unit/U20            C2      O       positive_unate  C     A1 = 0, B1 = 0
+hresp[0]                                                    p     hresp[0] = 0
+hresp[1]                                                    p     hresp[1] = 0
+
+1

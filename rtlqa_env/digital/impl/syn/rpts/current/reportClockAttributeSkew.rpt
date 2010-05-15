@@ -1,0 +1,31 @@
+ 
+****************************************
+Report : clocks
+Design : des
+Version: Z-2007.03-SP1
+Date   : Fri Sep 18 12:13:11 2009
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+hclk            50.00   {0 25}                        {hclk}
+--------------------------------------------------------------------------------
+ 
+****************************************
+Report : clock_skew
+Design : des
+Version: Z-2007.03-SP1
+Date   : Fri Sep 18 12:13:11 2009
+****************************************
+
+                 Rise      Fall  Min Rise  Min fall        Uncertainty
+Object          Delay     Delay     Delay     Delay     Plus      Minus
+--------------------------------------------------------------------------------
+hclk             5.00      5.00      5.00      5.00         -         -
+1

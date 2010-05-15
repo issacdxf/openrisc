@@ -1,0 +1,75 @@
+
+0-In CDC V2.5d (suse9_x86) 06/05/07
+
+-----------------------------------------------------------------
+CDC Design Report.
+Created Thu Sep 17 12:05:28 2009
+-----------------------------------------------------------------
+
+Module 'des'
+-----------------------------------------------------------------
+
+
+Clock Group Summary for 'des' 
+=============================
+Total Number of Clock Groups        : 1
+Number of User-Defined Clock Groups : 1
+Number of Inferred Clock Groups     : 0
+
+
+User-Specified Clock Groups
+===========================
+
+Group     0(188 Register Bits)
+-----------
+hclk 
+  deskey_unit.hclk 
+  desiv_unit.hclk 
+  desdat_unit.hclk 
+  des_cop_unit.hclk 
+    des_cop_unit.des_unit.hclk 
+      des_cop_unit.des_unit.u_tiny_des_round.hclk 
+
+
+Inferred Clock Groups
+=====================
+
+None
+
+General Design Information
+==========================
+Number of blackboxes = 0
+Number of Registers  = 188
+Number of Latches    = 0
+Number of RAMs       = 3
+
+
+Detail Design Information
+=========================
+RAMs: 
+----- 
+  deskey_unit.fifo_mem 
+  desiv_unit.fifo_mem 
+  desdat_unit.fifo_mem 
+
+
+
+Printing port domain info
+=========================
+Port                     Direction      Constraints    Clock Domain     Type      
+-----------------------------------------------------------------------------------
+POR                        input          Reset          {  hclk  }   0-In CDC   
+hresetn                    input          Reset          {  hclk  }   0-In CDC   
+hsel                       input                         {  hclk  }   0-In CDC   
+hwdata                     input                         {  hclk  }   0-In CDC   
+haddr                      input                         {  hclk  }   0-In CDC   
+hwrite                     input                         {  hclk  }   0-In CDC   
+htrans                     input                         {  hclk  }   0-In CDC   
+hsize                      input                         {  hclk  }   0-In CDC   
+hburst                     input                           ---      
+hready                     input                         {  hclk  }   0-In CDC   
+hclk                       input          Clock          {  hclk  }     User       
+hready_resp                output                        {  hclk  }   0-In CDC   
+hresp                      output                          ---      
+hrdata                     output                        {  hclk  }   0-In CDC   
+

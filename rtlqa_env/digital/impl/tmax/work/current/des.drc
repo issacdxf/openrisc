@@ -1,0 +1,236 @@
+STIL 1.0 { Design 2005; }
+Header {
+   Title "  TetraMAX (TM)  Z-2007.03-SP1-i070413_172030 STIL output";
+   Date "Fri Sep 18 17:15:31 2009";
+   Source "Minimal STIL for design `des'";
+   History {
+      Ann {*  Fri Sep 18 12:14:59 2009  *}
+      Ann {*  DFT Compiler Z-2007.03-SP1  *}
+      Ann {*     Uncollapsed Stuck Fault Summary Report *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* fault class                     code   #faults *}
+      Ann {* ------------------------------  ----  --------- *}
+      Ann {* Detected                         DT      34438 *}
+      Ann {* Possibly detected                PT          0 *}
+      Ann {* Undetectable                     UD        111 *}
+      Ann {* ATPG untestable                  AU        546 *}
+      Ann {* Not detected                     ND         13 *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* total faults                             35108 *}
+      Ann {* test coverage                            98.40% *}
+      Ann {* ----------------------------------------------- *}
+      Ann {*  *}
+      Ann {*            Pattern Summary Report *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* #internal patterns                         131 *}
+      Ann {*     #basic_scan patterns                   131 *}
+      Ann {* ----------------------------------------------- *}
+      Ann {*  *}
+      Ann {* rule  severity  #fails  description *}
+      Ann {* ----  --------  ------  --------------------------------- *}
+      Ann {* N2    warning      128  unsupported construct *}
+      Ann {* N16   warning        1  overspecified UDP *}
+      Ann {* N23   warning        1  inconsistent UDP *}
+      Ann {* B8    warning       20  unconnected module input pin *}
+      Ann {* B9    warning        1  undriven module internal net *}
+      Ann {* B10   warning        4  unconnected module internal net *}
+      Ann {*  *}
+      Ann {* clock_name        off  usage *}
+      Ann {* ----------------  ---  -------------------------- *}
+      Ann {* hclk               0   master shift nonscan_DLAT  *}
+      Ann {*  *}
+      Ann {* port_name         constraint_value *}
+      Ann {* ----------------  --------------- *}
+      Ann {* POR                 1 *}
+      Ann {* hresetn             1 *}
+      Ann {* Test_Mode           1 *}
+      Ann {*  *}
+      Ann {* There are no equivalent pins *}
+      Ann {* There are no net connections *}
+   }
+}
+Signals {
+   "hclk" In; "POR" In; "hresetn" In; "hsel" In; "hwdata[31]" In; "hwdata[30]" In;
+   "hwdata[29]" In; "hwdata[28]" In; "hwdata[27]" In; "hwdata[26]" In; "hwdata[25]" In;
+   "hwdata[24]" In; "hwdata[23]" In; "hwdata[22]" In; "hwdata[21]" In; "hwdata[20]" In;
+   "hwdata[19]" In; "hwdata[18]" In; "hwdata[17]" In; "hwdata[16]" In; "hwdata[15]" In;
+   "hwdata[14]" In; "hwdata[13]" In; "hwdata[12]" In; "hwdata[11]" In; "hwdata[10]" In;
+   "hwdata[9]" In; "hwdata[8]" In; "hwdata[7]" In; "hwdata[6]" In; "hwdata[5]" In;
+   "hwdata[4]" In; "hwdata[3]" In; "hwdata[2]" In; "hwdata[1]" In; "hwdata[0]" In;
+   "haddr[9]" In; "haddr[8]" In; "haddr[7]" In; "haddr[6]" In; "haddr[5]" In; "haddr[4]" In;
+   "haddr[3]" In; "haddr[2]" In; "haddr[1]" In; "haddr[0]" In; "hwrite" In; "htrans[1]" In;
+   "htrans[0]" In; "hsize[2]" In; "hsize[1]" In; "hsize[0]" In; "hburst[2]" In; "hburst[1]" In;
+   "hburst[0]" In; "hready" In; "Test_Mode" In; "Test_Se" In; "si0" In { ScanIn; }
+   "si1" In { ScanIn; } "si2" In { ScanIn; } "si3" In { ScanIn; } "hready_resp" Out;
+   "hresp[1]" Out; "hresp[0]" Out; "hrdata[31]" Out; "hrdata[30]" Out; "hrdata[29]" Out;
+   "hrdata[28]" Out; "hrdata[27]" Out; "hrdata[26]" Out; "hrdata[25]" Out; "hrdata[24]" Out;
+   "hrdata[23]" Out; "hrdata[22]" Out; "hrdata[21]" Out; "hrdata[20]" Out; "hrdata[19]" Out;
+   "hrdata[18]" Out; "hrdata[17]" Out; "hrdata[16]" Out; "hrdata[15]" Out; "hrdata[14]" Out;
+   "hrdata[13]" Out; "hrdata[12]" Out; "hrdata[11]" Out; "hrdata[10]" Out; "hrdata[9]" Out;
+   "hrdata[8]" Out; "hrdata[7]" Out; "hrdata[6]" Out; "hrdata[5]" Out; "hrdata[4]" Out;
+   "hrdata[3]" Out; "hrdata[2]" Out; "hrdata[1]" Out; "hrdata[0]" Out; "so0" Out {
+   ScanOut; } "so1" Out { ScanOut; } "so2" Out { ScanOut; } "so3" Out { ScanOut; }
+}
+SignalGroups {
+   "_pi" = '"POR" + "Test_Mode" + "haddr[0]" + "haddr[1]" + "haddr[2]" +
+   "haddr[3]" + "haddr[4]" + "haddr[5]" + "haddr[6]" + "haddr[7]" + "haddr[8]" +
+   "haddr[9]" + "hburst[0]" + "hburst[1]" + "hburst[2]" + "hclk" + "hready" +
+   "hresetn" + "hsel" + "hsize[0]" + "hsize[1]" + "hsize[2]" + "htrans[0]" +
+   "htrans[1]" + "hwdata[0]" + "hwdata[10]" + "hwdata[11]" + "hwdata[12]" +
+   "hwdata[13]" + "hwdata[14]" + "hwdata[15]" + "hwdata[16]" + "hwdata[17]" +
+   "hwdata[18]" + "hwdata[19]" + "hwdata[1]" + "hwdata[20]" + "hwdata[21]" +
+   "hwdata[22]" + "hwdata[23]" + "hwdata[24]" + "hwdata[25]" + "hwdata[26]" +
+   "hwdata[27]" + "hwdata[28]" + "hwdata[29]" + "hwdata[2]" + "hwdata[30]" +
+   "hwdata[31]" + "hwdata[3]" + "hwdata[4]" + "hwdata[5]" + "hwdata[6]" +
+   "hwdata[7]" + "hwdata[8]" + "hwdata[9]" + "hwrite" + "Test_Se" + "si0" +
+   "si1" + "si2" + "si3"'; // #signals=62
+   "_in" = '"hclk" + "POR" + "hresetn" + "hsel" + "hwdata[31]" + "hwdata[30]" +
+   "hwdata[29]" + "hwdata[28]" + "hwdata[27]" + "hwdata[26]" + "hwdata[25]" +
+   "hwdata[24]" + "hwdata[23]" + "hwdata[22]" + "hwdata[21]" + "hwdata[20]" +
+   "hwdata[19]" + "hwdata[18]" + "hwdata[17]" + "hwdata[16]" + "hwdata[15]" +
+   "hwdata[14]" + "hwdata[13]" + "hwdata[12]" + "hwdata[11]" + "hwdata[10]" +
+   "hwdata[9]" + "hwdata[8]" + "hwdata[7]" + "hwdata[6]" + "hwdata[5]" +
+   "hwdata[4]" + "hwdata[3]" + "hwdata[2]" + "hwdata[1]" + "hwdata[0]" +
+   "haddr[9]" + "haddr[8]" + "haddr[7]" + "haddr[6]" + "haddr[5]" + "haddr[4]" +
+   "haddr[3]" + "haddr[2]" + "haddr[1]" + "haddr[0]" + "hwrite" + "htrans[1]" +
+   "htrans[0]" + "hsize[2]" + "hsize[1]" + "hsize[0]" + "hburst[2]" +
+   "hburst[1]" + "hburst[0]" + "hready" + "Test_Mode" + "Test_Se" + "si0" +
+   "si1" + "si2" + "si3"'; // #signals=62
+   "all_inputs" = '"POR" + "Test_Mode" + "haddr[0]" + "haddr[1]" + "haddr[2]" +
+   "haddr[3]" + "haddr[4]" + "haddr[5]" + "haddr[6]" + "haddr[7]" + "haddr[8]" +
+   "haddr[9]" + "hburst[0]" + "hburst[1]" + "hburst[2]" + "hclk" + "hready" +
+   "hresetn" + "hsel" + "hsize[0]" + "hsize[1]" + "hsize[2]" + "htrans[0]" +
+   "htrans[1]" + "hwdata[0]" + "hwdata[10]" + "hwdata[11]" + "hwdata[12]" +
+   "hwdata[13]" + "hwdata[14]" + "hwdata[15]" + "hwdata[16]" + "hwdata[17]" +
+   "hwdata[18]" + "hwdata[19]" + "hwdata[1]" + "hwdata[20]" + "hwdata[21]" +
+   "hwdata[22]" + "hwdata[23]" + "hwdata[24]" + "hwdata[25]" + "hwdata[26]" +
+   "hwdata[27]" + "hwdata[28]" + "hwdata[29]" + "hwdata[2]" + "hwdata[30]" +
+   "hwdata[31]" + "hwdata[3]" + "hwdata[4]" + "hwdata[5]" + "hwdata[6]" +
+   "hwdata[7]" + "hwdata[8]" + "hwdata[9]" + "hwrite" + "Test_Se" + "si0" +
+   "si1" + "si2" + "si3"'; // #signals=62
+   "_po" = '"hrdata[0]" + "hrdata[10]" + "hrdata[11]" + "hrdata[12]" +
+   "hrdata[13]" + "hrdata[14]" + "hrdata[15]" + "hrdata[16]" + "hrdata[17]" +
+   "hrdata[18]" + "hrdata[19]" + "hrdata[1]" + "hrdata[20]" + "hrdata[21]" +
+   "hrdata[22]" + "hrdata[23]" + "hrdata[24]" + "hrdata[25]" + "hrdata[26]" +
+   "hrdata[27]" + "hrdata[28]" + "hrdata[29]" + "hrdata[2]" + "hrdata[30]" +
+   "hrdata[31]" + "hrdata[3]" + "hrdata[4]" + "hrdata[5]" + "hrdata[6]" +
+   "hrdata[7]" + "hrdata[8]" + "hrdata[9]" + "hready_resp" + "hresp[0]" +
+   "hresp[1]" + "so0" + "so1" + "so2" + "so3"'; // #signals=39
+   "_si" = '"si0" + "si1" + "si2" + "si3"' { ScanIn; } // #signals=4
+   "all_outputs" = '"hrdata[0]" + "hrdata[10]" + "hrdata[11]" + "hrdata[12]" +
+   "hrdata[13]" + "hrdata[14]" + "hrdata[15]" + "hrdata[16]" + "hrdata[17]" +
+   "hrdata[18]" + "hrdata[19]" + "hrdata[1]" + "hrdata[20]" + "hrdata[21]" +
+   "hrdata[22]" + "hrdata[23]" + "hrdata[24]" + "hrdata[25]" + "hrdata[26]" +
+   "hrdata[27]" + "hrdata[28]" + "hrdata[29]" + "hrdata[2]" + "hrdata[30]" +
+   "hrdata[31]" + "hrdata[3]" + "hrdata[4]" + "hrdata[5]" + "hrdata[6]" +
+   "hrdata[7]" + "hrdata[8]" + "hrdata[9]" + "hready_resp" + "hresp[0]" +
+   "hresp[1]" + "so0" + "so1" + "so2" + "so3"'; // #signals=39
+   "all_ports" = '"all_inputs" + "all_outputs"'; // #signals=101
+   "_clk" = '"hclk"'; // #signals=1
+   "_so" = '"so0" + "so1" + "so2" + "so3"' { ScanOut; } // #signals=4
+   "_out" = '"hready_resp" + "hresp[1]" + "hresp[0]" + "hrdata[31]" +
+   "hrdata[30]" + "hrdata[29]" + "hrdata[28]" + "hrdata[27]" + "hrdata[26]" +
+   "hrdata[25]" + "hrdata[24]" + "hrdata[23]" + "hrdata[22]" + "hrdata[21]" +
+   "hrdata[20]" + "hrdata[19]" + "hrdata[18]" + "hrdata[17]" + "hrdata[16]" +
+   "hrdata[15]" + "hrdata[14]" + "hrdata[13]" + "hrdata[12]" + "hrdata[11]" +
+   "hrdata[10]" + "hrdata[9]" + "hrdata[8]" + "hrdata[7]" + "hrdata[6]" +
+   "hrdata[5]" + "hrdata[4]" + "hrdata[3]" + "hrdata[2]" + "hrdata[1]" +
+   "hrdata[0]" + "so0" + "so1" + "so2" + "so3"'; // #signals=39
+}
+Timing {
+   WaveformTable "_default_WFT_" {
+      Period '100ns';
+      Waveforms {
+         "all_inputs" { 0 { '0ns' D; } }
+         "all_inputs" { 1 { '0ns' U; } }
+         "all_inputs" { Z { '0ns' Z; } }
+         "all_inputs" { N { '0ns' N; } }
+         "hclk" { P { '0ns' D; '45ns' U; '55ns' D; } }
+         "all_outputs" { X { '0ns' X; '40ns' X; } }
+         "all_outputs" { H { '0ns' X; '40ns' H; } }
+         "all_outputs" { L { '0ns' X; '40ns' L; } }
+         "all_outputs" { T { '0ns' X; '40ns' T; } }
+      }
+   }
+}
+ScanStructures {
+   ScanChain "chain_1" {
+      ScanLength 112;
+      ScanIn "si0";
+      ScanOut "so0";
+      ScanInversion 0;
+      ScanMasterClock "hclk" ;
+   }
+   ScanChain "chain_2" {
+      ScanLength 111;
+      ScanIn "si1";
+      ScanOut "so1";
+      ScanInversion 0;
+      ScanMasterClock "hclk" ;
+   }
+   ScanChain "chain_3" {
+      ScanLength 111;
+      ScanIn "si2";
+      ScanOut "so2";
+      ScanInversion 0;
+      ScanMasterClock "hclk" ;
+   }
+   ScanChain "chain_4" {
+      ScanLength 111;
+      ScanIn "si3";
+      ScanOut "so3";
+      ScanInversion 0;
+      ScanMasterClock "hclk" ;
+   }
+}
+PatternBurst "_burst_" {
+   PatList { "_pattern_" {
+   }
+}}
+PatternExec {
+   PatternBurst "_burst_";
+}
+Procedures {
+   "capture" {
+      W "_default_WFT_";
+      F { "POR"=1; "hresetn"=1; "Test_Mode"=1; }
+      C { "all_inputs"=11\r13 N 0N1\r44 N ; 
+         "all_outputs"=\r39 X ; }
+      V { "_pi"=\r62 # ; }
+      V { "_po"=\r39 # ; }
+   }
+   "capture_hclk" {
+      W "_default_WFT_";
+      F { "POR"=1; "hresetn"=1; "Test_Mode"=1; }
+      C { "all_inputs"=11\r13 N 0N1\r44 N ; 
+         "all_outputs"=\r39 X ; }
+      "forcePI": V { "_pi"=\r62 # ; }
+      "measurePO": V { "_po"=\r39 # ; }
+      C { "hrdata[0]"=X; "hrdata[10]"=X; "hrdata[11]"=X; "hrdata[12]"=X; "hrdata[13]"=X; "hrdata[14]"=X; 
+         "hrdata[15]"=X; "hrdata[16]"=X; "hrdata[17]"=X; "hrdata[18]"=X; "hrdata[19]"=X; "hrdata[1]"=X; 
+         "hrdata[20]"=X; "hrdata[21]"=X; "hrdata[22]"=X; "hrdata[23]"=X; "hrdata[24]"=X; "hrdata[25]"=X; 
+         "hrdata[26]"=X; "hrdata[27]"=X; "hrdata[28]"=X; "hrdata[29]"=X; "hrdata[2]"=X; "hrdata[30]"=X; 
+         "hrdata[31]"=X; "hrdata[3]"=X; "hrdata[4]"=X; "hrdata[5]"=X; "hrdata[6]"=X; "hrdata[7]"=X; 
+         "hrdata[8]"=X; "hrdata[9]"=X; "hready_resp"=X; "hresp[0]"=X; "hresp[1]"=X; "so0"=X; "so1"=X; 
+         "so2"=X; "so3"=X; }
+      "pulse": V { "hclk"=P; }
+   }
+   "load_unload" {
+      W "_default_WFT_";
+      C { "all_inputs"=11\r13 N 0N1\r44 N ; 
+         "all_outputs"=\r39 X ; }
+      "Internal_scan_pre_shift": V { "_clk"=0; "_si"=NNNN; "_so"=XXXX; "Test_Se"=1; }
+      Shift {          W "_default_WFT_";
+         V { "_clk"=P; "_si"=####; "_so"=####; }
+      }
+   }
+}
+MacroDefs {
+   "test_setup" {
+      W "_default_WFT_";
+      C { "all_inputs"=\r62 N ; 
+         "all_outputs"=\r39 X ; }
+      V { "POR"=1; "Test_Mode"=1; "hclk"=0; "hresetn"=1; }
+      V { }
+   }
+}

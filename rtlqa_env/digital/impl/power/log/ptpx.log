@@ -1,0 +1,858 @@
+
+                            PrimeTime (R)
+                           PrimeTime (R) SI
+                           PrimeTime (R) PX
+                           PrimeTime (R) VX
+           Version B-2008.06-SP3 for linux -- Oct 17, 2008
+              Copyright (c) 1988-2008 by Synopsys, Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys, Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+#----------------------------------------------------------------------
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      runptpx.tcl
+#
+#      DESCRIPTION:
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#----------------------------------------------------------------------
+#================ Parameters Setting ===============#
+set runSetType		POWER 	;#runSetType defines script category,RTL-QA flow will use this 
+POWER
+;# variable to setup stage-porcess environments
+set projectName               des     ;# the project name
+des
+set runPPstage		syn   	;# syn/dft/bsd/psyn/fp/rt This variable is usded in analysis process
+syn
+;# (STA,Formal,Power) RTL-QA flow will use this variable to 
+;# distinguish the target database to be analyzed
+set OperatingCondition 	TC	;#WC/BC/TC Define which library will be used in STA
+TC
+set topModuleName		des	;# Define top-module name to perform power analysis
+des
+set parasiticsFileFormat 	WLM	;# SPEF/SDF/SBPF/WLM. Define which type of parasitic file will be used
+WLM
+;# in PTPX
+set WireLoadModel		AUTO    ;# AUTO/NONE/SELECT
+AUTO
+set MaxparasiticsFileName   	"des.spef"	;# Declare the worst-case parasitics file name
+des.spef
+set MinparasiticsFileName   	""	;# Declare the best-case parasitics file name
+set ToggleFileType            vcd; # vcd/saif/none, determin using vcd, saif or none
+vcd
+set vcdFileName		"pp_max.vcd"	;	# Declare the vcd file name
+pp_max.vcd
+set vcdStripPath		"chiptop/des"	;# Define the hierarchy path to which the
+chiptop/des
+;# vcd file is back-annotated
+#  set ToggleFileType            none; # vcd/saif/none, determin using vcd, saif or none
+#  set vcdFileName		""	;# Declare the vcd file name
+#  set vcdStripPath		""	;# Define the hierarchy path to which the
+;# vcd file is back-annotated
+#  set saifFileName              ""      ;# Declare the saif file name
+#  set saifStripPath             ""     ;# Define the hierarchy path to which the saif file is back-annotated
+set ReportPowerLevel		5	;# Define the hierarchy level depth in power report
+5
+set savesession		false	;# true/false To be true, current session will be saved
+false
+set vcdFilePath		""	;
+#  set vcdFilePath		""	;# Define this variable if vcd file is under different directory than default				
+;# Default value is ~power/work/vcd
+#  set netlistFilePath			;# Define this variable if netlist file is under different directory than default
+#  set netlistFileList   	chip_core.lst	;# List all the netlist files that should be read in to perform
+;# Power-analysis process.Default value is $topModuleName.lst
+#  set parasiticsFilePath		;# Define this variable if parasitic file is under different directory than default
+#-------------------------------------------------------------------------------
+# Main part of POWER flow
+#-------------------------------------------------------------------------------
+#-----------------------------------#
+# Include Environment Setup Script
+#-----------------------------------#
+source -echo -verbose ../../script/con/setupEnv.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      setupEnv.tcl
+#
+#      DESCRIPTION:
+#         This script is used to setup environment for R2N flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+set RUN_DIR             [pwd]
+/export/home/user/wangyl/rtlqa_env/digital/impl/power/run_dir
+cd ../../
+set IMP_HOME            [pwd]
+/export/home/user/wangyl/rtlqa_env/digital/impl
+cd ../
+set ENV_HOME            [pwd]
+/export/home/user/wangyl/rtlqa_env/digital
+cd ../
+set PJT_HOME		[pwd]
+/export/home/user/wangyl/rtlqa_env
+if { $runSetType == "DC" } {
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set dcScriptPath        $IMP_HOME/script/syn
+  set dtclConstraintPath  $IMP_HOME/script/syn
+  set workPath            $IMP_HOME/syn/work
+  set rptDir 		  $IMP_HOME/syn/rpts
+  set netlistFilePath     $workPath/SourceDB
+  set milkywayPath        $workPath/milkyway
+  cd $RUN_DIR
+  if { [info exists hdlFilePath] == 0 } {
+    set hdlFilePath         $ENV_HOME/hdl/$projectName
+  }
+  if { [info exists hdlFileList] == 0 } {
+    set hdlFileList    	  $hdlFilePath/list/$projectName.lst
+  }
+  set_svf 		  $workPath/svf_dir/$topModuleName.svf
+} elseif { $runSetType == "PT" } {
+  set PTScriptPath        $IMP_HOME/script/sta
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set ptConstraintPath    $IMP_HOME/script/sta  
+  set workPath            $IMP_HOME/sta/work
+  set rptDir      	  $IMP_HOME/sta/rpts/rpts_${runPTstage}_${PTCase}_${OperatingCondition}
+  if { [info exists ParasiticFilePath] == 0 } {
+    set ParasiticFilePath   $IMP_HOME/$runPTstage/work/$ParasiticModel/current
+  }
+  cd $RUN_DIR
+  if { $runPTstage == "syn" } {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath   $IMP_HOME/syn/work/net/current
+    }
+    set ParasiticFile	   $ParasiticFilePath/$ParasiticFileName
+  } elseif { $runPTstage == "dft" } {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath   $IMP_HOME/dft/work/net/current
+    }
+    set ParasiticFile	   $ParasiticFilePath/$ParasiticFileName 
+  } elseif { $runPTstage == "bsd"} {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath   $IMP_HOME/bsd/work/net/current
+    }
+      set ParasiticFile	   $ParasiticFilePath/$ParasiticFileName 
+  } elseif { $runPTstage == "rt" } {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath   $IMP_HOME/rt/work/net/current
+    }
+    set ParasiticFile	  $ParasiticFilePath/$ParasiticFileName
+  }
+} elseif { $runSetType == "FM" } {
+  set fmScriptPath        $IMP_HOME/script/formal
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set fmConstraintPath    $IMP_HOME/script/formal
+  set workPath            $IMP_HOME/formal/work
+  set rptDir  		  $IMP_HOME/formal/rpts/rpts_$runFMstage
+  cd $RUN_DIR
+  if { $runFMstage == "syn" } {
+    if { [info exists REFFilePath] == 0 } {
+  	set REFFilePath       $ENV_HOME/hdl/$projectName
+    }
+    if { [info exists IMPFilePath] == 0 } {
+  	set IMPFilePath       $IMP_HOME/syn/work/net/current
+    }
+    if { [info exists REFsourcefilelist] == 0 } {
+        set REFsourcefilelist $REFFilePath/list/$topModuleName.fm.lst
+    }
+	set_svf		      $IMP_HOME/syn/work/svf_dir
+  } elseif {$runFMstage == "dft" } {
+    if { [info exists REFFilePath] == 0 } {
+	set REFFilePath         $IMP_HOME/syn/work/net/current
+    }
+    if { [info exists IMPFilePath] == 0 } {
+	set IMPFilePath         $IMP_HOME/dft/work/net/current
+    }
+    if { [info exists REFsourcefilelist] == 0 } {
+	set REFsourcefilelist   $REFFilePath/${topModuleName}.lst
+    }
+    if { [info exists IMPsourcefilelist] == 0 } {
+	set IMPsourcefilelist   $IMPFilePath/${topModuleName}.lst
+    }
+	set_svf		        $IMP_HOME/dft/work/svf_dir
+  } elseif {$runFMstage == "bsd" } {
+    if { [info exists REFFilePath] == 0 } {
+	set REFFilePath         $IMP_HOME/syn/work/net/current
+    }
+    if { [info exists IMPFilePath] == 0 } {
+	set IMPFilePath         $IMP_HOME/bsd/work/net/current
+    }
+    if { [info exists REFsourcefilelist] == 0 } {
+	set REFsourcefilelist   $REFFilePath/${topModuleName}.lst
+    }
+    if { [info exists IMPsourcefilelist] == 0 } {
+	set IMPsourcefilelist   $IMPFilePath/${topModuleName}.lst
+    }
+	set_svf		        $IMP_HOME/bsd/work/svf_dir
+  } elseif {$runFMstage == "rt" } {
+    if { [info exists REFFilePath] == 0 } {
+        set REFFilePath         $IMP_HOME/syn/work/net/current
+    }
+    if { [info exists IMPFilePath] == 0 } {
+        set IMPFilePath         $IMP_HOME/rt/net/current
+    }
+    if { [info exists REFsourcefilelist] == 0 } {
+        set REFsourcefilelist   $REFFilePath/${topModuleName}.lst
+    }
+    if { [info exists IMPsourcefilelist] == 0 } {
+        set IMPsourcefilelist   $IMPFilePath/${topModuleName}.lst
+    }
+  }
+} elseif { $runSetType == "DFT" } {
+  set dftScriptPath       $IMP_HOME/script/dft
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set workPath            $IMP_HOME/dft/work
+  set synWorkPath         $IMP_HOME/syn/work/
+  set bsdWorkPath         $IMP_HOME/bsd/work/
+  set rptDir              $IMP_HOME/dft/rpts
+  set dftConstraintPath   $IMP_HOME/script/dft
+  set synConstraintPath   $IMP_HOME/script/syn
+  set_svf 		  $workPath/svf_dir/$topModuleName.svf
+  cd $RUN_DIR
+} elseif { $runSetType == "BSD" } {
+
+  set bsdScriptPath       $IMP_HOME/script/bsd
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set workPath            $IMP_HOME/bsd/work
+  set synWorkPath         $IMP_HOME/syn/work/
+  set dftWorkPath	  $IMP_HOME/dft/work/
+  set rptDir              $IMP_HOME/bsd/rpts
+  set bsdConstraintPath   $IMP_HOME/script/bsd
+  set synConstraintPath   $IMP_HOME/script/syn
+  set_svf 		  $workPath/svf_dir/$topModuleName.svf
+  cd $RUN_DIR
+
+} elseif { $runSetType == "POWER" } {
+  set PPScriptPath        $IMP_HOME/script/power
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set ppConstraintPath    $IMP_HOME/script/power
+  set workPath            $IMP_HOME/power/work
+  set rptDir              $IMP_HOME/power/rpts/rpts_$OperatingCondition
+  if { [info exists netlistFileList] == 0 } {
+    set netlistFileList ${topModuleName}.lst
+  }
+  if { [info exists vcdFilePath] == 0 } {
+    set vcdFilePath         $IMP_HOME/power/work/vcd
+  }
+  if { $runPPstage == "syn" } {
+    if { [info exists netlistFilePath] == 0 } { 
+      set netlistFilePath     $IMP_HOME/$runPPstage/work/net/current
+    }
+    if { [info exists parasiticsFilePath]  == 0} {
+      set parasiticsFilePath  $IMP_HOME/$runPPstage/work/$parasiticsFileFormat/current
+    }
+  } elseif {$runPPstage == "dft" } {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath     $IMP_HOME/$runPPstage/work/net/current
+  }
+    if { [info exists parasiticsFilePath] == 0 } {
+      set parasiticsFilePath  $IMP_HOME/$runPPstage/work/$parasiticsFileFormat/current
+  }
+	} elseif {$runPPstage == "bsd" } {
+ 		if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath     $IMP_HOME/$runPPstage/work/net/current
+  }
+    if { [info exists parasiticsFilePath] == 0 } {
+      set parasiticsFilePath  $IMP_HOME/$runPPstage/work/$parasiticsFileFormat/current
+  }
+  } elseif {$runPPstage == "rt" } {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath     $IMP_HOME/$runPPstage/work/net/current
+    }
+    if { [info exists parasiticsFilePath] == 0 } {
+      set parasiticsFilePath  $IMP_HOME/$runPPstage/work/$parasiticsFileFormat/current
+    }
+  }
+  cd $RUN_DIR
+} elseif { $runSetType == "TMAX" } {
+  set tmaxScriptPath	  $IMP_HOME/script/tmax
+  set tmaxConstraintPath  $IMP_HOME/script/tmax
+  set workPath            $IMP_HOME/tmax/work
+  set rptDir              $IMP_HOME/tmax/rpts
+  set protocolPath	  $IMP_HOME/dft/work/spf/current
+  cd $RUN_DIR
+} elseif { $runSetType == "LEDA" } {
+
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  if { [info exists hdlFilePath] == 0 } {
+    set hdlFilePath         $ENV_HOME/hdl/$projectName
+  }
+  if { [info exists hdlFileList] == 0 } {
+    set hdlFileList    	  $hdlFilePath/list/$topModuleName.leda.lst
+  }
+  set ledaScriptPath 	  $IMP_HOME/script/leda
+  set ledaConstrainPath	  $IMP_HOME/script/leda
+  set workPath		  $IMP_HOME/leda/work
+  set rptDir		  $IMP_HOME/leda/rpts
+  cd  $RUN_DIR
+}
+source -echo -verbose ../../script/con/setupVar.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      setupVar.tcl
+#
+#      DESCRIPTION:
+#         This script is used to setup variables for R2N flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+if { $runSetType == "DC" } {
+#  set prestoHdlCompiler   true
+  set hdlin_auto_save_templates true
+  set hdlin_work_directory $workPath/template/
+  set hdlin_check_no_latch true
+  set compile_no_new_cells_at_top_level true
+  set compile_preserve_subdesign_interfaces true
+  set hdlin_latch_always_async_set_reset true
+#  set timing_self_loops_no_skew true
+  set enable_recovery_removal_arcs true
+  set verilogout_no_tri true
+  set power_cg_flatten true
+  set verilogout_show_unconnected_pins true
+  set dcVersion           2007.03sp1
+  set DC_ULTRA            true
+  define_design_lib work -path $workPath/template/
+  suppress_message {UISN-26 VER-129 VER-130 VER-173}
+  if { $clockgating == "true" } {
+    set power_cg_gated_clock_net_naming_style "CLKGATING_%c_%g_%d"
+    set power_cg_module_naming_style "POWERMODULE_%e_%p_%d"
+    set power_cg_cell_naming_style "POWERGATING_%c_%n_%d"
+  }
+} elseif { $runSetType == "PT" } {
+  set link_create_black_boxes false
+  set timing_clock_reconvergence_pessimism normal
+  set timing_remove_clock_reconvergence_pessimism true
+  set svr_keep_unconnected_nets  true
+  set timing_slew_propagation_mode worst_slew
+#  set case_analysis_sequential_propagation always
+  suppress_message PARA-023
+  if { $EnablePTSI == "true" } {
+    set si_enable_analysis true
+    set si_xtalk_reselect_critical_path false
+    set si_xtalk_reselect_clock_network true
+    set si_xtalk_reselect_delta_delay 0.3
+    set si_xtalk_reselect_delta_delay_ratio 0.95
+    set si_xtalk_reselect_max_mode_slack 0
+    set si_xtalk_reselect_min_mode_slack 0
+    set si_xtalk_exit_on_max_iteration_count 3
+  }
+} elseif { $runSetType == "POWER"} {
+	set power_enable_analysis true 
+	set power_default_static_probability 0.5
+	set power_default_toggle_rate 0.5
+	set power_clock_network_include_clock_gating_network true
+} elseif { $runSetType == "FM" } {
+  set my_dc_shell_file [exec which dc_shell-t]
+  set my_dc_shell_install   	[string range $my_dc_shell_file 0 [expr [string last "/" $my_dc_shell_file] - 4]]
+#  set my_dc_shell_install /ecad/synopsys/newtool/synthesis_z2007.03_sp1 
+  set hdlin_dwroot $my_dc_shell_install
+  set hdlin_synroot $my_dc_shell_install
+
+  set hdlin_ignore_dc_script true
+#  set verification_passing_mode consistency
+  set hdlin_error_on_mismatch_message false
+  set verification_clock_gate_hold_mode any
+  set hdlin_warn_on_mismatch_message "FMR_ELAB-146 FMR_ELAB-034"
+#  set verification_verify_directly_undriven_output false
+
+  set hdlin_unresolved_modules "black_box"
+# set verification_clock_gate_hold_mode low
+  set verification_blackbox_match_mode identity
+# set verification_set_undriven_signals "X"
+  set verification_constant_prop_mode top
+} elseif { $runSetType == "DFT" } {
+#  set prestoHdlCompiler   true
+  set hdlin_auto_save_templates true
+  set hdlin_check_no_latch true
+  set case_analysis_with_logic_constants true
+  set case_analysis_with_logic_constants true
+  set test_default_bidir_delay 0
+  set test_default_delay 0
+  set test_default_strobe 40
+  set test_dft_drc_ungate_clocks true
+  set test_enable_dft_drc true
+  #set test_preset_bidi_signals false
+  #set test_setup_additional_clock_pulse true
+  set compile_no_new_cells_at_top_level true
+  #set test_dedicated_subdesign_scan_outs false
+  set test_stil_netlist_format verilog
+  set test_use_test_models true
+  set verilogout_no_tri true
+#  set timing_self_loops_no_skew true
+  #set_auto_disable_drc_nets -clock true -constant true
+  set enable_recovery_removal_arcs true
+  suppress_message {UISN-26 VER-129 VER-130 VER-173}
+  define_design_lib work -path $workPath/template/
+} elseif { $runSetType == "BSD"} {
+#	set prestoHdlCompiler   true
+  set hdlin_auto_save_templates true
+  set hdlin_check_no_latch true
+  set case_analysis_with_logic_constants true
+  set case_analysis_with_logic_constants true
+  set test_default_bidir_delay 0
+  set test_default_delay 0
+  set test_default_strobe 40
+  set test_dft_drc_ungate_clocks true
+  set test_enable_dft_drc true
+  #set test_preset_bidi_signals false
+  #set test_setup_additional_clock_pulse true
+  set compile_no_new_cells_at_top_level true
+  #set test_dedicated_subdesign_scan_outs false
+  set test_stil_netlist_format verilog
+  set test_use_test_models true
+  set verilogout_no_tri true
+# set timing_self_loops_no_skew true
+#	set_auto_disable_drc_nets -clock true -constant true
+  set enable_recovery_removal_arcs true
+  suppress_message {UISN-26 VER-129 VER-130 VER-173}
+  define_design_lib work -path $workPath/template/
+} elseif { $runSetType == "TMAX" } {
+
+} elseif { $runSetType == "LEDA" } {
+
+} 
+true
+true
+#-----------------------------------#
+# Include Library Setup Script
+#-----------------------------------#
+source -echo -verbose ../../script/con/setupLib.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      setupLib.tcl
+#
+#      DESCRIPTION:
+#         This script is used to setup libraries for R2N flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+set maxOptCond WCCOM 
+WCCOM
+set maxLibName fsa0a_c_sc_wc
+fsa0a_c_sc_wc
+set minOptCond BCCOM
+BCCOM
+set minLibName fsa0a_c_sc_bc
+fsa0a_c_sc_bc
+set typOptcond TCCOM
+TCCOM
+set typLibName fsa0a_c_sc_tc
+fsa0a_c_sc_tc
+set wireLoadModelName none
+none
+set slew_lower_threshold_pct_rise 10
+10
+set slew_lower_threshold_pct_fall 10
+10
+set slew_upper_threshold_pct_rise 90
+90
+set slew_upper_threshold_pct_fall 90
+90
+set input_threshold_pct_rise  50
+50
+set input_threshold_pct_fall  50
+50
+set output_threshold_pct_rise 50
+50
+set output_threshold_pct_fall 50
+50
+if { $runSetType == "DC" } {
+
+  set search_path   ".                       $search_path .                      $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                      $ENV_HOME/hdl/des                      "
+
+  set target_library "fsa0a_c_sc_wc.db"
+  
+  set synthetic_library "standard.sldb dw_foundation.sldb"
+  
+  set link_library [concat *                     $target_library                     $synthetic_library                    ]
+  
+  set_dont_use {fsa0a_c_sc_wc/JK* fsa0a_c_sc_wc/BUF*CK}
+  set_dont_use {fsa0a_c_sc_wc/RAM*}
+  set_dont_use {fsa0a_c_sc_wc/DLY*}
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCB*] dont_use
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCK*] dont_use
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/TIE*] dont_use
+  set auto_wire_load_selection true
+
+} elseif { $runSetType == "PT" } {
+  set search_path  ".                        $search_path .                    $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                    $ENV_HOME/hdl/des"
+
+  if { $OperatingCondition == "WC" || $OperatingCondition == "BCWC" } {                       
+    set target_library      "fsa0a_c_sc_wc.db"
+    set link_library [concat *                       $target_library                       ]
+
+  } elseif { $OperatingCondition == "BC" } {
+    set target_library      "fsa0a_c_sc_bc.db"
+    set link_library [concat *                       $target_library                      ]
+  }
+  if { $OperatingCondition == "BCWC" } {
+    set_min_library fsa0a_c_sc_wc.db     -min_version fsa0a_c_sc_bc.db
+  }
+} elseif { $runSetType == "POWER" } {
+  set search_path ".                        $search_path .                    $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                    $ENV_HOME/hdl/des"
+
+  if { $OperatingCondition == "WC" || $OperatingCondition == "BCWC" } {                       
+    set target_library      "fsa0a_c_sc_wc.db"
+    set link_library [concat *                       $target_library                       ]
+
+  } elseif { $OperatingCondition == "BC" } {
+    set target_library      "fsa0a_c_sc_bc.db"
+    set link_library [concat *                       $target_library                       ]
+  } elseif { $OperatingCondition == "TC" } {
+    set target_library      "fsa0a_c_sc_tc.db"
+    set link_library [concat *                       $target_library                       ]
+  }
+  if { $OperatingCondition == "BCWC" } {
+    set_min_library fsa0a_c_sc_wc.db -min_version fsa0a_c_sc_bc.db
+
+  }
+} elseif { $runSetType == "FM" } {
+  set target_library  "fsa0a_c_sc_wc.db"
+  set search_path     "$search_path .                        $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                        $ENV_HOME/hdl/des"
+  set link_library [list                     fsa0a_c_sc_wc.db                     ]
+
+  foreach lib $link_library {
+    if { $lib == "*" } { continue }
+    read_db -technology_library $lib
+  }
+} elseif { $runSetType == "DFT" || $runSetType == "BSD" } {
+
+  set search_path  "$search_path .                     $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                     $ENV_HOME/hdl/des                     "
+  set target_library  "fsa0a_c_sc_wc.db"
+  
+  set synthetic_library "standard.sldb dw_foundation.sldb"
+  
+  set link_library [concat *                     $target_library                     $synthetic_library                     ]
+  
+  #set_dont_use {fsa0a_c_sc_wc/TIE1 fsa0a_c_sc_wc/TIE0 fsa0a_c_sc_wc/JK* fsa0a_c_sc_wc/BUF*CK}
+  set_dont_use {fsa0a_c_sc_wc/JK* fsa0a_c_sc_wc/BUF*CK}
+  set_dont_use {fsa0a_c_sc_wc/RAM*}
+  set_dont_use {fsa0a_c_sc_wc/DLY*}
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCB*] dont_use
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCK*] dont_use
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/TIE*] dont_use
+  
+  set auto_wire_load_selection true
+  
+  set test_simulation_library [list                                $PJT_HOME/techlib/memory/verilog/memory.v]
+
+} elseif { $runSetType == "TMAX" } {
+	
+} elseif { $runSetType == "LEDA" } {
+
+  set search_path    "$search_path .                       $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                       $ENV_HOME/hdl/des                       "
+
+  set target_library    "fsa0a_c_sc_wc.db"
+
+  set link_library [concat *                     $target_library                    ]
+}
+#-----------------------------------#
+# Include Design Read In Script
+#-----------------------------------#
+source -echo -verbose $PPScriptPath/designReadIn.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      designReadIn.tcl
+#
+#      DESCRIPTION:
+#         This TCL script is used to generate reports in PP flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# read in netlist
+#-----------------------------------------------------------------------------
+if { [file exists $netlistFilePath/$netlistFileList] == 1 } {
+  set filelist [sh cat $netlistFilePath/$netlistFileList]
+  foreach netlist $filelist {
+    if { [file exists $netlistFilePath/$netlist] == 1 } {
+      if { [file extension $netlist ] == ".v" || [file extension $netlist ] == ".V" || [file extension $netlist ] == ".vg" || [file extension $netlist] == ".VG"} {
+        read_verilog $netlistFilePath/$netlist
+      } elseif { [file extension $netlist] == ".vhdl" || [file extension $netlist] == ".VHDL"} {
+        read_vhdl $netlistFilePath/$netlist
+      } else {
+        echo "ERROR: File $netlist can not be recognized\n"
+        quit
+      }
+    } else {
+      echo "\n\nCan not find netlist file $netlist! Please check it.\n\n"
+      quit
+    }
+  }
+} else {
+  echo "\n\nCan not find the List file $netlistFileList.Please check it and run again.\n\n"
+  quit
+}
+Loading verilog file '/export/home/user/wangyl/rtlqa_env/digital/impl/syn/work/net/current/des.v'
+current_design $topModuleName
+{"des"}
+link_design
+Loading db file '/export/home/user/wangyl/rtlqa_env/techlib/std_cell/FrontEnd/synopsys/fsa0a_c_sc_tc.db'
+Linking design des...
+Information: Removing 18 unneeded designs..... (LNK-034)
+Information: 361 (81.31%) library cells are unused in library fsa0a_c_sc_tc.....
+Information: total 361 library cells are unused.
+Information: Issuing set_operating_conditions for setting analysis mode on_chip_variation. (PTE-037)
+set_operating_conditions -analysis_type on_chip_variation  -library [get_libs {fsa0a_c_sc_tc.db:fsa0a_c_sc_tc}] 
+Design 'des' was successfully linked.
+1
+if { $OperatingCondition == "WC" } {
+  set_operating_conditions -analysis_type single $maxOptCond
+} elseif { $OperatingCondition == "BC" } {
+  set_operating_conditions -analysis_type single $minOptCond
+}
+#-----------------------------------#
+# Include Parasitic Read In Script
+#-----------------------------------#
+source -echo -verbose $PPScriptPath/parasiticsReadIn.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      parasiticsReadIn.tcl
+#
+#      DESCRIPTION:
+#         This TCL script is used to generate reports in PP flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+if  { $parasiticsFileFormat == "WLM"} {
+  if { $WireLoadModel == "AUTO" } {
+        echo "Using Auto Wireload Selection\n"
+        set auto_wire_load_selection true
+      } elseif { $WireLoadModel == "NONE" } {
+        echo "Using No Wireload Model\n"
+        remove_wire_load_model
+        remove_wire_load_selection_group
+        set auto_wire_load_selection false
+      } else {
+        echo "Using Wireload model $WireLoadModel"
+        set auto_wire_load_selection false
+        set_wire_load_mode top
+        set_wire_load_model -name $WireLoadModel [current_design]
+      }
+} elseif { $OperatingCondition == "WC" } {
+  if { [file exists $parasiticsFilePath/$MaxparasiticsFileName] == 1 } {
+    echo "read_parasitics $parasiticsFilePath/$MaxparasiticsFileName -format $parasiticsFileFormat\n"
+    read_parasitics $parasiticsFilePath/$MaxparasiticsFileName -format $parasiticsFileFormat
+  } else {
+    echo    "Can not find design parasitics $MaxparasiticsFileName\n"
+    quit
+  }
+} elseif { $OperatingCondition == "BC" } {
+  if { [file exists $parasiticsFilePath/$MinparasiticsFileName] == 1 } {
+    echo "read_parasitics $parasiticsFilePath/$MinparasiticsFileName -format $parasiticsFileFormat\n"
+    read_parasitics $parasiticsFilePath/$MinparasiticsFileName -format $parasiticsFileFormat
+  } else {
+    echo    "Can not find design parasitics $MinparasiticsFileName\n"
+    quit
+  }
+}
+Using Auto Wireload Selection
+
+true
+if { $ToggleFileType == "vcd" } {
+	if { [file exists $vcdFileName] == 1 } {
+		echo "read_vcd -strip_path $vcdStripPath $vcdFileName\n"
+		read_vcd -strip_path $vcdStripPath $vcdFileName
+	} else {
+  	echo "Can not find VCD file $vcdFileName\n"
+	}
+} elseif { $ToggleFileType == "saif" } {
+	if { [file exists $saifFileName] == 1 } {
+		echo "read_saif -strip_path $saifStripPath $saifFileName\n"
+		read_saif -strip_path $saifStripPath $saifFileName
+	} else {
+  	echo "Can not find SAIF file $saifFileName\n"
+	}
+} elseif { $ToggleFileType == "none" } {
+		echo "Using default Toggle Rate to propapate\n"
+}
+Can not find VCD file pp_max.vcd
+
+#-----------------------------------#
+# Include Design Constraint Script
+#-----------------------------------#
+source -echo -verbose $PPScriptPath/designConstraintIn.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      designConstraintIn.tcl
+#
+#      DESCRIPTION:
+#         This TCL script is used to generate reports in PP flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+if { [file exists $ppConstraintPath/PPConstraint.tcl] == 1 } {
+      source -echo -verbose $ppConstraintPath/PPConstraint.tcl
+} else {
+      echo    "Can not find design constraints PPConstraint.tcl\n"
+      quit
+}
+###################################################################
+# Created by write_sdc on Tue Jun 24 15:11:14 2008
+###################################################################
+#set sdc_version 1.7
+#set_operating_conditions WCCOM -library fsa0a_c_sc_wc
+#set_wire_load_mode top
+#set_wire_load_model -name enG500K -library fsa0a_c_sc_wc
+set_max_fanout 16 [current_design]
+1
+set_max_transition 1.2 [current_design]
+1
+#set_ideal_network [get_ports POR]
+#set_ideal_network [get_ports hresetn]
+create_clock [get_ports hclk]  -period 50  -waveform {0 25}
+1
+set_clock_latency 5  [get_clocks hclk]
+1
+1
+1
+#-----------------------------------#
+# Include Post Compile Report Script
+#-----------------------------------#
+source -echo -verbose $PPScriptPath/designRpt.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      designRpt.tcl
+#
+#      DESCRIPTION:
+#         This TCL script is used to generate reports in PP flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+if { [file exists $rptDir] == 1 } {
+} else {
+  file mkdir $rptDir
+}
+if { [file exists $rptDir/current ] == 1 } {
+  exec mv $rptDir/current $rptDir/20[clock format [clock seconds] -format "%y%m%d_%H%M"]
+  file mkdir $rptDir/current
+} else {
+  file mkdir $rptDir/current
+}
+set rptDir $rptDir/current
+/export/home/user/wangyl/rtlqa_env/digital/impl/power/rpts/rpts_TC/current
+#set_waveform_options -file $topModuleName
+#calculate_power -waveform -statistics -error_file $topModuleName
+#create_power_waveform -output $topModuleName 
+check_power		
+Checked out license 'PrimeTime-PX'
+Warning: Some timing arcs have been disabled for breaking timing loops
+	or because of constant propagation. Use the 'report_disable_timing'
+	command to get the list of these disabled timing arcs. (PTE-003)
+Information: Using automatic max wire load selection group 'DEFAULT'. (ENV-003)
+Information: Using automatic min wire load selection group 'DEFAULT'. (ENV-003)
+Information: Checking 'out_of_table_range'.
+Warning: There are 1000 out_of_range ramps.
+Warning: There are 12 out_of_range loads.
+Information: Checking 'missing_table'.
+0
+redirect [ file join $rptDir ${topModuleName}.powerrpt_hier ] {
+report_power -level $ReportPowerLevel -hier
+}
+redirect [ file join $rptDir ${topModuleName}.powerrpt ] {
+report_power 
+}
+#-----------------------------------#
+# Include session save script
+#-----------------------------------#
+if { $savesession == "true" } {
+        source -echo -verbose $PPScriptPath/savesession.tcl
+}
+#quit
+Information: Defining new variable 'vcdStripPath'. (CMD-041)
+Information: Defining new variable 'minOptCond'. (CMD-041)
+Information: Defining new variable 'output_threshold_pct_rise'. (CMD-041)
+Information: Defining new variable 'MaxparasiticsFileName'. (CMD-041)
+Information: Defining new variable 'netlist'. (CMD-041)
+Information: Defining new variable 'wireLoadModelName'. (CMD-041)
+Information: Defining new variable 'PJT_HOME'. (CMD-041)
+Information: Defining new variable 'maxOptCond'. (CMD-041)
+Information: Defining new variable 'slew_lower_threshold_pct_fall'. (CMD-041)
+Information: Defining new variable 'slew_upper_threshold_pct_fall'. (CMD-041)
+Information: Defining new variable 'netlistFileList'. (CMD-041)
+Information: Defining new variable 'filelist'. (CMD-041)
+Information: Defining new variable 'vcdFilePath'. (CMD-041)
+Information: Defining new variable 'ReportPowerLevel'. (CMD-041)
+Information: Defining new variable 'WireLoadModel'. (CMD-041)
+Information: Defining new variable 'ToggleFileType'. (CMD-041)
+Information: Defining new variable 'PPScriptPath'. (CMD-041)
+Information: Defining new variable 'IMP_HOME'. (CMD-041)
+Information: Defining new variable 'topModuleName'. (CMD-041)
+Information: Defining new variable 'rptDir'. (CMD-041)
+Information: Defining new variable 'runPPstage'. (CMD-041)
+Information: Defining new variable 'slew_lower_threshold_pct_rise'. (CMD-041)
+Information: Defining new variable 'netlistFilePath'. (CMD-041)
+Information: Defining new variable 'slew_upper_threshold_pct_rise'. (CMD-041)
+Information: Defining new variable 'ppConstraintPath'. (CMD-041)
+Information: Defining new variable 'input_threshold_pct_fall'. (CMD-041)
+Information: Defining new variable 'parasiticsFileFormat'. (CMD-041)
+Information: Defining new variable 'projectName'. (CMD-041)
+Information: Defining new variable 'target_library'. (CMD-041)
+Information: Defining new variable 'MinparasiticsFileName'. (CMD-041)
+Information: Defining new variable 'vcdFileName'. (CMD-041)
+Information: Defining new variable 'input_threshold_pct_rise'. (CMD-041)
+Information: Defining new variable 'minLibName'. (CMD-041)
+Information: Defining new variable 'typLibName'. (CMD-041)
+Information: Defining new variable 'workPath'. (CMD-041)
+Information: Defining new variable 'RUN_DIR'. (CMD-041)
+Information: Defining new variable 'typOptcond'. (CMD-041)
+Information: Defining new variable 'output_threshold_pct_fall'. (CMD-041)
+Information: Defining new variable 'ENV_HOME'. (CMD-041)
+Information: Defining new variable 'LibrarySetupPath'. (CMD-041)
+Information: Defining new variable 'OperatingCondition'. (CMD-041)
+Information: Defining new variable 'parasiticsFilePath'. (CMD-041)
+Information: Defining new variable 'savesession'. (CMD-041)
+Information: Defining new variable 'runSetType'. (CMD-041)
+Information: Defining new variable 'maxLibName'. (CMD-041)
+pt_shell> exit
+Updating preference file: /export/home/user/wangyl/.synopsys_pt_prefs.tcl
+
+Timing updates: 1 (1 implicit, 0 explicit) (0 incremental, 1 full)
+Maximum memory usage for this session: 77.08 MB
+CPU usage for this session: 7 seconds
+Elapsed time for this session: 19956 seconds
+Diagnostics summary: 2 warnings, 49 informationals
+
+Thank you for using pt_shell!

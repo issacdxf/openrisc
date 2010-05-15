@@ -1,0 +1,303 @@
+STIL 1.0 {
+    Design P2001.01;
+}
+Header {
+    Title "Minimal STIL for design `des'";
+    Date "Fri Sep 18 12:14:59 2009";
+    Source "DFT Compiler Z-2007.03-SP1";
+}
+Signals {
+    "POR" In;
+    "Test_Mode" In;
+    "haddr[0]" In;
+    "haddr[1]" In;
+    "haddr[2]" In;
+    "haddr[3]" In;
+    "haddr[4]" In;
+    "haddr[5]" In;
+    "haddr[6]" In;
+    "haddr[7]" In;
+    "haddr[8]" In;
+    "haddr[9]" In;
+    "hburst[0]" In;
+    "hburst[1]" In;
+    "hburst[2]" In;
+    "hclk" In;
+    "hready" In;
+    "hresetn" In;
+    "hsel" In;
+    "hsize[0]" In;
+    "hsize[1]" In;
+    "hsize[2]" In;
+    "htrans[0]" In;
+    "htrans[1]" In;
+    "hwdata[0]" In;
+    "hwdata[10]" In;
+    "hwdata[11]" In;
+    "hwdata[12]" In;
+    "hwdata[13]" In;
+    "hwdata[14]" In;
+    "hwdata[15]" In;
+    "hwdata[16]" In;
+    "hwdata[17]" In;
+    "hwdata[18]" In;
+    "hwdata[19]" In;
+    "hwdata[1]" In;
+    "hwdata[20]" In;
+    "hwdata[21]" In;
+    "hwdata[22]" In;
+    "hwdata[23]" In;
+    "hwdata[24]" In;
+    "hwdata[25]" In;
+    "hwdata[26]" In;
+    "hwdata[27]" In;
+    "hwdata[28]" In;
+    "hwdata[29]" In;
+    "hwdata[2]" In;
+    "hwdata[30]" In;
+    "hwdata[31]" In;
+    "hwdata[3]" In;
+    "hwdata[4]" In;
+    "hwdata[5]" In;
+    "hwdata[6]" In;
+    "hwdata[7]" In;
+    "hwdata[8]" In;
+    "hwdata[9]" In;
+    "hwrite" In;
+    "hrdata[0]" Out;
+    "hrdata[10]" Out;
+    "hrdata[11]" Out;
+    "hrdata[12]" Out;
+    "hrdata[13]" Out;
+    "hrdata[14]" Out;
+    "hrdata[15]" Out;
+    "hrdata[16]" Out;
+    "hrdata[17]" Out;
+    "hrdata[18]" Out;
+    "hrdata[19]" Out;
+    "hrdata[1]" Out;
+    "hrdata[20]" Out;
+    "hrdata[21]" Out;
+    "hrdata[22]" Out;
+    "hrdata[23]" Out;
+    "hrdata[24]" Out;
+    "hrdata[25]" Out;
+    "hrdata[26]" Out;
+    "hrdata[27]" Out;
+    "hrdata[28]" Out;
+    "hrdata[29]" Out;
+    "hrdata[2]" Out;
+    "hrdata[30]" Out;
+    "hrdata[31]" Out;
+    "hrdata[3]" Out;
+    "hrdata[4]" Out;
+    "hrdata[5]" Out;
+    "hrdata[6]" Out;
+    "hrdata[7]" Out;
+    "hrdata[8]" Out;
+    "hrdata[9]" Out;
+    "hready_resp" Out;
+    "hresp[0]" Out;
+    "hresp[1]" Out;
+    "Test_Se" In;
+    "si0" In;
+    "si1" In;
+    "si2" In;
+    "si3" In;
+    "so0" Out;
+    "so1" Out;
+    "so2" Out;
+    "so3" Out;
+}
+SignalGroups {
+    "_clk" = '"hclk"';
+    "all_inputs" = '"POR" + "Test_Mode" + "haddr[0]" + "haddr[1]" + "haddr[2]" + 
+    "haddr[3]" + "haddr[4]" + "haddr[5]" + "haddr[6]" + "haddr[7]" + "haddr[8]" 
+    + "haddr[9]" + "hburst[0]" + "hburst[1]" + "hburst[2]" + "hclk" + "hready" + 
+    "hresetn" + "hsel" + "hsize[0]" + "hsize[1]" + "hsize[2]" + "htrans[0]" + 
+    "htrans[1]" + "hwdata[0]" + "hwdata[10]" + "hwdata[11]" + "hwdata[12]" + 
+    "hwdata[13]" + "hwdata[14]" + "hwdata[15]" + "hwdata[16]" + "hwdata[17]" + 
+    "hwdata[18]" + "hwdata[19]" + "hwdata[1]" + "hwdata[20]" + "hwdata[21]" + 
+    "hwdata[22]" + "hwdata[23]" + "hwdata[24]" + "hwdata[25]" + "hwdata[26]" + 
+    "hwdata[27]" + "hwdata[28]" + "hwdata[29]" + "hwdata[2]" + "hwdata[30]" + 
+    "hwdata[31]" + "hwdata[3]" + "hwdata[4]" + "hwdata[5]" + "hwdata[6]" + 
+    "hwdata[7]" + "hwdata[8]" + "hwdata[9]" + "hwrite" + "Test_Se" + "si0" + 
+    "si1" + "si2" + "si3"';
+    "all_outputs" = '"hrdata[0]" + "hrdata[10]" + "hrdata[11]" + "hrdata[12]" + 
+    "hrdata[13]" + "hrdata[14]" + "hrdata[15]" + "hrdata[16]" + "hrdata[17]" + 
+    "hrdata[18]" + "hrdata[19]" + "hrdata[1]" + "hrdata[20]" + "hrdata[21]" + 
+    "hrdata[22]" + "hrdata[23]" + "hrdata[24]" + "hrdata[25]" + "hrdata[26]" + 
+    "hrdata[27]" + "hrdata[28]" + "hrdata[29]" + "hrdata[2]" + "hrdata[30]" + 
+    "hrdata[31]" + "hrdata[3]" + "hrdata[4]" + "hrdata[5]" + "hrdata[6]" + 
+    "hrdata[7]" + "hrdata[8]" + "hrdata[9]" + "hready_resp" + "hresp[0]" + 
+    "hresp[1]" + "so0" + "so1" + "so2" + "so3"';
+    "all_ports" = '"all_inputs" + "all_outputs"';
+    "_pi" = '"all_inputs"';
+    "_po" = '"all_outputs"';
+}
+ScanStructures {
+}
+Timing {
+    WaveformTable "_default_WFT_" {
+        Period '100ns';
+        Waveforms {
+            "all_inputs" {
+                0 {
+                    '0ns' D;
+                }
+            }
+            "all_inputs" {
+                1 {
+                    '0ns' U;
+                }
+            }
+            "all_inputs" {
+                Z {
+                    '0ns' Z;
+                }
+            }
+            "all_inputs" {
+                N {
+                    '0ns' N;
+                }
+            }
+            "hclk" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "all_outputs" {
+                X {
+                    '0ns' X;
+                    '40ns' X;
+                }
+            }
+            "all_outputs" {
+                H {
+                    '0ns' X;
+                    '40ns' H;
+                }
+            }
+            "all_outputs" {
+                T {
+                    '0ns' X;
+                    '40ns' T;
+                }
+            }
+            "all_outputs" {
+                L {
+                    '0ns' X;
+                    '40ns' L;
+                }
+            }
+        }
+    }
+}
+Procedures {
+    "capture" {
+        W "_default_WFT_";
+        F {
+            "POR" = 1;
+            "Test_Mode" = 1;
+            "hresetn" = 1;
+        }
+        V {
+            "_pi" = \r57 #;
+            "Test_Se" = #;
+            "si0" = #;
+            "si1" = #;
+            "si2" = #;
+            "si3" = #;
+        }
+        V {
+            "_po" = \r35 #;
+            "so0" = #;
+            "so1" = #;
+            "so2" = #;
+            "so3" = #;
+        }
+    }
+    "capture_hclk" {
+        W "_default_WFT_";
+        F {
+            "POR" = 1;
+            "Test_Mode" = 1;
+            "hresetn" = 1;
+        }
+        "forcePI" : V {
+            "_pi" = \r57 #;
+            "Test_Se" = #;
+            "si0" = #;
+            "si1" = #;
+            "si2" = #;
+            "si3" = #;
+        }
+        "measurePO" : V {
+            "_po" = \r35 #;
+            "so0" = #;
+            "so1" = #;
+            "so2" = #;
+            "so3" = #;
+        }
+        C {
+            "hrdata[0]" = X;
+            "hrdata[10]" = X;
+            "hrdata[11]" = X;
+            "hrdata[12]" = X;
+            "hrdata[13]" = X;
+            "hrdata[14]" = X;
+            "hrdata[15]" = X;
+            "hrdata[16]" = X;
+            "hrdata[17]" = X;
+            "hrdata[18]" = X;
+            "hrdata[19]" = X;
+            "hrdata[1]" = X;
+            "hrdata[20]" = X;
+            "hrdata[21]" = X;
+            "hrdata[22]" = X;
+            "hrdata[23]" = X;
+            "hrdata[24]" = X;
+            "hrdata[25]" = X;
+            "hrdata[26]" = X;
+            "hrdata[27]" = X;
+            "hrdata[28]" = X;
+            "hrdata[29]" = X;
+            "hrdata[2]" = X;
+            "hrdata[30]" = X;
+            "hrdata[31]" = X;
+            "hrdata[3]" = X;
+            "hrdata[4]" = X;
+            "hrdata[5]" = X;
+            "hrdata[6]" = X;
+            "hrdata[7]" = X;
+            "hrdata[8]" = X;
+            "hrdata[9]" = X;
+            "hready_resp" = X;
+            "hresp[0]" = X;
+            "hresp[1]" = X;
+            "so0" = X;
+            "so1" = X;
+            "so2" = X;
+            "so3" = X;
+        }
+        "pulse" : V {
+            "hclk" = P;
+        }
+    }
+}
+MacroDefs {
+    "test_setup" {
+        W "_default_WFT_";
+        V {
+            "POR" = 1;
+            "Test_Mode" = 1;
+            "hclk" = 0;
+            "hresetn" = 1;
+        }
+        V {
+        }
+    }
+}
+

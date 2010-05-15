@@ -1,0 +1,42 @@
+STIL 1.0 {
+   Design P2002.13;
+   CTL P2002.18;
+   TRC P2002.3;
+}
+Header {
+   Title "  TetraMAX (TM)  Z-2007.03-SP1-i070413_172030 STIL output";
+   Date "Fri Sep 18 17:15:31 2009";
+   Source "Minimal STIL for design `des'";
+   History {
+      Ann {*  Fri Sep 18 12:14:59 2009  *}
+      Ann {*  DFT Compiler Z-2007.03-SP1  *}
+   }         //end History
+}            //end Header
+PatternInformation {
+   Pattern "_pattern_" {
+      Purpose Scan;
+      FileReference "/export/home/user/wangyl/rtlqa_env/digital/impl/tmax/work/current/des.stil";
+      PatternCharacteristics {
+         BreakPoint No;
+         ConditionalStatements No;
+         CoreUsageReady No;
+         NonCyclized No;
+         DeltaChangeVectorData Yes;
+         GoTo No;
+         IddqTestPoints No;
+         Macro Yes;
+         MultiBitData No;
+         NumberPatternUnits 131;
+         PatternVariables No;
+         ProcedureCalls WithParameters;
+         Shift Yes;
+         STILPatterns Yes;
+      }      //end PatternCharacteristics
+      Fault {
+         Type StuckAt;
+         FaultCount 35108;
+         FaultsDetected 34438;
+         FaultCoverage 98;
+      }      //end Fault
+   }         //end Pattern
+}            //end PatternInformation

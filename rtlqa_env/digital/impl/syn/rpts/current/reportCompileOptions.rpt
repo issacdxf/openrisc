@@ -1,0 +1,142 @@
+ 
+****************************************
+Report : compile_options
+Design : des
+Version: Z-2007.03-SP1
+Date   : Fri Sep 18 12:13:11 2009
+****************************************
+
+Design                                   Compile Option         Value
+--------------------------------------------------------------------------------
+des                                      flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+                                         fix_multiple_port_nets feedthroughs
+                                                                constants
+                                                                outputs
+                                         isolate_port           disabled
+                                         design_ideal_nets      clock_on
+                                                                constant_on
+
+des_key                                  flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+POWERMODULE_HIGH_des_key_0_5             flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+POWERMODULE_HIGH_des_key_0_4             flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+POWERMODULE_HIGH_des_key_0_3             flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+POWERMODULE_HIGH_des_key_0_2             flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+POWERMODULE_HIGH_des_key_0_1             flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+POWERMODULE_HIGH_des_key_0_0             flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+SNPS_CLOCK_GATE_OBS_des_key              flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+des_iv                                   flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+POWERMODULE_HIGH_des_iv_0_1              flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+POWERMODULE_HIGH_des_iv_0_0              flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+SNPS_CLOCK_GATE_OBS_des_iv               flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+des_dat                                  flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+POWERMODULE_HIGH_des_dat_0_1             flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+POWERMODULE_HIGH_des_dat_0_0             flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+SNPS_CLOCK_GATE_OBS_des_dat              flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+des_cop                                  flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+tiny_des                                 flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+tiny_des_round                           flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+POWERMODULE_HIGH_tiny_des_round_0        flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+SNPS_CLOCK_GATE_OBS_tiny_des_round       flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+POWERMODULE_HIGH_des_0                   flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+SNPS_CLOCK_GATE_OBS_des                  flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+
+des_spares_0                             flatten                false
+                                         structure              true
+                                         structure_boolean      false
+                                         structure_timing       true
+--------------------------------------------------------------------------------
+1

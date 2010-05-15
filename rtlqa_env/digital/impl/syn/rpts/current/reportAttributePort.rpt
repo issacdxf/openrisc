@@ -1,0 +1,20 @@
+ 
+****************************************
+Report : Attribute
+Design : des
+Version: Z-2007.03-SP1
+Date   : Fri Sep 18 12:13:11 2009
+****************************************
+
+Design          Object             Type      Attribute Name            Value
+--------------------------------------------------------------------------------
+des             POR                port      ideal_network_options     0
+des             POR                port      dont_touch_network        true
+des             POR                port      ideal_network_source      true
+des             POR                port      ideal_dc_placement        false
+des             hresetn            port      ideal_network_options     0
+des             hresetn            port      dont_touch_network        true
+des             hresetn            port      ideal_network_source      true
+des             hresetn            port      ideal_dc_placement        false
+
+1

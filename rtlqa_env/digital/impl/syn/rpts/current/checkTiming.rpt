@@ -1,0 +1,58 @@
+
+Information: The clock network starting at 'hclk' is gated by the
+	following input pins.
+
+Clock Output Pin        Clock Input Pin          Gating Input Pin
+--------------------------------------------------------------------------------
+POWERGATING_hclk_N26_0/main_gate/O
+                        POWERGATING_hclk_N26_0/main_gate/I2
+                                                 POWERGATING_hclk_N26_0/main_gate/I1
+clk_gate_obs/main_gate/O
+                        clk_gate_obs/main_gate/I2
+                                                 clk_gate_obs/main_gate/I1
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                        deskey_unit/POWERGATING_hclk_N243_0/main_gate/I2
+                                                 deskey_unit/POWERGATING_hclk_N243_0/main_gate/I1
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                        deskey_unit/POWERGATING_hclk_N211_0/main_gate/I2
+                                                 deskey_unit/POWERGATING_hclk_N211_0/main_gate/I1
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                        deskey_unit/POWERGATING_hclk_N179_0/main_gate/I2
+                                                 deskey_unit/POWERGATING_hclk_N179_0/main_gate/I1
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                        deskey_unit/POWERGATING_hclk_N147_0/main_gate/I2
+                                                 deskey_unit/POWERGATING_hclk_N147_0/main_gate/I1
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                        deskey_unit/POWERGATING_hclk_N115_0/main_gate/I2
+                                                 deskey_unit/POWERGATING_hclk_N115_0/main_gate/I1
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                        deskey_unit/POWERGATING_hclk_N83_0/main_gate/I2
+                                                 deskey_unit/POWERGATING_hclk_N83_0/main_gate/I1
+deskey_unit/clk_gate_obs/main_gate/O
+                        deskey_unit/clk_gate_obs/main_gate/I2
+                                                 deskey_unit/clk_gate_obs/main_gate/I1
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                        desiv_unit/POWERGATING_hclk_N130_0/main_gate/I2
+                                                 desiv_unit/POWERGATING_hclk_N130_0/main_gate/I1
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                        desiv_unit/POWERGATING_hclk_N66_0/main_gate/I2
+                                                 desiv_unit/POWERGATING_hclk_N66_0/main_gate/I1
+desiv_unit/clk_gate_obs/main_gate/O
+                        desiv_unit/clk_gate_obs/main_gate/I2
+                                                 desiv_unit/clk_gate_obs/main_gate/I1
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                        desdat_unit/POWERGATING_hclk_N134_0/main_gate/I2
+                                                 desdat_unit/POWERGATING_hclk_N134_0/main_gate/I1
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                        desdat_unit/POWERGATING_hclk_N70_0/main_gate/I2
+                                                 desdat_unit/POWERGATING_hclk_N70_0/main_gate/I1
+desdat_unit/clk_gate_obs/main_gate/O
+                        desdat_unit/clk_gate_obs/main_gate/I2
+                                                 desdat_unit/clk_gate_obs/main_gate/I1
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                        des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/I2
+                                                 des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/I1
+des_cop_unit/des_unit/u_tiny_des_round/clk_gate_obs/main_gate/O
+                        des_cop_unit/des_unit/u_tiny_des_round/clk_gate_obs/main_gate/I2
+                                                 des_cop_unit/des_unit/u_tiny_des_round/clk_gate_obs/main_gate/I1
+1

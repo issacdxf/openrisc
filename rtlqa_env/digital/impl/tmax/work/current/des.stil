@@ -1,0 +1,2060 @@
+STIL 1.0 { Design 2005; }
+Header {
+   Title "  TetraMAX (TM)  Z-2007.03-SP1-i070413_172030 STIL output";
+   Date "Fri Sep 18 17:15:31 2009";
+   Source "Minimal STIL for design `des'";
+   History {
+      Ann {*  Fri Sep 18 12:14:59 2009  *}
+      Ann {*  DFT Compiler Z-2007.03-SP1  *}
+      Ann {*     Uncollapsed Stuck Fault Summary Report *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* fault class                     code   #faults *}
+      Ann {* ------------------------------  ----  --------- *}
+      Ann {* Detected                         DT      34438 *}
+      Ann {* Possibly detected                PT          0 *}
+      Ann {* Undetectable                     UD        111 *}
+      Ann {* ATPG untestable                  AU        546 *}
+      Ann {* Not detected                     ND         13 *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* total faults                             35108 *}
+      Ann {* test coverage                            98.40% *}
+      Ann {* ----------------------------------------------- *}
+      Ann {*  *}
+      Ann {*            Pattern Summary Report *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* #internal patterns                         131 *}
+      Ann {*     #basic_scan patterns                   131 *}
+      Ann {* ----------------------------------------------- *}
+      Ann {*  *}
+      Ann {* rule  severity  #fails  description *}
+      Ann {* ----  --------  ------  --------------------------------- *}
+      Ann {* N2    warning      128  unsupported construct *}
+      Ann {* N16   warning        1  overspecified UDP *}
+      Ann {* N23   warning        1  inconsistent UDP *}
+      Ann {* B8    warning       20  unconnected module input pin *}
+      Ann {* B9    warning        1  undriven module internal net *}
+      Ann {* B10   warning        4  unconnected module internal net *}
+      Ann {*  *}
+      Ann {* clock_name        off  usage *}
+      Ann {* ----------------  ---  -------------------------- *}
+      Ann {* hclk               0   master shift nonscan_DLAT  *}
+      Ann {*  *}
+      Ann {* port_name         constraint_value *}
+      Ann {* ----------------  --------------- *}
+      Ann {* POR                 1 *}
+      Ann {* hresetn             1 *}
+      Ann {* Test_Mode           1 *}
+      Ann {*  *}
+      Ann {* There are no equivalent pins *}
+      Ann {* There are no net connections *}
+   }
+}
+Signals {
+   "hclk" In; "POR" In; "hresetn" In; "hsel" In; "hwdata[31]" In; "hwdata[30]" In;
+   "hwdata[29]" In; "hwdata[28]" In; "hwdata[27]" In; "hwdata[26]" In; "hwdata[25]" In;
+   "hwdata[24]" In; "hwdata[23]" In; "hwdata[22]" In; "hwdata[21]" In; "hwdata[20]" In;
+   "hwdata[19]" In; "hwdata[18]" In; "hwdata[17]" In; "hwdata[16]" In; "hwdata[15]" In;
+   "hwdata[14]" In; "hwdata[13]" In; "hwdata[12]" In; "hwdata[11]" In; "hwdata[10]" In;
+   "hwdata[9]" In; "hwdata[8]" In; "hwdata[7]" In; "hwdata[6]" In; "hwdata[5]" In;
+   "hwdata[4]" In; "hwdata[3]" In; "hwdata[2]" In; "hwdata[1]" In; "hwdata[0]" In;
+   "haddr[9]" In; "haddr[8]" In; "haddr[7]" In; "haddr[6]" In; "haddr[5]" In; "haddr[4]" In;
+   "haddr[3]" In; "haddr[2]" In; "haddr[1]" In; "haddr[0]" In; "hwrite" In; "htrans[1]" In;
+   "htrans[0]" In; "hsize[2]" In; "hsize[1]" In; "hsize[0]" In; "hburst[2]" In; "hburst[1]" In;
+   "hburst[0]" In; "hready" In; "Test_Mode" In; "Test_Se" In; "si0" In { ScanIn; }
+   "si1" In { ScanIn; } "si2" In { ScanIn; } "si3" In { ScanIn; } "hready_resp" Out;
+   "hresp[1]" Out; "hresp[0]" Out; "hrdata[31]" Out; "hrdata[30]" Out; "hrdata[29]" Out;
+   "hrdata[28]" Out; "hrdata[27]" Out; "hrdata[26]" Out; "hrdata[25]" Out; "hrdata[24]" Out;
+   "hrdata[23]" Out; "hrdata[22]" Out; "hrdata[21]" Out; "hrdata[20]" Out; "hrdata[19]" Out;
+   "hrdata[18]" Out; "hrdata[17]" Out; "hrdata[16]" Out; "hrdata[15]" Out; "hrdata[14]" Out;
+   "hrdata[13]" Out; "hrdata[12]" Out; "hrdata[11]" Out; "hrdata[10]" Out; "hrdata[9]" Out;
+   "hrdata[8]" Out; "hrdata[7]" Out; "hrdata[6]" Out; "hrdata[5]" Out; "hrdata[4]" Out;
+   "hrdata[3]" Out; "hrdata[2]" Out; "hrdata[1]" Out; "hrdata[0]" Out; "so0" Out {
+   ScanOut; } "so1" Out { ScanOut; } "so2" Out { ScanOut; } "so3" Out { ScanOut; }
+}
+SignalGroups {
+   "_pi" = '"POR" + "Test_Mode" + "haddr[0]" + "haddr[1]" + "haddr[2]" +
+   "haddr[3]" + "haddr[4]" + "haddr[5]" + "haddr[6]" + "haddr[7]" + "haddr[8]" +
+   "haddr[9]" + "hburst[0]" + "hburst[1]" + "hburst[2]" + "hclk" + "hready" +
+   "hresetn" + "hsel" + "hsize[0]" + "hsize[1]" + "hsize[2]" + "htrans[0]" +
+   "htrans[1]" + "hwdata[0]" + "hwdata[10]" + "hwdata[11]" + "hwdata[12]" +
+   "hwdata[13]" + "hwdata[14]" + "hwdata[15]" + "hwdata[16]" + "hwdata[17]" +
+   "hwdata[18]" + "hwdata[19]" + "hwdata[1]" + "hwdata[20]" + "hwdata[21]" +
+   "hwdata[22]" + "hwdata[23]" + "hwdata[24]" + "hwdata[25]" + "hwdata[26]" +
+   "hwdata[27]" + "hwdata[28]" + "hwdata[29]" + "hwdata[2]" + "hwdata[30]" +
+   "hwdata[31]" + "hwdata[3]" + "hwdata[4]" + "hwdata[5]" + "hwdata[6]" +
+   "hwdata[7]" + "hwdata[8]" + "hwdata[9]" + "hwrite" + "Test_Se" + "si0" +
+   "si1" + "si2" + "si3"'; // #signals=62
+   "_in" = '"hclk" + "POR" + "hresetn" + "hsel" + "hwdata[31]" + "hwdata[30]" +
+   "hwdata[29]" + "hwdata[28]" + "hwdata[27]" + "hwdata[26]" + "hwdata[25]" +
+   "hwdata[24]" + "hwdata[23]" + "hwdata[22]" + "hwdata[21]" + "hwdata[20]" +
+   "hwdata[19]" + "hwdata[18]" + "hwdata[17]" + "hwdata[16]" + "hwdata[15]" +
+   "hwdata[14]" + "hwdata[13]" + "hwdata[12]" + "hwdata[11]" + "hwdata[10]" +
+   "hwdata[9]" + "hwdata[8]" + "hwdata[7]" + "hwdata[6]" + "hwdata[5]" +
+   "hwdata[4]" + "hwdata[3]" + "hwdata[2]" + "hwdata[1]" + "hwdata[0]" +
+   "haddr[9]" + "haddr[8]" + "haddr[7]" + "haddr[6]" + "haddr[5]" + "haddr[4]" +
+   "haddr[3]" + "haddr[2]" + "haddr[1]" + "haddr[0]" + "hwrite" + "htrans[1]" +
+   "htrans[0]" + "hsize[2]" + "hsize[1]" + "hsize[0]" + "hburst[2]" +
+   "hburst[1]" + "hburst[0]" + "hready" + "Test_Mode" + "Test_Se" + "si0" +
+   "si1" + "si2" + "si3"'; // #signals=62
+   "all_inputs" = '"POR" + "Test_Mode" + "haddr[0]" + "haddr[1]" + "haddr[2]" +
+   "haddr[3]" + "haddr[4]" + "haddr[5]" + "haddr[6]" + "haddr[7]" + "haddr[8]" +
+   "haddr[9]" + "hburst[0]" + "hburst[1]" + "hburst[2]" + "hclk" + "hready" +
+   "hresetn" + "hsel" + "hsize[0]" + "hsize[1]" + "hsize[2]" + "htrans[0]" +
+   "htrans[1]" + "hwdata[0]" + "hwdata[10]" + "hwdata[11]" + "hwdata[12]" +
+   "hwdata[13]" + "hwdata[14]" + "hwdata[15]" + "hwdata[16]" + "hwdata[17]" +
+   "hwdata[18]" + "hwdata[19]" + "hwdata[1]" + "hwdata[20]" + "hwdata[21]" +
+   "hwdata[22]" + "hwdata[23]" + "hwdata[24]" + "hwdata[25]" + "hwdata[26]" +
+   "hwdata[27]" + "hwdata[28]" + "hwdata[29]" + "hwdata[2]" + "hwdata[30]" +
+   "hwdata[31]" + "hwdata[3]" + "hwdata[4]" + "hwdata[5]" + "hwdata[6]" +
+   "hwdata[7]" + "hwdata[8]" + "hwdata[9]" + "hwrite" + "Test_Se" + "si0" +
+   "si1" + "si2" + "si3"'; // #signals=62
+   "_po" = '"hrdata[0]" + "hrdata[10]" + "hrdata[11]" + "hrdata[12]" +
+   "hrdata[13]" + "hrdata[14]" + "hrdata[15]" + "hrdata[16]" + "hrdata[17]" +
+   "hrdata[18]" + "hrdata[19]" + "hrdata[1]" + "hrdata[20]" + "hrdata[21]" +
+   "hrdata[22]" + "hrdata[23]" + "hrdata[24]" + "hrdata[25]" + "hrdata[26]" +
+   "hrdata[27]" + "hrdata[28]" + "hrdata[29]" + "hrdata[2]" + "hrdata[30]" +
+   "hrdata[31]" + "hrdata[3]" + "hrdata[4]" + "hrdata[5]" + "hrdata[6]" +
+   "hrdata[7]" + "hrdata[8]" + "hrdata[9]" + "hready_resp" + "hresp[0]" +
+   "hresp[1]" + "so0" + "so1" + "so2" + "so3"'; // #signals=39
+   "_si" = '"si0" + "si1" + "si2" + "si3"' { ScanIn; } // #signals=4
+   "all_outputs" = '"hrdata[0]" + "hrdata[10]" + "hrdata[11]" + "hrdata[12]" +
+   "hrdata[13]" + "hrdata[14]" + "hrdata[15]" + "hrdata[16]" + "hrdata[17]" +
+   "hrdata[18]" + "hrdata[19]" + "hrdata[1]" + "hrdata[20]" + "hrdata[21]" +
+   "hrdata[22]" + "hrdata[23]" + "hrdata[24]" + "hrdata[25]" + "hrdata[26]" +
+   "hrdata[27]" + "hrdata[28]" + "hrdata[29]" + "hrdata[2]" + "hrdata[30]" +
+   "hrdata[31]" + "hrdata[3]" + "hrdata[4]" + "hrdata[5]" + "hrdata[6]" +
+   "hrdata[7]" + "hrdata[8]" + "hrdata[9]" + "hready_resp" + "hresp[0]" +
+   "hresp[1]" + "so0" + "so1" + "so2" + "so3"'; // #signals=39
+   "all_ports" = '"all_inputs" + "all_outputs"'; // #signals=101
+   "_clk" = '"hclk"'; // #signals=1
+   "_so" = '"so0" + "so1" + "so2" + "so3"' { ScanOut; } // #signals=4
+   "_out" = '"hready_resp" + "hresp[1]" + "hresp[0]" + "hrdata[31]" +
+   "hrdata[30]" + "hrdata[29]" + "hrdata[28]" + "hrdata[27]" + "hrdata[26]" +
+   "hrdata[25]" + "hrdata[24]" + "hrdata[23]" + "hrdata[22]" + "hrdata[21]" +
+   "hrdata[20]" + "hrdata[19]" + "hrdata[18]" + "hrdata[17]" + "hrdata[16]" +
+   "hrdata[15]" + "hrdata[14]" + "hrdata[13]" + "hrdata[12]" + "hrdata[11]" +
+   "hrdata[10]" + "hrdata[9]" + "hrdata[8]" + "hrdata[7]" + "hrdata[6]" +
+   "hrdata[5]" + "hrdata[4]" + "hrdata[3]" + "hrdata[2]" + "hrdata[1]" +
+   "hrdata[0]" + "so0" + "so1" + "so2" + "so3"'; // #signals=39
+}
+Timing {
+   WaveformTable "_default_WFT_" {
+      Period '100ns';
+      Waveforms {
+         "all_inputs" { 0 { '0ns' D; } }
+         "all_inputs" { 1 { '0ns' U; } }
+         "all_inputs" { Z { '0ns' Z; } }
+         "all_inputs" { N { '0ns' N; } }
+         "hclk" { P { '0ns' D; '45ns' U; '55ns' D; } }
+         "all_outputs" { X { '0ns' X; '40ns' X; } }
+         "all_outputs" { H { '0ns' X; '40ns' H; } }
+         "all_outputs" { L { '0ns' X; '40ns' L; } }
+         "all_outputs" { T { '0ns' X; '40ns' T; } }
+      }
+   }
+}
+ScanStructures {
+   ScanChain "chain_1" {
+      ScanLength 112;
+      ScanIn "si0";
+      ScanOut "so0";
+      ScanInversion 0;
+      ScanCells "des.clk_gate_obs.U1.TD" "des.data_in_reg_0.TD" "des.data_in_reg_1.TD" 
+      "des.data_in_reg_2.TD" "des.data_in_reg_3.TD" "des.data_in_reg_4.TD" "des.data_in_reg_5.TD" 
+      "des.data_in_reg_6.TD" "des.data_in_reg_7.TD" "des.data_in_reg_8.TD" "des.data_in_reg_9.TD" 
+      "des.data_in_reg_10.TD" "des.data_in_reg_11.TD" "des.data_in_reg_12.TD" 
+      "des.data_in_reg_13.TD" "des.data_in_reg_14.TD" "des.data_in_reg_15.TD" 
+      "des.data_in_reg_16.TD" "des.data_in_reg_17.TD" "des.data_in_reg_18.TD" 
+      "des.data_in_reg_19.TD" "des.data_in_reg_20.TD" "des.data_in_reg_21.TD" 
+      "des.data_in_reg_22.TD" "des.data_in_reg_23.TD" "des.data_in_reg_24.TD" 
+      "des.data_in_reg_25.TD" "des.data_in_reg_26.TD" "des.data_in_reg_27.TD" 
+      "des.data_in_reg_28.TD" "des.data_in_reg_29.TD" "des.data_in_reg_30.TD" 
+      "des.data_in_reg_31.TD" "des.des_cop_unit.des_unit.dout_valid_reg.TD" 
+      "des.des_cop_unit.des_unit.round_reg_0.TD" "des.des_cop_unit.des_unit.round_reg_1.TD" 
+      "des.des_cop_unit.des_unit.round_reg_2.TD" "des.des_cop_unit.des_unit.round_reg_3.TD" 
+      "des.des_cop_unit.des_unit.state_reg.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.clk_gate_obs.U1.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_0.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_1.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_2.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_3.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_4.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_5.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_6.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_7.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_8.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_9.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_10.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_11.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_12.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_13.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_14.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_15.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_16.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_17.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_18.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_19.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_20.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_21.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_22.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_23.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_24.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_25.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_26.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_27.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_28.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_29.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_30.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_31.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_32.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_33.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_34.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_35.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_36.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_37.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_38.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_39.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_40.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_41.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_42.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_43.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_44.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_45.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_46.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_47.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_48.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_49.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_50.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_51.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_52.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_53.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_54.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_55.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_56.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_57.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_58.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_59.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_60.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_61.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_62.TD" 
+      "des.des_cop_unit.des_unit.u_tiny_des_round.dout_reg_63.TD" 
+      "des.des_cop_unit.din_valid_eins_reg.TD" "des.des_cop_unit.flag_reg_0.TD" 
+      "des.des_cop_unit.flag_reg_1.TD" "des.desctrl_reg_0.TD" "des.desctrl_reg_1.TD" 
+      "des.desctrl_reg_2.TD" "des.desctrl_reg_3.TD" "des.desctrl_reg_4.TD" ;
+      ScanMasterClock "hclk" ;
+   }
+   ScanChain "chain_2" {
+      ScanLength 111;
+      ScanIn "si1";
+      ScanOut "so1";
+      ScanInversion 0;
+      ScanCells "des.desctrl_reg_5.TD" "des.desctrl_reg_6.TD" "des.desctrl_reg_7.TD" 
+      "des.desctrl_sel_d1_reg.TD" "des.desctrl_sel_reg.TD" "des.desdat_sel_d1_reg.TD" 
+      "des.desdat_sel_reg.TD" "des.desdat_unit.clk_gate_obs.U1.TD" 
+      "des.desdat_unit.fifo_mem_reg_0_0.TD" "des.desdat_unit.fifo_mem_reg_0_1.TD" 
+      "des.desdat_unit.fifo_mem_reg_0_2.TD" "des.desdat_unit.fifo_mem_reg_0_3.TD" 
+      "des.desdat_unit.fifo_mem_reg_0_4.TD" "des.desdat_unit.fifo_mem_reg_0_5.TD" 
+      "des.desdat_unit.fifo_mem_reg_0_6.TD" "des.desdat_unit.fifo_mem_reg_0_7.TD" 
+      "des.desdat_unit.fifo_mem_reg_0_8.TD" "des.desdat_unit.fifo_mem_reg_0_9.TD" 
+      "des.desdat_unit.fifo_mem_reg_0_10.TD" "des.desdat_unit.fifo_mem_reg_0_11.TD" 
+      "des.desdat_unit.fifo_mem_reg_0_12.TD" "des.desdat_unit.fifo_mem_reg_0_13.TD" 
+      "des.desdat_unit.fifo_mem_reg_0_14.TD" "des.desdat_unit.fifo_mem_reg_0_15.TD" 
+      "des.desdat_unit.fifo_mem_reg_0_16.TD" "des.desdat_unit.fifo_mem_reg_0_17.TD" 
+      "des.desdat_unit.fifo_mem_reg_0_18.TD" "des.desdat_unit.fifo_mem_reg_0_19.TD" 
+      "des.desdat_unit.fifo_mem_reg_0_20.TD" "des.desdat_unit.fifo_mem_reg_0_21.TD" 
+      "des.desdat_unit.fifo_mem_reg_0_22.TD" "des.desdat_unit.fifo_mem_reg_0_23.TD" 
+      "des.desdat_unit.fifo_mem_reg_0_24.TD" "des.desdat_unit.fifo_mem_reg_0_25.TD" 
+      "des.desdat_unit.fifo_mem_reg_0_26.TD" "des.desdat_unit.fifo_mem_reg_0_27.TD" 
+      "des.desdat_unit.fifo_mem_reg_0_28.TD" "des.desdat_unit.fifo_mem_reg_0_29.TD" 
+      "des.desdat_unit.fifo_mem_reg_0_30.TD" "des.desdat_unit.fifo_mem_reg_0_31.TD" 
+      "des.desdat_unit.fifo_mem_reg_1_0.TD" "des.desdat_unit.fifo_mem_reg_1_1.TD" 
+      "des.desdat_unit.fifo_mem_reg_1_2.TD" "des.desdat_unit.fifo_mem_reg_1_3.TD" 
+      "des.desdat_unit.fifo_mem_reg_1_4.TD" "des.desdat_unit.fifo_mem_reg_1_5.TD" 
+      "des.desdat_unit.fifo_mem_reg_1_6.TD" "des.desdat_unit.fifo_mem_reg_1_7.TD" 
+      "des.desdat_unit.fifo_mem_reg_1_8.TD" "des.desdat_unit.fifo_mem_reg_1_9.TD" 
+      "des.desdat_unit.fifo_mem_reg_1_10.TD" "des.desdat_unit.fifo_mem_reg_1_11.TD" 
+      "des.desdat_unit.fifo_mem_reg_1_12.TD" "des.desdat_unit.fifo_mem_reg_1_13.TD" 
+      "des.desdat_unit.fifo_mem_reg_1_14.TD" "des.desdat_unit.fifo_mem_reg_1_15.TD" 
+      "des.desdat_unit.fifo_mem_reg_1_16.TD" "des.desdat_unit.fifo_mem_reg_1_17.TD" 
+      "des.desdat_unit.fifo_mem_reg_1_18.TD" "des.desdat_unit.fifo_mem_reg_1_19.TD" 
+      "des.desdat_unit.fifo_mem_reg_1_20.TD" "des.desdat_unit.fifo_mem_reg_1_21.TD" 
+      "des.desdat_unit.fifo_mem_reg_1_22.TD" "des.desdat_unit.fifo_mem_reg_1_23.TD" 
+      "des.desdat_unit.fifo_mem_reg_1_24.TD" "des.desdat_unit.fifo_mem_reg_1_25.TD" 
+      "des.desdat_unit.fifo_mem_reg_1_26.TD" "des.desdat_unit.fifo_mem_reg_1_27.TD" 
+      "des.desdat_unit.fifo_mem_reg_1_28.TD" "des.desdat_unit.fifo_mem_reg_1_29.TD" 
+      "des.desdat_unit.fifo_mem_reg_1_30.TD" "des.desdat_unit.fifo_mem_reg_1_31.TD" 
+      "des.desdat_unit.full_delay_reg.TD" "des.desdat_unit.full_pulse_reg.TD" 
+      "des.desdat_unit.full_reg.TD" "des.desdat_unit.ptr_reg_0.TD" "des.desdat_unit.ptr_reg_1.TD" 
+      "des.desdat_unit.rd_ptr_reg.TD" "des.desdat_unit.wr_ptr_reg.TD" "des.desiv_sel_d1_reg.TD" 
+      "des.desiv_sel_reg.TD" "des.desiv_unit.clk_gate_obs.U1.TD" 
+      "des.desiv_unit.fifo_mem_reg_0_0.TD" "des.desiv_unit.fifo_mem_reg_0_1.TD" 
+      "des.desiv_unit.fifo_mem_reg_0_2.TD" "des.desiv_unit.fifo_mem_reg_0_3.TD" 
+      "des.desiv_unit.fifo_mem_reg_0_4.TD" "des.desiv_unit.fifo_mem_reg_0_5.TD" 
+      "des.desiv_unit.fifo_mem_reg_0_6.TD" "des.desiv_unit.fifo_mem_reg_0_7.TD" 
+      "des.desiv_unit.fifo_mem_reg_0_8.TD" "des.desiv_unit.fifo_mem_reg_0_9.TD" 
+      "des.desiv_unit.fifo_mem_reg_0_10.TD" "des.desiv_unit.fifo_mem_reg_0_11.TD" 
+      "des.desiv_unit.fifo_mem_reg_0_12.TD" "des.desiv_unit.fifo_mem_reg_0_13.TD" 
+      "des.desiv_unit.fifo_mem_reg_0_14.TD" "des.desiv_unit.fifo_mem_reg_0_15.TD" 
+      "des.desiv_unit.fifo_mem_reg_0_16.TD" "des.desiv_unit.fifo_mem_reg_0_17.TD" 
+      "des.desiv_unit.fifo_mem_reg_0_18.TD" "des.desiv_unit.fifo_mem_reg_0_19.TD" 
+      "des.desiv_unit.fifo_mem_reg_0_20.TD" "des.desiv_unit.fifo_mem_reg_0_21.TD" 
+      "des.desiv_unit.fifo_mem_reg_0_22.TD" "des.desiv_unit.fifo_mem_reg_0_23.TD" 
+      "des.desiv_unit.fifo_mem_reg_0_24.TD" "des.desiv_unit.fifo_mem_reg_0_25.TD" 
+      "des.desiv_unit.fifo_mem_reg_0_26.TD" "des.desiv_unit.fifo_mem_reg_0_27.TD" 
+      "des.desiv_unit.fifo_mem_reg_0_28.TD" ;
+      ScanMasterClock "hclk" ;
+   }
+   ScanChain "chain_3" {
+      ScanLength 111;
+      ScanIn "si2";
+      ScanOut "so2";
+      ScanInversion 0;
+      ScanCells "des.desiv_unit.fifo_mem_reg_0_29.TD" "des.desiv_unit.fifo_mem_reg_0_30.TD" 
+      "des.desiv_unit.fifo_mem_reg_0_31.TD" "des.desiv_unit.fifo_mem_reg_1_0.TD" 
+      "des.desiv_unit.fifo_mem_reg_1_1.TD" "des.desiv_unit.fifo_mem_reg_1_2.TD" 
+      "des.desiv_unit.fifo_mem_reg_1_3.TD" "des.desiv_unit.fifo_mem_reg_1_4.TD" 
+      "des.desiv_unit.fifo_mem_reg_1_5.TD" "des.desiv_unit.fifo_mem_reg_1_6.TD" 
+      "des.desiv_unit.fifo_mem_reg_1_7.TD" "des.desiv_unit.fifo_mem_reg_1_8.TD" 
+      "des.desiv_unit.fifo_mem_reg_1_9.TD" "des.desiv_unit.fifo_mem_reg_1_10.TD" 
+      "des.desiv_unit.fifo_mem_reg_1_11.TD" "des.desiv_unit.fifo_mem_reg_1_12.TD" 
+      "des.desiv_unit.fifo_mem_reg_1_13.TD" "des.desiv_unit.fifo_mem_reg_1_14.TD" 
+      "des.desiv_unit.fifo_mem_reg_1_15.TD" "des.desiv_unit.fifo_mem_reg_1_16.TD" 
+      "des.desiv_unit.fifo_mem_reg_1_17.TD" "des.desiv_unit.fifo_mem_reg_1_18.TD" 
+      "des.desiv_unit.fifo_mem_reg_1_19.TD" "des.desiv_unit.fifo_mem_reg_1_20.TD" 
+      "des.desiv_unit.fifo_mem_reg_1_21.TD" "des.desiv_unit.fifo_mem_reg_1_22.TD" 
+      "des.desiv_unit.fifo_mem_reg_1_23.TD" "des.desiv_unit.fifo_mem_reg_1_24.TD" 
+      "des.desiv_unit.fifo_mem_reg_1_25.TD" "des.desiv_unit.fifo_mem_reg_1_26.TD" 
+      "des.desiv_unit.fifo_mem_reg_1_27.TD" "des.desiv_unit.fifo_mem_reg_1_28.TD" 
+      "des.desiv_unit.fifo_mem_reg_1_29.TD" "des.desiv_unit.fifo_mem_reg_1_30.TD" 
+      "des.desiv_unit.fifo_mem_reg_1_31.TD" "des.desiv_unit.ptr_reg_0.TD" 
+      "des.desiv_unit.ptr_reg_1.TD" "des.desiv_unit.wr_ptr_reg.TD" "des.deskey_sel_d1_reg.TD" 
+      "des.deskey_sel_reg.TD" "des.deskey_unit.clk_gate_obs.U1.TD" 
+      "des.deskey_unit.fifo_mem_reg_0_1.TD" "des.deskey_unit.fifo_mem_reg_0_2.TD" 
+      "des.deskey_unit.fifo_mem_reg_0_3.TD" "des.deskey_unit.fifo_mem_reg_0_4.TD" 
+      "des.deskey_unit.fifo_mem_reg_0_5.TD" "des.deskey_unit.fifo_mem_reg_0_6.TD" 
+      "des.deskey_unit.fifo_mem_reg_0_7.TD" "des.deskey_unit.fifo_mem_reg_0_9.TD" 
+      "des.deskey_unit.fifo_mem_reg_0_10.TD" "des.deskey_unit.fifo_mem_reg_0_11.TD" 
+      "des.deskey_unit.fifo_mem_reg_0_12.TD" "des.deskey_unit.fifo_mem_reg_0_13.TD" 
+      "des.deskey_unit.fifo_mem_reg_0_14.TD" "des.deskey_unit.fifo_mem_reg_0_15.TD" 
+      "des.deskey_unit.fifo_mem_reg_0_17.TD" "des.deskey_unit.fifo_mem_reg_0_18.TD" 
+      "des.deskey_unit.fifo_mem_reg_0_19.TD" "des.deskey_unit.fifo_mem_reg_0_20.TD" 
+      "des.deskey_unit.fifo_mem_reg_0_21.TD" "des.deskey_unit.fifo_mem_reg_0_22.TD" 
+      "des.deskey_unit.fifo_mem_reg_0_23.TD" "des.deskey_unit.fifo_mem_reg_0_25.TD" 
+      "des.deskey_unit.fifo_mem_reg_0_26.TD" "des.deskey_unit.fifo_mem_reg_0_27.TD" 
+      "des.deskey_unit.fifo_mem_reg_0_28.TD" "des.deskey_unit.fifo_mem_reg_0_29.TD" 
+      "des.deskey_unit.fifo_mem_reg_0_30.TD" "des.deskey_unit.fifo_mem_reg_0_31.TD" 
+      "des.deskey_unit.fifo_mem_reg_1_1.TD" "des.deskey_unit.fifo_mem_reg_1_2.TD" 
+      "des.deskey_unit.fifo_mem_reg_1_3.TD" "des.deskey_unit.fifo_mem_reg_1_4.TD" 
+      "des.deskey_unit.fifo_mem_reg_1_5.TD" "des.deskey_unit.fifo_mem_reg_1_6.TD" 
+      "des.deskey_unit.fifo_mem_reg_1_7.TD" "des.deskey_unit.fifo_mem_reg_1_9.TD" 
+      "des.deskey_unit.fifo_mem_reg_1_10.TD" "des.deskey_unit.fifo_mem_reg_1_11.TD" 
+      "des.deskey_unit.fifo_mem_reg_1_12.TD" "des.deskey_unit.fifo_mem_reg_1_13.TD" 
+      "des.deskey_unit.fifo_mem_reg_1_14.TD" "des.deskey_unit.fifo_mem_reg_1_15.TD" 
+      "des.deskey_unit.fifo_mem_reg_1_17.TD" "des.deskey_unit.fifo_mem_reg_1_18.TD" 
+      "des.deskey_unit.fifo_mem_reg_1_19.TD" "des.deskey_unit.fifo_mem_reg_1_20.TD" 
+      "des.deskey_unit.fifo_mem_reg_1_21.TD" "des.deskey_unit.fifo_mem_reg_1_22.TD" 
+      "des.deskey_unit.fifo_mem_reg_1_23.TD" "des.deskey_unit.fifo_mem_reg_1_25.TD" 
+      "des.deskey_unit.fifo_mem_reg_1_26.TD" "des.deskey_unit.fifo_mem_reg_1_27.TD" 
+      "des.deskey_unit.fifo_mem_reg_1_28.TD" "des.deskey_unit.fifo_mem_reg_1_29.TD" 
+      "des.deskey_unit.fifo_mem_reg_1_30.TD" "des.deskey_unit.fifo_mem_reg_1_31.TD" 
+      "des.deskey_unit.fifo_mem_reg_2_1.TD" "des.deskey_unit.fifo_mem_reg_2_2.TD" 
+      "des.deskey_unit.fifo_mem_reg_2_3.TD" "des.deskey_unit.fifo_mem_reg_2_4.TD" 
+      "des.deskey_unit.fifo_mem_reg_2_5.TD" "des.deskey_unit.fifo_mem_reg_2_6.TD" 
+      "des.deskey_unit.fifo_mem_reg_2_7.TD" "des.deskey_unit.fifo_mem_reg_2_9.TD" 
+      "des.deskey_unit.fifo_mem_reg_2_10.TD" "des.deskey_unit.fifo_mem_reg_2_11.TD" 
+      "des.deskey_unit.fifo_mem_reg_2_12.TD" "des.deskey_unit.fifo_mem_reg_2_13.TD" 
+      "des.deskey_unit.fifo_mem_reg_2_14.TD" "des.deskey_unit.fifo_mem_reg_2_15.TD" ;
+      ScanMasterClock "hclk" ;
+   }
+   ScanChain "chain_4" {
+      ScanLength 111;
+      ScanIn "si3";
+      ScanOut "so3";
+      ScanInversion 0;
+      ScanCells "des.deskey_unit.fifo_mem_reg_2_17.TD" "des.deskey_unit.fifo_mem_reg_2_18.TD" 
+      "des.deskey_unit.fifo_mem_reg_2_19.TD" "des.deskey_unit.fifo_mem_reg_2_20.TD" 
+      "des.deskey_unit.fifo_mem_reg_2_21.TD" "des.deskey_unit.fifo_mem_reg_2_22.TD" 
+      "des.deskey_unit.fifo_mem_reg_2_23.TD" "des.deskey_unit.fifo_mem_reg_2_25.TD" 
+      "des.deskey_unit.fifo_mem_reg_2_26.TD" "des.deskey_unit.fifo_mem_reg_2_27.TD" 
+      "des.deskey_unit.fifo_mem_reg_2_28.TD" "des.deskey_unit.fifo_mem_reg_2_29.TD" 
+      "des.deskey_unit.fifo_mem_reg_2_30.TD" "des.deskey_unit.fifo_mem_reg_2_31.TD" 
+      "des.deskey_unit.fifo_mem_reg_3_1.TD" "des.deskey_unit.fifo_mem_reg_3_2.TD" 
+      "des.deskey_unit.fifo_mem_reg_3_3.TD" "des.deskey_unit.fifo_mem_reg_3_4.TD" 
+      "des.deskey_unit.fifo_mem_reg_3_5.TD" "des.deskey_unit.fifo_mem_reg_3_6.TD" 
+      "des.deskey_unit.fifo_mem_reg_3_7.TD" "des.deskey_unit.fifo_mem_reg_3_9.TD" 
+      "des.deskey_unit.fifo_mem_reg_3_10.TD" "des.deskey_unit.fifo_mem_reg_3_11.TD" 
+      "des.deskey_unit.fifo_mem_reg_3_12.TD" "des.deskey_unit.fifo_mem_reg_3_13.TD" 
+      "des.deskey_unit.fifo_mem_reg_3_14.TD" "des.deskey_unit.fifo_mem_reg_3_15.TD" 
+      "des.deskey_unit.fifo_mem_reg_3_17.TD" "des.deskey_unit.fifo_mem_reg_3_18.TD" 
+      "des.deskey_unit.fifo_mem_reg_3_19.TD" "des.deskey_unit.fifo_mem_reg_3_20.TD" 
+      "des.deskey_unit.fifo_mem_reg_3_21.TD" "des.deskey_unit.fifo_mem_reg_3_22.TD" 
+      "des.deskey_unit.fifo_mem_reg_3_23.TD" "des.deskey_unit.fifo_mem_reg_3_25.TD" 
+      "des.deskey_unit.fifo_mem_reg_3_26.TD" "des.deskey_unit.fifo_mem_reg_3_27.TD" 
+      "des.deskey_unit.fifo_mem_reg_3_28.TD" "des.deskey_unit.fifo_mem_reg_3_29.TD" 
+      "des.deskey_unit.fifo_mem_reg_3_30.TD" "des.deskey_unit.fifo_mem_reg_3_31.TD" 
+      "des.deskey_unit.fifo_mem_reg_4_1.TD" "des.deskey_unit.fifo_mem_reg_4_2.TD" 
+      "des.deskey_unit.fifo_mem_reg_4_3.TD" "des.deskey_unit.fifo_mem_reg_4_4.TD" 
+      "des.deskey_unit.fifo_mem_reg_4_5.TD" "des.deskey_unit.fifo_mem_reg_4_6.TD" 
+      "des.deskey_unit.fifo_mem_reg_4_7.TD" "des.deskey_unit.fifo_mem_reg_4_9.TD" 
+      "des.deskey_unit.fifo_mem_reg_4_10.TD" "des.deskey_unit.fifo_mem_reg_4_11.TD" 
+      "des.deskey_unit.fifo_mem_reg_4_12.TD" "des.deskey_unit.fifo_mem_reg_4_13.TD" 
+      "des.deskey_unit.fifo_mem_reg_4_14.TD" "des.deskey_unit.fifo_mem_reg_4_15.TD" 
+      "des.deskey_unit.fifo_mem_reg_4_17.TD" "des.deskey_unit.fifo_mem_reg_4_18.TD" 
+      "des.deskey_unit.fifo_mem_reg_4_19.TD" "des.deskey_unit.fifo_mem_reg_4_20.TD" 
+      "des.deskey_unit.fifo_mem_reg_4_21.TD" "des.deskey_unit.fifo_mem_reg_4_22.TD" 
+      "des.deskey_unit.fifo_mem_reg_4_23.TD" "des.deskey_unit.fifo_mem_reg_4_25.TD" 
+      "des.deskey_unit.fifo_mem_reg_4_26.TD" "des.deskey_unit.fifo_mem_reg_4_27.TD" 
+      "des.deskey_unit.fifo_mem_reg_4_28.TD" "des.deskey_unit.fifo_mem_reg_4_29.TD" 
+      "des.deskey_unit.fifo_mem_reg_4_30.TD" "des.deskey_unit.fifo_mem_reg_4_31.TD" 
+      "des.deskey_unit.fifo_mem_reg_5_1.TD" "des.deskey_unit.fifo_mem_reg_5_2.TD" 
+      "des.deskey_unit.fifo_mem_reg_5_3.TD" "des.deskey_unit.fifo_mem_reg_5_4.TD" 
+      "des.deskey_unit.fifo_mem_reg_5_5.TD" "des.deskey_unit.fifo_mem_reg_5_6.TD" 
+      "des.deskey_unit.fifo_mem_reg_5_7.TD" "des.deskey_unit.fifo_mem_reg_5_9.TD" 
+      "des.deskey_unit.fifo_mem_reg_5_10.TD" "des.deskey_unit.fifo_mem_reg_5_11.TD" 
+      "des.deskey_unit.fifo_mem_reg_5_12.TD" "des.deskey_unit.fifo_mem_reg_5_13.TD" 
+      "des.deskey_unit.fifo_mem_reg_5_14.TD" "des.deskey_unit.fifo_mem_reg_5_15.TD" 
+      "des.deskey_unit.fifo_mem_reg_5_17.TD" "des.deskey_unit.fifo_mem_reg_5_18.TD" 
+      "des.deskey_unit.fifo_mem_reg_5_19.TD" "des.deskey_unit.fifo_mem_reg_5_20.TD" 
+      "des.deskey_unit.fifo_mem_reg_5_21.TD" "des.deskey_unit.fifo_mem_reg_5_22.TD" 
+      "des.deskey_unit.fifo_mem_reg_5_23.TD" "des.deskey_unit.fifo_mem_reg_5_25.TD" 
+      "des.deskey_unit.fifo_mem_reg_5_26.TD" "des.deskey_unit.fifo_mem_reg_5_27.TD" 
+      "des.deskey_unit.fifo_mem_reg_5_28.TD" "des.deskey_unit.fifo_mem_reg_5_29.TD" 
+      "des.deskey_unit.fifo_mem_reg_5_30.TD" "des.deskey_unit.fifo_mem_reg_5_31.TD" 
+      "des.deskey_unit.ptr_reg_0.TD" "des.deskey_unit.ptr_reg_1.TD" "des.deskey_unit.ptr_reg_2.TD" 
+      "des.deskey_unit.wr_ptr_reg_0.TD" "des.deskey_unit.wr_ptr_reg_1.TD" 
+      "des.deskey_unit.wr_ptr_reg_2.TD" "des.hready_resp_reg.TD" "des.hwrite_d1_reg.TD" 
+      "des.nextiv_ready_en_reg.TD" "des.run_delay_reg.TD" "des.rw_reg.TD" 
+      "des.u_des_spares_0.SPARE_UF01.TD" "des.u_des_spares_0.SPARE_UF03.TD" ;
+      ScanMasterClock "hclk" ;
+   }
+}
+PatternBurst "_burst_" {
+   PatList { "_pattern_" {
+   }
+}}
+PatternExec {
+   PatternBurst "_burst_";
+}
+Procedures {
+   "capture" {
+      W "_default_WFT_";
+      F { "POR"=1; "hresetn"=1; "Test_Mode"=1; }
+      C { "all_inputs"=11\r13 N 0N1\r44 N ; 
+         "all_outputs"=\r39 X ; }
+      V { "_pi"=\r62 # ; }
+      V { "_po"=\r39 # ; }
+   }
+   "capture_hclk" {
+      W "_default_WFT_";
+      F { "POR"=1; "hresetn"=1; "Test_Mode"=1; }
+      C { "all_inputs"=11\r13 N 0N1\r44 N ; 
+         "all_outputs"=\r39 X ; }
+      "forcePI": V { "_pi"=\r62 # ; }
+      "measurePO": V { "_po"=\r39 # ; }
+      C { "hrdata[0]"=X; "hrdata[10]"=X; "hrdata[11]"=X; "hrdata[12]"=X; "hrdata[13]"=X; "hrdata[14]"=X; 
+         "hrdata[15]"=X; "hrdata[16]"=X; "hrdata[17]"=X; "hrdata[18]"=X; "hrdata[19]"=X; "hrdata[1]"=X; 
+         "hrdata[20]"=X; "hrdata[21]"=X; "hrdata[22]"=X; "hrdata[23]"=X; "hrdata[24]"=X; "hrdata[25]"=X; 
+         "hrdata[26]"=X; "hrdata[27]"=X; "hrdata[28]"=X; "hrdata[29]"=X; "hrdata[2]"=X; "hrdata[30]"=X; 
+         "hrdata[31]"=X; "hrdata[3]"=X; "hrdata[4]"=X; "hrdata[5]"=X; "hrdata[6]"=X; "hrdata[7]"=X; 
+         "hrdata[8]"=X; "hrdata[9]"=X; "hready_resp"=X; "hresp[0]"=X; "hresp[1]"=X; "so0"=X; "so1"=X; 
+         "so2"=X; "so3"=X; }
+      "pulse": V { "hclk"=P; }
+   }
+   "load_unload" {
+      W "_default_WFT_";
+      C { "all_inputs"=11\r13 N 0N1\r44 N ; 
+         "all_outputs"=\r39 X ; }
+      "Internal_scan_pre_shift": V { "_clk"=0; "_si"=NNNN; "_so"=XXXX; "Test_Se"=1; }
+      Shift {          W "_default_WFT_";
+         V { "_clk"=P; "_si"=####; "_so"=####; }
+      }
+   }
+}
+MacroDefs {
+   "test_setup" {
+      W "_default_WFT_";
+      C { "all_inputs"=\r62 N ; 
+         "all_outputs"=\r39 X ; }
+      V { "POR"=1; "Test_Mode"=1; "hclk"=0; "hresetn"=1; }
+      V { }
+   }
+}
+Pattern "_pattern_" {
+   W "_default_WFT_";
+   "precondition all Signals": C { "_pi"=\r62 0 ; 
+      "_po"=\r39 X ; }
+   Macro "test_setup";
+   "pattern 0": Call "load_unload" { 
+      "si0"=0011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011; 
+      "si1"=001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001; 
+      "si2"=001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001; 
+      "si3"=001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001; }
+   Call "capture" { 
+      "_pi"=1100111110011110010111111001011101010010111100001011110001NNNN; 
+      "_po"=LLLLLLLLLLLHLLLLLLLLLLHLLLLHLLLLHLLLLLL; }
+   "pattern 1": Call "load_unload" { 
+      "so0"=LLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHH; 
+      "so1"=LLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLH; 
+      "so2"=LLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLH; 
+      "so3"=LLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLHHLLH; 
+      "si0"=0011101100100110100110100000101101001100001101011110101010101101111001111001101000000000001000000000000001000000; 
+      "si1"=100101010010100100010100000011111110110001101101111111111111011100111111101111111001111110011011101111111000001; 
+      "si2"=011101101100001010111001111010001010110111111111011010001011101011001000111110011100001010001011001101001010110; 
+      "si3"=010011101110011110100101111111000011011011110110101110000110101001111101011111001000111011101111011110100010010; }
+   Call "capture_hclk" { 
+      "_pi"=11001000000011101111111111111111111111111111111111111111100001; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLHLL; }
+   "pattern 2": Call "load_unload" { 
+      "so0"=LLLLLLHLLLHLLHHLHLLHHLHLLLLLHLHHLHLLHHLLHLHLLLLLLLLLLLHLHLLLHHLHHLHHHLLLLLLLLLHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH; 
+      "so1"=LLLLLLLLHLLLLLLLLLLLLLLHLLLLLHHLHHHLHHHLLLLLLLLLLLHLLLLLLLLLLLLLLHLLLLLLLLLLLLLLLLHLLLLLLLLLLLLLLHLLLLLHLHLLLLL; 
+      "so2"=LLLLLLLLLHLLLLLLLLLLLLLLHLLLLLLLLLLLLHLLLLLLLLLLLLLLHLLLLLLLLLLLLHLLLLLHLHHHLLLLLLLLLLLHLLLLLLLLLLLLLLHLLLLLLLL; 
+      "so3"=LLLLLHHLHHHLLLLLLLLLLLLHLLLLLLLLLLLLHLLLLLLLLLLLLLLHLLLLLLLLLLLLHLLLLLLLLLLLLLLHLLLLLLLLLLLLHLLLLLLLLLLLLLLHLLL; 
+      "si0"=1001110010100011000111010101101000001100101010100110000110100011011110110111101111111111110111111111111111110110; 
+      "si1"=011000001110111100011101101101010100000011100111110011000110011111001111101000000101101110111100011110010111111; 
+      "si2"=010011110101101101111110001101110111000111000010101010000010000101010001101010110101101000000110000111011100100; 
+      "si3"=100111001111111110010011010000100101110011001101010101000001000001011010111011010110010001011100111011011111111; }
+   Call "capture_hclk" { 
+      "_pi"=11110000000000001110001100000000000000000000000000000000000010; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLH; }
+   "pattern 3": Call "load_unload" { 
+      "so0"=HHLHHHLLHLHLHLHLLHHLLLLHHLHLLLHHLHHHHLHHLLHLHHLLHLHHLLHHLHLHHHHLHHLLLHLLLHHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHLHHH; 
+      "so2"=HHHHHHHHHHHHLHHHHHHHHHHHLHHHHHHHHHHHHHHHLHHHHHHHHHHHLHHHHHHHHHHHHHHHLHHHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHLLLLHHHHHHHHHHHHHHHLHHHHHHHHHHHHHHHLHHHHHHHHHHHLHHHHHHHHHHHHHHHLHHHHHHHHHHHLHHHHHHHHHHHHHHHLHHHHHHHHHHHLHHH; 
+      "si0"=0101111001011100101000100000010111110011001110110110010100100001000101100110001111111111110111111111111110111111; 
+      "si1"=011011011000101110001100010010100111101010100001011011110001111101111100101001111001101111101110110111001111101; 
+      "si2"=000001101111000101001011011110010010101100000011000000001110111111101111100010011111010000101101011001011001000; 
+      "si3"=000010011010010110001010000001011111001111011010111010100001110111000100110110101011000011100010010100001110010; }
+   Call "capture_hclk" { 
+      "_pi"=11001100000011101111100111111111111111111111111111111111001011; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; }
+   "pattern 4": Call "load_unload" { 
+      "so0"=HHHHHHHLLLHHHLHHLHHLLHLHLLHLLLLHLLLHLHHLHLLHHLHLLHLLHHHLLLHHLLLHLLHLHLHHLHHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=HHHHHHHHLHHHHHHHHHHHHHHLHHHHHHHHLLLLLLHHHHHHHHHHHHLHHHHHHHHHHHHHHLHHHHHHHHHHHHHHHHLHHHHHHHHHHHHHHLHHHHHHLLLLHHL; 
+      "so2"=HHHHHHHHHLHHHHHHHHHHHHHHLHHHHHHHHHHHHLHHHHHHHHHHHHHHLHHHHHHHHHHHHLHHHHLLLLLLHHHHHHHHHHHLHHHHHHHHHHHHHHLHHHHHHHH; 
+      "so3"=LLHHLLHLLLLLLHHHHHHHHHHLHHHHHHHHHHHHLHHHHHHHHHHHHHHLHHHHHHHHHHHHLHHHHHHHHHHHHHHLHHHHHHHHHHHHLHHHHHHHHHHHHHHLHHH; 
+      "si0"=1101111110001011001101111111110100111111010110101111111111010100001100100000010000111010101001001011101101111111; 
+      "si1"=000001000001000100011001000111101011010101011101101000111100001100000101000011110110010011101001111110011000000; 
+      "si2"=111011101111101110001010101101001010010011011010011010001111100101011000001100000010101001100010001110000010100; 
+      "si3"=011110000000100010000000101001001110110001011001000111010101101110101010100101000100010111101111110111000011101; }
+   Call "capture_hclk" { 
+      "_pi"=11001000000000001110110110010000100000111100010111110110001111; 
+      "_po"=LHLHHHLLHLLLHHLHHHHLLLHLHHHHHHLLLLLHLHL; }
+   "pattern 5": Call "load_unload" { 
+      "so0"=LLLLLLLLHLLLLHLHLLHLLLHHHLLLLLLHHHLHLHHLLLHHHHHHHHHHHHLLLHLLHHLHHLLHHHLHLHLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLHHHHLHHLLHLLHHHLHLLHHHHHHLLLLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLLLLL; 
+      "so2"=LHLHHHLHLHHHHHLLLHHHLLHLHLLHLHLHHHLHLHHHHHLLLHHHLLHLHLLHLHLHHHLHLHHHHHLLLLHHHLHLHHHLHHLHLLLHHHHLLLLHHLLLLLHLHLL; 
+      "so3"=LLHLLLHLLLLLHLLLHHHLLHLHLLHLHLHHHLHLHHHHHLLLHHHLLHLHLLHLHLHHHLHLHHHHHLLLHHHLLHLHLLHLHLHHHLHLHHHHHLLLHHHLLHLHLLH; 
+      "si0"=1001110001101011001001001000000010010110100011000001010100010011010010001001001100001100011100110101110010101110; 
+      "si1"=111110011001000101101010100000001010011010110010010111010011111011111010111100001001101100110111001011101000100; 
+      "si2"=111001100001000111001010001011011011111010000010001111001100111100011111010100100000110101000011111000001110111; 
+      "si3"=111111010101100001000000010100000111111000001100101001101110110101110110110011111001101110011001110100001101011; }
+   Call "capture_hclk" { 
+      "_pi"=11000000000000001111100100100001000001111000111101101100100111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHHH; }
+   "pattern 6": Call "load_unload" { 
+      "so0"=LLLLLHHHLHHLHLHHLLHLLHLLHLLLLLLLHLLHLHHLLHHHHLLHLHHLHHLHLHLHHLLLHHLHHLHLHLLLLLLLHHHLLLHHHHLLLLHLLLLHLLLHHLHHHLLH; 
+      "so1"=HHLLLLHLLHHLHHLLHHLHHHLLHLHHHLLLHHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLL; 
+      "so2"=HLHLHHHLHLHLHHHLLLLHHLLHHHLLHLHLHHHLHLHLHHHLLLLHHLLHHHLLHLHLHHHLHLHLHHLLLHLHLHLHHLLHLLHLHHHLHLLHHHHHLHHHHHLHLHH; 
+      "so3"=LLLHLHLHLHLHHHLLLLHHLLHHHLLHLHLHHHLHLHLHHHLLLLHHLLHHHLLHLHLHHHLHLHLHHHLLLLHHLLHHHLLHLHLHHHLHLHLHHHLLLLHHLLHHHLL; 
+      "si0"=1011100010100100010011011100111010110100010000110010101011001010111101101000011111001100000000100011010100011110; 
+      "si1"=111100100110110010010011000000011110010000101001000010000000010000000111001101011010100011000000100100011100111; 
+      "si2"=100101100011110110101100101110100111010110100010111011101000011011011000111010011011011010101101110111010111111; 
+      "si3"=101010011110001001100111100001100111101010010010001100111110001101110010010111000000110011100101000000110100011; }
+   Call "capture_hclk" { 
+      "_pi"=11001100000011001110110111010101010011011110111011100100101001; 
+      "_po"=HLLLLLLLLHLHLLLHLLHLHLLLLLLLLLLHLLLHHHH; }
+   "pattern 7": Call "load_unload" { 
+      "so0"=HLHHHHHHHLHLLHLLLHLLHHLHHHLLHHHLHLHHLHLLHLLHLLHHLHHHLLLHLHLHHLLLHLLLLHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=HHLHLHHLHLHLLLHHLLLLLLHLLHLLLLLHLLLLLLLHHHHHLHHLLHHLHHHLHHHLHHLHHHLHLHHHHHHHHLHHHLHHHHLHHHHHHHHHHHLHHHHLLLLLLHH; 
+      "so2"=LLLHHLHHLLLHHHHHHLLHHLLLLLLLLLLHHLHHLLLHHHHHHLLHHLLLLLLLLLLHHLHHLLLHHHLLLLLLLLLHLHLLHLLLLHLLLLLLLLHLLLLLLLHHHLL; 
+      "so3"=LLLHHHHLLLLLLHHHLLHHLLLLLLLLLLHHLHHLLLHHHHHHLLHHLLLLLLLLLLHHLHHLLLHHHHHHLLHHLLLLLLLLLLHHLHHLLLHHHHHHLLHHLLLLLLL; 
+      "si0"=0110000100000011001100101011001100011011001101111110110100011100100011001110101111100101000000000001101111001000; 
+      "si1"=101011101111110111001110111111011001001100011001101001100000101000010110110110101111010001100000110110010111000; 
+      "si2"=110010110001110001111101110010101000101111101011011110011001111110101111110101111111000111111111011010101001011; 
+      "si3"=000100101010101100110001110010010011110101100001001100011110000110111101001011100010011001111010100000011010001; }
+   Call "capture_hclk" { 
+      "_pi"=11100111111110001101101100101010101110111101101111001001100100; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLHHL; }
+   "pattern 8": Call "load_unload" { 
+      "so0"=LHHLLLLLLLHHLHHHHHHLHHLHLLLHHHLLHLLLHHLLHHHLLHHHHHHHLHLLHHLLHLLLHLHLLHLHLHHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLLLHHLHHLHLHHHLHLHLLHLHLHLHLLLHLHHHLHHLHHHLLHHHHLLLLLLHLLLLLLLHHLLHLLLLLLLL; 
+      "so2"=LLLLHHLHHHLLHLHHHHLLHHLLLLLLLLLLHHLHHHLLHLHHHHLLHHLLLLLLLLLLHHLHHHLLHLHLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLHLHLHHHHLHHHHLLHHLLLLLLLLLLHHLHHHLLHLHHHHLLHHLLLLLLLLLLHHLHHHLLHLHHHHLLHHLLLLLLLLLLHHLHHHLLHLHHHHLLHHLLLLLL; 
+      "si0"=1111111011101111101110110101101110111010111011101100001111111001000100100011101010111010101010101001011000100101; 
+      "si1"=010011001000011100100101111010001011011000111000111110010111111011100110111100101101101111011111010101101011101; 
+      "si2"=000010000000111011011010100100101110011001010001100001111000001010110110010101000101010100110000000000000100100; 
+      "si3"=001100100011001101011011010000001101101100001100111100001010010100110010011011100001111010100111101101001001100; }
+   Call "capture_hclk" { 
+      "_pi"=11001000000111001110100101000010001001010100011100101110000000; 
+      "_po"=HLLLLLLLLLLHLLLLLLLLLLHLLHHHLHLLHLLHLLL; }
+   "pattern 9": Call "load_unload" { 
+      "so0"=LLLLLHHHLLHHLHLLLLHHHHHLLHHLLHHHHHLLHHHLHHHHHHLHHHLLLLLLHHLHLHHHLLLHLHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHLLHLHLLLHLLHLHLHHHLLHLHLHLLHLLHLHLLLHLLHLHLHHHLLHLHLHLLHLLHLHLLLHLLHLLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHHLLHLLLHHLLHLHHHLLHLHLHLLHLLHLHLLLHLLHLHLHHHLLHLHLHLLHLLHLHLLLHLLHLHLHHHLLHLHLHLLHLLHLHLLLHLLHLHLHHHLLHLHLHL; 
+      "si0"=1010000111100010100110100111101100111100000010000000000011100001001000010000101001011110010101100100101100010010; 
+      "si1"=011001110100001000000010100110001111100111000110111101001111100111111000000110010010101000000010000000011000001; 
+      "si2"=000001000000011100100100101011001110001111110011010001000000001000100001010001111000110000111000110101110101110; 
+      "si3"=011110100100100100101111101000000110010110100110010110000101001010111100001101110000111101010011110110100100110; }
+   Call "capture_hclk" { 
+      "_pi"=11000100000010001111001100000100010110101000110001011101001000; 
+      "_po"=LHHHHHLLHLHLHHHLHHLLLHHHHHHHHHLLHLLHLLL; }
+   "pattern 10": Call "load_unload" { 
+      "so0"=HLHLLLLLHHHLLLHLHLLHHLHLLHHHHLHHLLHHHHLLLHHHHLLLLHHHLHHLHHLLLHLLHLHHLLLHLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHLLHHLLLLHHLHHLHLHLLLLLLLLLHLLHHLHLHLLLHLHLHLHLLLHHHHHLLLHHLLHLHLLHLLLLLLLLLH; 
+      "so2"=LLHLLHLHLLLHLLLLHLHHHLLHLHLHLLHLLHLHLLLHLLLLHLHHHLLHLHLHLLHLLHLHLLLHLLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHLHLHLLHLLHLLHLHHHLLHLHLHLLHLLHLHLLLHLLLLHLHHHLLHLHLHLLHLLHLHLLLHLLLLHLHHHLLHLHLHLLHLLHLHLLLHLLLLHLHHHLLHLHLH; 
+      "si0"=1111011100001110111111000011000110110111110000110001110000000011011111111101010100101101001010110010011010001010; 
+      "si1"=100110010111010010000000101000001001011111110111111111011000101101111110111000001101111100010100000001111000001; 
+      "si2"=000000100000001110010110111111000001000011001011010110101011111011011101000000011110000100001101001100011000001; 
+      "si3"=101010010010000000010111110110000010101011010011000011000110100101011010000110111000011110101001111011010010011; }
+   Call "capture_hclk" { 
+      "_pi"=11000001000000101110011110001000101001010001101010111010001100; 
+      "_po"=HLHLLLHHHHHHLHHLLLLLHHLHLLLLLLLHLLLHHLH; }
+   "pattern 11": Call "load_unload" { 
+      "so0"=LLLLLHHLHHLLLLHHLLLHHHLLLLLLLLHHLHHHHHHHLHLHHLHHLLHLHLHLHHLLHLLLLHHHLHLLLHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=HLLLLLHHLHHHHHLLLHLHLLLLLLLHHLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HLLHLLHLHLLLHLHLLHLHHHLLHLHLHLLHLLHLHLLLHLHLLHLHHHLLHLHLHLLHLLHLHLLLHLLLLLLLHHHHHLHHHHHHHHHLHHLLLHLHHLHHHHHHLHH; 
+      "so3"=LLHLLLHHLLHLLHLLHLHHHLLHLHLHLLHLLHLHLLLHLHLLHLHHHLLHLHLHLLHLLHLHLLLHLHLLHLHHHLLHLHLHLLHLLHLHLLLHLHLLHLHHHLLHLHL; 
+      "si0"=1101111011001100000010001111011111111101010010100110100101111011110010011010000111011100101111100000100110000101; 
+      "si1"=111111111111111011101011111011110001011011111111111101101111111110110111000110111110110111111010111010101100111; 
+      "si2"=011011001000001000101111100000011111100101110110001110100011100010111011111111111101110111111111111111111111111; 
+      "si3"=001110001110110110101010111100110100010111011111100001100001101111111111111101001101111001001010000000101101101; }
+   Call "capture_hclk" { 
+      "_pi"=11011100000010101111001110000110000010001100000111001000001100; 
+      "_po"=HHHHHHHLHHLLHHHHHLHHLLHLHLHHHLHLLLLHHLL; }
+   "pattern 12": Call "load_unload" { 
+      "so0"=LLLLLHHHLHHHHLHLHHHLLHHHLHLHHHHHLLHLHHHHHHHHHHHLLLLLHLHLHHLLLLHLHHHHLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLLLLHLHHLLLLHHHHLHHHLHLHHHHLLLLLHLHHLLLLHHHHLHHHLHLHHHHLLLLLHLHHLLLLHLLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHHLLHLHHHLHHHHLHHHLHLHHHHLLLLLHLHHLLLLHHHHLHHHLHLHHHHLLLLLHLHHLLLLHHHHLHHHLHLHHHHLLLLLHLHHLLLLHHHHLHHHLHLHHHH; 
+      "si0"=1000010110000011100010000010111100010001111000100110010100111001100011110010101010100100011101111001110000000000; 
+      "si1"=001110010100101101011011011000100000010101000111100000001101100001010101010000110100000011101000010100111011010; 
+      "si2"=101100111110101110011010101010100011110101011100011110000111000000101011000010101111111010010111000111010100100; 
+      "si3"=010110000100011111100100100010010111000111001010100010110111110101111001100001101101101000110111000001000100100; }
+   Call "capture_hclk" { 
+      "_pi"=11101100000010001111100110011011011100110111011110101100001100; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHL; }
+   "pattern 13": Call "load_unload" { 
+      "so0"=LLLLLHLLHLLLLLHHHLLLHLLLLLHLHHHHLLLHLLLHLLLLLLLLLHLHHLHLLHHHHHHLHHHLLLLHLHHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=HLLHLLLHHHLHHHHLLHHHLLLLLLLLLHLLHLLHLLLLHLHLLHLLLHHHLHHHHLLHHHLLLLLLLLLLHLHLLHLLLHHHLHHHHLLHHHLLLLLLLLLHLLLLLLL; 
+      "so2"=HHLLHHHLLLLLLLLHLHLLHLLHHHLHHHLLHHHLLLLLLLLHLHLLHLLHHHLHHHLLHHHLLLLLLLHLLHLHLHLHLLHLLLHHHLHHHHLLHHHLLLLLLLLLLHL; 
+      "so3"=LLHLLLHLHLLLHLHLHLLHLLHHHLHHHLLHHHLLLLLLLLHLHLLHLLHHHLHHHLLHHHLLLLLLLLHLHLLHLLHHHLHHHLLHHHLLLLLLLLHLHLLHLLHHHLH; 
+      "si0"=0100010100111101001110011011110100000100011011010101010001000101011100010101011101010011001110011100111100000000; 
+      "si1"=000011100101001011010100110111100110001110110011110000110110111000101010100000011010000001110100001010001000101; 
+      "si2"=110100010011000111001101010101110001111010100110001111000011100001010100010000001011011110100111110001110101001; 
+      "si3"=101000111101100111110100010011001010100011101101010001011010111010111011000101110110000110101001001111000010001; }
+   Call "capture_hclk" { 
+      "_pi"=11000000000000100111001110110110110101101110110111011000000110; 
+      "_po"=HHLHHLHHLLLLLHHHHLLHHLHHHLHLLLHHHLLLLHH; }
+   "pattern 14": Call "load_unload" { 
+      "so0"=LLLLLHLLLHHLHHLHLHLHLHLLLHLLLHLHLHHHLLLHLLHHLLHLLLHLLLHLLLHLHHLHLHHLHLLHLHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HHHLLHHHLLLLLLHLHLHLLHLLHHHLHHHLLHHHLLLLLLHLHLHLLHLLHHHLHHHLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHHLLHLLLLLLHLHLHLLHLLHHHLHHHLLHHHLLLLLLHLHLHLLHLLHHHLHHHLLHHHLLLLLLHLHLHLLHLLHHHLHHHLLHHHLLLLLLHLHLHLLHLLHHHL; 
+      "si0"=1110001110000110111110101001000011110100101010010010001001001000000001110100100011100001101101000111111101000000; 
+      "si1"=100101100010010011111100000101011001010000000010010001010001101011100110001011110110011000001010011101011100000; 
+      "si2"=011110110111001001101011110001110100111011100100011010110111000000111111110110010000110101000111000000110011011; 
+      "si3"=000100100001011101010101110010110100001100010001011011011001101110100011101110011100000100110000000010010000000; }
+   Call "capture_hclk" { 
+      "_pi"=11000000000010001111101101111010110111110010111110001100001001; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHLL; }
+   "pattern 15": Call "load_unload" { 
+      "so0"=LLLLLLLLHLHLHLLHLLHLLLHLLHLLHLLLLLLLLHHHLLHHHLLHHHHLHHHHLHLHHLLHHHLLLLHHLLLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLHHHLLLLHHLHHLHLLLHHHHHHHLHLLLLLLHHHLLLLHHLHHLHLLLHHHHHHHLHLLLLLHLLHHLLL; 
+      "so2"=LLHHHHHHLHLLLLLHHHLLLHHLHHLHLLHHHHHHLHLLLLLHHHLLLHHLHHLHLLHHHHHHLHLLLLHLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHLLLHLLHLHHLHHHLLLHHLHHLHLLHHHHHHLHLLLLLHHHLLLHHLHHLHLLHHHHHHLHLLLLLHHHLLLHHLHHLHLLHHHHHHLHLLLLLHHHLLLHHLHHLH; 
+      "si0"=1010011100010010010111011100100000111011100111001001000011100000101100110100000001110000110110010011110110100011; 
+      "si1"=111001011000110000111111000001011110001000000001001000101000110101110011000101111011001100000101001110110011011; 
+      "si2"=001111011011100001110101111000011010011101111010001011011001100001001111111010100100100101010011110000001100010; 
+      "si3"=001010100110101111011011101000110110110111110101010001101010110001110001110111001110000010011000000001001000000; }
+   Call "capture_hclk" { 
+      "_pi"=11000000000000101111011011110101101111100101110100011001001100; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLHLLLHHHLLLHLLHHLL; }
+   "pattern 16": Call "load_unload" { 
+      "so0"=LLLLLHLHHLLHHHLLHLLHLLLLHHHLLLLLHLHHLLHHLHHHHHLHHHLLHHLHLHLLLLLHHLHHHLLLLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HLLHHHHHHLHLLLLLHHHLLLHHLHHLHLLHHHHHHLHLLLLLHHHLLLHHLHHLHLLHHHHHHLHLLLLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHLLLHLLHHLHLLHHHLLLHHLHHLHLLHHHHHHLHLLLLLHHHLLLHHLHHLHLLHHHHHHLHLLLLLHHHLLLHHLHHLHLLHHHHHHLHLLLLLHHHLLLHHLHHL; 
+      "si0"=0011010100000011010000001000101011101011010001001100010101011110010100011111101101110011010001100000011100010011; 
+      "si1"=011011001101001101000110111000101111011011010011001101000110101001001010111101000110111110110010111111010011001; 
+      "si2"=011110100111101011110111100110100001001000011010011110111000000000010011100011111011001011111000000000101101011; 
+      "si3"=010110010001100011001100010001000100011111111010110011101001110101101100100110111010010110000110001101110010000; }
+   Call "capture_hclk" { 
+      "_pi"=11001010000010001111000101111100001111100100110010001111000100; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; }
+   "pattern 17": Call "load_unload" { 
+      "so0"=LHLLHHLLLHLLLHLLHHLLLHLHLHLHHHHLLHLHLLLHHHHLLHLHLHHLHLHLLLLHHHLHHLHHHHHHLHHHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=HHLLHHLHLLLHHLLLLLLHHHLLLHLLHHLLHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLL; 
+      "so2"=LLLLLLHHLLLHLLHLHHHLLHLHLLLHLLLLLLHHLLLHLLHLHHHLLHLHLLLHLLLLLLHHLLLHLLHLLHLHHLHHHLLHHLHLLLHHLLLLLLHHHLLLHLLHHLH; 
+      "so3"=LLLLLLHHLHHLLHLHHHLLHLHLLLHLLLLLLHHLLLHLLHLHHHLLHLHLLLHLLLLLLHHLLLHLLHLHHHLLHLHLLLHLLLLLLHHLLLHLLHLHHHLLHLHLLLH; 
+      "si0"=0001110011001011100001011010111010011010000000100110001010001010101011100111101111110011100010011001100101001000; 
+      "si1"=000011101000010010011000100111101101011110111010001111110001100111010110000001011000000111101001000111101000010; 
+      "si2"=101100100010110010110110101001011100100010110010110110001010010011011111100111101100110000010010111110100101011; 
+      "si3"=110111011100111000100101100111000110011001101001000011110100101111111011110001001100111111000111011010001011110; }
+   Call "capture_hclk" { 
+      "_pi"=11001000000011001111110101101111001111100110100110100011001000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHH; }
+   "pattern 18": Call "load_unload" { 
+      "so0"=LLLLLHLLLLLLLLHLLHHLLLHLHLLLHLHLHLHLHHHLLLHHHLHHHLLHLLLHLLHLHLLHLLHHLHHLLHHHHHLHHLHLHHLLHHHHLLHHHHLHHHHLLLHLLHLH; 
+      "so1"=HHLLHHHLLLHLLHHLLHHLLHLHLLHLLHLLLHHLLLLHHHHHLLHHHLLLHLLHHLLHHLLHLHLLHLLHHHHHLLHHHLLLHLLHHLLHHLLHLHLLHLLHLHLLLLL; 
+      "so2"=HHLLHHLHLHLLHLHHHHHLLHHLLLHLHHLLHHLHLHLLHLHHHHHLLHHLLLHLHHLLHHLHLHLLHLLHLHHLHHHHHLLHHHLLLHLLHHLLHHLLHLHLLHLLHHH; 
+      "so3"=LLLLLLHHHHLHLHHHHHLLHHLLLHLHHLLHHLHLHLLHLHHHHHLLHHLLLHLHHLLHHLHLHLLHLHHHHHLLHHLLLHLHHLLHHLHLHLLHLHHHHHLLHHLLLHL; 
+      "si0"=0101100110001010000001001101100110001001101001100001100001000110001011011011011011111000110001101100110010100100; 
+      "si1"=110001101010010000110111001001110100100101110101001011111000110011111011100001101100000011110100101011101110101; 
+      "si2"=010010100001110110001111010110110101111100011011010010111110101111110100011111101111101110000110100100101011000; 
+      "si3"=101101001001111110010000110011000011101100011100100001111010010101111100111110010101010110111011110001111010011; }
+   Call "capture_hclk" { 
+      "_pi"=11000100000010101111100111011110011011001101010111000111000100; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLH; }
+   "pattern 19": Call "load_unload" { 
+      "so0"=LHLHHLLLHLLLHLHLLLLLLHLLHHLHHLLHHLLLHLLHHHLHHHLLHLHLHHLHLHHLHLHHHLLLHHHHLHHHHLLHHHLHLHHLLHHHHLLHHHHLHHHHLLLHLLHL; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLLLHHLLLLHLHHHHLLLHLLLHHLLHLHHLLHHLHHLLLHHLLLLHLLLLLHLLLLHHLLHHLLHLHLLHLLLLLH; 
+      "so2"=LHHLLHHLHLHLLHLHHHHHLLHHLLLHLHHLLHHLHLHLLHLHHHHHLLHHLLLHLHHLLHHLHLHLLHLLHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHHLHLHLLHHLHHHHHLLHHLLLHLHHLLHHLHLHLLHLHHHHHLLHHLLLHLHHLLHHLHLHLLHLHHHHHLLHHLLLHLHHLLHHLHLHLLHLHHHHHLLHHLLLH; 
+      "si0"=1101100111001110111111011101100011100111011110010001011001100101110100101100011001111100011000010110011101010000; 
+      "si1"=000011011001001101101100111111001001000111101110100011111100011001110101100000010110000001111010010001110111111; 
+      "si2"=101001010000100000001001100100011110111001000100010101001111001001110101101101100100100101010010101000101000000; 
+      "si3"=000111110101010111001100011001000001110110100110011000111001001010111010011111001010101011011101111000111101001; }
+   Call "capture_hclk" { 
+      "_pi"=11110100100001101111000100111100111010011010111110001111101010; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLHL; }
+   "pattern 20": Call "load_unload" { 
+      "so0"=HHLHHLLLLHHHHLLHLLLHLHHLLHHLLHLHHHLHLLHLLHLLLLLLLHLHLHLLHHHLHLLHHLHLHLLHLLLLHLHHHHHLHLHHLLHHHHLLHHHHLHHHHLLLHLLL; 
+      "so1"=LLLLLHLHHLLLLLLHHHHLHLLHLLLHHLLLHLLHLLLLLLLLLHLLLLLLHHLHLLHHHLLHHLLLLLLLHHHHLLLHHLHLHLLHLLLLLHLLLHHLHLLLHLHLLHH; 
+      "so2"=HLHHLLHHLHLHLLLLHHHHHLLHHLLLHLHHLLHHLHLHLLLLHHHHHLLHHLLLHLHHLLHHLHLHLLHHLLHHHHHHLHHHLHLLLHHHHHHLLLHHLLHHHLHLHHL; 
+      "so3"=LLLHHLLLLLLHHLLHHHHHLLHHLLLHLHHLLHHLHLHLLLLHHHHHLLHHLLLHLHHLLHHLHLHLLLLHHHHHLLHHLLLHLHHLLHHLHLHLLLLHHHHHLLHHLLL; 
+      "si0"=0101111111110011011101010110111101111110101010011111011011110010110011111000110000111111001100001011000110101010; 
+      "si1"=101100111010110010001110101000110010001111100110010111111011110111111111101110011110111100110110111011101010000; 
+      "si2"=110100101000010011110111110110111111001110010000011110101000110011010101101100011000000001110101111001011001011; 
+      "si3"=001000110101011011100110001110000001011011110011000110011001100101011101001111100101010101101110111100011110100; }
+   Call "capture_hclk" { 
+      "_pi"=11001000010011101110000101111001111100110101110100011110101101; 
+      "_po"=HLLLLLLLLLLHLLLLLLLLLLLLLHLLLLLLHLLLHHL; }
+   "pattern 21": Call "load_unload" { 
+      "so0"=LLLLLHHLHLHHHHLHHLLHHLHHLHLHLLHHHHHHHLLHLLLLHHLLHLLLHLLHHLHHHLLHLLHLLHHHLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHLHHLLHHLHLHLLLLHHHHHLLHHLLLHLHHLLHHLHLHLLLLHHHHHLLHHLLLHLHHLLHHLHLHLLLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHLLLHHLHLHLLLLHHHHHLLHHLLLHLHHLLHHLHLHLLLLHHHHHLLHHLLLHLHHLLHHLHLHLLLLHHHHHLLHHLLLHLHHLLHHLHLHLLLLHHHHHLLHHLL; 
+      "si0"=1101011011111100101100110011011111001101001011000010011011011111110011001111011100011101100110100101100011010101; 
+      "si1"=111110110000101110000000100111011001100011111011101000111111000110011111011000000001100000011110100100001001111; 
+      "si2"=011010010100001110110011011011010001110010010101001000101011001001100010010110010001011011100110101100000101111; 
+      "si3"=001010111101001000001101011001111000001001100100010111011000010111001010100111110010101011110111011110001111010; }
+   Call "capture_hclk" { 
+      "_pi"=11011000001011001110001111110011110001101011110000111101101110; 
+      "_po"=LHHLLLLLLHHLLLLLLLLLHHLLHHLLHLHHHLLHHLL; }
+   "pattern 22": Call "load_unload" { 
+      "so0"=LLLLLHHLLLHLHHLLLLHLLHHLHHLHHHHHHHLLHHLLLHHLHLHLLLLHLLHLLHHHLLLHHLLLLLHHLHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLHLHHLLHHLHLHHLLLHHHHHLLHHLLLHLHHLLHHLHLHHLLLHHHHHLLHHLLLHLHHLLHHLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHHLLHLLLLLLHLLLHHHHHLLHHLLLHLHHLLHHLHLHHLLLHHHHHLLHHLLLHLHHLLHHLHLHHLLLHHHHHLLHHLLLHLHHLLHHLHLHHLLLHHHHHLLHHL; 
+      "si0"=1100111111110100000111100101010100010000100111010000111110101011000100110110011011000110111001101011010010101010; 
+      "si1"=001010110111011110101001000001110110100110101110011101001101010000111101110011111001101000111111001010010001011; 
+      "si2"=110110010010001000010100110111000100111111100101111111000001011100000111100110010110111100010111010101101111100; 
+      "si3"=010100101110011111011011110101011000110001111101110110101100101110101011101101101000100011000101010010000011001; }
+   Call "capture_hclk" { 
+      "_pi"=11111100000001101101100111110000110111111000100001000111000101; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLHL; }
+   "pattern 23": Call "load_unload" { 
+      "so0"=LLLLLHHLHLLHHHLHLLLLHHHHHLHLHLHHLLLHLLHHHHLHLHLLHLLHHHHLLLLLHHHLLLLHHLHLLHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLHHLHHHLLHHLHLHHLHLLHLHLHLHHLLLHHLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHLHHLHLHLHLHLLHHLLLHLHHHLLHLHLHHLHLHLHLHLLHHLLLHLHHHLLHLHLHHLHLHLHLHLHLLHHLLHHLLLHHLHHHLLHHLHLHHLHLLHLHLHLHLHH; 
+      "so3"=LLLLLLHHLLHLHLHHLLLHLHHHLLHLHLHHLHLHLHLHLLHHLLLHLHHHLLHLHLHHLHLHLHLHLLHHLLLHLHHHLLHLHLHHLHLHLHLHLLHHLLLHLHHHLLH; 
+      "si0"=1101011000110101011110000110000101100111100000011100011101001101110011110000011100101010010110011100000110010110; 
+      "si1"=110111110110110010110111011101001011101101000000110111010100011010101100111010010001101000101101110101000001011; 
+      "si2"=000000010101001010000111000000001110011001001101100010110110011010010101100111110111001101101001001001111101011; 
+      "si3"=100110011010001110010100010011111010111100110100101010100110011000100111001000100101100111111100010100000101000; }
+   Call "capture_hclk" { 
+      "_pi"=11110101100000000100111101110110111111011110001000110011101000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLH; }
+   "pattern 24": Call "load_unload" { 
+      "so0"=LLLLLHLHHLHLLHLHHLLHLHHHHLHLLLHLHHLLHHHLHLLHLLHHLHLLLHLHLHHLLLLHLHLHHLLHHLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HHHLLLLHHLLHLHHLLHLHLLLHLHHLHHHLLLLHHLLHLHHLLHLHLLLHLHHLHHHLLLLHHLLHLHLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHHHLHLHHLLHLHLLLHLHHLHHHLLLLHHLLHLHHLLHLHLLLHLHHLHHHLLLLHHLLHLHHLLHLHLLLHLHHLHHHLLLLHHLLHLHHLLHLHLLLHLHHL; 
+      "si0"=1100111100000101111010101111101101001100000011001010111110100100110100100101001111011111000001000111101000001010; 
+      "si1"=111000100110111101100001111111101110000111010001111010101000111110000101101100111000101110100111100110100110111; 
+      "si2"=111011010000101110001110111011101011001010010001101000001101111101111110110111101111010011110110101110110011101; 
+      "si3"=001011100111110100111111001110011010111110110110111110000111000101111101011010000011000101100000110111000110000; }
+   Call "capture_hclk" { 
+      "_pi"=11100100100111100110000001111010101010010011000011011011101110; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHHL; }
+   "pattern 25": Call "load_unload" { 
+      "so0"=LLLLLHHLLLLLHHLLHLHLHHHHHLHLLHLLHHLHLLHLHHHLHHLHHLHLLHHHLLHHHHHHHHHLHHLHLHLHLHLHLLLHHLLHLLHHLHLHLHHHHHHLHHLHLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLL; 
+      "so2"=LLHHHHLLLLLLHLHHHLHHHHLLLLLHLLHHHHLLLLLLHLHHHLHHHHLLLLLHLLHHHHLLLLLLHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHLLHLLLLLLHHHLHHHHLLLLLHLLHHHHLLLLLLHLHHHLHHHHLLLLLHLLHHHHLLLLLLHLHHHLHHHHLLLLLHLLHHHHLLLLLLHLHHHLHHHHLLLLLH; 
+      "si0"=1001001100100010010011110100110000101110000100101010100101010000010001101001110111101101100000110011110000000110; 
+      "si1"=011110001001111011011100011110111101000011101000111101010100011111000010111110011100010111010010110011011010001; 
+      "si2"=011101101000010111000111011101111101100101010000110110000100111111011100111011111001111100111101101001101100111; 
+      "si3"=001001111110111110001111110111000111101010101111000010100110111010011110101101000001100010110000011011100011000; }
+   Call "capture_hclk" { 
+      "_pi"=11001001001011001100000101110101011000100110001110110111100111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLLL; }
+   "pattern 26": Call "load_unload" { 
+      "so0"=LLLLLLHLLLHLLLHLLHLLHHHHLHLLHHLLLLHLHHHLLLLLLHHLLLLLLHHLLLLHLLLLHLLLHLHHLHHLLLLHHLLLHHLLHLLHHLHLHLHHHHHHLHHLHLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HLLHHHHLLLLLLHHHHHLHHHHLLLLLHLLHHHHLLLLLLHHHHHLHHHHLLLLLHLLHHHHLLLLLLHLHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHHHHHLHHHHHLHHHHLLLLLHLLHHHHLLLLLLHHHHHLHHHHLLLLLHLLHHHHLLLLLLHHHHHLHHHHLLLLLHLLHHHHLLLLLLHHHHHLHHHHLLLLL; 
+      "si0"=0011101000001110101110011101000110100010011011110100010110101111010010000010000110111100111010100000010111000010; 
+      "si1"=000010111001001011111111001111000111111110100111110111111000101100010010000100110101010011011001100001111001001; 
+      "si2"=110101101100001000101101010010000100011000000101000001011110011010111101101010001100010101100011101110110101110; 
+      "si3"=000001010101100111001010110010111111001000010001011001000011101001011101101000110001000111000110110000110101000; }
+   Call "capture_hclk" { 
+      "_pi"=11011101110101101111110011111101100001100011010111010011000001; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHL; }
+   "pattern 27": Call "load_unload" { 
+      "so0"=LLLLLLHLLLLLHHHLHLHHHLLHHHLHLLLHHLHLLLHLHHLHHLLHLHLLHHLHHLHHHLHLHHLLLLLHHLLLLLLHHHLHHLLLHHLLLHHLHHHHHHHLLHLHLLHH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHHLLHHHLHHHHLLHHHLHLHLLLLLLHLHHHLLLLHHHLHHHHLLHHHLHLHLLLLLLHLHHHLLLLHHLLHLLLL; 
+      "so2"=LLLLLLHHHHLLLLHHLHHHHLHHHLHLLLLLLLHHHHLLLLHHLHHHHLHHHLHLLLLLLLHHHHLLLLHHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLLLLLHLLHHLHHHHLHHHLHLLLLLLLHHHHLLLLHHLHHHHLHHHLHLLLLLLLHHHHLLLLHHLHHHHLHHHLHLLLLLLLHHHHLLLLHHLHHHHLHHHLHL; 
+      "si0"=1001111110100001101000000101000000100111001101101100001011010101101001001011001111011111011101000000001111100001; 
+      "si1"=101010100011111111110011000001011011111110010011000000000001000001011001010101010101010001010001010001000000000; 
+      "si2"=011010110110000100101011101011011000000001011111100001001011110000010010011111010111011110000101010101011101011; 
+      "si3"=001011011110001001100111011001011110100100100000101110100000110110001010110100011000100011100011011000011010100; }
+   Call "capture_hclk" { 
+      "_pi"=11111011101111100101100001111011000011000110111110100111001000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLL; }
+   "pattern 28": Call "load_unload" { 
+      "so0"=LLLLLHHLHHHHLLHLLLHLHLHLLLHHLHHHHHLHLLLHLHHLLHHLLLHHLLHLLLHLHLHLLLHLLLLLLHHHLHLHHHHLHHLLLHHLLLHHLHHHHHHHLLHLHLLH; 
+      "so1"=LHLHLHLHLHLHLLLHLHLLLHLHLLLHLLHLHLHHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLLLLLLHHHHLLLHHHLHHHHLHHHLHLLLLLLLHHHHLLLHHHLHHHHLHHHLHLLLLLLLHHHHLLLLLLHHHHHLLHLLHHLLLLLLLLLLLHLLLLLHLHHLLHLH; 
+      "so3"=LLLLLLHHHHHLLHHHLHHHHLHHHLHLLLLLLLHHHHLLLHHHLHHHHLHHHLHLLLLLLLHHHHLLLHHHLHHHHLHHHLHLLLLLLLHHHHLLLHHHLHHHHLHHHLH; 
+      "si0"=1101001001011111101111111110001111101100100010000010100000110001100000101101111010100100100100011001101000110001; 
+      "si1"=101101010000110100100110110101111100000100111010010100101100111100110111111110110110001100000110000000010011100; 
+      "si2"=110110000011001001010110110110000001101011110110101101010001001010101011110010101010010011111010111010110101101; 
+      "si3"=010100010111001111101110110010010100100110111100100010001000110111111111100100011101100111101111010001001001110; }
+   Call "capture_hclk" { 
+      "_pi"=11111000111100001100111111100001011010100010110111110011101110; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHHL; }
+   "pattern 29": Call "load_unload" { 
+      "so0"=HHLLLLHLHLLLHLLLLLHLHLLLLLHHLLLHHLLLLLHLHHHLHHHHHLHLHHHHLLLHHLLHLLLLHHHHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=HLLHLLHLLHLLLHHLLHHLHLLLHHLLLHLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HHLLHHLLLLHHLLLHLHLLHLHLLHLLHHLLHHLLLLHHLLLHLHLLHLHLLHLLHHLLHHLLLLHHLLHLLLLHLHLHLLHLLHLLHLLLHHLLHHLHLLLHHLLLLHL; 
+      "so3"=LLLHLLHHLHHHLLHLHLLHLHLLHLLHHLLHHLLLLHHLLLHLHLLHLHLLHLLHHLLHHLLLLHHLLLHLHLLHLHLLHLLHHLLHHLLLLHHLLLHLHLLHLHLLHLL; 
+      "si0"=1101101111000110001010111110010011000000001111100000100000110111010111000011001001010011010010001100110000011010; 
+      "si1"=011011010100011001001001101101010101001010011101001010010110011110011011111111011011000110000011000000011011101; 
+      "si2"=011011000001100101101011011010100000110101101011010110101010000101110101011000101010101100111100101110101101101; 
+      "si3"=110010010100100010101011101101111101010110011011001100011111101001100111110010001110110011110111101000100100111; }
+   Call "capture_hclk" { 
+      "_pi"=11110001111100000101111101000010111001000101111101100111100111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLH; }
+   "pattern 30": Call "load_unload" { 
+      "so0"=LHHLHLHLHHLLLHHLLLHLHLHHHHHLLHLLHHLLLLLLLLLHLHHHHHHLHHLHHHLHHLHHHLLLLLLLLHHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=HHHHLHHLHHLLLHHLLLLLHHLLLLLLLLLLLLLLLLLLLHLHLLHHLHLLHLLLHHLLHHLLLLLHHLHLLHLHLLHHLHLLHLLLHHLLHHLLLLLHHLHHLLLLLLL; 
+      "so2"=LHHLLHHLLLLHHLLLHLHLLHLHLLHLLHHLLHHLLLLHHLLLHLHLLHLHLLHLLHHLLHHLLLLHHLHLLLLLLHLLHHHLHLLHLHLLHLHHLLHHHHLLHHLHHHH; 
+      "so3"=LLLHLLHLLLLLLLLHLHLLHLHLLHLLHHLLHHLLLLHHLLLHLHLLHLHLLHLLHHLLHHLLLLHHLLLHLHLLHLHLLHLLHHLLHHLLLLHHLLLHLHLLHLHLLHL; 
+      "si0"=1001111010110101111111101111111000111111110111011101111100110001000000010100100100101010101001100110010100001100; 
+      "si1"=010110110101010010010010011011100001101101001110100101001011001111001101111111101101100011000001100000011111011; 
+      "si2"=101101100000110010110101101100110000011010101101101001010111000010011010001100101010101011001111001011101011101; 
+      "si3"=100011011010010100100111100011110100000010010000101010100111100110001011111001000111011001111011110100010010011; }
+   Call "capture_hclk" { 
+      "_pi"=11100011111000100101111100000101110110001011111001001111101011; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHH; }
+   "pattern 31": Call "load_unload" { 
+      "so0"=LLHHLHHLHHLHHHLHHHLHHHHHLLHHLLLHLLLLLLLHLHHHHHHHLHHLLHLLLHLHLHLLHLHLHLLHLHLLHHLLLHHHHLHLLLHLHHHLHLLLLHHHHLLHHHLL; 
+      "so1"=HLHLHLHLHLLHHLLHHLLHLHLLLLHHLHLLHLHLLLHHLLHLHLHLHLHLLHHLLHHLLHLHLLLLHHLHLLHLHLHLHLHLLHHLLHHLLHLHLLLLHHLHHLHLHLL; 
+      "so2"=LLHHLLHHLLLLHHHLLHLHLLHLHLLHLLHHLLHHLLLLHHHLLHLHLLHLHLLHLLHHLLHHLLLLHHLLLLHHHLLHLHLHLHLHLLHHLLHHLLHLHLLLLHHLHLL; 
+      "so3"=LLLLLLLHHLHLLHLLHLHLLHLHLLHLLHHLLHHLLLLHHHLLHLHLLHLHLLHLLHHLLHHLLLLHHHLLHLHLLHLHLLHLLHHLLHHLLLLHHHLLHLHLLHLHLLH; 
+      "si0"=0000101100011110110111111101111101001111011110011111011110100001111110010111110010010110010100110011001110000100; 
+      "si1"=010101101101010100100100100111100000101110100111010010100101100111100110111111110110110001100000110000001100101; 
+      "si2"=110110110000010010011000100101010011011011000111110100000110100111100110101111001010101010110011110010111010111; 
+      "si3"=001101000001100110001011010011001001101100111000100100011010101010011101111100100011101100111101111010001001001; }
+   Call "capture_hclk" { 
+      "_pi"=11000111110001100111111110001011101100010111101000011110100101; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHL; }
+   "pattern 32": Call "load_unload" { 
+      "so0"=LLLLLLLLLHHHHLLHHHHHLHHHHLHLLLLHHHHHHLLHLHHHHHHHHHLLLLLHLLLHHLHHHLHHHHLHLLLLLLHLLLHHHHLHLLLHLHHHLHLLLLHHHHLLHHHH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLL; 
+      "so2"=HLLHHLLHHLLLLHLHLLHLHLLHLHLLHLLHHLLHHLLLLHLHLLHLHLLHLHLLHLLHHLLHHLLLLHLHLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHLLHLLLLHHLHLLHLHLLHLHLLHLLHHLLHHLLLLHLHLLHLHLLHLHLLHLLHHLLHHLLLLHLHLLHLHLLHLHLLHLLHHLLHHLLLLHLHLLHLHLLHLHLL; 
+      "si0"=1001000100000100110011110011100011001001000010001101111001101101100110110011011111111001010000100110000101111101; 
+      "si1"=000110110100010101001011100010011111101111100110101011011101100110110011001011111101100000000100011111011001001; 
+      "si2"=111110110001000010010111011011110111000001110010011010100010100000000001101110000000111011011111000000111100100; 
+      "si3"=010100000010000000010101011000110000010010011010101101111010111110111111001011010001100110001010001011000001011; }
+   Call "capture_hclk" { 
+      "_pi"=11100110010000001100101111101001011000000000010111111100100000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHL; }
+   "pattern 33": Call "load_unload" { 
+      "so0"=HLLHLLLLLLLLLHLLHHLLHHHHLLHHHLLLHHLLHLLHHHHHHLLHHHLLLHHHLHHHHHHHLLHLHLLHLHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHHHLLHHHHHHHLLHLHLLLLHLLHHLLLLHLHHHHHLHHHHHHLLHLHLLLLHLLHHLLLLHLHHHHHLHLLLLLLH; 
+      "so2"=LLHHLLLHLHHHHHHHHHHHLHLHLLLLLLHHLLLHLHHHHHHHHHHHLHLHLLLLLLHHLLLHLHHHHHHLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLHLHLLHHLHHHHHHHLHLHLLLLLLHHLLLHLHHHHHHHHHHHLHLHLLLLLLHHLLLHLHHHHHHHHHHHLHLHLLLLLLHHLLLHLHHHHHHHHHHHLHLHLLLL; 
+      "si0"=1001111100011000111111000100101100111110100001000010111100110111110011010000101011111110101000000011001010111101; 
+      "si1"=000001101101000001010010111000011001111010110111110101101110110110011101110100111011100000010110001110100001010; 
+      "si2"=111111011000101101110010100010100100100011000100011010101110110010010101010101000000100110110111110010001111011; 
+      "si3"=110110100000000000001000101110011000001001000101011100111101011111111111100101101000110011000101000101100000101; }
+   Call "capture_hclk" { 
+      "_pi"=11001100100100000111011101010010110000000000111101111001101000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLHH; }
+   "pattern 34": Call "load_unload" { 
+      "so0"=LLLLLHHLLLHHHLHLLLLHLHHLHHHHHLHHLHLLHHHHLHHHHHHLLHHLLLHLHHLLLLLLHLLLLLHHLHLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLLHHLLLHLHHHHLHHHHHHLHLHLLLLLLHHLLLHLHHHHLHHHHHHLHLHLLLLLLHHLLLHLHHHHHLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHLLHLLHLHHHHHHLHLHLLLLLLHHLLLHLHHHHLHHHHHHLHLHLLLLLLHHLLLHLHHHHLHHHHHHLHLHLLLLLLHHLLLHLHHHHLHHHHHHLHLHLLL; 
+      "si0"=0001100100111100000000001011011100011011110010101100100111110110011111011001111110000110000100000111100100100011; 
+      "si1"=110110101111000001011111001100110001011000011110010001101010111111011111111001000010111000000101011000100100011; 
+      "si2"=000001011101010111100011011100110010011011100110101110110101001011000000101100010000111010110000011100011111110; 
+      "si3"=101011001010001000010111001101011100010110010000001011100101010011000100111001100101111111101000101001110001001; }
+   Call "capture_hclk" { 
+      "_pi"=11111111011000101100010011001100111100000001101100001111101100; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLH; }
+   "pattern 35": Call "load_unload" { 
+      "so0"=LLLHHLLLLLHHHHLLLLLLLLLLHLHHLHHHLLLHHLHHHHLHLLHLLLLLLHLHHLLHHLLHLHHLHHLLLHHLLLLLHLHHLLLLLLLHHHLLHHLLHHHHHLLLHHHL; 
+      "so1"=HLLHLLLLHLHHHLLLLLLHLHLHHLLLHLHLLLLHLLLLLLLHLHHHLHLLHLHHLLLHLHLHHLLHHLLLHLHLHLLHHLHLLHHLHLHHHHLHLHHHLHLLHLLLLHH; 
+      "so2"=LLHHHHLHLLHLLLHHLLLLHLLLLHLLLLHHHHLHLLHLLLHHLLLLHLLLLHLLLLHHHHLHLLHLLLLHLLHHLLLLHHHHLLHLLLHHLHLHLHHHHHHLHHHHHHH; 
+      "so3"=LLLLHLHLHLHLLHHLLLLHLLLLHLLLLHHHHLHLLHLLLHHLLLLHLLLLHLLLLHHHHLHLLHLLLHHLLLLHLLLLHLLLLHHHHLHLLHLLLHHLLLLHLLLLHLL; 
+      "si0"=0111011101111010100000110111010101100110011011010111101010010110101001011010110000111000010010000101110111101101; 
+      "si1"=101111011111100001011101010000100101001111111000110111110101101000011101100111001101111000000010100111010100100; 
+      "si2"=011110011111100110110001001111101001110110001111110110001011011011101101001000100100111101110001001101011011010; 
+      "si3"=000101101011010100011100111110011111011001011010100000001000010111111001010111100011011001111110011111111001111; }
+   Call "capture_hclk" { 
+      "_pi"=11011000100101001100001001110000101100000011000111100011001110; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLHLL; }
+   "pattern 36": Call "load_unload" { 
+      "so0"=LLLLLHHLLLLHLHLHLLHLLHHHHLHHHHHHHLHHHLHLLHHHHHLHLHLHHHLHLHHLHLLHHLLLLLLHLHHHLLLHHLLHHLLLLLLHLHLLLLHHHHHLLLHHLHLH; 
+      "so1"=HHHLLLLHLLHLLLLHLHHHLHHHHLHHLHLLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLL; 
+      "so2"=LLHLHHHHHHHLHHLLLHHHLLLHLLHLLLHLHHHHHHHLHHLLLHHHLLLHLLHLLLHLHHHHHHHLHHHLLLHLLLLHHHLLLLHLLHLLLLHLHHHLHHHHLHHLLLL; 
+      "so3"=LLLHLLHLHLHHLLLLHHHLLLHLLHLLLHLHHHHHHHLHHLLLHHHLLLHLLHLLLHLHHHHHHHLHHLLLHHHLLLHLLHLLLHLHHHHHHHLHHLLLHHHLLLHLLHL; 
+      "si0"=1100101010011011100100100000001011111110101111101000001100100110110010010011010111100101011001100100110010001001; 
+      "si1"=111100000011101001011100100110010110000010010011111010101001111010011101010000010011111110000111000110110011100; 
+      "si2"=010001111110110101000100101000111000000000000000100100101000100101100100001000001001111100000001010001100010000; 
+      "si3"=000010001111000011011010000101011101010110111011110011011001010010101011100000100000001010110101000100111101100; }
+   Call "capture_hclk" { 
+      "_pi"=11010111011010001110111100001000001000000110001010111011100111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLL; }
+   "pattern 37": Call "load_unload" { 
+      "so0"=LLHLLLHLHLLHHLHHHLLHLLHLLLLLLLHLHHHHHHHLLLLHHLHHLLLHLHLHHLLHHHHLHLHLHLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHL; 
+      "so2"=LLHLLHHLHLLLHLHHHHLLHHLHHLLHLLHLLHHLHLLLHLHHHHLLHHLHHLLHLLHLLHHLHLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHLLHLLLLLLHHHHLLHHLHHLLHLLHLLHHLHLLLHLHHHHLLHHLHHLLHLLHLLHHLHLLLHLHHHHLLHHLHHLLHLLHLLHHLHLLLHLHHHHLLHHLHHLLH; 
+      "si0"=0111000110101101011001000001000001100010011011101010100011010011000000001100010011110011101100010010011101000100; 
+      "si1"=001111000000101110010111001000101001001001001001111101010100111101001110101000001001111111000011100011001001011; 
+      "si2"=001000111111011010100001000101100100101100010010000110011001111010010110000111100010010111000010010100011000000; 
+      "si3"=010001011101011101001011100001101111111111010011111010111101111011100101110000010000000101011010100010011110110; }
+   Call "capture_hclk" { 
+      "_pi"=11101110110000001111111100010000010100001100000111110110000011; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; }
+   "pattern 38": Call "load_unload" { 
+      "so0"=LLLLLLLLLHHLHHHLHLHLHLLLHHLHLLHHLLLLLLLLLHLHHLLHHLLLHHHHLHHHLHHHHLHLLHHLLHLLHLLHHLLLLHHLLLLLHLLLLLHLLLHHLHHHLHLH; 
+      "so1"=HHLLHHHLHHLLLHLLHLLHHHLHLLLHLHLLLLHLLLLLHHHHLLHHHLHHLLLHLLHLLHHHLHLLLHLLHHHHLLHHHLHHLLLHLLHLLHHHLHLLLHLHLLHLLLL; 
+      "so2"=HLLHLLHHLHLLLHLHHHHLLHHLHHLLHLLHLLHHLHLLLHLHHHHLLHHLHHLLHLLHLLHHLHLLLHLLLHHLLHHHHLLHHHLHHLLLHLLHLLHHHLHLLLHLLHH; 
+      "so3"=LLLLLLLHHHLHLLHHHHLLHHLHHLLHLLHLLHHLHLLLHLHHHHLLHHLHHLLHLLHLLHHLHLLLHLHHHHLLHHLHHLLHLLHLLHHLHLLLHLHHHHLLHHLHHLL; 
+      "si0"=0110110001000100011100101001010011000110001010010001010001110110110010000101111110000011100110001111000011011111; 
+      "si1"=000101000100011110101110010001010011001011000011010101110111111000010100011111111001011111100101101110111001101; 
+      "si2"=101101101010011001010111010000101011110010101100010001110100100100111011111110011000110110101111100101111010110; 
+      "si3"=110000011111100110110010101000100111101101110011010010100001000011101001100000110000110111101111111101110010111; }
+   Call "capture_hclk" { 
+      "_pi"=11111011110000101101010101001001111000011000001000010000001001; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHH; }
+   "pattern 39": Call "load_unload" { 
+      "so0"=LLLLLHLLLLHLHLLHLLLHLHLLLHHHLHHLHHLLHLLLHHHHLHHLLLLLHHLLHHLLLHLLHLLLHHHLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLLLLLHHHLLHHLLLHHHHLLLLHHLHHHHHHLLLLLHHHLLHHLLLHHHHLLLLHHLHHHHHLLLLLLL; 
+      "so2"=LHHHHLLLHHLHHHHHLLLLLHHLLHHLLHHHHLLLHHLHHHHHLLLLLHHLLHHLLHHHHLLLHHLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHLLHLLLLLLHHLLLLLHHLLHHLLHHHHLLLHHLHHHHHLLLLLHHLLHHLLHHHHLLLHHLHHHHHLLLLLHHLLHHLLHHHHLLLHHLHHHHHLLLLLHHLLHHL; 
+      "si0"=1001001000100101101000100100101110000101110100101000001001010011100101001001101111000010110011100111100001101101; 
+      "si1"=100001010001000011101011100101011000101101100001101010111011111100001010001111111100101111110010110111010111010; 
+      "si2"=011101010111011010100011111000110111111101101111011010111110001001011010011110000110100101101011111011011110011; 
+      "si3"=110111011111100001011101010100010010110110111001100011010000100001010110111001101100110010010011101101000111000; }
+   Call "capture_hclk" { 
+      "_pi"=11110111100001100110101000010011110100110000000000100001100100; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLH; }
+   "pattern 40": Call "load_unload" { 
+      "so0"=HLHHLLHLLLHLLHLHHLHLLLHLLHLLHLHHHLLLLHLHHHLHHLHHHHHHHHLHLHHLHLLHHHLLHLLHHLLLLLLLLLLLLLLHHLLLHHHHLLHLLHLLLLHLLHLL; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHLLLH; 
+      "so2"=LLHHHHLLLHHLHHHHHLLLLLHHLLHHLLHHHHLLLHHLHHHHHLLLLLHHLLHHLLHHHHLLLHHLHHLLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLLHHHHHHHHHLLLLLHHLLHHLLHHHHLLLHHLHHHHHLLLLLHHLLHHLLHHHHLLLHHLHHHHHLLLLLHHLLHHLLHHHHLLLHHLHHHHHLLLLLHHLLHH; 
+      "si0"=0011101001010111110011011111100110100111001100110100111000111000011010010111111100011011001001010101111101001000; 
+      "si1"=111110100000010001110001011011110011010101010111011110000000011000110110001100000011110111111101000100101100000; 
+      "si2"=110000011010101000111000001001101101010001101001000110010001110001111100010000100001110010000101111110001011010; 
+      "si3"=100000011101110000111111110010011000101001001110010000010010101110110000010111100111111111000011111101100010111; }
+   Call "capture_hclk" { 
+      "_pi"=11001001010011001111111001001110111001100000010100111110001010; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHH; }
+   "pattern 41": Call "load_unload" { 
+      "so0"=LLLLLLHLLLHHLLHHLHLLHHHLLLHHHLLLLHHLHLLHHLHHHLHLLHLLHHHLHLLHHHHHHLLHHLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LHHLHHLLHLLHLHLHLHHHHHLHLLHLLHLLLLHHLLLHLLLHHLHHLLHLLHLHLHLHHHHHLHLLHLLHLLLHHLHHLLHLLHLHLHLHHHHHLHLLHLLHLLLLLLL; 
+      "so2"=HLHLHHHHLHLLHLHLLLHHLHLLHLLHHLHLHHHHLHLLHLHLLLHHLHLLHLLHHLHLHHHHLHLLHLLLLLLHHLLLHHLHHLLHLLHLHLHLHHHHHLHLLHLLHLL; 
+      "so3"=LLLLLLHHHHLHHHLLLHHLHLLHLLHHLHLHHHHLHLLHLHLLLHHLHLLHLLHHLHLHHHHLHLLHLHLLLHHLHLLHLLHHLHLHHHHLHLLHLHLLLHHLHLLHLLH; 
+      "si0"=0000101110111110100100011111100011101010111100010001101011100011101010001000101010001100100100111010110110100111; 
+      "si1"=101111101000010000011100010111001010000110101011101111000000001100011011000110000001111011111110100010010101111; 
+      "si2"=111000001101011010100010110111101001010010011101100001001001100100001000101011001000110100100011011101100010100; 
+      "si3"=000001010111010010011011111011001100010100001111000010001000010111111000001011010011111111100001111110110001011; }
+   Call "capture_hclk" { 
+      "_pi"=11010010100010101111110000011101110011000000110011111101001101; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHL; }
+   "pattern 42": Call "load_unload" { 
+      "so0"=LLLLLLHLHLHHHHHLHLLHLLLHHHHHHLLLHHHLHLHLLHHLHHHLLLHLHHHLHLHLHHLHLLHLHHLLLHLLHHLHLHHLLLLLLHHLHHHLHHHLLHLHHHHHLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHLLLL; 
+      "so2"=HHLHLHHHHLHLLHLHLLLHHLHLLHLLHHLHLHHHHLHLLHLHLLLHHLHLLHLLHHLHLHHHHLHLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHLLLLLLLLLLHLLLHHLHLLHLLHHLHLHHHHLHLLHLHLLLHHLHLLHLLHHLHLHHHHLHLLHLHLLLHHLHLLHLLHHLHLHHHHLHLLHLHLLLHHLHLLHLL; 
+      "si0"=1111011011000101011110111001111110010101111110000100110101110000110101000001010101000111010010001101011111010000; 
+      "si1"=001011111010000100000111000101011100001110000001110011110001000011001001100011010101111101101010010000000010011; 
+      "si2"=111100000110101100101100111010111011110011110010110111111000000100101110111111110010100101001010110101111000101; 
+      "si3"=011101011100001010111100011100011111000010010101001001110100110001111100000101111001111111110000111111011000101; }
+   Call "capture_hclk" { 
+      "_pi"=11100101000001101101100000111011101010000001101111111010001110; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHL; }
+   "pattern 43": Call "load_unload" { 
+      "so0"=LLLLLHHLLHHHLHHHHHHLHLHLLLHLLHLLLLHHLLHLLHHLLLLHLHLHLLHLHHLHHHHLHLLHHHHLHLLLLLLHHLHHLLLLLLHHLHHHLHHHLLHLHHHHHLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHHLHLHHHHLHLLHLHLLLHHLHLLHLLHHLHLHHHHLHLLHLHLLLHHLHLLHLLHHLHLHHHHLHLLLHLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHHHHLLLHLHLLLHHLHLLHLLHHLHLHHHHLHLLHLHLLLHHLHLLHLLHHLHLHHHHLHLLHLHLLLHHLHLLHLLHHLHLHHHHLHLLHLHLLLHHLHLLHL; 
+      "si0"=0100100101010110101011101001000111010101011101011101100011010101111100010000011101011000111001000000100010010111; 
+      "si1"=010100001010110101001010010011000010001110001101010000101101100101110101111010011101111110111011110111100000011; 
+      "si2"=000000110010011001110100010011100010001010011010101111000001111100011100110010111100110010011101101111101010111; 
+      "si3"=110100111011110111110110100100010011110111111001011101011010011010100101001001101101011001110010010100101101001; }
+   Call "capture_hclk" { 
+      "_pi"=11101100010011101101101110011110000100000011001010001000001111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLH; }
+   "pattern 44": Call "load_unload" { 
+      "so0"=LHLLHLLLLHLHLHHLHLHLHHHLHLLHLLLHHHLHLHLHHLLLHLHLLLLHHHLLLLLHLHLLHHHHLLLHLHLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHLLLHLLHHHHHLHLLLLLHHHLLHHLLLHHLLLLHHLHHHHHLHHLLLLHHHLHLHHHLLHHHHHHLLLLLLHH; 
+      "so2"=LLLLLHLLHLLHLHHLHLHHLLHHHLLHLLLLLHLLHLLHLHHLHLHHLLHHHLLHLLLLLHLLHLLHLHLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLHLHHHLHHHHLHLHHLLHHHLLHLLLLLHLLHLLHLHHLHLHHLLHHHLLHLLLLLHLLHLLHLHHLHLHHLLHHHLLHLLLLLHLLHLLHLHHLHLHHLLHHHLLH; 
+      "si0"=1101101110000111011100111010001000100001101100101000000101110110110110101101010001010101001100110110010100110101; 
+      "si1"=110011110110111100011001000111001111001100100001000011001011010100001001110110110011011111011001100100100101000; 
+      "si2"=011110101000001010101110011000001001110111011110111001111110001011110010110101001111011111111100011011000110001; 
+      "si3"=101001000101001101101110010101000010100111100110000000000001000000110001101111100111001010110011000001010111111; }
+   Call "capture_hclk" { 
+      "_pi"=11111110110111100111110101010101011100000110010011101100000111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLH; }
+   "pattern 45": Call "load_unload" { 
+      "so0"=LLLLLLHLHLHHLLHLHLLLLLLHLHHHLHHLHHLHHLHLLLHLLLHHLHLHHHLLHHHHLHHLHHHHLLLHLHLHHLLHLHLLHHLLLLLHHLHLHLHLHLLHHLHHLHLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHLLLL; 
+      "so2"=HLHHLLHHLLHHLHLLHLHLHHLLHHLLHLHHLLHHLLHHLHLLHLHLHHLLHHLLHLHHLLHHLLHHLHLHLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLLLLHLHLLLHLHLHHLLHHLLHLHHLLHHLLHHLHLLHLHLHHLLHHLLHLHHLLHHLLHHLHLLHLHLHHLLHHLLHLHHLLHHLLHHLHLLHLHLHHLLHHLL; 
+      "si0"=0001111011010010101110011111000001001000000110011111100100000011001100011000010000101011100110001011001110011001; 
+      "si1"=001100111000111010000111010000011101100111010001100001100101101011010100111010011101111110101001110011010100000; 
+      "si2"=101111010100001101010101010111101101111010010011011011011101101010011010101011110001011101110101101110111001011; 
+      "si3"=011101111100101011110010000101001100010100011011000001101010111010010000110111110011100101011001100000101011111; }
+   Call "capture_hclk" { 
+      "_pi"=11111101101011101101101010101010110000001100101111011001100011; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLHL; }
+   "pattern 46": Call "load_unload" { 
+      "so0"=LLLLLHHLLLHLHLHLLLLLLHHLHLHLLLLHHLHHHHLLHLHLLLHLLLHHLHLLLHLLHHLHHLHLLHLLHLLLLLLHHLHLLHHLLLLLHHLHLHLHLHLLHHLHHLHH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHHLHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLL; 
+      "so2"=LHLHHLLHHLLHHLLLLHLHLHHLLHHLLHLHHLLHHLLHHLLLLHLHLHHLLHHLLHLHHLLHHLLHHLLHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHHHHLLHLLLHLHLHHLLHHLLHLHHLLHHLLHHLLLLHLHLHHLLHHLLHLHHLLHHLLHHLLLLHLHLHHLLHHLLHLHHLLHHLLHHLLLLHLHLHHLLHHL; 
+      "si0"=1101110001101011100001011110000011001010111100000100110110001110101110000111000111101101100011000011100110110010; 
+      "si1"=100001111011001011111010000111000010110000101111111011101111010011110001010110010001010111110010000110010000001; 
+      "si2"=111100101110110010101101111101100111101111010111110010100011111111001110011010011100100100100000010011010000101; 
+      "si3"=100101110001100101101100011000010111011000011111000101001011100001110001100100011000001010101010000110111010100; }
+   Call "capture_hclk" { 
+      "_pi"=11011101000111100111111010111100111100011001001011001110000001; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHHH; }
+   "pattern 47": Call "load_unload" { 
+      "so0"=LLLLLHLLHHHHLLLLLHLLHHLHHLLLHHHLHLHHHLLLLLHLHHLHLHHLLLHLLHLLLHLLHHHHLLHHLHHHLHLHLLLHLLHHLLLHHHLLHHHHLLHHHLLHHHHH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLLHHHLHHLHHLLHHHHLHHHHLLLHHLLLHHHLHHLHHLLHHHHLHHHHLLLHHLLLHHHLHHLHHLLLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHHLLLHHHHHHLHHHHLLLHHLLLHHHLHHLHHLLHHHHLHHHHLLLHHLLLHHHLHHLHHLLHHHHLHHHHLLLHHLLLHHHLHHLHHLLHHHHLHHHHLLLHH; 
+      "si0"=1111111010100101111000100111010000110100100000100011000101110111100000010010000111110101110001010001110011011000; 
+      "si1"=011000011110100110111110100001001010011000010110101000100010101100111100101011011001101110111100000110010100011; 
+      "si2"=000100101101100000010110111111010011110111110011111101010001011111100111011101100111000001001010000100110100001; 
+      "si3"=001001001110111010110110110101000001011000001011001010011001001111111011101000010100001010010011011101101010010; }
+   Call "capture_hclk" { 
+      "_pi"=11111010001111101111110011111001110100110010001110011100000000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLL; }
+   "pattern 48": Call "load_unload" { 
+      "so0"=LLLLLHHLLHHLHLLLLLLLLLLLHHHLHLLHLHLHHLLHHHLHHHLLLLLHLLLLLLLLHLLLLLHLLHHLHLLLLLLHHLLLHLLHHLLLHHHLLHHHHLLHHHLLHHHH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLL; 
+      "so2"=HLLLHHHLHHLHHLHHHHHLHHHHLLLHHLLLHHHLHHLHHLHHHHHLHHHHLLLHHLLLHHHLHHLHHLLLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHLHHHLHHHHHHLHHHHLLLHHLLLHHHLHHLHHLHHHHHLHHHHLLLHHLLLHHHLHHLHHLHHHHHLHHHHLLLHHLLLHHHLHHLHHLHHHHHLHHHHLLLH; 
+      "si0"=0010110111000111010000011000001101001001010010000100011011010110010110110010101100000000101000111110110000010001; 
+      "si1"=010000110011111100100100001010011001000111101100010101100110010010001111011110011001110101111000111110100001001; 
+      "si2"=001111110011100100001101000101001100001001010101100111010111000011100001000010011001100011001111100011110001110; 
+      "si3"=010111110001111110001100011111010100100100001001011001101000000111110111101110110110110111111000101101111101000; }
+   Call "capture_hclk" { 
+      "_pi"=11010010001111100101001100011010111101100100000001000101000000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLL; }
+   "pattern 49": Call "load_unload" { 
+      "so0"=LLLLLHLLHHLLLHHHLHLLLLLHHLLLLLHHLHLLHLLHLHHLLLLHLLHHHHHHLLLHLLHHHLLLLHHLLLLLLLHLLLLLLHLLHHLHHHLHLHHLLHLHLLLHLHLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLL; 
+      "so2"=HHHHLHHLLLLHLLHLLLLLLLHLHLLLHHHHLHHLLLLHLLHLLLLLLLHLHLLLHHHHLHHLLLLHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLLHLHHLLHLLLLLLLHLHLLLHHHHLHHLLLLHLLHLLLLLLLHLHLLLHHHHLHHLLLLHLLHLLLLLLLHLHLLLHHHHLHHLLLLHLLHLLLLLLLHLHLLL; 
+      "si0"=0111010001001000000010100010000111011010001011011101110100000110101101101000000101111011000100101001011001110100; 
+      "si1"=100010111000101010000010100001110011101000010001100001101110101111110100100100110001011010111000000000010000001; 
+      "si2"=110001101011011010000000111001100011110110011110101100010110101101100000111111000110001011101100111010000000101; 
+      "si3"=100111001100001111010011010111011011000000011110001011001011111111000000010100101101110011001011000100010011010; }
+   Call "capture_hclk" { 
+      "_pi"=11000010001011100100110101011100101011001000011111110110100000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHH; }
+   "pattern 50": Call "load_unload" { 
+      "so0"=LLLLLHLLLHLLHLLLLLLLHLHLLLHLLLLHHHLHHLHLHLHLLLLHHHLLHHLLHHHHHLHHLLHLHLLLHLLLLLLHHHLLLLHLLHHHLHLLHHHLHLHHLHHHHLLH; 
+      "so1"=HHHLHHLLLHLLHLHLLHLHHLLHHHLHLHHLLLHHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHLLHLHLLHHHLHHLHHHHLHLLLHLLLHLLHLHLLHHHLHHLHHHHLHLLLHLLLHLLHLHLLHHHLHLHLHHHHLHHHHLHHLLLHLLHLHLLHLHHLLHHHLHLHLH; 
+      "so3"=LLLLLLHLHHLLLHLHHHHLHLLLHLLLHLLHLHLLHHHLHHLHHHHLHLLLHLLLHLLHLHLLHHHLHHLHHHHLHLLLHLLLHLLHLHLLHHHLHHLHHHHLHLLLHLL; 
+      "si0"=1001111111001000100110000110101100010011110010100011101010000100101010110101001010111100100010100100101100111011; 
+      "si1"=011000101110001010100000101000111000111100001000110000110111010111111010010010011000101101011100000000010101111; 
+      "si2"=010000010001011001000000011101010001111011010111010110001011110110010001011100010001001010111001001110100000111; 
+      "si3"=001100011001010001000111001110001010101100010100101101101001110000000011001010011110001011110101111100111101101; }
+   Call "capture_hclk" { 
+      "_pi"=11000100010011001111101100111001011110010000111101101101001000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLL; }
+   "pattern 51": Call "load_unload" { 
+      "so0"=LLLLLHHHHHLLHLHLLLHHHLHLHLLLLHLLHLHLHLHHHLLLHLHHHLHHHLHHHHHHLHHHLLHHHHHLLHLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLHLLHLHLLHHHLLHLHHHHLHLLLHLLLHLLHLHLLHHHLLHLHHHHLHLLLHLLLHLLHLHLLHHHLLLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHHLLHHHLLHLLHLHHHHLHLLLHLLLHLLHLHLLHHHLLHLHHHHLHLLLHLLLHLLHLHLLHHHLLHLHHHHLHLLLHLLLHLLHLHLLHHHLLHLHHHHLHLLLHL; 
+      "si0"=1000101010001001000110100100001000000111100010111001011101000010101011010010001101011111010001000010011010011111; 
+      "si1"=110110001011100010101000001011000110111010000100011000011011101011111101001001001100010110101110000000010011110; 
+      "si2"=101000001000101011110110010001001010010101110001011101100101101111000001100100000100010010101100010011101000111; 
+      "si3"=010011101101000100110110110110010111010000110011100100110100111101110001100101001111000101111010111110011110110; }
+   Call "capture_hclk" { 
+      "_pi"=11001000100010101101011011110010111100100001111011011010000100; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHHL; }
+   "pattern 52": Call "load_unload" { 
+      "so0"=LHHHHHHHHLLLHLLHLLLHHLHLLHLLLLHLLLLLLHHHLHLHHHHHLLLLLLHHLLLLLHHLLHHLLLLHHLLLLLLHLHHHLLLLHLLHHHLHLLHHHLHLHHLHHHHL; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHL; 
+      "so2"=LLLHLLHLHLLHHHHLHLHHHHLHLLLHLLLHLLHLHLLHHHHLHLHHHHLHLLLHLLLHLLHLHLLHHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHLLLLLLLLLHLHLHHHHLHLLLHLLLHLLHLHLLHHHHLHLHHHHLHLLLHLLLHLLHLHLLHHHHLHLHHHHLHLLLHLLLHLLHLHLLHHHHLHLHHHHLHLLLH; 
+      "si0"=0111000001110110001011100000001011110010010001011110101110100010010101100011101110101111101000110001000101001110; 
+      "si1"=111101100010101100101010000010111011111001000010001100001101110101111110100100100110001011010111000000000010010; 
+      "si2"=010100000100010001100101000110101101011110011001110010110000010001110000001011000001000100101001000110111010011; 
+      "si3"=111111011101001000011101011011101010101000110001111000011110011100111000110010100111100010111101011111001111011; }
+   Call "capture_hclk" { 
+      "_pi"=11010001000101101100110011100101110101000011101100110101001010; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLH; }
+   "pattern 53": Call "load_unload" { 
+      "so0"=LHHHLLLLLHHHLHHLLLHLHHHLLLLLLLHLHHHHLLHLHLHLHHHHLLLHHLHLLHHLLHHLLLHLHHLLHLLLLLLLHLHHHLLLLHLLHHHLHLLHHHLHLHHLHHHL; 
+      "so1"=LHLLHLLHHLLLHLHHLHLHHHLLLLLLLLHLHLHHLLHLHLHLLLLHLHHHHHHHHHLLLLHLLHHLLLLHLLLLLHHHLHHLHHLHHLHLLHHLLLHLHHLLLLLLLHL; 
+      "so2"=HLLLHLLHLHLLHHHHLHLHHHHLHLLLHLLLHLLHLHLLHHHHLHLHHHHLHLLLHLLLHLLHLHLLHHLLLLHLLLHLLLLHLLLHHLLLLHHLHHHLHLHHHHHHLHL; 
+      "so3"=LLLLHLHHHHLHLHHLHLHHHHLHLLLHLLLHLLHLHLLHHHHLHLHHHHLHLLLHLLLHLLHLHLLHHHHLHLHHHHLHLLLHLLLHLLHLHLLHHHHLHLHHHHLHLLL; 
+      "si0"=0001010010010011010000011001000101011001110110100001010101100001110001110110011111010101110100101000101010100101; 
+      "si1"=111111011000101011001010100001101110110100100001000110000110111010111111010010010011000101101011100000001101100; 
+      "si2"=100010010001111100111000000010110010001111001100111001010011010111011001000111010000010001001000010011101110000; 
+      "si3"=101100110101011100001010101111010101110100010000111110001011001110111001111011011111000001001111011111010111110; }
+   Call "capture_hclk" { 
+      "_pi"=11100010001111000111100011001011100110000111010001101011001101; 
+      "_po"=HHLHHLLLLHHHLLLHLLLLHLHLHHHLHLHHHLLLHHH; }
+   "pattern 54": Call "load_unload" { 
+      "so0"=LLLLLHHHHHLHHLHLLLLHLHLHLHHLLLLHHHLLLHHHLHLHHHLLHHLLLHLHHHHLHHLLHHHHLLHHLHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHLLLHLLHLHLLHHHHLHLHHHHLHLLLHLLLHLLHLHLLHHHHLHLHHHHLHLLLHLLLHLLHLHLLHLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHHLLHHLHLHLHHHLHLHHHHLHLLLHLLLHLLHLHLLHHHHLHLHHHHLHLLLHLLLHLLHLHLLHHHHLHLHHHHLHLLLHLLLHLLHLHLLHHHHLHLHHHHLHLL; 
+      "si0"=1111110010001011010110001111010001001011100011111000100110100100010100000100110100010010101010100010011100101111; 
+      "si1"=001001000010011111111001001011011000111101110111001000011110111011101100100010110100000010110001101111010111100; 
+      "si2"=100011100000110111011010011011011100110101001010000011010100000111111110010100010100111111001111000110000111110; 
+      "si3"=001010110110001110010010001101011011001000111010110010111111011001000110010000010110011010010000010111000001111; }
+   Call "capture_hclk" { 
+      "_pi"=11100010001110100101101101111110010000001110111100101011001110; 
+      "_po"=HLLLLLLLLLLHLLLLLLLLLLHLLHHLLHLLHLLHLHL; }
+   "pattern 55": Call "load_unload" { 
+      "so0"=LLLLLHHHHLLLHHHHHLLLHLLHHLHLLHLLLHLHLLLLHHLLLLLLLLHHLLLHHLHLHHHHLHHLLHLHLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLHLHHLHLLLLLLHLHHLLLHHLHHHHLLLLLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLLHLLHHLLHLHHHLLLHLLLHLHLHLLLLHLLHHLLHLHHHLLLHLLLHLHLHLLLLHLLHHLLHLHHLLLLLLHLHHHLHHHLLHLLLLHHHHLHHHLHHHLHHLLHL; 
+      "so3"=LLHHLLHLLLLLLHLLLHLLLHLHLHLLLLHLLHHLLHLHHHLLLHLLLHLHLHLLLLHLLHHLLHLHHHLLLHLLLHLHLHLLLLHLLHHLLHLHHHLLLHLLLHLHLHL; 
+      "si0"=1000111000000010010111011100001011001010100001011001110000101100010111000011100001110011000101000111001011101010; 
+      "si1"=100100100100100110110101110001110001010000001001001011010111111110000001001110100111100101011100111100101010011; 
+      "si2"=011011001001000010101011010110001011101000011001011000010101101110101101000101000101011100101100110011011101111; 
+      "si3"=001001111010100100110100111111010111101000100110010111100110101001010000101000101101101001011000100101011000001; }
+   Call "capture_hclk" { 
+      "_pi"=11100010001001100101110110010101111100011101100110101011001111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHLL; }
+   "pattern 56": Call "load_unload" { 
+      "so0"=LLLLLHHLLHLHHHHLHHHLLHLLHHHHLHLLLHLLLHHLHLLHHHLLHHLHLLHHHLHLHLHLLLHLLHLHHLLLLLLHHLHHLHHHLLLHHHHLHLHLLHHLHLHLLHHH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLHHHLLLHHHLHLLLHHHLLHLLLHLHLLHHHLLLHHHLHLLLHHHLLHLLLHLHLLHHHLLLHHHLHLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHHHLHLHLLHHHLLHLLLHLHLLHHHLLLHHHLHLLLHHHLLHLLLHLHLLHHHLLLHHHLHLLLHHHLLHLLLHLHLLHHHLLLHHHLHLLLHHHLLHLLLHLH; 
+      "si0"=1001011110010011110111111111100010011010110010101011000001111000101101011001001011000001110010010101100100001010; 
+      "si1"=111111111101001100100110111111010101101001001100101101110100111011010101110010111111010000111111011110011000111; 
+      "si2"=010011010101100100010011110000000000000110101000110111110101111011100111100110010001101100010110001110001011111; 
+      "si3"=010111100001011110011011111100010111000110100101011010101100000101001011011111000111010010100110011001101101011; }
+   Call "capture_hclk" { 
+      "_pi"=11100010000111101111000101000010101000111011000010101010001111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHLL; }
+   "pattern 57": Call "load_unload" { 
+      "so0"=LLLLLHHLHLHHLHLLHLHHHHLHHHHLHLHLLHHLHHHHLHHHHLLHHHLHLHHHHLLLHLLHHHLHLLLLLHLHLHLHLLLHHLHHHLLHLHLHLLLLHLHLHLHLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHHHLLLHLHHLLLLLHHHLLHLLHLHLHHLLHLLLLHLHLHHLLLLLHHHLLHLLHLHLHHLLHLLLLHLHHLLLLLLL; 
+      "so2"=HLHLHHLHLLLLHLLHHLLLLHHHLLHLHLHLHHLHLLLLHLLHHLLLLHHHLLHLHLHLHHLHLLLLHLHHLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHLLHLLHLHHLHHLLLLHHHLLHLHLHLHHLHLLLLHLLHHLLLLHHHLLHLHLHLHHLHLLLLHLLHHLLLLHHHLLHLHLHLHHLHLLLLHLLHHLLLLHHHLLHL; 
+      "si0"=1110111001011000111101111111110100010101111001001011100000111110010110100001010101100000111001001010110010000101; 
+      "si1"=111111111111010011001001101110110001111001100101100011011110001000111100100111010010011100010100010000100011011; 
+      "si2"=101001101010110010001001111000000000000011001100001001111010111101110011011011100100010011000111100001100010111; 
+      "si3"=101010000100101100111101001011101110110101011110000011110101000010110001101111100011101001010011001100110110101; }
+   Call "capture_hclk" { 
+      "_pi"=11000100001011101100001000000101010001110110000111010101101111; 
+      "_po"=HLLLLLLLLLLLLLLLLLLLLLHLLHHHHLLLLLLHHHH; }
+   "pattern 58": Call "load_unload" { 
+      "so0"=LLLLLHHLLHHLLHHLHLLLLHLHLHLHHLLLLHHHHLHHHLHLLLHHHHLLHLLHHLHHLLLLHLLHHHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHLHLHHLHLLLLHHLHHLLLLHHHLLHLHLHLHHLHLLLLHHLHHLLLLHHHLLHLHLHLHHLHLLLLHLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHLLLHLLHLLHHLHHLLLLHHHLLHLHLHLHHLHLLLLHHLHHLLLLHHHLLHLHLHLHHLHLLLLHHLHHLLLLHHHLLHLHLHLHHLHLLLLHHLHHLLLLHHHLLH; 
+      "si0"=1001010100111010101100110110001101101101111100101000111110100011001110011100001101001011001100110011010000111101; 
+      "si1"=111001001011110000111001111000110101011001110101110000010000101000000111010010010110000100001110111101101100100; 
+      "si2"=001000010001001000000010100110100101110011001010010011000000010010001011111001111001011111101110111000100100101; 
+      "si3"=001011111000101111111110101110100110100000011101110100010100011001100101110110111001010100001011001000001011010; }
+   Call "capture_hclk" { 
+      "_pi"=11101110000011000110111011100011111011101100001011010110101111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHLL; }
+   "pattern 59": Call "load_unload" { 
+      "so0"=LLLLLHHHHHHHLLHLHLLLHHHHHLHLLLHHLLHHHLLHHLHHLLHLHLLHHLLHLLHHHHLLHHHHHHHHLHLLLHLHLLLLLHHLHHHHHHHHLLLHHLHHLHLHHLHH; 
+      "so1"=LLHLLHLHHLLLLHLLLLHHHLHHHHLHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLL; 
+      "so2"=HLLHHLHLLLHHHHHLHLLHLHLLHHLLHLLHHLHLLLHHHHHLHLLHLHLLHHLLHLLHHLHLLLHHHHLHLLLLLLHHHLHLHHHLLLLLHLLLLHLHLLLLLLHHHLH; 
+      "so3"=LLLHLLHLLLLLLHLHLLHLHLLHHLLHLLHHLHLLLHHHHHLHLLHLHLLHHLLHLLHHLHLLLHHHHHLHLLHLHLLHHLLHLLHHLHLLLHHHHHLHLLHLHLLHHLL; 
+      "si0"=0111111001001101011010011011010011101110100010100001001100110100100110111111111010100100100110101001101100011100; 
+      "si1"=011110010010101100001110011111110011100100111010111000001000010100000011101001001011000010000111011110110011110; 
+      "si2"=100101000010000011100011000100100110011010101000100010110010110001000010100100011110110111111001101110001001101; 
+      "si3"=011110101011100101111111010111110010110000000110111010001110001100010011111110010000001001010001110110101101000; }
+   Call "capture_hclk" { 
+      "_pi"=11011100000110001111110101000111111111011000001110101101100111; 
+      "_po"=HLLLLLLLLLLHLLLLLLLLLLHLLHLLHHLLHLLLLHL; }
+   "pattern 60": Call "load_unload" { 
+      "so0"=LLLLLHHLHLLLHLHLLLLHLLHHLLHHLHLLHLLHHLHHHLHHHLLLLHLHHLLHHLHLLLLHHLHHLLHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHLLHHLHLLLHHHLHLHLLHLHLLHHLLHLLHHLHLLLHHHLHLHLLHLHLLHHLLHLLHHLHLLLHHHLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHHLLHLHLHHHLHLHLLHLHLLHHLLHLLHHLHLLLHHHLHLHLLHLHLLHHLLHLLHHLHLLLHHHLHLHLLHLHLLHHLLHLLHHLHLLLHHHLHLHLLHLHLLHHL; 
+      "si0"=1000111111110000011101001110011011010000101011001100110111000000010111001100000110101010000011100010111111110011; 
+      "si1"=010001010000101110001000000100101111110001111010110111011001101100110010111111011000000001000111110000011010111; 
+      "si2"=101100010000000001100110110011011100101110000110111011001101001000000010100111100111110110100001011011011110011; 
+      "si3"=111001100101110000111110010101000101010100010111110111010001110000100010110100011001100010100010110000010111111; }
+   Call "capture_hclk" { 
+      "_pi"=11011110011000100101000001100110100110110000000000100111100011; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLHH; }
+   "pattern 61": Call "load_unload" { 
+      "so0"=LLLLLHHHHLHLHHLLHHLLHHLHHHLLLLLLLHLHHHLLHLHHHHHLLLHHLHLHHLLHLHLLHLHLLLHLLHLLLHLLLLLLLLLHHLHLLHLHHLLHHHHHLLHLLHLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLLHLHHHHHHHLLHHLHLHLLLLLLHHLLLHLHHHHHHHLLHHLHLHLLLLLLHHLLLHLHHHHHHHLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHLLHLLLLLLHHLHLHLLLLLLHHLLLHLHHHHHHHLLHHLHLHLLLLLLHHLLLHLHHHHHHHLLHHLHLHLLLLLLHHLLLHLHHHHHHHLLHHLHLHLLLLLLHH; 
+      "si0"=0101010111111100000110110101011001110001000000010111110101000000001001100100110111010100000001110001011111111010; 
+      "si1"=110100010100001011100010000000011111011100111101011011101100110110011001011111101100000000100011111000001110111; 
+      "si2"=100011001000100000110011011000101110010111010011011011100100100101000010010010111001011101101010010100110111110; 
+      "si3"=111001110110100010010011011001000101010101100100111111011001111100001011111110100111001111000101100001001000110; }
+   Call "capture_hclk" { 
+      "_pi"=11111100110001100110000111001101001001100000000001001111000001; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLHHH; }
+   "pattern 62": Call "load_unload" { 
+      "so0"=LLLLLHHHLLLLLLLHLHHHHHLHLHLLLLLLLLHLLHHLHLHLLLHHHHHHHHHLHHLHLHHLLHLLHHLHLHLHLLLLLLLLLLLLHHLHLLHLHHLLHHHHHLLHLLHH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLL; 
+      "so2"=HLLLHLHHHHHHHLHHHLHLHLLLLLLHHLLLHLHHHHHHHLHHHLHLHLLLLLLHHLLLHLHHHHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHLLHLLLLLLHHHLHLHLLLLLLHHLLLHLHHHHHHHLHHHLHLHLLLLLLHHLLLHLHHHHHHHLHHHLHLHLLLLLLHHLLLHLHHHHHHHLHHHLHLHLLLLLLH; 
+      "si0"=1010110101110010110110001110010101010111001001011011100110111110011011010011100111101001000000011000101111111110; 
+      "si1"=101101000101010010111000100101001111100110011110101101110110011011001100101111110110000000010001111100011111011; 
+      "si2"=111111101101000100011001101100010111001011100001101111110000110010000010110010001110010111011000100111001101001; 
+      "si3"=101000110010101001001001101100000011001010111010010111101101111100100100100100101010000100001000000011100101111; }
+   Call "capture_hclk" { 
+      "_pi"=11111001100111000110001000011010010011000000001010011111100000; 
+      "_po"=HLLLLLLLLLLLLLLLLLLLLLHLLLHHHLLLHLLHHHH; }
+   "pattern 63": Call "load_unload" { 
+      "so0"=LLLLLHLLLHHHLLHLHHLHHLLLHHHLLHLHLHLHLHHHLHHLHLHHHLHLHLHLLLLLHLHLHLHLHLLLLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HHLLLHLHHHHHHHHHHHLHLHLLLLLLHHLLLHLHHHHHHHHHHHLHLHLLLLLLHHLLLHLHHHHHHHLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHLLLHHLLHLHHHHHLHLHLLLLLLHHLLLHLHHHHHHHHHHHLHLHLLLLLLHHLLLHLHHHHHHHHHHHLHLHLLLLLLHHLLLHLHHHHHHHHHHHLHLHLLLLLL; 
+      "si0"=1110011010001111101000100111001101101100010111000010010100001100001111000101000111110110100000001100010011111111; 
+      "si1"=011011010001010100101110001001011101011111001111010110111011001101100110010111111011000000001000111110011100010; 
+      "si2"=111101100010001010101001100001000010110001011111000100011011101010011000111000000011101101110100001011110011000; 
+      "si3"=000101100010100100100010110100100000100101110101001011110111111100110110010110100011001100010000010110000010111; }
+   Call "capture_hclk" { 
+      "_pi"=11110011001010001110010100110100101110000000000110111110100000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLHL; }
+   "pattern 64": Call "load_unload" { 
+      "so0"=LLLLLHHLLHLHHHLLLLHLLHLHLLLLHHLLLLHHHHLLLLHHLLLLLHHLLLLHHLLHHHLHLLLLHLHHLHLHLHLHHLLLLLLLLLHHLHLLHLHHLLHHHHHLLHLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHLLLLHHHHHLHHLHLLLLLLLHHLLLHLLHHHHHHHHHHHHLHHLHLLLLLLLHHLLLHLLHHHHHHHHHLLLLLL; 
+      "so2"=LHHLLLHLHHHHHHHHHHHLHLHLLLLLLHHLLLHLHHHHHHHHHHHLHLHLLLLLLHHLLLHLHHHHHHLHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHLLLHLHHHHHHLHLHLLLLLLHHLLLHLHHHHHHHHHHHLHLHLLLLLLHHLLLHLHHHHHHHHHHHLHLHLLLLLLHHLLLHLHHHHHHHHHHHLHLHLLLLL; 
+      "si0"=1101101000100000110100110010001001000000111101001011111111100001000100001010100110000011111010000000001000110010; 
+      "si1"=011011001001111111001100011000110111100100001010111101100000110101101000011110110100101100110111110010100100101; 
+      "si2"=001101000111110100011111101110011011001010100110010011110011010111011010100000010111001101110100011101011101101; 
+      "si3"=100110100000111011010010111101001100011011100011100100101110000000000001101011001011110100111101001010111111010; }
+   Call "capture_hclk" { 
+      "_pi"=11010001111101100110100110111001000111101010110000000101000000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLLH; }
+   "pattern 65": Call "load_unload" { 
+      "so0"=LLLLLLHLLLHLLLLLHHLHLLHHLLHLLLHLLHLLLLLLHLHLHLHHHLHLLHHHLLLLLLHLLHHLHLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLHHHHHLHLLLLLLLLLHLLLHHLLHHLLLHHHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLLLLLLLLLHHLLHHLLLLLHHHHLHLLLLLLLLLLLHHLLHHLLLLLHHHHLHLLLLLLLLLLLHHLLLLLHLHHHLLLLLHHHHHLHLLLLLLLLLHLLLHHLLHHHL; 
+      "so3"=LLLHLLHLLLLLHHHLLLLLHHHHLHLLLLLLLLLLLHHLLHHLLLLLHHHHLHLLLLLLLLLLLHHLLHHLLLLLHHHHLHLLLLLLLLLLLHHLLHHLLLLLHHHHLHL; 
+      "si0"=1111111101011101111110110111111111111111111110110011111111110000100010001010000111000000111101100000000000011010; 
+      "si1"=000111100010001010100111010010111001010011000101001111110101010011100100011111001010000110011111111000000111100; 
+      "si2"=000110100011110010101111001110111011110001100100011011011110001110100101100000100111010001011111001101110101000; 
+      "si3"=000001000010101101110010110100000011000101010011101010010001101011000000110101100101111010011110100101011111101; }
+   Call "capture_hclk" { 
+      "_pi"=11100011111111000101001011110010001011010101100010001010000000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLL; }
+   "pattern 66": Call "load_unload" { 
+      "so0"=LHHLHHHHLHHLLLHLLLLHLLLLHHLHLHHLLHLLHLHLLLLHHLHLHHLHLLLLLLLLHLHLLLHHLLHHLHHLLHLHLLHHLHLHLHHHLLLHLLHHHLHLHLLLLLHL; 
+      "so1"=LLLLLLHHHHLHHLLLLLLLLLLLLHHLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHLLLL; 
+      "so2"=LLLLLLLLLLLHHLHHHLLLLLHHHHLHLLLLLLLLLLLHHLHHHLLLLLHHHHLHLLLLLLLLLLLHHLHHLLLLHHHLLLLLLHHHHLHHLLLLLLLLLLLLHHLHHHH; 
+      "so3"=LLLHLLLLLLLLLHHHLLLLLHHHHLHLLLLLLLLLLLHHLHHHLLLLLHHHHLHLLLLLLLLLLLHHLHHHLLLLLHHHHLHLLLLLLLLLLLHHLHHHLLLLLHHHHLH; 
+      "si0"=1001000011010000001010000100000000000000001111000010000100011001101000111101110001100001100100010000000000111111; 
+      "si1"=001110100101001100110000101000100001100011001000010010111000101100110010011001011001100111111010001110001111001; 
+      "si2"=101110010110001100010100100011011100010011000101100011110010100010000110000011110110111011000011001110001000100; 
+      "si3"=101100101010110111010100110001100100101000011110101101100011100111000101110001111001001001110010011000010000100; }
+   Call "capture_hclk" { 
+      "_pi"=11010110000011001100110111011101011101000001110100010000100000; 
+      "_po"=LLLLLLLLLLLHLLLLLLLLLLLLLLHHLLLLHLLHLHH; }
+   "pattern 67": Call "load_unload" { 
+      "so0"=LLLLLLLLLLHHHHLLLLHLLLLHLLLHHLLHHLHLLLHHHHLHLHHLLHHLHLLHHHLLHLLHHLLHHLLHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HLLLLLLLLLHHHHLLHHLLLHHLLHLLHLLLLLLLLLHHHHLLHHLLLHHLLHLLHLLLLLLLLLHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHLLLHLHLHLHLLHHLLLHHLLHLLHLLLLLLLLLHHHHLLHHLLLHHLLHLLHLLLLLLLLLHHHHLLHHLLLHHLLHLLHLLLLLLLLLHHHHLLHHLLLHHLLHLL; 
+      "si0"=1010011111000011111110011111101111111111010110100010010111001100110110001101111010110001001000001000001000101110; 
+      "si1"=011000100000111000000000010010110111110001101110110100111100110011110001010010011000011111001010110101101000011; 
+      "si2"=011010001100110111110011100100001101110110110111101011010110111110101111010000001010000011000110101100111111000; 
+      "si3"=110010001011000011110101001110110011010101110010110100101001100000010111010011110111010000000100000110110111000; }
+   Call "capture_hclk" { 
+      "_pi"=11111101111011101101001000000011110101101001000000100100000000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLH; }
+   "pattern 68": Call "load_unload" { 
+      "so0"=LLLLLHHLLHLHHLHLLLHLLHLHHHLLHHLLHHLHHLLLLLHHLHHLHLHLHHHLLLHLLLLHLLHLLLLHLHHLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=HHLLLHLLHLLLLLHLLLLLHLLLHLHHHHLLLHHHLHHLHLHHLLLHLLHLLLLLHLLLLLHLLLHLHHHLHLHHLLLHLLHLLLLLHLLLLLHLLLHLHHHHLLLLLLL; 
+      "so2"=LHLLLLLLLLHLHHLHLHHLLHLLHLLLLHLLLLLLLLHLHHLHLHHLLHLLHLLLLHLLLLLLLLHLHHHLLLLHLHLHHLLLHLLHLLLLLHLLLLLHLLLHLHHHLHL; 
+      "so3"=LLLLLLHLHLHHLLHLHHLLHLLHLLLLHLLLLLLLLHLHHLHLHHLLHLLHLLLLHLLLLLLLLHLHHLHLHHLLHLLHLLLLHLLLLLLLLHLHHLHLHHLLHLLHLLL; 
+      "si0"=1100101111001011000010001000001000000000001100111010011100011111110110000101111011011011011110000100001000100100; 
+      "si1"=011101000001100101001100011100011100110000111101100111111110111100010000110111111000100011010010101000010001000; 
+      "si2"=000000000001101110100110011101011101110001101101100100011010101001101110100011010101100101000101110100010010001; 
+      "si3"=000000101101010001111000101011000011110011101110111000010110101000000110000010110000011100111111001001100100110; }
+   Call "capture_hclk" { 
+      "_pi"=11101010001110001100110100111110100100111000110001001101101000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLLL; }
+   "pattern 69": Call "load_unload" { 
+      "so0"=LLLLLLHLLLHHLLHHHLHLLHHHLLLHHHHHHHLHHLLLHLLHLHHHHHLHLLHLLLLHHHLHLHHHLLLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLHLLLLLLLHLLHLHHLHHLHLHHHHLLLHLLLLLLLHLLHLHHLHHLHLHHHHLLLHLLLLLLLHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHLHHLHLLHHLHHLHLHHHHLLLHLLLLLLLHLLHLHHLHHLHLHHHHLLLHLLLLLLLHLLHLHHLHHLHLHHHHLLLHLLLLLLLHLLHLHHLHHLHLHHHHL; 
+      "si0"=1011011000110001101001000100000001000000000001100110010000001011011001100001010001101110101111100010000000010011; 
+      "si1"=010111010000001101010011000110010111011000001110110011111010001011011100011011111001000001111101000100000001011; 
+      "si2"=000000000000110011010011001111001110111000111110110000001111010100010100010010110101010001010011011101000100000; 
+      "si3"=000101010101111101110001110011011110010010111011010011011111011000001011000001011000001110011111100100110010011; }
+   Call "capture_hclk" { 
+      "_pi"=11010100011000001111101111111101000001110001101000011010101100; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLL; }
+   "pattern 70": Call "load_unload" { 
+      "so0"=LLLLLHHLHLHLLHLLLHLHHLHLHHHLHLLLLHLHHLHHLHLHLLLLLLLHHHHHLLLHLLHHLHLLLHLLHLLLLLLLLLHHLLLHHHLLLLHLHHHHHLHLHHLLHLHH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLL; 
+      "so2"=LLLHLLLLLLLHLLLLHHLHHLHLHHHHLLLHLLLLLLLHLLLLHHLHHLHLHHHHLLLHLLLLLLLHLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLLHLHLHHLLHHLHHLHLHHHHLLLHLLLLLLLHLLLLHHLHHLHLHHHHLLLHLLLLLLLHLLLLHHLHHLHLHHHHLLLHLLLLLLLHLLLLHHLHHLHLHHHH; 
+      "si0"=0100010011111011110100101011100111001111111101100000110111100101101000111001001010110100101101110001000000111010; 
+      "si1"=011110111101111100011000101001111100000000000101100100011111001010101100010011001010100100000011011000110101111; 
+      "si2"=101100011111001000110110001001111100010110111001001111110110111100010011110001111010011001100000101000001100001; 
+      "si3"=111110110110111100110100111111000111110011100010100001100101011000000110010101000111011001111100010111001100110; }
+   Call "capture_hclk" { 
+      "_pi"=11111001001001000101111011000011000000001001110010110000001110; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLHH; }
+   "pattern 71": Call "load_unload" { 
+      "so0"=LLLLLHLLHHHHHLHHHHLHLLHLHLHHHLLHHHLLHHHHHHHLHHLLLLLHLHHHHHHHHHHHHLHLHHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HLLLHLLLLLHHHLLHLHHLHLHLHHLHHLLLHLLLLLHHHLLHLHHLHLHLHHLHHLLLHLLLLLHHHLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHHLLHHLHHLHLHLHHLHLHLHHLHHLLLHLLLLLHHHLLHLHHLHLHLHHLHHLLLHLLLLLHHHLLHLHHLHLHLHHLHHLLLHLLLLLHHHLLHLHHLHLHLHHLH; 
+      "si0"=1010011001000110101011111111110111110111111110111001011011110011110100011011110101011011010110011000101000011101; 
+      "si1"=010111101111001111000110001011110101001101000011110010011011110000010010011000110101000010000100111100010111111; 
+      "si2"=110110100011110001011011000100011110001011011100100111111011111010001001101000011110101110011000001000000011100; 
+      "si3"=100010110010101110010100011001010101101000000110010100000010010010110100000101110011111001111001011100010011001; }
+   Call "capture_hclk" { 
+      "_pi"=11110010010110100101110000000110000000010011100101100001101111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLHH; }
+   "pattern 72": Call "load_unload" { 
+      "so0"=LHHHLHHLLLHLLHHHHLHHLLHHHLHLHHLLLHLLLHLLHHHHLHLLLLHLHLHLHLHLHLLLLHHHHHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=LHHLHHLHLHHLLHHLLLHLHLLLLHHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HHLLLHLLLLLHHHHLHLHHLHLHLHHLHHLLLHLLLLLHHHHLHLHHLHLHLHHLHHLLLHLLLLLHHHHLLLLLHLHLHHLHHLHLHHLLHHLLLHLHLLLLHHHLHLH; 
+      "so3"=LLLHLLHLLLLLLHLHLHHLHLHLHHLHHLLLHLLLLLHHHHLHLHHLHLHLHHLHHLLLHLLLLLHHHHLHLHHLHLHLHHLHHLLLHLLLLLHHHHLHLHHLHLHLHHL; 
+      "si0"=1010010101001110011001010010101110100000000010010101010010011011111110001011010100101101010001101100011000111101; 
+      "si1"=011110110010001000111101111011000110001000001011100100100111010111000011011010000110000101110111000100101011011; 
+      "si2"=000000101110011100110010001100010100001111000000000110001100001000111100001111010000000110010010011111011101000; 
+      "si3"=110000100010101010100111100110110101110110001011111010110011000100100100011101010110101010111110100001111110100; }
+   Call "capture_hclk" { 
+      "_pi"=11110101010100001101000010110101000111001101101001000111100111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLLH; }
+   "pattern 73": Call "load_unload" { 
+      "so0"=HHHHLHLLLHLLHHHLLHHLLHLHLLHLHLHHHLHLLLLLHHHLLLLHLHHHLLLLHLLLLLLHHLLLLLHLLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLHLLHLLHLHHLHLHLLLHHLHHLLLHHLLLHHHHLHLLHLHHLHLHLLLHHLHHLLLHHLLLHHHHLHLLLLLLL; 
+      "so2"=LHHLLLHLLLHHHHHLLHLHHHLHLLLHLHHLLLHLLLHHHHHLLHLHHHLHLLLHLHHLLLHLLLHHHHLLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHLLLHLHHLLHLHHHLHLLLHLHHLLLHLLLHHHHHLLHLHHHLHLLLHLHHLLLHLLLHHHHHLLHLHHHLHLLLHLHHLLLHLLLHHHHHLLHLHHHLHLLLH; 
+      "si0"=1110011111101001010001011010000000100010000001000100101001001100111111001010101010010111101000010110001100011110; 
+      "si1"=000111101100110010001111011110001001100101010101100010000110111011110000101101010011000110101011100011001100010; 
+      "si2"=011011001011001001111010000100001001000001101000000011100001010101110010011101010100000001100100100101110111110; 
+      "si3"=110100000010010101010001110011111010011011100101110111011000100010110111110100111001000100000000110010011011011; }
+   Call "capture_hclk" { 
+      "_pi"=11101010101100100100000111101010001110011011001000001110100011; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLH; }
+   "pattern 74": Call "load_unload" { 
+      "so0"=LLLLLHHLHHHLLLHHLLLLHHLHLLHHHLLHHLLHLHLHLLLHHLHHLLHHLHLLHHHLLHHHLLLHHHHLLHHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHLHLLHLHHHHLHLLLLHLHHLLLHHLLLHHHHLHLLHLHHHHLHLLLLHLHHLLLHHLLLHHHHHLLLLLLL; 
+      "so2"=HLHHLLLHLLLHHHLHLLHLHHHLHLLLHLHHLLLHLLLHHHLHLLHLHHHLHLLLHLHHLLLHLLLHHHLLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHLLLHLLLHLLHLHHHLHLLLHLHHLLLHLLLHHHLHLLHLHHHLHLLLHLHHLLLHLLLHHHLHLLHLHHHLHLLLHLHHLLLHLLLHHHLHLLHLHHHLHLLL; 
+      "si0"=0101001101110101100100100111000000001000110011001111010101110110000010000101101101001001110100101011000010001111; 
+      "si1"=100001111011011000100011110110000100010100000010111001001001110101110000110110100001100001011101110001010100011; 
+      "si2"=101101100101100000101111110001001111110111101110000000001101001010110111100111110101100000011001001001011101011; 
+      "si3"=100100000000110010101100111001011101101101011010110011101101010001011111111010011100100010000000011001001101101; }
+   Call "capture_hclk" { 
+      "_pi"=11010101011101000100001111010100011100110110000000011101101001; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHH; }
+   "pattern 75": Call "load_unload" { 
+      "so0"=LLLLLLHLHHLLHHLLHHHHLHLHLHHHLHHLLLLLHLLLHHLLHHHHLLLLHLLHHHLHLLLHHHLHLLLHLHLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHLHHLLLHLLLHHHLHLLHLHHHLHLLLHLHHLLLHLLLHHHLHLLHLHHHLHLLLHLHHLLLHLLLHHHLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHLLHLHLHLHLLHLHHHLHLLLHLHHLLLHLLLHHHLHLLHLHHHLHLLLHLHHLLLHLLLHHHLHLLHLHHHLHLLLHLHHLLLHLLLHHHLHLLHLHHHLHLL; 
+      "si0"=0101111110010101001101000110001111111011010011101111011000000011001101011110010000100111000000000101100001110111; 
+      "si1"=100011010111001001010100100100100100101110001011100001000100011111010000000101100100011100011101001010000000100; 
+      "si2"=111011110101001101000010100100110000000001110010010101010111110011010101010001101010111101110010001111001010011; 
+      "si3"=110000101010011000111011110111001011011100011010001011011000111010001010010110000101100101111101000110011001100; }
+   Call "capture_hclk" { 
+      "_pi"=11111011000011100110111000010001110110000110110000111110000100; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLHHH; }
+   "pattern 76": Call "load_unload" { 
+      "so0"=LLLLLHHLLHLLHHHLHHHHLHHLLLLLLLHHLLHHLHLHLHHLLLLLHHLHLHLLHLHLHHLHLHLLHHLLLHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=HLLHHHLLLLLLLLLHLHHLLLLHHHLHHHLLLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLHLHHLLLHHHLHLLLHLLHHLLLLLLLLHLHHLLLHHHLHLLLHLLHHLLLLLLLLHLHHLLLHHHLHHLLLLLLLLHLLHHHLLLLLLLLLHLHHLLLLHHHLHHLLL; 
+      "so3"=LLLHLLHLLLLLLLLLHLLHHLLLLLLLLHLHHLLLHHHLHLLLHLLHHLLLLLLLLHLHHLLLHHHLHLLLHLLHHLLLLLLLLHLHHLLLHHHLHLLLHLLHHLLLLLL; 
+      "si0"=1111011011100001011111101110101100000010010000100010011011100110000000001100000010010010011010100010111000001011; 
+      "si1"=100011111100011001011101010000110110010111001111001101000010101010000000011100000110100010111011010111110010011; 
+      "si2"=010000111101010000011011010000101111111111000011011110000010010000100110100010101101000010101010111100101111001; 
+      "si3"=010000100001111100010101000000000111111111001000110001010111101001010100100000001001000110000011101001110011100; }
+   Call "capture_hclk" { 
+      "_pi"=11100111111110101101010100011010101111100111010011111001100010; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHLL; }
+   "pattern 77": Call "load_unload" { 
+      "so0"=LLHLHHHLLHLLLLHLLLHLLHHLHHHLLHHLLLLLLLLLHHLHLHLLLHLLLLHLLLHHLLLHLLHHHHLHLHLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=LHLLHLLHHLHLHLLLHLHHHLLLLLHLHHLLLHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLLHLHHLLLLLHLLHLLHLLLLHHLHLLLLHLHHLLLLLHLLHLLHLLLLHHLHLLLLHLHHLLLLLHLLLLHLHLHLLHLLHLLHHLHLHLLLHLHHHLLLLLHLHLHL; 
+      "so3"=LLLLLLHLLLLHHLHLLHLLLLHHLHLLLLHLHHLLLLLHLLHLLHLLLLHHLHLLLLHLHHLLLLLHLLHLLHLLLLHHLHLLLLHLHHLLLLLHLLHLLHLLLLHHLHL; 
+      "si0"=1111111011110100100111111101010111000000011111001101101100000010111000111111100101001000001101100001011100000110; 
+      "si1"=011000111111010010010111010100011011001011100111100110100001010101000000001110000011010001011101101011101001110; 
+      "si2"=001000011110101100101010100001110111010000000101101111011010001011010100010010001011110000101000101111001011100; 
+      "si3"=110000001110110110111101001000010000010010100001001110100100000111100010010000000100100011000001110100111001110; }
+   Call "capture_hclk" { 
+      "_pi"=11001111111001101110101110110101011011001110101101110010100001; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLH; }
+   "pattern 78": Call "load_unload" { 
+      "so0"=LLLLLHHLLHHHHHLLHHLHHLHHLLLLLLHLHHHLLLHHLHHLLLHLLHHLHLLLHHHLHLLLLHHHLLLHLHHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHLLHLLLLLHHLHHLLLLHLHHHLLLLLHHHLHLLHLLLLLHHLHHLLLLHLHHHLLLLLHHHLLLLLLL; 
+      "so2"=LLLLHLHHLLLLLHHLHLLHLLLLHHLHLLLLHLHHLLLLLHHLHLLHLLLLHHLHLLLLHLHHLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHLLHLLLLLLHLHLLHLLLLHHLHLLLLHLHHLLLLLHHLHLLHLLLLHHLHLLLLHLHHLLLLLHHLHLLHLLLLHHLHLLLLHLHHLLLLLHHLHLLHLLLLHHLH; 
+      "si0"=1001111001000101101100100001000101001111101111100000011110110110010000010000101000100101111100010000100110110000; 
+      "si1"=001100000010001010101000101000111011000000101101011111110000011010001101001101110100010101011100010110010011101; 
+      "si2"=001001001000101000101000000100000000100000100011001100011000000000011000110000011101110001111100011100101111101; 
+      "si3"=000011111011101000110111001111001100000011100111110101111101010011110100100011001001100101011101110000100011101; }
+   Call "capture_hclk" { 
+      "_pi"=11001110001010100101111011010011111001110111101011100001001000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLLL; }
+   "pattern 79": Call "load_unload" { 
+      "so0"=HHLLLHHLLHHLLLLLHHHHHLHLHHLHHLHHLHHLLLLHLLHLLHHHHHLHLLHHLLLHLHHHLHLLHLLLHLLLLLLHLLHHHHLHHHLHHHHHLLHLHHLLLLHHHLHL; 
+      "so1"=HLLHLHHHHHLLLHLLLLHLLHHLHHLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHHL; 
+      "so2"=HLLLLHLHHLHHLLLLLHLLHHHHHHLLHLLLLHLHHLHHLLLLLHLLHHHHHHLLHLLLLHLHHLHHLLLHLLLLLLLHLLHLHHHHHLLLHLLLLHLLHHLHHLLLLLL; 
+      "so3"=LLLHLLLLLLLLLLLLHLLHHHHHHLLHLLLLHLHHLHHLLLLLHLLHHHHHHLLHLLLLHLHHLHHLLLLLHLLHHHHHHLLHLLLLHLHHLHHLLLLLHLLHHHHHHLL; 
+      "si0"=1111111010100010110010011000100010100110001110100011000101111110111100100110100000010011111110001000010011011000; 
+      "si1"=000111010001110010111010011011111100001100111100100111011000000111100100001100111010100110001100100011111011101; 
+      "si2"=100100100100010000101100110100101001001110001110011000101000110100000000010010101101010100011111100111101011000; 
+      "si3"=001000001111000100011001100111100111000001011011110010111111101001011110010001100100110010101110111000010001110; }
+   Call "capture_hclk" { 
+      "_pi"=11011100010101101101110000100111110111101111001101000011001100; 
+      "_po"=HLLLLLLLLLLHLLLLLLLLLLHLLHHHLHLLLLLHLHL; }
+   "pattern 80": Call "load_unload" { 
+      "so0"=LLLLLHHLLLHHHLHLLLHHLLLHLHHHHHHLHHHHLLHLLLLLHHLLHLHLHLHLHHHLHLLLHLHLHHLHLHHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHLLLLHLHHLHHLLLLLHLLHHHHHHLLHLLLLHLHHLHHLLLLLHLLHHHHHHLLHLLLLHLHHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHHLLHLLLLLLLLLLHLLHHHHHHLLHLLLLHLHHLHHLLLLLHLLHHHHHHLLHLLLLHLHHLHHLLLLLHLLHHHHHHLLHLLLLHLHHLHHLLLLLHLLHHHHHHL; 
+      "si0"=0001110011011011001011111010000010000111000110100101111000001101100000000001110110001001000101100100001101011111; 
+      "si1"=011010111101100011100010111110110010001110010100101110001100100110011010011000101001111101110001100011011111001; 
+      "si2"=110111000000101000001001111001001111000111101101111011110111010010001110111011011100111000110001100110100111101; 
+      "si3"=100111011101101011100111011000110111101010011010101011110000100100001000011110110000001100100010100000010101011; }
+   Call "capture_hclk" { 
+      "_pi"=11101001010110000111000101110110101000110100101000000011000110; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHH; }
+   "pattern 81": Call "load_unload" { 
+      "so0"=LHHHHHLLHHLHHLHHLLHLHHHHHLHLLLLLHLLLLHHHLHLHLHLHHLHHLHLHHHHLHLHLLHHHLHLLHLLLLLLLLLHLLHLHHLLHLHLHHLHHHHHLLLLLHLLL; 
+      "so1"=LLHLLHLLLHLHHLLHLLLLHHLHLHHHHHHLLLHLHLLHHLLLHLLHLLLHLHHLLHLLLLHHLHLHHHHHHLLLHLLHLLLHLHHLLHLLLLHHLHLHHHHHHLHLHLH; 
+      "so2"=LLHLLLLHLHLHHHHHLLLHLHLLLHLHLLHLLLLHLHLHHHHHLLLHLHLLLHLHLLHLLLLHLHLHHHLHLHHLHHLLLHLLHLLLHLHHLLHLLLLHHLHLHHHHHHL; 
+      "so3"=LLLLLLLHHHLHHHHLLLHLHLLLHLHLLHLLLLHLHLHHHHHLLLHLHLLLHLHLLHLLLLHLHLHHHHHLLLHLHLLLHLHLLHLLLLHLHLHHHHHLLLHLHLLLHLH; 
+      "si0"=1100001010111100000101011001010010000101000000010000101010111011110101111101111001000101011000010010000010011100; 
+      "si1"=001101100110100011110100110111001111001111000000101010100110110110100101010010100000010010001111000011011001000; 
+      "si2"=100010101101001001011011010010011100101001011000101000001010111110111111010111100000001011111010000100110100100; 
+      "si3"=111011110111010000000100100001010111101101001111100111000011100101000010111010110111000010001000000001100100100; }
+   Call "capture_hclk" { 
+      "_pi"=11000011010101001100101111010100010010000011110010000010101011; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLHH; }
+   "pattern 82": Call "load_unload" { 
+      "so0"=LLLLLLHLLLLLLLLHLLLLHLHLHLHHHLHHHHLHLHHHLLHHHLLHHHLLLLHHHHLHHLLHHLLLHLHLLHHLLLLHLHHHHLLLLLHLHLLLHLHLHLHLLLLLLLHH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLL; 
+      "so2"=HLLHLLLLHLLHHHLLHLLLHHLHHLLLHLLHLLLLHLLHHHLLHLLLHHLHHLLLHLLHLLLLHLLHHHLLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLLHLHHHLLLHLLLHHLHHLLLHLLHLLLLHLLHHHLLHLLLHHLHHLLLHLLHLLLLHLLHHHLLHLLLHHLHHLLLHLLHLLLLHLLHHHLLHLLLHHLHHLLL; 
+      "si0"=0011111101011111000000110110101000010010011111010101100001110001011010000011110000100011101100001001000001001101; 
+      "si1"=000111011001101100111101011101101101101011110001010100000111011010000110101001010101001001000110100001110100001; 
+      "si2"=010001010110101101010111011010101000001100100011011000100000011010100010011001010010001000111110100011000101011; 
+      "si3"=101110110100110111001110000001101111111111001001001100101100100011010101011101011011100001000100000000110010010; }
+   Call "capture_hclk" { 
+      "_pi"=11000110101110000101011100101000101000000111100100000101000101; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLH; }
+   "pattern 83": Call "load_unload" { 
+      "so0"=LLLLLHHLHLLLHHHLHLLHLLLHHLHLLLHHLLHLHHHHLLLHHLHHHHHLHLHLHLHHLLHLHLLHHLHLLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=HLLHLHLHLHLLHLLHLLLHHLHLLLLHHLLLHHLHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHLLHLLLLHLLHHLLLHLLLHHLHHLLLHLLHLLLLHLLHHLLLHLLLHHLHHLLLHLLHLLLLHLLHHLLLHHLLHHHHLLLHLHLHLLLLLHHHLHHLHLLLLHHLHL; 
+      "so3"=LLHLLLHHLHLLHLLLHLLLHHLHHLLLHLLHLLLLHLLHHLLLHLLLHHLHHLLLHLLHLLLLHLLHHLLLHLLLHHLHHLLLHLLHLLLLHLLHHLLLHLLLHHLHHLL; 
+      "si0"=1011111100101011101000001011010101000001101111100100110000011000101101001000111000010000110110100100100000100101; 
+      "si1"=110100100110011010011110010011100101111111110100001110101100111100111100010101101001010100110011100101110100101; 
+      "si2"=001000101011010001011111101000101110101011011001001000010111100101011011101100110100001000001101101010010001001; 
+      "si3"=010100111010110011100111000010010111111111101100100100010111010001001010101110101101110000100010000000011001001; }
+   Call "capture_hclk" { 
+      "_pi"=11001101011000101100111001010001010000001111010000001010001010; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHLL; }
+   "pattern 84": Call "load_unload" { 
+      "so0"=LLLLLHHHLLLLLHLHLLLLLHHLLHLLHHHHHHHLHLLHHHHHLHHHLLHHLHLHHLHHLLHLLLHLHLLHLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LHLLLLHHLHHLHLLHLLHLLLLLHLLHLHLLLHLHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLHLLHLLLLHLLHLLLLHLLLHHLHHLLLHLLHLLLLHLLHLLLLHLLLHHLHHLLLHLLHLLLLHLLHLLLLHHLLLLHLLLLHHLHHLHLLHLLHLLLLLHLLHLLLL; 
+      "so3"=LLLHLLHHHLHHLLLLLHLLLHHLHHLLLHLLHLLLLHLLHLLLLHLLLHHLHHLLLHLLHLLLLHLLHLLLLHLLLHHLHHLLLHLLHLLLLHLLHLLLLHLLLHHLHHL; 
+      "si0"=1110010101000101111010000101101010100000100111100100000101111100010101011111001000001000011011000010011000010000; 
+      "si1"=001100001101110011100011110101010011111111111000000101010100110110110100101010010100000010010001111000000010110; 
+      "si2"=111100010111101100011011011010001011100100000101000010100001010110111101101111001111101000001001010010101100110; 
+      "si3"=110111001011111011110001100011001010111111111110010000001110101010000110001111111010011001111001001010000000101; }
+   Call "capture_hclk" { 
+      "_pi"=11011010110001000111110000100010100000011110100000010101000101; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHH; }
+   "pattern 85": Call "load_unload" { 
+      "so0"=LHLLLHHHHLLHHHHLLHLLLLLHLHHHHHLLLHLHLHLHLHLLHHHLHLLHLLHHLLLLHHHLLHLHLHHLLHHHLHLLLLHLHHHHLLLLLHLHLLLHLHLHLHLLLLLL; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLHHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLLHLLHLLLLHLLLLLLLHLLLHHLHHLLLHLLHLLLLHLLLLLLLHLLLHHLHHLLLHLLHLLLLHLLHHLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHLLHLHLHHHLLLLLHLLLHHLHHLLLHLLHLLLLHLLLLLLLHLLLHHLHHLLLHLLHLLLLHLLLLLLLHLLLHHLHHLLLHLLHLLLLHLLLLLLLHLLLHHLHH; 
+      "si0"=0101011101100010110111000000110101011000001011101110001100001101001011010011010000000100001101010001000100001011; 
+      "si1"=100011000011001100111000111100111010110011101100010011111010001010001111000101011010010100011101111100001111010; 
+      "si2"=010010001010110111101001100111100111111001100101101101000000111001011111011100110011111010000010010110101011011; 
+      "si3"=101010000111010111111000110001000101111111011111001010000011010111000110101011101011011100001000100000000110010; }
+   Call "capture_hclk" { 
+      "_pi"=11110101100010100101100001000101000000111101000010101010001010; 
+      "_po"=LLLLLLLLLLLHLLLLLLLLLLLLLHLLHLLLLLLLHLH; }
+   "pattern 86": Call "load_unload" { 
+      "so0"=LLLLLHHLHHHHLHLLHLLLLLHHHHLHLLLLLHHHHLHHLLHHHHHLLLHHLLHLHLLLLLHHLLHHLLLLLHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HLLLHLLHLLLLHLLLLLLLHLLLHHLHHLLLHLLHLLLLHLLLLLLLHLLLHHLHHLLLHLLHLLLLHLLLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHLLLHLLHHHLLLLLLLHLLLHHLHHLLLHLLHLLLLHLLLLLLLHLLLHHLHHLLLHLLHLLLLHLLLLLLLHLLLHHLHHLLLHLLHLLLLHLLLLLLLHLLLHHLH; 
+      "si0"=1101010110011111100000101111110001011010001111110111011001001000011001101101011010000000111100011000101010110111; 
+      "si1"=100011111001001000000010010110011001110111110100111100110101101000000101010100010001101100010011101100111001011; 
+      "si2"=001111100100001100111001011001001001110011100111000011011011010011100110000110111011010011010110111000110111111; 
+      "si3"=110100011100010000010111110001000111010101001000111101101011111001100101110111101000000010000010011010110100000; }
+   Call "capture_hclk" { 
+      "_pi"=11111010111100001111100110110011000110010000110101010000100101; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLH; }
+   "pattern 87": Call "load_unload" { 
+      "so0"=LLLLLHLLLLHHHHHHLHHHLHHLLHLLHLLLLHHLLHHLLHHLLHHHLLHHHLLLLLLHLHHHLLHLHLHLLHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHLHLLLLLLLHHHHLLLHHLLLHLHLHLHHLHHLHLLLLLLLHHHHLLLHHLLLHLHLHLHHLHHHLLLLLLL; 
+      "so2"=HHLLLHLLHLHHLHLHLLLLLLHHHHLLHHLLLHLLHLHHLHLHLLLLLLHHHHLLHHLLLHLLHLHHLHLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHHHHLLLLHLLLLLLHHHHLLHHLLLHLLHLHHLHLHLLLLLLHHHHLLHHLLLHLLHLHHLHLHLLLLLLHHHHLLHHLLLHLLHLHHLHLHLLLLLLHHHHLL; 
+      "si0"=0001010000100110100000000110010011001011000001000011100011010000010100110011100011000001100100001100011001101001; 
+      "si1"=100011110111101001001100111101110001111011110000100011111010010001101010110100111100011010111110000100100001110; 
+      "si2"=110011111101100111000011000010011111110011011001110010011110011110101001110011111001010001000001110001010000010; 
+      "si3"=010010111001010001100000010011000111100000011011001110011110101100010010110101010011011001000011111011101110111; }
+   Call "capture_hclk" { 
+      "_pi"=11100100000001000111101001011111001111001011001010100101100010; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLHHL; }
+   "pattern 88": Call "load_unload" { 
+      "so0"=LLLLLHHHLLHLLHHLHLLLLLLLLHHLLHLLHHLLHLHHHLLHLHLHHHLLLLLHLLLHLHLHLLHLHHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLHHLLHLLLLHHLLLHHLLHHLHLLHLLLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHHLLLHLLHHLHLLHHLLLLHHLLHLLLHHLLLHLLHHLHLLHHLLLLHHLLHLLLHHLLLHLLHHLHLLLLLLLLHHLLLLLHHLLHLLLLHHLLLHHLLHHLHLLLHH; 
+      "so3"=LLLHLLHLLLLLLLHHLLLLHHLLHLLLHHLLLHLLHHLHLLHHLLLLHHLLHLLLHHLLLHLLHHLHLLHHLLLLHHLLHLLLHHLLLHLLHHLHLLHHLLLLHHLLHLL; 
+      "si0"=1111111110011111111101101100111111001010011101101010001110001011001110000010100111100001001000000110001100000100; 
+      "si1"=100010100100010100011011010111000101010101100111101100001100111100011001000101101011110101101101110101110111000; 
+      "si2"=111010100100101101010110110111110100110000101010001111000101110101001110111000100011110001100100101011001001000; 
+      "si3"=010100100101101001011001100000000111111010010010111101100100000100101000110001000001101000001101111001001111111; }
+   Call "capture_hclk" { 
+      "_pi"=11011001111111000101110000000111011001111100110111001110101001; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHHL; }
+   "pattern 89": Call "load_unload" { 
+      "so0"=LLLHLHHLHLLHLLLHLLLLLHLLLLLHLHHLLLHHLLHLLLLHHLHLHLLHHLLHHLLHHLHHHLLLLHHHLHHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLL; 
+      "so2"=LLHHLLLHLLLLLHHHHHLLLHLLHLLLLLHHLLLHLLLLLHHHHHLLLHLLHLLLLLHHLLLHLLLLLHLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHLLHLHHHHHHLLLHLLHLLLLLHHLLLHLLLLLHHHHHLLLHLLHLLLLLHHLLLHLLLLLHHHHHLLLHLLHLLLLLHHLLLHLLLLLHHHHHLLLHLLHLLL; 
+      "si0"=0101001000000011111101101101110001011111100110101011000111000110100111001000100011110010100100000011000010000010; 
+      "si1"=011100111101010000010111110100010011001100111001010110001110110110101110100010010101010000110100011000011000010; 
+      "si2"=111101010010011010001110001111101001100110100111011001111101111001000011101101101010110110011001000000010010001; 
+      "si3"=100100010110111100101010110000000010111101100001011010110110000000110000011000100000110100000110111100100110111; }
+   Call "capture_hclk" { 
+      "_pi"=11110011111010101111100100001110110011111001111100011100000100; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHH; }
+   "pattern 90": Call "load_unload" { 
+      "so0"=LLLLLLHLLLLLLLHHHHHHLHHLHHLHHHLLLHLHHHHHLHLHHLHHHHHHHHLLLHLHLLHHLLHLHHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLLLLHHHHLLHLHLLHLLLLLLHHLLLLHLLLLLHLHHHHLLHLHLLHLLLLLLHHLLLLHLLLLLHHLLLLLLL; 
+      "so2"=LLLHHLLLHLLLLLLHHHHLLLHLLHLLLLLHHLLLHLLLLLLHHHHLLLHLLHLLLLLHHLLLHLLLLLHLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHLLLHHLLHHHHLLLHLLHLLLLLHHLLLHLLLLLLHHHHLLLHLLHLLLLLHHLLLHLLLLLLHHHHLLLHLLHLLLLLHHLLLHLLLLLLHHHHLLLHLLHLL; 
+      "si0"=1101001101100010000010000001100100000100010010000101100110010110001001011100010011111011101000100001101001110011; 
+      "si1"=001100000110111011001001100101101111001010010110010110100111111110111111001111111110000100101101111110100001101; 
+      "si2"=110011101110111110010000001101100110000110011110111110011110101000010011100110101101100000010010001111011001111; 
+      "si3"=100100110010011100000100110001100101010011001011110100101000100011010101100111011011101110111110010100101100101; }
+   Call "capture_hclk" { 
+      "_pi"=11110110001100001111101110100100101000011001000010111101100010; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLHH; }
+   "pattern 91": Call "load_unload" { 
+      "so0"=LLLLLLLLLHLLHLLLLHLHHLLHHLLHLHHLLLHLLHLHHHHHLLLHHHHLHLHLHHLHLLHLHLHHLHHHLLLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=HHHLHHHLHLLLHLLLLHHLHLLHHHLLHHLLHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLLLHHLLLHHHLLLHHHHHLHHLHLLLLLLLHHLLLHHHLLLHHHHHLHHLHLLLLLLLHHLLLHHHLLHLLHHLLHHHHHLHHHLHLLLHLLLLHHLHLLHHHLLHLHH; 
+      "so3"=LLLHLLHHLHHLHLHHHHHLHHLHLLLLLLLHHLLLHHHLLLHHHHHLHHLHLLLLLLLHHLLLHHHLLLHHHHHLHHLHLLLLLLLHHLLLHHHLLLHHHHHLHHLHLLL; 
+      "si0"=1001110001100100001001000000100110000010110001110011011110101100110111011111110101111110110100100000111000111011; 
+      "si1"=110011000001111010110010011001011101100101001011001011010011111111011111100111111111000010010110111111000110011; 
+      "si2"=011101110110101111001000000111010011000011010111011111001111110100001001011000101011110000000110100001110110111; 
+      "si3"=010010000000100110111111011010000011011010010111110011111110101000001101111000111100010110011000110100111000111; }
+   Call "capture_hclk" { 
+      "_pi"=11101100011100100101011101001001010000110010000111111010101001; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLL; }
+   "pattern 92": Call "load_unload" { 
+      "so0"=HHHLHLHHHHLLLHHHLLHHLHHHHLHLHHLLHHLHHHLHLHLLHLHHHHLHLLHHLLHLLHHLHHLHLLLHLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLLLLHHLLLHHHLHLHHHHHLHHLHLLLLLLLHHLLLHHHLHLHHHHHLHHLHLLLLLLLHHLLLHHHLHLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHLLHLHLHLHHHHHLHHLHLLLLLLLHHLLLHHHLHLHHHHHLHHLHLLLLLLLHHLLLHHHLHLHHHHHLHHLHLLLLLLLHHLLLHHHLHLHHHHHLHHLHLL; 
+      "si0"=1001001011011101111111111111111001101111101100101100100100111001101000101111110000111110100000100000010100101101; 
+      "si1"=100111111001110001100000111110010010110010101111011000001001011010000111101101001011001101111100101101011111101; 
+      "si2"=010001111100011011111011101101110010101011010101111100010100101100011100001110011101110001110111110101000000100; 
+      "si3"=010101100010110001011001100000000010011101101100011100100010010100101010110010111101001111010010101111110100011; }
+   Call "capture_hclk" { 
+      "_pi"=11001001000100000110011010101011100110001110101101110000101100; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHLL; }
+   "pattern 93": Call "load_unload" { 
+      "so0"=HLHHLHHHHLHHLLHLHHLLHLLHLLHHHLLHHLHLLLHLHLHLLHHLLLLLHHLLHLLLLHHHLHLHHLHLLLLLLLHLHLHLHHHLLLHLLHHHLHLHLLLLLHHHHHHL; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLHLHHHLLLHHHHHLHLLLLLHLLLLLLHLHLLHLHHLLLLHHHHHLHLLLLLHLLLLLLHLHLLHLHHLHHLHLHLL; 
+      "so2"=LLLLLLHHLLHLHHLLLHHHHLHLLLLLLLLLLLHHLLHLHHLLLHHHHLHLLLLLLLLLLLHHLLHLHHLLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHLLLLLLHLHLLLHHHHLHLLLLLLLLLLLHHLLHLHHLLLHHHHLHLLLLLLLLLLLHHLLHLHHLLLHHHHLHLLLLLLLLLLLHHLLHLHHLLLHHHHLHLLLLL; 
+      "si0"=1010011011111011110111111111111101101110101011111011111100010010100000110000000000011111010000100000001110010101; 
+      "si1"=001001111110001100011000001110001010011101000010111100010001101000000111110010100101110011101110000110101011000; 
+      "si2"=101000111110000110111111110110101111111101100101011110000010100000001001110101100111110100011111111101010000011; 
+      "si3"=111100000010010101011001000011100010010011001010011101101000000000100101011001011110100111101001010111111010001; }
+   Call "capture_hclk" { 
+      "_pi"=11010010001100000110110111010111001100011101011011100000000110; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLHLLLHLLLLLLLLHLHH; }
+   "pattern 94": Call "load_unload" { 
+      "so0"=LLLLLLLLLLLHLHLHLHHHLLHHHLHLLHHLLHHLHLLLHHLLHLHLHLHHLHHLHHLHHHHHHLLLLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLLLLLLHHLLHLHLLLLHHHHLHLLLLLLLLLLLHHLLHLHLLLLHHHHLHLLLLLLLLLLLHHLLHLHLLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHLLLHLLLHLLLLLLHHHHLHLLLLLLLLLLLHHLLHLHLLLLHHHHLHLLLLLLLLLLLHHLLHLHLLLLHHHHLHLLLLLLLLLLLHHLLHLHLLLLHHHHLHLLLL; 
+      "si0"=0000010010111101111101111111111111101110111111011100010100111110001011111100000000001111101000100000001011001011; 
+      "si1"=110010011111100011000110000010011110100000101011110110000010010110100001111011010010110011011111001011011100001; 
+      "si2"=110000101010100001111110111010101100101010111001011111000111011010100101000001111001011101000111111111010100110; 
+      "si3"=110111100000010010101110100001010001101001001101000110110101000000010010001000111111110011110111001100101100001; }
+   Call "capture_hclk" { 
+      "_pi"=11100100011100000101101010101110010100111010101111000001000011; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLHHH; }
+   "pattern 95": Call "load_unload" { 
+      "so0"=LLLLLHLLHHHHHHLHHHLLLHLHLLHHHHHLLLHLHHHHLHHLHLLLLHLHHHHHLHHLHHHHLLLLHHHHLHLLLHLHHLHLHLHHHLLLHLLHHHLHLHLLLLLHHHHH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHHHLHHHLLLLLHHHHHLHLLLHLLLLLLLHLHHLLHLHLLLLLHHHHHLHLLLHLLLLLLLHLHHLLHLHHHLLLLLL; 
+      "so2"=LLLLLLLLHHLLHLLLLLLHHHHLHLLLLLLLLLLLHHLLHLLLLLLHHHHLHLLLLLLLLLLLHHLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHLLHLLHLLLLLHHHHLHLLLLLLLLLLLHHLLHLLLLLLHHHHLHLLLLLLLLLLLHHLLHLLLLLLHHHHLHLLLLLLLLLLLHHLLHLLLLLLHHHHLHLLL; 
+      "si0"=1011011111011111110110111111111111111110110111110011010011001010011111000110101100000101110100100000001001100110; 
+      "si1"=101100100111101100110001100000101101011000010101111011000001001011010000111101101001011001101111100101100101011; 
+      "si2"=011010001111100000111111011100110110010101001100101111100011101101110011100001011110010111010001111101110101101; 
+      "si3"=111010000000001110110110010011000000110110011110100111110010011111001011010110010111101001111010010101111110100; }
+   Call "capture_hclk" { 
+      "_pi"=11001000111100100101010011011100100101110101011100000010100001; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLH; }
+   "pattern 96": Call "load_unload" { 
+      "so0"=LLLLLHHLHHLHHHHHLLHHLHLLHHLLHLHLLHHHHHLLHLLLLHHLHHLHLLLHHLLLHHHLLLLHLLLHLHHLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLLLLLLLLHHLLHHLLLLLHHHHLHLLLLLLLLLLLHHLLHHLLLLLHHHHLHLLLLLLLLLLLHHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHLLLHLLLLLLHLLLLLHHHHLHLLLLLLLLLLLHHLLHHLLLLLHHHHLHLLLLLLLLLLLHHLLHHLLLLLHHHHLHLLLLLLLLLLLHHLLHHLLLLLHHHHLHLL; 
+      "si0"=0011111100111011100101110000000010110110100011001001100001011011101000011010010101101000001011111110001100011110; 
+      "si1"=010010010110001000000111010111110011101011110000110101111101000100111111100110000111110001011111111101110110100; 
+      "si2"=010110101011100001101110010001100011001101111010111000111100100000000001101110110111000001101000101000100000011; 
+      "si3"=110110000110001100100010110000000000011000101000101001101011010100100011011011111000111000010010011110111001010; }
+   Call "capture_hclk" { 
+      "_pi"=11100010110001000101011100000111110111101110010011010111001000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; }
+   "pattern 97": Call "load_unload" { 
+      "so0"=LHHHHHHLLLLHHLLHLHLHHHHLLHLLHLHHLHHLHHLHHHHHHLLLHHHHLLLLHHHLLHHHHLHLLHHHLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=HLHLLLLLHLHHHHHHHLLLHHLLLHHHHHLLLLHHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLL; 
+      "so2"=HHHHLLLHLLLHHHHLHHLHLLLLHLHHHHHHLLLHLLLHHHHLHHLHLLLLHLHHHHHHLLLHLLLHHHHLLLHHHLHHLHLLLLLHLHHHHHHHLLLHHLLLHHHHHLH; 
+      "so3"=LLLHLLHLHLHLHHLHHLHLLLLHLHHHHHHLLLHLLLHHHHLHHLHLLLLHLHHHHHHLLLHLLLHHHHLHHLHLLLLHLHHHHHHLLLHLLLHHHHLHHLHLLLLHLHH; 
+      "si0"=1000010011001101111000111010000000011011000001100011001110111000011100001101000110110100000101011111001010001110; 
+      "si1"=110101110000100011000100110000111000111111111010111010011100101000110101111011100011110010000111010100101111111; 
+      "si2"=000010110100100001111010100000011110001111010010010110010111010010101101111111101101111000111010001010100000011; 
+      "si3"=100110010000001100010101011000000000001100010100010100110001101010110010111000001100000100000011001110011101111; }
+   Call "capture_hclk" { 
+      "_pi"=11000101100010100110111010001111101011011100101100101110101100; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLH; }
+   "pattern 98": Call "load_unload" { 
+      "so0"=LLHHHHHHLLLLLHHLLLHHLLHHHLHHHLLLLHHHLLLLLHHLLLHHLLHHLLHLLHHHLLHLLHLHHLHLLHLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=HHLHLLLLLHLHLHHHHHLLHLHLLLHHHHLLLLLHLLHHHLHHLHLLLLLHLHLHHHHHLLHLHLLLHHHHHLHHLHLLLLLHLHLHHHHHLLHLHLLLHHHHLLLLLHL; 
+      "so2"=HHHHHLLLHLLLHHHHLHHLHLLLLHLHHHHHHLLLHLLLHHHHLHHLHLLLLHLHHHHHHLLLHLLLHHHLLHHHHHLHHLHLLLLLHLHLHHHHHLLHLHLLLHHHHHL; 
+      "so3"=LLLHLLHHLHLLHHHLHHLHLLLLHLHHHHHHLLLHLLLHHHHLHHLHLLLLHLHHHHHHLLLHLLLHHHHLHHLHLLLLHLHHHHHHLLLHLLLHHHHLHHLHLLLLHLH; 
+      "si0"=0010000000011110000010010100011110101110011011110000111001001110110010010000000010110011001001100001101101011001; 
+      "si1"=101010011110010100100010001010000101011100001000101001110111000101110001001010110110011101001101000011101001000; 
+      "si2"=110011000001010101101110001000101110100001001101110011101001100100010000011010101100110101100110000000101010001; 
+      "si3"=110000000110011000101110011110000000011110101010100011110111100001111001101101000110110110010110111001010111000; }
+   Call "capture_hclk" { 
+      "_pi"=11101001110100001110101000011000101001010111000000001011001110; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHH; }
+   "pattern 99": Call "load_unload" { 
+      "so0"=LLLLLLLLLLLHHHHLLLLLHLLHLHLLLHHHHLHLHHHLLLHHLLLLHHHLLLHLHHLLHHLHLLLHHHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHHLLLLLHLHHLLHHLLHLLHHLLLLHHLHHLHLHHLLLHLHHLLHHLLHLLHHLLLLHHLHHLHLHHLLHLLLLLLL; 
+      "so2"=LLLLHHLHLHLHHLLHLHHLLHLLHLLHLLLLHHLHLHLHHLLHLHHLLHLLHLLHLLLLHHLHLHLHHLLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHLLHHLLLHLHHLLHLLHLLHLLLLHHLHLHLHHLLHLHHLLHLLHLLHLLLLHHLHLHLHHLLHLHHLLHLLHLLHLLLLHHLHLHLHHLLHLHHLLHLLHLLH; 
+      "si0"=0010001010001010100000011111110010101111100001100000010010011010100110110111000100110010101111001110110110110001; 
+      "si1"=001101100101111101011011100101110000001001110001100000000010110011010011010010011100101010101000001000000010111; 
+      "si2"=001111001011000100110101001111111010101011110111011111011000101000011101111001111100000110110011000010001000111; 
+      "si3"=000110011110011010110001111111100000010111111101111000010001100110111111101101011011100011011001000010010010110; }
+   Call "capture_hclk" { 
+      "_pi"=11110001011001000100001100110110100101000000010001000001100111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; }
+   "pattern 100": Call "load_unload" { 
+      "so0"=HHLLLLHLHLLLLHHLLLLLLHLLHLLHHLHLHLLHHLHHLLHHLHLLHHLLHHLLHLHLLHHLLLLLLLHLLHHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=HHLLHLHLHHHHLLHHHLHHLHHLHHLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHL; 
+      "so2"=LHHHLHHHHLHHLLHLLHHLLLHLHHHHLHHHLHHHHLHHLLHLLHHLLLHLHHHHLHHHLHHHHLHHLLLLLHHLHLLHHLLHLHLHHHHLLHHHLHHLHHLHHLLLHLL; 
+      "so3"=LLLHLLHHHHHLHHLLHHLLLHLHHHHLHHHLHHHHLHHLLHLLHHLLLHLHHHHLHHHLHHHHLHHLLHLLHHLLLHLHHHHLHHHLHHHHLHHLLHLLHHLLLHLHHHH; 
+      "si0"=1100011000101010111101110111111110101000010111101110010111010111001100111110011111110000011100001001011011000111; 
+      "si1"=100100011011010011000101111110000011001111001101000100111000001000000010011110001001110001011010101101101101011; 
+      "si2"=010001001110001111011101100101101110100111001011100110100111110111001110100010001000000010000100010010100000110; 
+      "si3"=100100010111011101110010100100011111010110101000111110100110101101010100101101010101001001111110111111110000001; }
+   Call "capture_hclk" { 
+      "_pi"=11000000000011000101000011101010110101101110111011010101101011; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLH; }
+   "pattern 101": Call "load_unload" { 
+      "so0"=LLLLLHHLLHLHHHHLHHHLLHLHHHLHLHHHLLHHLLHHHLLHLLHLLHLLHLHHHHLHHHHLLHHLHHLHLHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLLLHHHHHLLLLLHHHLLLLHLLHLHHLHHLLLHHHHHHHLLLLLHHHLLLLHLLHLHHLHHLLLHHHLLLLLLL; 
+      "so2"=LHLLHLHLHHLLLHHHHHHLLLLHHHLLLHLLHLHLHHLLLHHHHHHLLLLHHHLLLHLLHLHLHHLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHHLHHHLHHHHHLLLLHHHLLLHLLHLHLHHLLLHHHHHHLLLLHHHLLLHLLHLHLHHLLLHHHHHHLLLLHHHLLLHLLHLHLHHLLLHHHHHHLLLLHHHLL; 
+      "si0"=1100001001000101011110111011111111011100101011100110100010001111110110011110011111111010001110000100100101100011; 
+      "si1"=101001000110100100110001011111011000100111100110100010011100000100000001001111000100111000101101010110100100000; 
+      "si2"=101000100111000111101110110011010111010011110101110001010011111011100111110001100010100000100001000100101000001; 
+      "si3"=010100011100100011111001101001111000100101011001101000111101110111100110010110101010100100111111011111111000000; }
+   Call "capture_hclk" { 
+      "_pi"=11000000000110101100000111010101100111011101101100101011001101; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHHL; }
+   "pattern 102": Call "load_unload" { 
+      "so0"=LLLLLLHLHLHLHHHLLHHLHLLLHLLLHHHHHHLHHLLHHLHLLHHLLHLHLLHLLHLLLLLHLHLHHLHHLHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLHLLHLHLHHLLLHHHHHHLLLLHHHLLLHLLHLHLHHLLLHHHHHHLLLLHHHLLLHLLHLHLHHLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHHHHLHLHHHHHHLLLLHHHLLLHLLHLHLHHLLLHHHHHHLLLLHHHLLLHLLHLHLHHLLLHHHHHHLLLLHHHLLLHLLHLHLHHLLLHHHHHHLLLLHHHL; 
+      "si0"=1111011111011001000010101111101101000001100010001001110110100001000100010010001010010100001100011100011110101111; 
+      "si1"=001101010011110101011111010000100111111000000010110000100110000110101011000000100001101001011000000010100111111; 
+      "si2"=000010111000001111000010011000010111110111101110010000000011111010101010000111001111101011100010110011001000111; 
+      "si3"=000100010101110011111001100111001110111100101001100010010101101000000000010000101101101010001101110001000101010; }
+   Call "capture_hclk" { 
+      "_pi"=11100010111100001111010110101100111001010101000010000000001110; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLL; }
+   "pattern 103": Call "load_unload" { 
+      "so0"=HLHHHHHHLLLHHLLLLHLLLHHLLHHLLLLLLLLLLLLLHLLLHHHHHLHLHHHLHHLHLLHLLLHLHLLLLHHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=LHLHLLLLHHLLLHHHLLLHHHHLHLHHHHLLLHHHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHL; 
+      "so2"=HHHLLLHHHLHLHHLHLLHLHLLLHHLLHHHLLLHHHLHLHHLHLLHLHLLLHHLLHHHLLLHHHLHLHHLLLHHLLHLLHLHLLLLHHLLLHHHLLLHHHHLHLHHHLHL; 
+      "so3"=LLLHLLHHLHLHHLHLLHLHLLLHHLLHHHLLLHHHLHLHHLHLLHLHLLLHHLLHHHLLLHHHLHLHHLHLLHLHLLLHHLLHHHLLLHHHLHLHHLHLLHLHLLLHHLL; 
+      "si0"=1111110110010100010000010011111100001100010001010010111011010010100010001000100101001011000110001110000111010110; 
+      "si1"=110011010100101101010111110101001011110110000011010010111011101001110101101000010010111100001100000001001010010; 
+      "si2"=100001011000110011100001001101001011111011101111001000000001011101110101110000010011111010111010101100110010011; 
+      "si3"=010100011110100011101010101010011110001110000010101000001100100100111011110001111101111101101101000101110001101; }
+   Call "capture_hclk" { 
+      "_pi"=11000101111100100110101001011001110010101010000110000000100111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHHL; }
+   "pattern 104": Call "load_unload" { 
+      "so0"=LHLHHLLLHLLHLHLLLHLLLLLHLLHHHHHHLLLLHHLLLLHHHLHLHHHLHLHLLLHLHLLLLLLLLLLLLHLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHHLHHHLHLLHLHHLLLHHLLLHHHLLLLHHHLHLHHHLHLLHLHHLLLHHLLLHHHLLLLHHHLHLHHHLLLLHHH; 
+      "so2"=LHHHLLLHHHLHLHHLHLLHLHLLLHHLLHHHLLLHHHLHLHHLHLLHLHLLLHHLLHHHLLLHHHLHLHLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHHHHHHLHLHLLHLHLLLHHLLHHHLLLHHHLHLHHLHLLHLHLLLHHLLHHHLLLHHHLHLHHLHLLHLHLLLHHLLHHHLLLHHHLHLHHLHLLHLHLLLHHL; 
+      "si0"=0111111011110110010101010100111100001110101011101100111100110011111001011010010011001100101000011001001111110111; 
+      "si1"=111110110111010010010110111010101101111000110000011100110000110101010000000111011011111110011100111101001100100; 
+      "si2"=110110000101100010000100100000000100100111100100001010111010011010000010100110010011011111001110001001100100111; 
+      "si3"=010001010101010101010001100101001110111111101001111101101000000100011111011111110011100010110001000010101000000; }
+   Call "capture_hclk" { 
+      "_pi"=11101001001000000100001000110100011110111010000101010110000011; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHL; }
+   "pattern 105": Call "load_unload" { 
+      "so0"=LLLLLHHHHLHHHLLHHLHHLHLLLHLLHLLHHLLLLLLHLLLHHHLHHHHLLLLHHLHHHHLHLLHHLLHLHLLLLLLLHLLLHLHHHLHHHLLLHLHHLLHHLHLHLHLH; 
+      "so1"=LLHHLLHLHLLLLHHLLHLLHHHHHHLHHHLLLLLLLLHLHHLLHHLLHLHLLLLHHLLHLLHHHHHHLHHLHHLLHHLLHLHLLLLHHLLHLLHHHHHHLHHHHLLLLLL; 
+      "so2"=HHLLHLLHHHHHLHLHHLLHHLHLHLLLHHLLHLLHHHHHLHLHHLLHHLHLHLLLHHLLHLLHHHHHLHLHLLLLLHHLLHHLLHLHLLLLHHLLHLLHHHHHHLHHLHH; 
+      "so3"=LLLHLLHLLLLLLLHHLLHHLHLHLLLHHLLHLLHHHHHLHLHHLLHHLHLHLLLHHLLHLLHHHHHLHLHHLLHHLHLHLLLHHLLHLLHHHHHLHLHHLLHHLHLHLLL; 
+      "si0"=1001001111011111101110000011011000001100110101101010011110011010111100100000011101100101010100001100100011111011; 
+      "si1"=111010111101100101110001101111010111110100011010001110110010010010101000100001100111011101000100010100100010101; 
+      "si2"=011011000010110111100010110010111100110001101101100011010111010100000010100011000100111111010011100000010011110; 
+      "si3"=111101010100100010111101000100000011111111010000010111110001111000101011101111111001110001011000100001010100000; }
+   Call "capture_hclk" { 
+      "_pi"=11010010010000000110010011101000111001110100011000101100101001; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLH; }
+   "pattern 106": Call "load_unload" { 
+      "so0"=LLLLLHHHHHLHHHHHHLHHHLLLLLHHLHHLLLLLHHLLLLLLLHHLLHHHHLHHHLHLHHLHHHLLLHHHLHLLHLLLLHLLLHLHHHLHHHLLLHLHHLLHHLHLHLHH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHHLLHLLHHHHHLHLHHLLHHLHLHLLLHHLLHLLHHHHHLHLHHLLHHLHLHLLLHHLLHLLHHHHHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHLLHHLHLLHHLHHLLHHLHLHLLLHHLLHLLHHHHHLHLHHLLHHLHLHLLLHHLLHLLHHHHHLHLHHLLHHLHLHLLLHHLLHLLHHHHHLHLHHLLHHLHLHLL; 
+      "si0"=1000101000111101011010011101101001000110111010101011001111001100011110011010010110110001101010000110010001111100; 
+      "si1"=101110101111011101011100011011011011010110001101000111011001001001010100010000110011101110100010001010001111001; 
+      "si2"=001101100001011110110001011001111110011000101110110001101001101011000011011011110001000111110110111000000100001; 
+      "si3"=111000110010110101010110010110010011100000100110111111100110001011010001110111111100111000101100010000101010000; }
+   Call "capture_hclk" { 
+      "_pi"=11100100100100000110100101010001110111101000100011011001000100; 
+      "_po"=HLLLLLLLLLLLLLLLLLLLLLLLLLHHLLLLHLLHHLH; }
+   "pattern 107": Call "load_unload" { 
+      "so0"=LLLLLLHLLLHHHHLHLHHLHLLHHHLHHLHLLHLLLHHLHLHHHHLLHHHLLHLLLHLHLLLHHHHHHLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LLHHLLHLLHHHHHHHLHHLLHHLHLHLLLHHLLHLLHHHHHHHLHHLLHHLHLHLLLHHLLHLLHHHHHLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHLLLHHLLHLHHHLHHLLHHLHLHLLLHHLLHLLHHHHHHHLHHLLHHLHLHLLLHHLLHLLHHHHHHHLHHLLHHLHLHLLLHHLLHLLHHHHHHHLHHLLHHLHLHL; 
+      "si0"=1100001110110100100001101110100101000000011110000010000110111100100111011011100110110010111110111101001000100010; 
+      "si1"=001100101001111011000100000000111101101000110011010111010101110101000001111111011110010011011111101100101011100; 
+      "si2"=010000011011000010101101101100100011010010001011110100011110110010111001010011101011010010010101001110000001011; 
+      "si3"=010001100100100101011010011000001001100110011101100110100011110110101111100000000110100100000100010110101100010; }
+   Call "capture_hclk" { 
+      "_pi"=11101011111001000110010110100100011100111111011101100100101010; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLLL; }
+   "pattern 108": Call "load_unload" { 
+      "so0"=HLLLHLHLHLHHLHLLHLLLLHHLHHHLHLLHLHLLLLLLHLHLLHHLHHLLLLHLLHLHHLHLHHLHHHHHLHHHHHLLHHLHHHHHHLLHHLLLHLLHLLLHLLHHHHHL; 
+      "so1"=HHLLHLHHHHHLHHHHLHLLHLLLHLLLHHHLLLLLLLHHHLHHLLHLHHHHHLHHHHLHLLHLLLHLLLHHHLHHLLHLHHHHHLHHHHLHLLHLLLHLLLHHLLHLLLL; 
+      "so2"=HHHLHLLLLLHLLLHHLHHLLLHHHHHLHHHLHLLLLLHLLLHHLHHLLLHHHHHLHHHLHLLLLLHLLLHLLLLLHHLHHLLHLHHHHHLHHHHLHLLHLLLHLLLHHHL; 
+      "so3"=LLLHLLLLLLLLLHHLHHLLLHHHHHLHHHLHLLLLLHLLLHHLHHLLLHHHHHLHHHLHLLLLLHLLLHHLHHLLLHHHHHLHHHLHLLLLLHLLLHHLHHLLLHHHHHL; 
+      "si0"=0101011001011101100110101011110110000000001100011000100010000100111011110001110010110010010100010000100100001101; 
+      "si1"=100100001000000010100010000111110110011111111100001011000010111010001111001000111100101100100001011011101101010; 
+      "si2"=011110100110001100010111000111111111100011110010101101101011101110111001111100101101011111001101110011100010011; 
+      "si3"=011100010100001100100101001100100101001011110011010100101111010101010000101011111011101010010000010101101111011; }
+   Call "capture_hclk" { 
+      "_pi"=11110101000111000111110011001111000010010000101000011111100101; 
+      "_po"=HHLHLLLLHHLHHLLLLHHHHHHHHLLLHLHHLLLLHLL; }
+   "pattern 109": Call "load_unload" { 
+      "so0"=LLLLLHHLHHHHLLLHHLHLLLLHLLLLLLLHHLLLHHHHHLHHLLLHLLHLHLLHLLLHHLLLHHHLLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HLLLLHLHLLLLHHLHLHHLLLLHLHLLHLLLLHLHLLLLHHLHLHHLLLLHLHLLHLLLLHLHLLLLHHLLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHLLLHHLHLLLLHLHHLLLLHLHLLHLLLLHLHLLLLHHLHLHHLLLLHLHLLHLLLLHLHLLLLHHLHLHHLLLLHLHLLHLLLLHLHLLLLHHLHLHHLLLLHLHLL; 
+      "si0"=1001011100101011110001011101101110010000000110000110010001000011011101111000010001011010001010101000010010000101; 
+      "si1"=111001000010000000101000100001011011100000100010001110101101100001100001100101000000000011110001101111110001101; 
+      "si2"=101111010011000111011101001010010110111100000010111100110110100101010111101111101011010111110001011110111000010; 
+      "si3"=110110111000011100010100100110110010000101111001101010010111101010101000010101111101110101001000001010110111101; }
+   Call "capture_hclk" { 
+      "_pi"=11101010001110101111100100011110001100100001000010111111101010; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHHH; }
+   "pattern 110": Call "load_unload" { 
+      "so0"=LLLLLHHLHLLHLLLLLHLLHHLLHHLHLHHLHLLHLLLLLHLLHHLLHHLLHLHHLLHLHLHLLHLHHHHLLHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LHLHLLLLLLLLLLHHHHLLLHHLHHHHHLLLHLHHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHLLLLHLHLLLLHLLHLHHLLLLHLHLLHLLLLHLHLLLLHLLHLHHLLLLHLHLLHLLLLHLHLLLLHLLLLHHLLLHLLLHLLLHHHLHLHHLHHLLLLHHLLLLHHL; 
+      "so3"=LLLHLLHHHLLLHLLHLHHLLLLHLHLLHLLLLHLHLLLLHLLHLHHLLLLHLHLLHLLLLHLHLLLLHLLHLHHLLLLHLHLLHLLLLHLHLLLLHLLHLHHLLLLHLHL; 
+      "si0"=1110111111111110011001010110110101100111100000001000101001111001000110100001001101000110001110011010000001011110; 
+      "si1"=111001010010111100011001001110001111110010001110100010011000101110011000010001011101101011000011101010010001111; 
+      "si2"=100001000010001101001101111100000111000011111100111110100001110001100000110010101101111110010100110111101100001; 
+      "si3"=000001000111101011000111001010110111100000011010011100101001001000000011010001000110000010110110011011100010100; }
+   Call "capture_hclk" { 
+      "_pi"=11110110101000101100010010111011100110101100010100101001101101; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHHL; }
+   "pattern 111": Call "load_unload" { 
+      "so0"=LLLLLHHHHLHLHHLLLHHHLLLLLLHLHLLLLLLHLLLHHHLHLLLLLHLHLHHHHLLLLHHLLHLHHHLLLHLHLHLLHHLLLHHLHLHLLHHHLHHHLHLLHLHLLHHH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLL; 
+      "so2"=HHLHLLLLLHLHHHHLHLLLHLLLHHHLHHLHLLLLLHLHHHHLHLLLHLLLHHHLHHLHLLLLLHLHHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHLLLLLLLLLHLHLLLHLLLHHHLHHLHLLLLLHLHHHHLHLLLHLLLHHHLHHLHLLLLLHLHHHHLHLLLHLLLHHHLHHLHLLLLLHLHHHHLHLLLHLLLHHHL; 
+      "si0"=0101001010010111000011100000011111000111110000010010010100111100100011010011000110100011000111101101000000101100; 
+      "si1"=011110010100101011000110010010011111011101100111011001100110110101101100100010100110110111101011011111010010010; 
+      "si2"=010000100001001110100110001001011110001000101100010001011110000000010110010001101011110111100111001101111011000; 
+      "si3"=001101011110001001010011010011011101011101010010001010010100110001011101101000100011000001011011001101110001010; }
+   Call "capture_hclk" { 
+      "_pi"=11101101010101000110100111110111001001011000110001010010100110; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; }
+   "pattern 112": Call "load_unload" { 
+      "so0"=LLLLLLHLHLLHLHHHLLLLHHHLLLLLLHHHHHLLLHHHHLHHHLHLLHLHLHHHHLLLHHHLLHLLLHLHHLLLLLLLLHHLLLHHLHLHLLHHHLHHHLHLLHLHLLHH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHHLHLLLLLHLHHHHLHLLLHLLLHHHLHHLHLLLLLHLHHHHLHLLLHLLLHHHLHHLHLLLLLHLHHLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHHHHHLLHHLHLLLHLLLHHHLHHLHLLLLLHLHHHHLHLLLHLLLHHHLHHLHLLLLLHLHHHHLHLLLHLLLHHHLHHLHLLLLLHLHHHHLHLLLHLLLHHH; 
+      "si0"=0111110000110100001110101001101001101010000001000000101000011011100001011111110110111000101000001000100100001010; 
+      "si1"=010000100111000110100010100010111100000001000110011000001010001011011101100110010100111111111011000110001111100; 
+      "si2"=111101011100111101000110011110011101101110111011100111000001101011010000101101101101111110010011010011011100011; 
+      "si3"=111010111111100000001011011001001111010110000001100100100001001100101000001111100110111010000100111110011001010; }
+   Call "capture_hclk" { 
+      "_pi"=11111000011111000110010001101001100101011111111001110010100011; 
+      "_po"=HLLLLLLLLLLHLLLLLLLLLLHLLHLLLHLLHLLLLHH; }
+   "pattern 113": Call "load_unload" { 
+      "so0"=LLLLLHLLLLLLLHLLLLLLHLHLLLLHHLHHHLLLLHLHLHLHLLHLHHLLLLLHHHHLHHHHHLHHLLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LHHLLHLHLLHHHHHHHHHLHHLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHLLLHLHLLLLHLHHLHHHLLHLHLLLLHLLLHLHLLLLHLHHLHHHLLHLHLLLLHLLLHLHLLLLHLLLLLLLLLHLLLHHLLHHLLLLLHLHLLLHLHHLHHHLHHL; 
+      "so3"=LLHHLLHLLLLLLHHLHHHLLHLHLLLLHLLLHLHLLLLHLHHLHHHLLHLHLLLLHLLLHLHLLLLHLHHLHHHLLHLHLLLLHLLLHLHLLLLHLHHLHHHLLHLHLLL; 
+      "si0"=0001100000000100000010101001010101111000001110101011110100111000110100101000011010110110011111111010011110011011; 
+      "si1"=100011001011111001111011101110000110101111010110111000111100010100000101000100001101111011110011001010111001010; 
+      "si2"=111001110110001010000111100011010010001001011011101000111010010010010111001011101100110100001110010110110101101; 
+      "si3"=010111110001000100100001011100000111110011001000011001111111110000010101101100001100010100001101100010111001101; }
+   Call "capture_hclk" { 
+      "_pi"=11010010001011001101111011010100110001010001111000110010100001; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLHHL; }
+   "pattern 114": Call "load_unload" { 
+      "so0"=LLLHHLLLLLLLLHLLLLLLHLHLHLLHLHLHLHHHHLLLLLLLLHLHLHLHLLLHHLHLHLLHLHHHHHLHHLLLLLLLLHHHLLLHLHLLHHLLHLHLHLHLLHHLHLHL; 
+      "so1"=LHLLLLHHLHHHHLHHHHLLHHLLHLHLHLLLLHHLHLHLHLHHLHHLLHHHHHHHHLHLLHHHHLLHHLHLHLHHLHHLLHHHHHHHHLHLLHHHHLLHHLHHLLHLLHL; 
+      "so2"=HHLHLLHHHLLHHLLHLHHLHLLHHHHHHHLHLLHHHLLHHLLHLHHLHLLHHHHHHHLHLLHHHLLHHLHLLLHLHHHLHLHHLHHHLLLHHHHLLLHLHLLLLLHLHLL; 
+      "so3"=LLLLHLLHLHLHHLHLHHLHLLHHHHHHHLHLLHHHLLHHLLHLHHLHLLHHHHHHHLHLLHHHLLHHLLHLHHLHLLHHHHHHHLHLLHHHLLHHLLHLHHLHLLHHHHH; 
+      "si0"=0010110101101110110001011100010110110101100111001011111011001101101100001110000101011011001111111101001111001111; 
+      "si1"=011000110010111110011110111011101001111011101011011100011110001010000010100010000110111101111001100101000000011; 
+      "si2"=111100111011110011001011000111101001010100110100101110100100011000111011010101111011100101000011100111101101001; 
+      "si3"=111011000100100000010100101100100010111001101100000110111011111010001010111110000110101010000100110001011100000; }
+   Call "capture_hclk" { 
+      "_pi"=11100100010110101101110100101001100110100011100001100101001000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHH; }
+   "pattern 115": Call "load_unload" { 
+      "so0"=LLLLLHLLHLLHHHLLHLHHHHHLHHLLHHLHHLHHLLLLLHHHLLLLHHHLHHHHHLHHLLLHHLLHLLHHLHHLLHHLLLHHHLLLHLHLLHHLLHLHLHLHLLHHLHLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HHHLHLLHHHLLHHHLHLHHLHLLHHHHHHHLHLLHHHLLHHHLHLHHLHLLHHHHHHHLHLLHHHLLHHLLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLHLLHLLHHLHLHHLHLLHHHHHHHLHLLHHHLLHHHLHLHHLHLLHHHHHHHLHLLHHHLLHHHLHLHHLHLLHHHHHHHLHLLHHHLLHHHLHLHHLHLLHHHH; 
+      "si0"=1110011001100111011100100110011010011011010011110011111101001111001101000000110110101100100111111110101011100111; 
+      "si1"=010110001100101011100111101110100110110001100000101110001111000100000000010000000110011111101001110011110100111; 
+      "si2"=011110011101100100100101100001110100101010011010010111010010101100011100001001011110111001010010111001111011010; 
+      "si3"=111111110010100000100011110000110110011000110111100100110001110011010001011011000011000101000011011000101110011; }
+   Call "capture_hclk" { 
+      "_pi"=11001000101001101101101011010011001001000111001001001010101100; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLLH; }
+   "pattern 116": Call "load_unload" { 
+      "so0"=LLLLLHHHHHLLHLLLHHHHLHLHLLLLLHHLHLHLLLLLLLLHLLHLHLHHHHLHLLHHHLLHLLHHLHLLHLLLLLLLLLLHHHLLLHLHLLHHLLHLHLHLHLLHHLHH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLL; 
+      "so2"=HHHHLHLLHHHLLHHHLHLHHLHLLHHHHHHHLHLLHHHLLHHHLHLHHLHLLHHHHHHHLHLLHHHLLHLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHLLHHLLHLHHHLHLHHLHLLHHHHHHHLHLLHHHLLHHHLHLHHLHLLHHHHHHHLHLLHHHLLHHHLHLHHLHLLHHHHHHHLHLLHHHLLHHHLHLHHLHLLHHH; 
+      "si0"=1110001010100110101110010000011001000000101001111101111110100101100110101000000111010101010011011111011001110010; 
+      "si1"=100101100011011010111001111011101011011010111010110111000111100010100000101000100001101111011110011001000110100; 
+      "si2"=101111001110110010010010110000111010010101010101001101101011010110001101100111110111101110010110101100011110100; 
+      "si3"=111100101010010010000010101001110000011110000011001000101011111101110100101101100001100010100001101100010111001; }
+   Call "capture_hclk" { 
+      "_pi"=11010001010111100101010100100110010110001110001000010101001110; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLHLLHHLLHLLHLLHHHH; }
+   "pattern 117": Call "load_unload" { 
+      "so0"=LLLLLHHHHLHLLHHLHLHHHLLHLLLLLHHLLHLLLLLLHLLLLLLHHLHLHLHLHHHHHHHHHLLLLHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HHHHHLHLLHHHLLHHHLHLHHLHLLHHHHHHHLHLLHHHLLHHHLHLHHLHLLHHHHHHHLHLLHHHLLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHHLLHLHLHLLHHHLHLHHLHLLHHHHHHHLHLLHHHLLHHHLHLHHLHLLHHHHHHHLHLLHHHLLHHHLHLHHLHLLHHHHHHHLHLLHHHLLHHHLHLHHLHLLHH; 
+      "si0"=0111010010000110011011001111101001101110010100111110111111010001110011010001101111101001101001011111100100111011; 
+      "si1"=001001011000100110101110011110011110100101011101011011100011110001010000010100010000110111101111001100101110100; 
+      "si2"=111110100110011000001001011001011101001010100010100110110111001011100101111011011101111011100111101001000111111; 
+      "si3"=100010101001010010000001000100011101001111000011100100010001111110110110111110111000101011000100010111001011111; }
+   Call "capture_hclk" { 
+      "_pi"=11100010101011101100101011001100101100011100000000101010001111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLHH; }
+   "pattern 118": Call "load_unload" { 
+      "so0"=HHHLHHLLHLLLLHHLLHHLHHLLHHHHHLHLLHHLHHHLLLHLHLHLLLHHHLLHHHLHHHHHLHHHLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so1"=LHLLLHLLLLHHLHHHHLHHHHLLHHLLHLLLLLLLLHHHHHHLHLLHHLHLLHLHHHHHHLLHLLHHHLHHHHHLHLLHHLHLLHLHHHHHHLLHLLHHHLHHLLLLHLL; 
+      "so2"=HHHHHHLHLLHHHLHHHHLHLHHLHLLHHHHHHHLHLLHHHLHHHHLHLHHLHLLHHHHHHHLHLLHHHLHLLLLLHLHLHHHLHLHHLHHHLLLHHHHLLLHLHLLLLLH; 
+      "so3"=LLLHLLHLLLLLLHHHHLHLHHLHLLHHHHHHHLHLLHHHLHHHHLHLHHLHLLHHHHHHHLHLLHHHLHHHHLHLHHLHLLHHHHHHHLHLLHHHLHHHHLHLHHLHLLH; 
+      "si0"=0001111100010001101010010011010111011110001001010110111110110001010001110011011010011100111111100001111110000010; 
+      "si1"=110001000100000101111000110001001110111000011110011001001000111000000011101100001111111110101001011111101001100; 
+      "si2"=001101011000000100110001101101110000111011001101111100010001010010101111011001101000110101110011010010010011011; 
+      "si3"=100100000011010111100010010000101110011111000001011001100111101001011000010000100000100000111010000101111100100; }
+   Call "capture_hclk" { 
+      "_pi"=11100111100110001110001110011110100111010110010010000010101111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLH; }
+   "pattern 119": Call "load_unload" { 
+      "so0"=LLLLLHHHHHHHHLHLHHHHLHHHLHLLLLLLHHHLHHLHLLLHLHHHHLLLHLLHLHLLHHLHLLLLLHHHLHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHHLHLHLHLLHHHLLHHHHHHHLLLLHHHHHHLLLLLHLHLLHHHLLHHHHHHHLLLLHHHHHHLLLLLHHLLLLLLL; 
+      "so2"=LLLLHHHHHLLLLLLHLLHHHLHHHHHHLLLLHHHHHLLLLLLHLLHHHLHHHHHHLLLLHHHHHLLLLLHLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLHLLHLLLHHLLHLLHHHLHHHHHHLLLLHHHHHLLLLLLHLLHHHLHHHHHHLLLLHHHHHLLLLLLHLLHHHLHHHHHHLLLLHHHHHLLLLLLHLLHHHLHHHHHH; 
+      "si0"=0001111000110011010110110011101000000001000111101100111110000001000000100010111000100111010100101110110011011100; 
+      "si1"=111010010111001101001101001111111100011101011100011000011101000101001010001001100000011011110011001110000000101; 
+      "si2"=010000000111101101101101110011101101000011100010010110010000100110101010100000100101100110011110010110100100011; 
+      "si3"=110101001010101111010111111000010110110111100000001111011001100010101111010011101000101000001111011100000111000; }
+   Call "capture_hclk" { 
+      "_pi"=11101101111101001101000010111010111101000010110101010011101111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLH; }
+   "pattern 120": Call "load_unload" { 
+      "so0"=LLLLLHHHLLLLLLHHHLHHLLHLHLHHLHHHHLLHLLLHHHLLLLHLLLHHLHHHHLLHHHHHLLLHHHLLHLLLLLLLHHHLHLLLLHLHHHLHLHHHLHHLLHLHLHHH; 
+      "so1"=HLLHHHLHLHLLHLHHHLHHLLHHLHHHLHHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHHHLHHLHHLHHHLLLHLLHHLHLHLLLHHHLHHLHHLHHHLLLHLLHHLHLHLLLHHHLHHLHHLHHHLHLHLHLLLHLLHHHLHLHLLHLHHHLHHLLHHLHHHLLLL; 
+      "so3"=LLLHLLHLHLHLHLLLHLLHHLHLHLLLHHHLHHLHHLHHHLLLHLLHHLHLHLLLHHHLHHLHHLHHHLLLHLLHHLHLHLLLHHHLHHLHHLHHHLLLHLLHHLHLHLL; 
+      "si0"=1010010000110111001000101011100111110110101110110011111110111010000100011100011101111001100001011001010001110011; 
+      "si1"=101000100111111011000000010101100100001101011001111000110111110011001110110011110111101001110111101110110001001; 
+      "si2"=001101101001011110000011111011001110111111101101100101100000110101101110100101011110111010000111000101101011111; 
+      "si3"=011011000101111001001111001110001010100011110000101100000110100101110100000110001000100100000110110010111010111; }
+   Call "capture_hclk" { 
+      "_pi"=11111001001111100111011011110010000101101011101011110001101111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLL; }
+   "pattern 121": Call "load_unload" { 
+      "so0"=LLLLLHLLHLHHHLHHLLHHHHHHHLHHHLHLLLLHLLLHLLLHHLLHHLHHHHLLHHLLLHLHLHLHHHLHLHLLHLLHLLHHHLHLHHLLLLLHLLHHHHLLLHHHHHHH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLL; 
+      "so2"=HHLLHLHLLHHHLLHLHHHHLHHLLLLHHHLLHLHLLHHHLLHLHHHHLHHLLLLHHHLLHLHLLHHHLLLHLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLLLLHLHHHLHHHHLHHLLLLHHHLLHLHLLHHHLLHLHHHHLHHLLLLHHHLLHLHLLHHHLLHLHHHHLHHLLLLHHHLLHLHLLHHHLLHLHHHHLHHLLLLH; 
+      "si0"=1110011011001110101010001101100110111011110000001101111111001100100100001000010110111110110000011100100100111000; 
+      "si1"=111010001001111110110000000100110001101010101100111101011011101101100011011001111011110000111011110111000000111; 
+      "si2"=001111010100001011000001111101100111011111111110110000110010011010010110001010110111101110100011110001011010011; 
+      "si3"=111000111110110111100011100111100100110001001000110100100110010010111010011001000110010110001010111000011101011; }
+   Call "capture_hclk" { 
+      "_pi"=11110010011111101110110111100100000111010111001111100011100111; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHLH; }
+   "pattern 122": Call "load_unload" { 
+      "so0"=LLLLLHHLHLHHHHLLHLLHHLHLHHHLLHHLHLHHLLHHLLLLLHHLLHHHLLHLLHHLHHLHLHHLLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HHHLLHLHLLHHHLHHLHHHHLHHLLLLHHHLLHLHLLHHHLHHLHHHHLHHLLLLHHHLLHLHLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHHLLHLLLLLLHHLHHHHLHHLLLLHHHLLHLHLLHHHLHHLHHHHLHHLLLLHHHLLHLHLLHHHLHHLHHHHLHHLLLLHHHLLHLHLLHHHLHHLHHHHLHHLLLL; 
+      "si0"=0101011101001000111110110100110100101011101010011011011110111100011010001110111110110101010011010000011110000011; 
+      "si1"=101001100000010011111111000110110011011010100011101010110100101101011000011011111010011110010011010010010001010; 
+      "si2"=110001000001100101010101111111101111111001101011110000100001101101010011111000011010011000000010011110010100111; 
+      "si3"=010110110101111011110111000001110011000000100100100111101101011111111110010111011011110011010111000010110111111; }
+   Call "capture_hclk" { 
+      "_pi"=11000110001110001110110011001111111001000000001100010000101011; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLHHL; }
+   "pattern 123": Call "load_unload" { 
+      "so0"=LLLLLHHLHLHLHLLHHLHHLHHHHLHHHHLLLHHLHLLLLLLHLHHHLHLLLLLLHLHLLHHLHLHLLHLLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=HHLHLHLHLLHHLHLLLLLHHHHLLLLLHHLLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HLLLLLHHHLLLLLHHLHHLHHLHLLHHHLLLLLHHHLLLLLHHLHHLHHLHLLHHHLLLLLHHHLLLLLHLLHHLHHLHHLHLHLHLLHHLHLLLLLHHHHLLLLLHHHL; 
+      "so3"=LLLLLLHLLLHLLHHLHHLHHLHLLHHHLLLLLHHHLLLLLHHLHHLHHLHLLHHHLLLLLHHHLLLLLHHLHHLHHLHLLHHHLLLLLHHHLLLLLHHLHHLHHLHLLHH; 
+      "si0"=0011100010001001010111011010011110001101101101110111101111011111011101000010100111011011101001011000000111000010; 
+      "si1"=111010011000000000111111110001111010101101010001110101011010010110101100001101111101001111001001101001010001110; 
+      "si2"=111000100000110101001000111110110111111000101101111010011001010101111011000101100110101110000000100101100101101; 
+      "si3"=110010011110101111111001100010011001100000110010010001110111101101111011001011101101111001101011100001011011111; }
+   Call "capture_hclk" { 
+      "_pi"=11001100011100001111100100011111110110000000010010100001000101; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHH; }
+   "pattern 124": Call "load_unload" { 
+      "so0"=LLLLLLLLHLLLHLLHLHLHHHLHHLHLLHHHHLLLHHLHLHHLLHHHLLHHLLLHLHHHHLLLHHLLLHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LHHLHHHLHLLHLHHLLLLLLHHHLLLLHHLLLLLLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HHLLLLLHHHLLLLHHHLHHLHHLHLLHHHLLLLLHHHLLLLHHHLHHLHHLHLLHHHLLLLLHHHLLLLLLLLLLHHHLHHLHHHLHLLHLHHLLLLLLHHHLLLLHHHH; 
+      "so3"=LLLHLLHLLLLLLHHHLHHLHHLHLLHHHLLLLLHHHLLLLHHHLHHLHHLHLLHHHLLLLLHHHLLLLHHHLHHLHHLHLLHHHLLLLLHHHLLLLHHHLHHLHHLHLLH; 
+      "si0"=0010101110001111000000000111001001100000110101100100010010110110000110111110111010000110111111000010001111111111; 
+      "si1"=001001100100001100011100111010011111010101011101001110010100011010111101110001111001000011101010011101010001010; 
+      "si2"=101010111011111001010000011110100111100010011110011110100110101000100111100110101110101000001010101011011011100; 
+      "si3"=010101011101100001011100000001001100001000011001100011010001100010011110111110001110000100100111101110010100101; }
+   Call "capture_hclk" { 
+      "_pi"=11111010001001100100010110111000011111101110110100010101000010; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHL; }
+   "pattern 125": Call "load_unload" { 
+      "so0"=LLLLLLHLHHLHLHHLLHLLLHLLHLHHLHHLLLLHHLHHLHLHHHHHHLLHHHLHHLLHHHLHHLLLHLHHLHHHLLHLHHHLHHHLHHHHHLLLLHHHLHLHLHLLLHHH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLL; 
+      "so2"=LLLHLLLHHHHHHHLHLLLLHLHHHHHHLLLHLLLHHHHHHHLHLLLLHLHHHHHHLLLHLLLHHHHHHHLHLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLLHHHHLLLHLLLLHLHHHHHHLLLHLLLHHHHHHHLHLLLLHLHHHHHHLLLHLLLHHHHHHHLHLLLLHLHHHHHHLLLHLLLHHHHHHHLHLLLLHLHHHHHH; 
+      "si0"=0000011011010011101000000001110001101000011010101000001011011011000011010111011101000011011111110001000011111111; 
+      "si1"=000010011001010011000111001111011111001110101110100111001010001101011110111000111100100001110101001110100001000; 
+      "si2"=110101011101111110101000001111100011110001000101001101010011110110000001010011001011001010000010101010110110111; 
+      "si3"=111111010111110000101010000010000111000100000100111001101000110001001011011111000111000010010011110111001010010; }
+   Call "capture_hclk" { 
+      "_pi"=11110100010111000110101011110000111011011101110000101010100001; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHH; }
+   "pattern 126": Call "load_unload" { 
+      "so0"=LLLLLHHLLHHLHLHLHLLLLLHLHHLHHLHHLLLLHHLHLHLLHLHLHLLLHHLHHLLLLLHLHLLHHHLLLHHHHLLLLHHHLHHHLHHHHHLLLLHHHLHLHLHLLLHH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLL; 
+      "so2"=HLLLHLLLHHHHHHHLHLLLLHLHHHHHHLLLHLLLHHHHHHHLHLLLLHLHHHHHHLLLHLLLHHHHHHLLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLLHLHHHHHLHLLLLHLHHHHHHLLLHLLLHHHHHHHLHLLLLHLHHHHHHLLLHLLLHHHHHHHLHLLLLHLHHHHHHLLLHLLLHHHHHHHLHLLLLHLHHHHH; 
+      "si0"=1100011010111000111010000000101100101100001101001010000101101110100001101000000110100010101111111000101001111101; 
+      "si1"=110000100110000100110001110011101101100111010011010011100101000110101110011100011110010100111010100111010101011; 
+      "si2"=011010101110111111010100000111110001111000110010100010101011011011100011011011110010111010100000101000101101101; 
+      "si3"=111110111110001010011011000011000000100010100010110110110011011000000101101111100011100001001001111011100101001; }
+   Call "capture_hclk" { 
+      "_pi"=11101000101110001101010101100001111010111011100011010101100000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHHLH; }
+   "pattern 127": Call "load_unload" { 
+      "so0"=LLLLLHHLLHHLHLHHLLHHLHHHHHLHLHLHHLHLHLHLLLLHLHLLLLLLHLHHLHLHHLLLLLHHHHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HHLLLHLLLHHHHHHHLHLLLLHLHHHHHHLLLHLLLHHHHHHHLHLLLLHLHHHHHHLLLHLLLHHHHHLLLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHLLLHHHHHLLHHLHLLLLHLHHHHHHLLLHLLLHHHHHHHLHLLLLHLHHHHHHLLLHLLLHHHHHHHLHLLLLHLHHHHHHLLLHLLLHHHHHHHLHLLLLHLHHHH; 
+      "si0"=1110011111011101010111000000000111001110000110100011000010110101010000110000100011010010010111111100011000111111; 
+      "si1"=011100001001110001001100011101100101011111101011101001110010100111010110101110001111001000011101010011110100111; 
+      "si2"=101101010111011011101010000011111000111100011001010101010101001101110001111101011100001110101010001000001011101; 
+      "si3"=110110110001101001001001100000000001110001010001010011001000101100000110110111110001110000100100111101110010100; }
+   Call "capture_hclk" { 
+      "_pi"=11010001011000101110101101000011111001110111001100101011100000; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLHLHH; }
+   "pattern 128": Call "load_unload" { 
+      "so0"=LLLLLHHHHLLLHHHHHLHLHLLHLHHHHLLLHHLLHLHLHHLHHHHLHLLHHLLHHHLLLLHHLLLHLHHHLHLLHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LHLLHLLHLHHHHHHHLLLHHLLLHHHHHHLLLHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=HHHLLLHLLLHHHHLHHLHLLLLHLHHHHHHLLLHLLLHHHHLHHLHLLLLHLHHHHHHLLLHLLLHHHHHLLHHHLHHLHLLHLLHLHHHHHHHLLLHHLLLHHHHHLHH; 
+      "so3"=LLLHLLHHLHHLLLHHLHLLLLHLHHHHHHLLLHLLLHHHHLHHLHLLLLHLHHHHHHLLLHLLLHHHHLHHLHLLLLHLHHHHHHLLLHLLLHHHHLHHLHLLLLHLHHH; 
+      "si0"=0011100110111010100111111111011100100011101000101001110100010101111110110100101001001111110100001110010010011001; 
+      "si1"=010100101010000100101000001101011011010101011011010000011010101001010001111111110111010001011000110001100101000; 
+      "si2"=111111100000001101101100100100101110100100100010011011101001110011010010100110001000001110000001011110001101110; 
+      "si3"=110011001011000011010001011011111011011000010111011111100001010101010100000110101111011011001001110110101111010; }
+   Call "capture_hclk" { 
+      "_pi"=11110101011010001110101011101100001001001110001001010100000010; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHH; }
+   "pattern 129": Call "load_unload" { 
+      "so0"=LLHHHLLLHLHLLLHLHLLHHHLHLLLHLHLHHHHHHLHHHHHLHLHLHHHHHHHHHLLHLHLHLHLHHHLLLHLLHHHLLLLLHHHLLHLHLLLLHHLHHLLHLHLHHLHL; 
+      "so1"=HHHHHHLHHHLHLLLHLHHLLLHHLLLHHLHLHLHHLLLLLHHHHHHHHHLHLHHLLHHHHLLHLHHLLLHHLHHHHLHHHLLHLHHLLLLHLLHHHHHHLLHLHLHLLLL; 
+      "so2"=LHHHLLHLHLLHHLLLHLLHHHHHLHLLLHHHLLHLHLLHHLLLHLLHHHHHLHLLLHHHLLHLHLLHHLLHLLLHHLHLHHLHHLHLLLLLHHLHLHLHLLHLHLLLHHH; 
+      "so3"=LLLLHLLLHLHHLLLHLLHHHHHLHLLLHHHLLHLHLLHHLLLHLLHHHHHLHLLLHHHLLHLHLLHHLLLHLLHHHHHLHLLLHHHLLHLHLLHHLLLHLLHHHHHLHLL; 
+      "si0"=0000111000011101011001111111111011001000110100011010111010001011111111011011100000100111111010100111000101001100; 
+      "si1"=100101001010110001001010000010111110000110101101101000001101010100101000111111111011101000101100011000100101000; 
+      "si2"=011111110000000011110110010010010111010010001001001011110100011101101000111000100010000011100000010101100011111; 
+      "si3"=111001001101101001101000101101011101101100100011101111110100101000101110000011010111101101100100111011010111101; }
+   Call "capture_hclk" { 
+      "_pi"=11101010110100001111010001011000010110011100001010101001101001; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLH; }
+   "pattern 130": Call "load_unload" { 
+      "so0"=LLLLLHHLLLHLHLHHHLLHLHLLLLHHLHLLLHLHLHLHHHLLLLHHHHHHHLLHLLHHLLLLLLHHLHHLHLLLLLLHLLLLLHHHLLHLHLLLLHHLHHLLHLHLHHLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLHLLLL; 
+      "so2"=LLHHHLLHLHLLHHLLLHLLHHHHHLHLLLHHHLLHLHLLHHLLLHLLHHHHHLHLLLHHHLLHLHLLHHLHLHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLLLLLLLHHLHHLLLHLLHHHHHLHLLLHHHLLHLHLLHHLLLHLLHHHHHLHLLLHHHLLHLHLLHHLLLHLLHHHHHLHLLLHHHLLHLHLLHHLLLHLLHHHHHLHL; 
+      "si0"=0111011001110001000001010000100001010111110010101110101001010011000001001000011001011100001001101101111000111101; 
+      "si1"=101101111000111100111010101101000110010110001001100100011100000111000101100000011010100101001110111101110000111; 
+      "si2"=010000011000001001010011101101000101001101100110101000010001011111000100000001000000100110111001011011010101111; 
+      "si3"=011110111100001111100011001111010101001110100110101010011101000001000111000111000100101101111011101011000100100; }
+   Call "capture_hclk" { 
+      "_pi"=11100000110010101100001101011100100101110110001110000111101110; 
+      "_po"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHLLLHLL; }
+   "end 130 unload": Call "load_unload" { 
+      "so0"=LLLLLHHHLHHHHHHHHHLLHHLLHLLLLLHLHHLLHLLLLLHLHLHHHLHHHHLHLHLHHHHLHLLHHHLLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLH; 
+      "so1"=LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLHHLHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so2"=LHHLHHHLLLHHHHLLHLHHHLLLHLLHLHHLHHHLLLHHHHLLHLHHHLLLHLLHLHHLHHHLLLHHHHLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL; 
+      "so3"=LLHHLLHHHHLLLLLHLHHHLLLHLLHLHHLHHHLLLHHHHLLHLHHHLLLHLLHLHHLHHHLLLHHHHLLHLHHHLLLHLLHLHHLHHHLLLHHHHLLHLHHHLLLHLLH; }
+}

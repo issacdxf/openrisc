@@ -1,0 +1,298 @@
+ 
+****************************************
+Report : hierarchy
+Design : des
+Version: Z-2007.03-SP1
+Date   : Fri Sep 18 12:13:11 2009
+****************************************
+
+Attributes:
+    r - licensed design
+
+des
+    AN2                                                    fsa0a_c_sc_wc
+    AN4B1                                                  fsa0a_c_sc_wc
+    AOI112P                                                fsa0a_c_sc_wc
+    DFFRBN                                                 fsa0a_c_sc_wc
+    DFFRBP                                                 fsa0a_c_sc_wc
+    DFFSBN                                                 fsa0a_c_sc_wc
+    INV1                                                   fsa0a_c_sc_wc
+    INV2                                                   fsa0a_c_sc_wc
+    INV3                                                   fsa0a_c_sc_wc
+    MAOI1                                                  fsa0a_c_sc_wc
+    MOAI1                                                  fsa0a_c_sc_wc
+    ND2                                                    fsa0a_c_sc_wc
+    ND2P                                                   fsa0a_c_sc_wc
+    ND3                                                    fsa0a_c_sc_wc
+    ND3P                                                   fsa0a_c_sc_wc
+    NR2                                                    fsa0a_c_sc_wc
+    NR2F                                                   fsa0a_c_sc_wc
+    NR2P                                                   fsa0a_c_sc_wc
+    NR3P                                                   fsa0a_c_sc_wc
+    OA12                                                   fsa0a_c_sc_wc
+    OAI12S                                                 fsa0a_c_sc_wc
+    OR2                                                    fsa0a_c_sc_wc
+    OR2P                                                   fsa0a_c_sc_wc
+    OR3B2                                                  fsa0a_c_sc_wc
+    POWERMODULE_HIGH_des_0
+        AN2                                                fsa0a_c_sc_wc
+        OR2                                                fsa0a_c_sc_wc
+        QDBHN                                              fsa0a_c_sc_wc
+    QDFFRBN                                                fsa0a_c_sc_wc
+    QDFFRBP                                                fsa0a_c_sc_wc
+    SNPS_CLOCK_GATE_OBS_des
+        AN2                                                fsa0a_c_sc_wc
+        ND2                                                fsa0a_c_sc_wc
+        QDFFN                                              fsa0a_c_sc_wc
+    TIE1                                                   fsa0a_c_sc_wc
+    des_cop                                                          r
+        AN2B1                                              fsa0a_c_sc_wc
+        AN3                                                fsa0a_c_sc_wc
+        AO222                                              fsa0a_c_sc_wc
+        BUF1                                               fsa0a_c_sc_wc
+        BUF2                                               fsa0a_c_sc_wc
+        INV2                                               fsa0a_c_sc_wc
+        INV3                                               fsa0a_c_sc_wc
+        MOAI1P                                             fsa0a_c_sc_wc
+        ND2                                                fsa0a_c_sc_wc
+        ND2P                                               fsa0a_c_sc_wc
+        ND3                                                fsa0a_c_sc_wc
+        ND3P                                               fsa0a_c_sc_wc
+        ND3T                                               fsa0a_c_sc_wc
+        NR2                                                fsa0a_c_sc_wc
+        NR2P                                               fsa0a_c_sc_wc
+        OAI12S                                             fsa0a_c_sc_wc
+        OAI112                                             fsa0a_c_sc_wc
+        OAI112S                                            fsa0a_c_sc_wc
+        OR2B1                                              fsa0a_c_sc_wc
+        OR2P                                               fsa0a_c_sc_wc
+        QDFFRBN                                            fsa0a_c_sc_wc
+        XNR2                                               fsa0a_c_sc_wc
+        XOR2                                               fsa0a_c_sc_wc
+        tiny_des
+            AN2                                            fsa0a_c_sc_wc
+            AN3                                            fsa0a_c_sc_wc
+            AO12                                           fsa0a_c_sc_wc
+            AO22                                           fsa0a_c_sc_wc
+            AO22P                                          fsa0a_c_sc_wc
+            AOI13HS                                        fsa0a_c_sc_wc
+            AOI112P                                        fsa0a_c_sc_wc
+            BUF1                                           fsa0a_c_sc_wc
+            BUF2                                           fsa0a_c_sc_wc
+            INV1                                           fsa0a_c_sc_wc
+            INV2                                           fsa0a_c_sc_wc
+            INV3                                           fsa0a_c_sc_wc
+            MAOI1P                                         fsa0a_c_sc_wc
+            ND2                                            fsa0a_c_sc_wc
+            ND2P                                           fsa0a_c_sc_wc
+            ND3                                            fsa0a_c_sc_wc
+            ND3P                                           fsa0a_c_sc_wc
+            NR2                                            fsa0a_c_sc_wc
+            NR2P                                           fsa0a_c_sc_wc
+            NR2T                                           fsa0a_c_sc_wc
+            OA12                                           fsa0a_c_sc_wc
+            OA22                                           fsa0a_c_sc_wc
+            OA112                                          fsa0a_c_sc_wc
+            OA222                                          fsa0a_c_sc_wc
+            OAI12S                                         fsa0a_c_sc_wc
+            OAI22                                          fsa0a_c_sc_wc
+            OAI112                                         fsa0a_c_sc_wc
+            OAI112S                                        fsa0a_c_sc_wc
+            OR2                                            fsa0a_c_sc_wc
+            OR2B1                                          fsa0a_c_sc_wc
+            OR3                                            fsa0a_c_sc_wc
+            OR3B2                                          fsa0a_c_sc_wc
+            OR3B2P                                         fsa0a_c_sc_wc
+            QDFFRBN                                        fsa0a_c_sc_wc
+            QDFFRBP                                        fsa0a_c_sc_wc
+            XOR2                                           fsa0a_c_sc_wc
+            tiny_des_round
+                AN2                                        fsa0a_c_sc_wc
+                AN2B1                                      fsa0a_c_sc_wc
+                AN3                                        fsa0a_c_sc_wc
+                AN3B1                                      fsa0a_c_sc_wc
+                AO12                                       fsa0a_c_sc_wc
+                AO13                                       fsa0a_c_sc_wc
+                AO22                                       fsa0a_c_sc_wc
+                AO112                                      fsa0a_c_sc_wc
+                AO222                                      fsa0a_c_sc_wc
+                AO2222                                     fsa0a_c_sc_wc
+                AOI12                                      fsa0a_c_sc_wc
+                AOI12S                                     fsa0a_c_sc_wc
+                AOI13                                      fsa0a_c_sc_wc
+                AOI13HS                                    fsa0a_c_sc_wc
+                AOI13S                                     fsa0a_c_sc_wc
+                AOI22                                      fsa0a_c_sc_wc
+                AOI112P                                    fsa0a_c_sc_wc
+                AOI2222                                    fsa0a_c_sc_wc
+                BUF1                                       fsa0a_c_sc_wc
+                BUF2                                       fsa0a_c_sc_wc
+                INV1                                       fsa0a_c_sc_wc
+                INV2                                       fsa0a_c_sc_wc
+                INV3                                       fsa0a_c_sc_wc
+                MAOI1                                      fsa0a_c_sc_wc
+                MOAI1                                      fsa0a_c_sc_wc
+                MOAI1P                                     fsa0a_c_sc_wc
+                MOAI1T                                     fsa0a_c_sc_wc
+                ND2                                        fsa0a_c_sc_wc
+                ND2P                                       fsa0a_c_sc_wc
+                ND2T                                       fsa0a_c_sc_wc
+                ND3                                        fsa0a_c_sc_wc
+                ND3P                                       fsa0a_c_sc_wc
+                NR2                                        fsa0a_c_sc_wc
+                NR2P                                       fsa0a_c_sc_wc
+                NR2T                                       fsa0a_c_sc_wc
+                NR3P                                       fsa0a_c_sc_wc
+                NR6                                        fsa0a_c_sc_wc
+                OA12                                       fsa0a_c_sc_wc
+                OA13                                       fsa0a_c_sc_wc
+                OA22                                       fsa0a_c_sc_wc
+                OA22P                                      fsa0a_c_sc_wc
+                OA112                                      fsa0a_c_sc_wc
+                OA222                                      fsa0a_c_sc_wc
+                OA2222                                     fsa0a_c_sc_wc
+                OA2222S                                    fsa0a_c_sc_wc
+                OAI12                                      fsa0a_c_sc_wc
+                OAI12S                                     fsa0a_c_sc_wc
+                OAI22                                      fsa0a_c_sc_wc
+                OAI112                                     fsa0a_c_sc_wc
+                OAI112S                                    fsa0a_c_sc_wc
+                OAI222                                     fsa0a_c_sc_wc
+                OAI2222                                    fsa0a_c_sc_wc
+                OR2                                        fsa0a_c_sc_wc
+                OR2B1                                      fsa0a_c_sc_wc
+                OR3                                        fsa0a_c_sc_wc
+                OR3B2                                      fsa0a_c_sc_wc
+                OR3B2P                                     fsa0a_c_sc_wc
+                POWERMODULE_HIGH_tiny_des_round_0
+                    AN2P                                   fsa0a_c_sc_wc
+                    OR2                                    fsa0a_c_sc_wc
+                    QDBHN                                  fsa0a_c_sc_wc
+                QDFFRBN                                    fsa0a_c_sc_wc
+                SNPS_CLOCK_GATE_OBS_tiny_des_round
+                    AN2                                    fsa0a_c_sc_wc
+                    ND2                                    fsa0a_c_sc_wc
+                    QDFFN                                  fsa0a_c_sc_wc
+                XNR2                                       fsa0a_c_sc_wc
+                XNR2P                                      fsa0a_c_sc_wc
+                XOR2                                       fsa0a_c_sc_wc
+                XOR2P                                      fsa0a_c_sc_wc
+                XOR2T                                      fsa0a_c_sc_wc
+    des_dat                                                          r
+        AN2                                                fsa0a_c_sc_wc
+        AO12                                               fsa0a_c_sc_wc
+        AOI13HS                                            fsa0a_c_sc_wc
+        BUF1                                               fsa0a_c_sc_wc
+        BUF2                                               fsa0a_c_sc_wc
+        INV2                                               fsa0a_c_sc_wc
+        INV3                                               fsa0a_c_sc_wc
+        MOAI1                                              fsa0a_c_sc_wc
+        MUX2                                               fsa0a_c_sc_wc
+        ND2                                                fsa0a_c_sc_wc
+        NR2                                                fsa0a_c_sc_wc
+        NR3P                                               fsa0a_c_sc_wc
+        OA22                                               fsa0a_c_sc_wc
+        OAI12S                                             fsa0a_c_sc_wc
+        POWERMODULE_HIGH_des_dat_0_0
+            AN2                                            fsa0a_c_sc_wc
+            OR2                                            fsa0a_c_sc_wc
+            QDBHN                                          fsa0a_c_sc_wc
+        POWERMODULE_HIGH_des_dat_0_1
+            AN2                                            fsa0a_c_sc_wc
+            OR2                                            fsa0a_c_sc_wc
+            QDBHN                                          fsa0a_c_sc_wc
+        QDFFRBN                                            fsa0a_c_sc_wc
+        SNPS_CLOCK_GATE_OBS_des_dat
+            AN2                                            fsa0a_c_sc_wc
+            ND2                                            fsa0a_c_sc_wc
+            QDFFN                                          fsa0a_c_sc_wc
+            XOR2                                           fsa0a_c_sc_wc
+        XOR2                                               fsa0a_c_sc_wc
+    des_iv
+        AO12                                               fsa0a_c_sc_wc
+        AOI12S                                             fsa0a_c_sc_wc
+        BUF1                                               fsa0a_c_sc_wc
+        BUF2                                               fsa0a_c_sc_wc
+        INV2                                               fsa0a_c_sc_wc
+        MOAI1                                              fsa0a_c_sc_wc
+        ND2                                                fsa0a_c_sc_wc
+        NR2                                                fsa0a_c_sc_wc
+        OAI12S                                             fsa0a_c_sc_wc
+        OR2                                                fsa0a_c_sc_wc
+        POWERMODULE_HIGH_des_iv_0_0
+            AN2                                            fsa0a_c_sc_wc
+            OR2                                            fsa0a_c_sc_wc
+            QDBHN                                          fsa0a_c_sc_wc
+        POWERMODULE_HIGH_des_iv_0_1
+            AN2                                            fsa0a_c_sc_wc
+            OR2                                            fsa0a_c_sc_wc
+            QDBHN                                          fsa0a_c_sc_wc
+        QDFFRBN                                            fsa0a_c_sc_wc
+        SNPS_CLOCK_GATE_OBS_des_iv
+            AN2                                            fsa0a_c_sc_wc
+            ND2                                            fsa0a_c_sc_wc
+            QDFFN                                          fsa0a_c_sc_wc
+            XOR2                                           fsa0a_c_sc_wc
+        XOR2                                               fsa0a_c_sc_wc
+    des_key                                                          r
+        AN2                                                fsa0a_c_sc_wc
+        AOI112P                                            fsa0a_c_sc_wc
+        BUF1                                               fsa0a_c_sc_wc
+        DFFRBP                                             fsa0a_c_sc_wc
+        INV2                                               fsa0a_c_sc_wc
+        MOAI1                                              fsa0a_c_sc_wc
+        ND2                                                fsa0a_c_sc_wc
+        ND2P                                               fsa0a_c_sc_wc
+        ND3                                                fsa0a_c_sc_wc
+        NR2                                                fsa0a_c_sc_wc
+        NR2P                                               fsa0a_c_sc_wc
+        NR3P                                               fsa0a_c_sc_wc
+        OAI12S                                             fsa0a_c_sc_wc
+        OAI112S                                            fsa0a_c_sc_wc
+        OR2                                                fsa0a_c_sc_wc
+        OR3B2                                              fsa0a_c_sc_wc
+        POWERMODULE_HIGH_des_key_0_0
+            AN2                                            fsa0a_c_sc_wc
+            OR2                                            fsa0a_c_sc_wc
+            QDBHN                                          fsa0a_c_sc_wc
+        POWERMODULE_HIGH_des_key_0_1
+            AN2                                            fsa0a_c_sc_wc
+            OR2                                            fsa0a_c_sc_wc
+            QDBHN                                          fsa0a_c_sc_wc
+        POWERMODULE_HIGH_des_key_0_2
+            AN2                                            fsa0a_c_sc_wc
+            OR2                                            fsa0a_c_sc_wc
+            QDBHN                                          fsa0a_c_sc_wc
+        POWERMODULE_HIGH_des_key_0_3
+            AN2                                            fsa0a_c_sc_wc
+            OR2                                            fsa0a_c_sc_wc
+            QDBHN                                          fsa0a_c_sc_wc
+        POWERMODULE_HIGH_des_key_0_4
+            AN2                                            fsa0a_c_sc_wc
+            OR2                                            fsa0a_c_sc_wc
+            QDBHN                                          fsa0a_c_sc_wc
+        POWERMODULE_HIGH_des_key_0_5
+            AN2                                            fsa0a_c_sc_wc
+            OR2                                            fsa0a_c_sc_wc
+            QDBHN                                          fsa0a_c_sc_wc
+        QDFFRBN                                            fsa0a_c_sc_wc
+        SNPS_CLOCK_GATE_OBS_des_key
+            AN2                                            fsa0a_c_sc_wc
+            BUF2                                           fsa0a_c_sc_wc
+            ND2                                            fsa0a_c_sc_wc
+            QDFFN                                          fsa0a_c_sc_wc
+            XOR3                                           fsa0a_c_sc_wc
+            XOR4                                           fsa0a_c_sc_wc
+        TIE1                                               fsa0a_c_sc_wc
+    des_spares_0
+        DFFRBP                                             fsa0a_c_sc_wc
+        INV4                                               fsa0a_c_sc_wc
+        MUX2P                                              fsa0a_c_sc_wc
+        ND2T                                               fsa0a_c_sc_wc
+        ND3T                                               fsa0a_c_sc_wc
+        NR2T                                               fsa0a_c_sc_wc
+        NR3T                                               fsa0a_c_sc_wc
+        TIE0                                               fsa0a_c_sc_wc
+        TIE1                                               fsa0a_c_sc_wc
+        XNR2P                                              fsa0a_c_sc_wc
+1

@@ -1,0 +1,9 @@
+#!/bin/csh -f
+
+set item_list = ""
+set item_list = "$item_list syn_wc"
+
+foreach item_name ($item_list)
+    /ecad/synopsys/pt_b200806sp3/bin/pt_shell -f runpt_$item_name.tcl | tee ../log/pt_$item_name.log
+end
+

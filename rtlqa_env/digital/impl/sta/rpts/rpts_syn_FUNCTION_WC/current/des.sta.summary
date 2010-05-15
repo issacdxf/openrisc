@@ -1,0 +1,11 @@
+runPTstage is		 syn
+EnablePTSI is		 false
+savesession is		 false
+GenSIConstraints4PR is	 false
+GenSDFfile is		 false
+netlistFileList is	 des.lst
+ParasiticFile is	 /export/home/user/wangyl/release/rtlqa_lib/digital/impl/syn/work/WLM/current/des.spef
+topModuleName is 	 des
+AnalysisType is		 on_chip_variation
+OperatingCondition is	 WC
+WireLoadModel is	 AUTO

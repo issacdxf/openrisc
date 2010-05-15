@@ -1,0 +1,32 @@
+****************************************
+Report : Statistical Average Power
+Design : des
+Version: B-2008.06-SP3
+Date   : Thu Sep 17 12:10:21 2009
+****************************************
+
+
+
+  Attributes
+  ----------
+      i  -  Including register clock pin internal power
+      u  -  User defined power group
+
+                        Internal  Switching  Leakage    Total
+Power Group             Power     Power      Power      Power   (     %)  Attrs
+--------------------------------------------------------------------------------
+io_pad                     0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+memory                     0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+black_box                  0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+clock_network           8.543e-05 4.184e-09 1.759e-09 8.544e-05 (94.80%)  i
+register                7.465e-08 3.556e-08 8.170e-08 1.919e-07 ( 0.21%)  
+combinational           1.412e-06 2.832e-06 2.515e-07 4.495e-06 ( 4.99%)  
+sequential                 0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+
+  Net Switching Power  = 2.871e-06   ( 3.19%)
+  Cell Internal Power  = 8.692e-05   (96.44%)
+  Cell Leakage Power   = 3.350e-07   ( 0.37%)
+                         ---------
+Total Power            = 9.013e-05  (100.00%)
+
+1

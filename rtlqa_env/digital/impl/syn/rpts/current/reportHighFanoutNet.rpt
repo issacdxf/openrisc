@@ -1,0 +1,36 @@
+ 
+****************************************
+Report : net fanout
+        -threshold 50
+Design : des
+Version: Z-2007.03-SP1
+Date   : Fri Sep 18 12:13:11 2009
+****************************************
+
+
+Operating Conditions: WCCOM   Library: fsa0a_c_sc_wc
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+des                    enG500K           fsa0a_c_sc_wc
+
+
+Attributes:
+   dr - drc disabled
+    c - annotated capacitance
+    d - dont_touch
+    i - ideal_net
+    I - ideal_network
+    p - includes pin load
+    r - annotated resistance
+    h - high fanout
+
+Net                 Fanout   Attributes   Capacitance   Driver
+--------------------------------------------------------------------------------
+hclk                   101   dr               0.57      hclk
+POR                    192   d, I             0.00      POR
+hresetn                248   d, I             0.00      hresetn
+des_cop_unit/des_unit/u_tiny_des_round/CLKGATING_hclk_POWERGATING_hclk_N1778_0_0
+                        64   dr               0.42      des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+1

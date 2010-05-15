@@ -1,0 +1,20 @@
+    73: output   [31:0]      hrdata;
+                             ^
+des.v:73: DESIGN> [ERROR] C_1005: Top-level output port is not registered: des.hrdata
+
+   107:                 round[3:0] <= #1 round[3:0] + 1;
+                                   ^
+tiny_des.v:107: DESIGN> [WARNING] B_1001: Reading from output port round
+
+    83:             1'b0 :
+                    ^
+tiny_des.v:83: STATE_> [WARNING] B_3605_A: Use parameter declarations to define the state vector of a state machine
+
+    88:             1'b1 :
+                    ^
+tiny_des.v:88: STATE_> [WARNING] B_3605_A: Use parameter declarations to define the state vector of a state machine
+
+    76: always @(posedge hclk or negedge hresetn) 
+        ^^^^^^
+tiny_des.v:76: STATE_> [WARNING] B_3604: Assign a default state to the state machines
+

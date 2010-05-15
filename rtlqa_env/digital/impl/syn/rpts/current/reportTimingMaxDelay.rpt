@@ -1,0 +1,280 @@
+ 
+****************************************
+Report : timing
+        -path full_clock
+        -delay max
+        -nworst 2
+        -input_pins
+        -nets
+        -max_paths 5
+        -transition_time
+        -capacitance
+Design : des
+Version: Z-2007.03-SP1
+Date   : Fri Sep 18 12:13:21 2009
+****************************************
+
+Operating Conditions: WCCOM   Library: fsa0a_c_sc_wc
+Wire Load Model Mode: top
+
+  Startpoint: rw_reg (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: hrdata[0] (output port clocked by hclk)
+  Path Group: hclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  des                enG500K               fsa0a_c_sc_wc
+
+  Point                        Fanout       Cap     Trans      Incr       Path
+  -------------------------------------------------------------------------------
+  clock hclk (rise edge)                                       0.00       0.00
+  clock network delay (ideal)                                  5.00       5.00
+  rw_reg/CK (DFFSBN)                                 0.00      0.00       5.00 r
+  rw_reg/QB (DFFSBN)                                 1.02      0.94       5.94 r
+  n6 (net)                       5         0.14                0.00       5.94 r
+  U129/I1 (NR2)                                      1.02      0.00       5.94 r
+  U129/O (NR2)                                       0.60      0.40       6.34 f
+  desdat_rd (net)                1         0.06                0.00       6.34 f
+  desdat_unit/rd (des_dat)                                     0.00       6.34 f
+  desdat_unit/rd (net)                     0.06                0.00       6.34 f
+  desdat_unit/U25/I (INV2)                           0.60      0.00       6.34 f
+  desdat_unit/U25/O (INV2)                           0.46      0.33       6.67 r
+  desdat_unit/n76 (net)          2         0.07                0.00       6.67 r
+  desdat_unit/U14/I (BUF1)                           0.46      0.00       6.67 r
+  desdat_unit/U14/O (BUF1)                           0.87      0.55       7.21 r
+  desdat_unit/n74 (net)          3         0.12                0.00       7.21 r
+  desdat_unit/U4/I (INV3)                            0.87      0.00       7.21 r
+  desdat_unit/U4/O (INV3)                            0.56      0.36       7.58 f
+  desdat_unit/n71 (net)         16         0.24                0.00       7.58 f
+  desdat_unit/U30/I2 (AN2)                           0.56      0.00       7.58 f
+  desdat_unit/U30/O (AN2)                            0.27      0.45       8.03 f
+  desdat_unit/q[0] (net)         1         0.05                0.00       8.03 f
+  desdat_unit/q[0] (des_dat)                                   0.00       8.03 f
+  desdat_8_out[0] (net)                    0.05                0.00       8.03 f
+  U142/B1 (MOAI1)                                    0.27      0.00       8.03 f
+  U142/O (MOAI1)                                     0.57      0.40       8.43 f
+  hrdata[0] (net)                1         0.05                0.00       8.43 f
+  hrdata[0] (out)                                    0.57      0.00       8.43 f
+  data arrival time                                                       8.43
+
+  clock hclk (rise edge)                                      50.00      50.00
+  clock network delay (ideal)                                  0.00      50.00
+  output external delay                                      -25.00      25.00
+  data required time                                                     25.00
+  -------------------------------------------------------------------------------
+  data required time                                                     25.00
+  data arrival time                                                      -8.43
+  -------------------------------------------------------------------------------
+  slack (MET)                                                            16.57
+
+
+  Startpoint: rw_reg (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: hrdata[1] (output port clocked by hclk)
+  Path Group: hclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  des                enG500K               fsa0a_c_sc_wc
+
+  Point                        Fanout       Cap     Trans      Incr       Path
+  -------------------------------------------------------------------------------
+  clock hclk (rise edge)                                       0.00       0.00
+  clock network delay (ideal)                                  5.00       5.00
+  rw_reg/CK (DFFSBN)                                 0.00      0.00       5.00 r
+  rw_reg/QB (DFFSBN)                                 1.02      0.94       5.94 r
+  n6 (net)                       5         0.14                0.00       5.94 r
+  U129/I1 (NR2)                                      1.02      0.00       5.94 r
+  U129/O (NR2)                                       0.60      0.40       6.34 f
+  desdat_rd (net)                1         0.06                0.00       6.34 f
+  desdat_unit/rd (des_dat)                                     0.00       6.34 f
+  desdat_unit/rd (net)                     0.06                0.00       6.34 f
+  desdat_unit/U25/I (INV2)                           0.60      0.00       6.34 f
+  desdat_unit/U25/O (INV2)                           0.46      0.33       6.67 r
+  desdat_unit/n76 (net)          2         0.07                0.00       6.67 r
+  desdat_unit/U14/I (BUF1)                           0.46      0.00       6.67 r
+  desdat_unit/U14/O (BUF1)                           0.87      0.55       7.21 r
+  desdat_unit/n74 (net)          3         0.12                0.00       7.21 r
+  desdat_unit/U4/I (INV3)                            0.87      0.00       7.21 r
+  desdat_unit/U4/O (INV3)                            0.56      0.36       7.58 f
+  desdat_unit/n71 (net)         16         0.24                0.00       7.58 f
+  desdat_unit/U32/I2 (AN2)                           0.56      0.00       7.58 f
+  desdat_unit/U32/O (AN2)                            0.27      0.45       8.03 f
+  desdat_unit/q[1] (net)         1         0.05                0.00       8.03 f
+  desdat_unit/q[1] (des_dat)                                   0.00       8.03 f
+  desdat_8_out[1] (net)                    0.05                0.00       8.03 f
+  U143/B1 (MOAI1)                                    0.27      0.00       8.03 f
+  U143/O (MOAI1)                                     0.57      0.40       8.43 f
+  hrdata[1] (net)                1         0.05                0.00       8.43 f
+  hrdata[1] (out)                                    0.57      0.00       8.43 f
+  data arrival time                                                       8.43
+
+  clock hclk (rise edge)                                      50.00      50.00
+  clock network delay (ideal)                                  0.00      50.00
+  output external delay                                      -25.00      25.00
+  data required time                                                     25.00
+  -------------------------------------------------------------------------------
+  data required time                                                     25.00
+  data arrival time                                                      -8.43
+  -------------------------------------------------------------------------------
+  slack (MET)                                                            16.57
+
+
+  Startpoint: rw_reg (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: hrdata[10] (output port clocked by hclk)
+  Path Group: hclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  des                enG500K               fsa0a_c_sc_wc
+
+  Point                        Fanout       Cap     Trans      Incr       Path
+  -------------------------------------------------------------------------------
+  clock hclk (rise edge)                                       0.00       0.00
+  clock network delay (ideal)                                  5.00       5.00
+  rw_reg/CK (DFFSBN)                                 0.00      0.00       5.00 r
+  rw_reg/QB (DFFSBN)                                 1.02      0.94       5.94 r
+  n6 (net)                       5         0.14                0.00       5.94 r
+  U129/I1 (NR2)                                      1.02      0.00       5.94 r
+  U129/O (NR2)                                       0.60      0.40       6.34 f
+  desdat_rd (net)                1         0.06                0.00       6.34 f
+  desdat_unit/rd (des_dat)                                     0.00       6.34 f
+  desdat_unit/rd (net)                     0.06                0.00       6.34 f
+  desdat_unit/U25/I (INV2)                           0.60      0.00       6.34 f
+  desdat_unit/U25/O (INV2)                           0.46      0.33       6.67 r
+  desdat_unit/n76 (net)          2         0.07                0.00       6.67 r
+  desdat_unit/U14/I (BUF1)                           0.46      0.00       6.67 r
+  desdat_unit/U14/O (BUF1)                           0.87      0.55       7.21 r
+  desdat_unit/n74 (net)          3         0.12                0.00       7.21 r
+  desdat_unit/U4/I (INV3)                            0.87      0.00       7.21 r
+  desdat_unit/U4/O (INV3)                            0.56      0.36       7.58 f
+  desdat_unit/n71 (net)         16         0.24                0.00       7.58 f
+  desdat_unit/U46/I2 (AN2)                           0.56      0.00       7.58 f
+  desdat_unit/U46/O (AN2)                            0.27      0.45       8.03 f
+  desdat_unit/q[10] (net)        1         0.05                0.00       8.03 f
+  desdat_unit/q[10] (des_dat)                                  0.00       8.03 f
+  desdat_8_out[10] (net)                   0.05                0.00       8.03 f
+  U150/I1 (AN2)                                      0.27      0.00       8.03 f
+  U150/O (AN2)                                       0.27      0.36       8.38 f
+  hrdata[10] (net)               1         0.05                0.00       8.38 f
+  hrdata[10] (out)                                   0.27      0.00       8.38 f
+  data arrival time                                                       8.38
+
+  clock hclk (rise edge)                                      50.00      50.00
+  clock network delay (ideal)                                  0.00      50.00
+  output external delay                                      -25.00      25.00
+  data required time                                                     25.00
+  -------------------------------------------------------------------------------
+  data required time                                                     25.00
+  data arrival time                                                      -8.38
+  -------------------------------------------------------------------------------
+  slack (MET)                                                            16.62
+
+
+  Startpoint: rw_reg (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: hrdata[11] (output port clocked by hclk)
+  Path Group: hclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  des                enG500K               fsa0a_c_sc_wc
+
+  Point                        Fanout       Cap     Trans      Incr       Path
+  -------------------------------------------------------------------------------
+  clock hclk (rise edge)                                       0.00       0.00
+  clock network delay (ideal)                                  5.00       5.00
+  rw_reg/CK (DFFSBN)                                 0.00      0.00       5.00 r
+  rw_reg/QB (DFFSBN)                                 1.02      0.94       5.94 r
+  n6 (net)                       5         0.14                0.00       5.94 r
+  U129/I1 (NR2)                                      1.02      0.00       5.94 r
+  U129/O (NR2)                                       0.60      0.40       6.34 f
+  desdat_rd (net)                1         0.06                0.00       6.34 f
+  desdat_unit/rd (des_dat)                                     0.00       6.34 f
+  desdat_unit/rd (net)                     0.06                0.00       6.34 f
+  desdat_unit/U25/I (INV2)                           0.60      0.00       6.34 f
+  desdat_unit/U25/O (INV2)                           0.46      0.33       6.67 r
+  desdat_unit/n76 (net)          2         0.07                0.00       6.67 r
+  desdat_unit/U14/I (BUF1)                           0.46      0.00       6.67 r
+  desdat_unit/U14/O (BUF1)                           0.87      0.55       7.21 r
+  desdat_unit/n74 (net)          3         0.12                0.00       7.21 r
+  desdat_unit/U4/I (INV3)                            0.87      0.00       7.21 r
+  desdat_unit/U4/O (INV3)                            0.56      0.36       7.58 f
+  desdat_unit/n71 (net)         16         0.24                0.00       7.58 f
+  desdat_unit/U48/I2 (AN2)                           0.56      0.00       7.58 f
+  desdat_unit/U48/O (AN2)                            0.27      0.45       8.03 f
+  desdat_unit/q[11] (net)        1         0.05                0.00       8.03 f
+  desdat_unit/q[11] (des_dat)                                  0.00       8.03 f
+  desdat_8_out[11] (net)                   0.05                0.00       8.03 f
+  U151/I1 (AN2)                                      0.27      0.00       8.03 f
+  U151/O (AN2)                                       0.27      0.36       8.38 f
+  hrdata[11] (net)               1         0.05                0.00       8.38 f
+  hrdata[11] (out)                                   0.27      0.00       8.38 f
+  data arrival time                                                       8.38
+
+  clock hclk (rise edge)                                      50.00      50.00
+  clock network delay (ideal)                                  0.00      50.00
+  output external delay                                      -25.00      25.00
+  data required time                                                     25.00
+  -------------------------------------------------------------------------------
+  data required time                                                     25.00
+  data arrival time                                                      -8.38
+  -------------------------------------------------------------------------------
+  slack (MET)                                                            16.62
+
+
+  Startpoint: rw_reg (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: hrdata[12] (output port clocked by hclk)
+  Path Group: hclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  des                enG500K               fsa0a_c_sc_wc
+
+  Point                        Fanout       Cap     Trans      Incr       Path
+  -------------------------------------------------------------------------------
+  clock hclk (rise edge)                                       0.00       0.00
+  clock network delay (ideal)                                  5.00       5.00
+  rw_reg/CK (DFFSBN)                                 0.00      0.00       5.00 r
+  rw_reg/QB (DFFSBN)                                 1.02      0.94       5.94 r
+  n6 (net)                       5         0.14                0.00       5.94 r
+  U129/I1 (NR2)                                      1.02      0.00       5.94 r
+  U129/O (NR2)                                       0.60      0.40       6.34 f
+  desdat_rd (net)                1         0.06                0.00       6.34 f
+  desdat_unit/rd (des_dat)                                     0.00       6.34 f
+  desdat_unit/rd (net)                     0.06                0.00       6.34 f
+  desdat_unit/U25/I (INV2)                           0.60      0.00       6.34 f
+  desdat_unit/U25/O (INV2)                           0.46      0.33       6.67 r
+  desdat_unit/n76 (net)          2         0.07                0.00       6.67 r
+  desdat_unit/U14/I (BUF1)                           0.46      0.00       6.67 r
+  desdat_unit/U14/O (BUF1)                           0.87      0.55       7.21 r
+  desdat_unit/n74 (net)          3         0.12                0.00       7.21 r
+  desdat_unit/U4/I (INV3)                            0.87      0.00       7.21 r
+  desdat_unit/U4/O (INV3)                            0.56      0.36       7.58 f
+  desdat_unit/n71 (net)         16         0.24                0.00       7.58 f
+  desdat_unit/U50/I2 (AN2)                           0.56      0.00       7.58 f
+  desdat_unit/U50/O (AN2)                            0.27      0.45       8.03 f
+  desdat_unit/q[12] (net)        1         0.05                0.00       8.03 f
+  desdat_unit/q[12] (des_dat)                                  0.00       8.03 f
+  desdat_8_out[12] (net)                   0.05                0.00       8.03 f
+  U152/I1 (AN2)                                      0.27      0.00       8.03 f
+  U152/O (AN2)                                       0.27      0.36       8.38 f
+  hrdata[12] (net)               1         0.05                0.00       8.38 f
+  hrdata[12] (out)                                   0.27      0.00       8.38 f
+  data arrival time                                                       8.38
+
+  clock hclk (rise edge)                                      50.00      50.00
+  clock network delay (ideal)                                  0.00      50.00
+  output external delay                                      -25.00      25.00
+  data required time                                                     25.00
+  -------------------------------------------------------------------------------
+  data required time                                                     25.00
+  data arrival time                                                      -8.38
+  -------------------------------------------------------------------------------
+  slack (MET)                                                            16.62
+
+
+1

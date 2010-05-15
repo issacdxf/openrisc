@@ -1,0 +1,27 @@
+****************************************
+Report : annotated_check
+	-setup
+	-hold
+	-recovery
+	-removal
+	-width
+	-period
+	-skew
+	-clock_separation
+Design : des
+Version: B-2008.06-SP3
+Date   : Fri Sep 11 18:42:53 2009
+****************************************
+
+                             |           |           |    NOT    |
+    Timing check type        |    Total  | Annotated | Annotated |
+-----------------------------+-----------+-----------+-----------+
+cell setup arcs              |      462  |        0  |      462  |
+cell hold arcs               |      462  |        0  |      462  |
+cell recovery arcs           |      440  |        0  |      440  |
+cell removal arcs            |      440  |        0  |      440  |
+cell min pulse width arcs    |     1331  |        0  |     1331  |
+-----------------------------+-----------+-----------+-----------+
+                             |     3135  |        0  |     3135  |
+
+1

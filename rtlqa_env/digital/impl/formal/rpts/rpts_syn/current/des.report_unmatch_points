@@ -1,0 +1,53 @@
+
+11 Unmatched points (0 reference, 11 implementation):
+
+  Impl LATCG      IMP:/WORK/des/des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/latch
+
+  Impl LATCG      IMP:/WORK/des/desdat_unit/POWERGATING_hclk_N134_0/latch
+
+  Impl LATCG      IMP:/WORK/des/desdat_unit/POWERGATING_hclk_N70_0/latch
+
+  Impl LATCG      IMP:/WORK/des/desiv_unit/POWERGATING_hclk_N130_0/latch
+
+  Impl LATCG      IMP:/WORK/des/desiv_unit/POWERGATING_hclk_N66_0/latch
+
+  Impl LATCG      IMP:/WORK/des/deskey_unit/POWERGATING_hclk_N115_0/latch
+
+  Impl LATCG      IMP:/WORK/des/deskey_unit/POWERGATING_hclk_N147_0/latch
+
+  Impl LATCG      IMP:/WORK/des/deskey_unit/POWERGATING_hclk_N179_0/latch
+
+  Impl LATCG      IMP:/WORK/des/deskey_unit/POWERGATING_hclk_N211_0/latch
+
+  Impl LATCG      IMP:/WORK/des/deskey_unit/POWERGATING_hclk_N243_0/latch
+
+  Impl LATCG      IMP:/WORK/des/deskey_unit/POWERGATING_hclk_N83_0/latch
+
+ [BBNet: multiply-driven net
+  BBox:  black-box
+  BBPin: black-box pin
+  Block: hierarchical block
+  BlPin: hierarchical block pin
+  Cut:   cut-point
+  DFF:   non-constant DFF register
+  DFF0:  constant 0 DFF register
+  DFF1:  constant 1 DFF register
+  DFFX:  constant X DFF register
+  DFF0X: constrained 0X DFF register
+  DFF1X: constrained 1X DFF register
+  LAT:   non-constant latch register
+  LAT0:  constant 0 latch register
+  LAT1:  constant 1 latch register
+  LATX:  constant X latch register
+  LAT0X: constrained 0X latch register
+  LAT1X: constrained 1X latch register
+  LATCG: clock-gating latch register
+  TLA:   transparent latch register
+  TLA0X: transparent constrained 0X latch register
+  TLA1X: transparent constrained 1X latch register
+  Loop:  cycle break point
+  Net:   matchable net
+  Port:  primary (top-level) port
+  Und:   undriven signal cut-point]
+
+1

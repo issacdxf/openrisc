@@ -1,0 +1,21 @@
+****************************************
+Report : case_analysis
+	-all
+Design : des
+Version: B-2008.06-SP3
+Date   : Fri Sep 11 18:42:53 2009
+****************************************
+
+Pin name                                         Logic constant value
+--------------------------------------------------------------------------------
+U127/O                                           1
+u_des_spares_0/SPARE_TIEH/O                      1
+u_des_spares_0/SPARE_TIEL/O                      0
+desiv_unit/U127/O                                0
+desdat_unit/U210/O                               0
+des_cop_unit/des_unit/u_tiny_des_round/U2588/O   0
+deskey_unit/U3/O                                 1
+deskey_unit/U66/O                                0
+
+
+1

@@ -1,0 +1,17 @@
+
+  clock_list: hclk
+
+
+>> Report All Seq. Cells(FF,Latch,MSFF) Clocked by Clock Source
+
+Info: Clocked Seq. Cells Count= 457 for hclk
+
+
+>> Report All Seq.(FF,Latch,MSFF)/Com.(AND,...) Cells in Transitive Fanout from Clock Source
+
+Info: Transitive-Connected Seq./Com. Cells Count= 474 for hclk
+
+
+>> Report All Seq.(FF,Latch,MSFF)/Com.(AND,...) Cells Direct-Connected from Clock Source
+
+Info: Direct-Connected Seq./Com. Cells Count= 101 for hclk

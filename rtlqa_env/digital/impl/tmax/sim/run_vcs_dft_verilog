@@ -1,0 +1,6 @@
+vcs -PP ../work/current/TOP_p.v \
+				/remote/wwas/boh/rtl/lab/user/impl/lab/bsd/work/net/current/TOP.v \
+    -v /remote/wwas/boh/rtl/lab/techlib/std_cell/verilog/tcb013ghp.v \
+    -v /remote/wwas/boh/rtl/lab/techlib/pads/verilog/tpz013g2.v \
+    +notimingcheck +delay_mode_zero +acc+4 +nospecify +notice +evalorder \
+		+define+tmax_par_force_time=2
