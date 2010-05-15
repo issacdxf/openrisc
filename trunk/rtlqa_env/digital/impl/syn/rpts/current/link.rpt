@@ -1,0 +1,11 @@
+
+  Linking design 'des'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (18 designs)              /export/home/user/wangyl/rtlqa_env/digital/impl/syn/run_dir/des.db, etc
+  fsa0a_c_sc_wc (library)     /export/home/user/wangyl/rtlqa_env/techlib/std_cell/FrontEnd/synopsys/fsa0a_c_sc_wc.db
+  * (8 designs)               /export/home/user/wangyl/rtlqa_env/digital/impl/syn/run_dir/des_key.db, etc
+  dw_foundation.sldb (library)
+                              /ecad/synopsys/synthesis_z2007.03_sp1/libraries/syn/dw_foundation.sldb
+
+1

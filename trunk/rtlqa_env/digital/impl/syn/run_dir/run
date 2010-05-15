@@ -1,0 +1,13 @@
+#!/bin/csh -f
+
+set pathList = (log work work/sourceDb)
+
+foreach name ($pathList)
+  if (! -d ../$name) then
+    /bin/mkdir ../$name
+  endif
+end
+
+/ecad/synopsys/synthesis_z2007.03_sp1/bin/dc_shell-t -wait 1 -f rundc.tcl | tee ../log/dc.log
+
+\mv command.log ../log/

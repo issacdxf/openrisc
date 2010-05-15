@@ -1,0 +1,5 @@
+rm -rf fm_shell_command*
+rm -rf formality*
+
+rm -rf FM_WORK*
+rm -rf ../rpts/20*

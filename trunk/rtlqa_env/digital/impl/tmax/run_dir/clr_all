@@ -1,0 +1,2 @@
+rm -rf ../rpts/*
+rm -rf ../work/*

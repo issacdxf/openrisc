@@ -1,0 +1,1350 @@
+ 
+****************************************
+Report : transitive_fanout
+        -clock_tree
+Design : des
+Version: Z-2007.03-SP1
+Date   : Fri Sep 18 12:13:11 2009
+****************************************
+
+The fanout network of source hclk is as follows:
+
+Driver Pin       Load Pin          Type        Sense
+------------------------------------------------------------
+hclk             u_des_spares_0/SPARE_UF03/CK
+                                   (net arc)   same
+hclk             u_des_spares_0/SPARE_UF01/CK
+                                   (net arc)   same
+hclk             des_cop_unit/des_unit/u_tiny_des_round/clk_gate_obs/main_gate/I2
+                                   (net arc)   same
+hclk             des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/latch/CKB
+                                   (net arc)   same
+hclk             des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/I2
+                                   (net arc)   same
+hclk             des_cop_unit/des_unit/state_reg/CK
+                                   (net arc)   same
+hclk             des_cop_unit/des_unit/round_reg_3/CK
+                                   (net arc)   same
+hclk             des_cop_unit/des_unit/round_reg_2/CK
+                                   (net arc)   same
+hclk             des_cop_unit/des_unit/round_reg_1/CK
+                                   (net arc)   same
+hclk             des_cop_unit/des_unit/round_reg_0/CK
+                                   (net arc)   same
+hclk             des_cop_unit/des_unit/dout_valid_reg/CK
+                                   (net arc)   same
+hclk             desdat_unit/clk_gate_obs/main_gate/I2
+                                   (net arc)   same
+hclk             desdat_unit/POWERGATING_hclk_N70_0/latch/CKB
+                                   (net arc)   same
+hclk             desdat_unit/POWERGATING_hclk_N70_0/main_gate/I2
+                                   (net arc)   same
+hclk             desdat_unit/POWERGATING_hclk_N134_0/latch/CKB
+                                   (net arc)   same
+hclk             desdat_unit/POWERGATING_hclk_N134_0/main_gate/I2
+                                   (net arc)   same
+hclk             desiv_unit/clk_gate_obs/main_gate/I2
+                                   (net arc)   same
+hclk             desiv_unit/POWERGATING_hclk_N66_0/latch/CKB
+                                   (net arc)   same
+hclk             desiv_unit/POWERGATING_hclk_N66_0/main_gate/I2
+                                   (net arc)   same
+hclk             desiv_unit/POWERGATING_hclk_N130_0/latch/CKB
+                                   (net arc)   same
+hclk             desiv_unit/POWERGATING_hclk_N130_0/main_gate/I2
+                                   (net arc)   same
+hclk             deskey_unit/clk_gate_obs/main_gate/I2
+                                   (net arc)   same
+hclk             deskey_unit/POWERGATING_hclk_N83_0/latch/CKB
+                                   (net arc)   same
+hclk             deskey_unit/POWERGATING_hclk_N83_0/main_gate/I2
+                                   (net arc)   same
+hclk             deskey_unit/POWERGATING_hclk_N115_0/latch/CKB
+                                   (net arc)   same
+hclk             deskey_unit/POWERGATING_hclk_N115_0/main_gate/I2
+                                   (net arc)   same
+hclk             deskey_unit/POWERGATING_hclk_N147_0/latch/CKB
+                                   (net arc)   same
+hclk             deskey_unit/POWERGATING_hclk_N147_0/main_gate/I2
+                                   (net arc)   same
+hclk             deskey_unit/POWERGATING_hclk_N179_0/latch/CKB
+                                   (net arc)   same
+hclk             deskey_unit/POWERGATING_hclk_N179_0/main_gate/I2
+                                   (net arc)   same
+hclk             deskey_unit/POWERGATING_hclk_N211_0/latch/CKB
+                                   (net arc)   same
+hclk             deskey_unit/POWERGATING_hclk_N211_0/main_gate/I2
+                                   (net arc)   same
+hclk             deskey_unit/POWERGATING_hclk_N243_0/latch/CKB
+                                   (net arc)   same
+hclk             deskey_unit/POWERGATING_hclk_N243_0/main_gate/I2
+                                   (net arc)   same
+hclk             clk_gate_obs/main_gate/I2
+                                   (net arc)   same
+hclk             POWERGATING_hclk_N26_0/latch/CKB
+                                   (net arc)   same
+hclk             POWERGATING_hclk_N26_0/main_gate/I2
+                                   (net arc)   same
+hclk             des_cop_unit/flag_reg_1/CK
+                                   (net arc)   same
+hclk             des_cop_unit/flag_reg_0/CK
+                                   (net arc)   same
+hclk             des_cop_unit/din_valid_eins_reg/CK
+                                   (net arc)   same
+hclk             desdat_unit/wr_ptr_reg/CK
+                                   (net arc)   same
+hclk             desdat_unit/rd_ptr_reg/CK
+                                   (net arc)   same
+hclk             desdat_unit/full_pulse_reg/CK
+                                   (net arc)   same
+hclk             desdat_unit/full_delay_reg/CK
+                                   (net arc)   same
+hclk             desdat_unit/full_reg/CK
+                                   (net arc)   same
+hclk             desdat_unit/ptr_reg_1/CK
+                                   (net arc)   same
+hclk             desdat_unit/ptr_reg_0/CK
+                                   (net arc)   same
+hclk             desiv_unit/ptr_reg_0/CK
+                                   (net arc)   same
+hclk             desiv_unit/wr_ptr_reg/CK
+                                   (net arc)   same
+hclk             desiv_unit/ptr_reg_1/CK
+                                   (net arc)   same
+hclk             nextiv_ready_en_reg/CK
+                                   (net arc)   same
+hclk             run_delay_reg/CK  (net arc)   same
+hclk             desdat_sel_reg/CK (net arc)   same
+hclk             desdat_sel_d1_reg/CK
+                                   (net arc)   same
+hclk             deskey_sel_reg/CK (net arc)   same
+hclk             deskey_sel_d1_reg/CK
+                                   (net arc)   same
+hclk             desiv_sel_reg/CK  (net arc)   same
+hclk             desiv_sel_d1_reg/CK
+                                   (net arc)   same
+hclk             hready_resp_reg/CK
+                                   (net arc)   same
+hclk             desctrl_sel_reg/CK
+                                   (net arc)   same
+hclk             desctrl_sel_d1_reg/CK
+                                   (net arc)   same
+hclk             data_in_reg_24/CK (net arc)   same
+hclk             data_in_reg_16/CK (net arc)   same
+hclk             data_in_reg_8/CK  (net arc)   same
+hclk             data_in_reg_0/CK  (net arc)   same
+hclk             data_in_reg_31/CK (net arc)   same
+hclk             data_in_reg_30/CK (net arc)   same
+hclk             data_in_reg_29/CK (net arc)   same
+hclk             data_in_reg_28/CK (net arc)   same
+hclk             data_in_reg_27/CK (net arc)   same
+hclk             data_in_reg_26/CK (net arc)   same
+hclk             data_in_reg_25/CK (net arc)   same
+hclk             data_in_reg_23/CK (net arc)   same
+hclk             data_in_reg_22/CK (net arc)   same
+hclk             data_in_reg_21/CK (net arc)   same
+hclk             data_in_reg_20/CK (net arc)   same
+hclk             data_in_reg_19/CK (net arc)   same
+hclk             data_in_reg_18/CK (net arc)   same
+hclk             data_in_reg_17/CK (net arc)   same
+hclk             data_in_reg_15/CK (net arc)   same
+hclk             data_in_reg_14/CK (net arc)   same
+hclk             data_in_reg_13/CK (net arc)   same
+hclk             data_in_reg_12/CK (net arc)   same
+hclk             data_in_reg_11/CK (net arc)   same
+hclk             data_in_reg_10/CK (net arc)   same
+hclk             data_in_reg_9/CK  (net arc)   same
+hclk             data_in_reg_7/CK  (net arc)   same
+hclk             data_in_reg_6/CK  (net arc)   same
+hclk             data_in_reg_5/CK  (net arc)   same
+hclk             data_in_reg_4/CK  (net arc)   same
+hclk             data_in_reg_3/CK  (net arc)   same
+hclk             data_in_reg_2/CK  (net arc)   same
+hclk             data_in_reg_1/CK  (net arc)   same
+hclk             rw_reg/CK         (net arc)   same
+hclk             hwrite_d1_reg/CK  (net arc)   same
+hclk             deskey_unit/wr_ptr_reg_1/CK
+                                   (net arc)   same
+hclk             deskey_unit/wr_ptr_reg_2/CK
+                                   (net arc)   same
+hclk             deskey_unit/wr_ptr_reg_0/CK
+                                   (net arc)   same
+hclk             deskey_unit/ptr_reg_1/CK
+                                   (net arc)   same
+hclk             deskey_unit/ptr_reg_0/CK
+                                   (net arc)   same
+hclk             deskey_unit/ptr_reg_2/CK
+                                   (net arc)   same
+
+
+Load Pin         Driver Pin        Type        Sense
+------------------------------------------------------------
+des_cop_unit/des_unit/u_tiny_des_round/clk_gate_obs/main_gate/I2
+                 des_cop_unit/des_unit/u_tiny_des_round/clk_gate_obs/main_gate/O
+                                   AN2         same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/I2
+                 des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                                   AN2P        same
+desdat_unit/clk_gate_obs/main_gate/I2
+                 desdat_unit/clk_gate_obs/main_gate/O
+                                   AN2         same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/I2
+                 desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                                   AN2         same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/I2
+                 desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                                   AN2         same
+desiv_unit/clk_gate_obs/main_gate/I2
+                 desiv_unit/clk_gate_obs/main_gate/O
+                                   AN2         same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/I2
+                 desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                                   AN2         same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/I2
+                 desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                                   AN2         same
+deskey_unit/clk_gate_obs/main_gate/I2
+                 deskey_unit/clk_gate_obs/main_gate/O
+                                   AN2         same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/I2
+                 deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                                   AN2         same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/I2
+                 deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                                   AN2         same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/I2
+                 deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                                   AN2         same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/I2
+                 deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                                   AN2         same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/I2
+                 deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                                   AN2         same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/I2
+                 deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                                   AN2         same
+clk_gate_obs/main_gate/I2
+                 clk_gate_obs/main_gate/O
+                                   AN2         same
+POWERGATING_hclk_N26_0/main_gate/I2
+                 POWERGATING_hclk_N26_0/main_gate/O
+                                   AN2         same
+
+
+Driver Pin       Load Pin          Type        Sense
+------------------------------------------------------------
+des_cop_unit/des_unit/u_tiny_des_round/clk_gate_obs/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/clk_gate_obs/U1/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_60/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_46/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_39/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_45/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_50/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_63/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_33/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_37/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_57/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_51/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_48/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_56/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_34/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_59/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_36/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_49/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_38/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_32/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_43/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_53/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_58/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_62/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_47/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_61/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_41/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_35/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_42/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_10/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_52/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_44/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_12/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_54/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_40/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_8/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_22/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_20/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_3/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_9/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_55/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_23/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_29/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_15/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_30/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_26/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_21/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_11/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_0/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_6/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_17/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_4/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_27/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_2/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_24/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_16/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_19/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_25/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_5/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_1/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_31/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_18/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_13/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_7/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_14/CK
+                                   (net arc)   same
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/main_gate/O
+                 des_cop_unit/des_unit/u_tiny_des_round/dout_reg_28/CK
+                                   (net arc)   same
+desdat_unit/clk_gate_obs/main_gate/O
+                 desdat_unit/clk_gate_obs/U1/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_31/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_11/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_1/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_19/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_7/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_17/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_25/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_9/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_21/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_15/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_3/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_23/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_29/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_27/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_26/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_13/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_12/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_28/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_5/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_4/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_22/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_2/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_14/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_20/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_8/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_24/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_16/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_6/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_18/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_0/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_10/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N70_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_0_30/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_13/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_17/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_23/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_5/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_29/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_31/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_9/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_7/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_21/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_25/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_3/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_15/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_19/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_1/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_11/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_10/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_27/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_26/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_0/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_18/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_14/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_2/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_24/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_20/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_6/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_8/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_30/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_28/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_4/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_22/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_16/CK
+                                   (net arc)   same
+desdat_unit/POWERGATING_hclk_N134_0/main_gate/O
+                 desdat_unit/fifo_mem_reg_1_12/CK
+                                   (net arc)   same
+desiv_unit/clk_gate_obs/main_gate/O
+                 desiv_unit/clk_gate_obs/U1/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_31/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_11/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_1/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_19/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_7/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_17/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_25/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_9/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_21/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_15/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_3/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_23/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_29/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_27/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_26/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_13/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_12/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_28/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_5/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_4/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_22/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_2/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_14/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_20/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_8/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_24/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_16/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_6/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_18/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_0/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_10/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N66_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_0_30/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_13/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_17/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_23/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_5/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_29/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_31/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_9/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_7/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_21/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_25/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_3/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_15/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_19/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_1/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_11/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_10/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_27/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_26/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_0/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_18/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_14/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_2/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_24/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_20/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_6/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_8/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_30/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_28/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_4/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_22/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_16/CK
+                                   (net arc)   same
+desiv_unit/POWERGATING_hclk_N130_0/main_gate/O
+                 desiv_unit/fifo_mem_reg_1_12/CK
+                                   (net arc)   same
+deskey_unit/clk_gate_obs/main_gate/O
+                 deskey_unit/clk_gate_obs/U1/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_31/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_29/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_28/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_27/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_26/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_25/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_23/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_22/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_20/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_19/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_18/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_17/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_15/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_14/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_11/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_10/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_9/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_7/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_6/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_4/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_3/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_2/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_1/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_30/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_21/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_13/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_12/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N83_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_0_5/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_31/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_28/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_27/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_26/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_25/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_23/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_22/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_21/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_20/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_19/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_18/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_17/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_15/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_13/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_12/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_11/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_10/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_9/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_7/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_6/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_5/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_4/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_3/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_2/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_1/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_30/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_29/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N115_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_1_14/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_31/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_30/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_29/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_28/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_27/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_26/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_25/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_23/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_22/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_21/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_20/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_19/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_18/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_17/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_15/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_14/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_13/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_12/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_11/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_10/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_9/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_7/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_6/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_5/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_4/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_3/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_2/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N147_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_2_1/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_28/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_27/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_26/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_25/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_23/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_22/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_21/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_20/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_19/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_18/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_17/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_15/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_14/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_13/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_12/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_11/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_10/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_9/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_7/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_6/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_5/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_4/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_3/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_2/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_1/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_29/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_30/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N179_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_3_31/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_1/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_2/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_3/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_4/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_5/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_6/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_7/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_9/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_10/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_11/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_12/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_13/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_14/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_15/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_17/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_18/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_19/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_20/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_21/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_22/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_23/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_25/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_26/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_27/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_28/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_29/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_30/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N211_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_4_31/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_1/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_2/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_3/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_4/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_5/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_6/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_7/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_9/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_10/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_11/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_12/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_13/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_14/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_15/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_17/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_18/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_19/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_20/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_21/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_22/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_23/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_25/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_26/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_27/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_28/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_29/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_30/CK
+                                   (net arc)   same
+deskey_unit/POWERGATING_hclk_N243_0/main_gate/O
+                 deskey_unit/fifo_mem_reg_5_31/CK
+                                   (net arc)   same
+clk_gate_obs/main_gate/O
+                 clk_gate_obs/U1/CK
+                                   (net arc)   same
+POWERGATING_hclk_N26_0/main_gate/O
+                 desctrl_reg_0/CK  (net arc)   same
+POWERGATING_hclk_N26_0/main_gate/O
+                 desctrl_reg_5/CK  (net arc)   same
+POWERGATING_hclk_N26_0/main_gate/O
+                 desctrl_reg_4/CK  (net arc)   same
+POWERGATING_hclk_N26_0/main_gate/O
+                 desctrl_reg_3/CK  (net arc)   same
+POWERGATING_hclk_N26_0/main_gate/O
+                 desctrl_reg_2/CK  (net arc)   same
+POWERGATING_hclk_N26_0/main_gate/O
+                 desctrl_reg_1/CK  (net arc)   same
+POWERGATING_hclk_N26_0/main_gate/O
+                 desctrl_reg_6/CK  (net arc)   same
+POWERGATING_hclk_N26_0/main_gate/O
+                 desctrl_reg_7/CK  (net arc)   same
+
+
+1

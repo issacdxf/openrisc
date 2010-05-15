@@ -1,0 +1,9 @@
+// Consider files ending in .v for compilation.
++libext+.v
+
+-y   /ecad/synopsys/synthesis_y2006.06sp2/dw/sim_ver
+-v  /ecad/synopsys/synthesis_y2006.06sp2/packages/gtech/src_ver/gtech_lib.v 
+
+../../techlib/std_cell/FrontEnd/verilog/fsa0a_c_sc.lib.src
+
+../impl/syn/work/net/current/des.v

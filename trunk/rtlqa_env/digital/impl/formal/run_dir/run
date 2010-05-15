@@ -1,0 +1,9 @@
+#!/bin/csh -f
+
+set item_list = ""
+#set item_list = "$item_list syn"
+set item_list = "$item_list timing"
+
+foreach item_name ($item_list)
+    fm_shell -f runfm_$item_name.tcl | tee ../log/fm_$item_name.log
+end

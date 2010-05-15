@@ -1,0 +1,8 @@
+vcs -PP ../work/current/TOP_stildpv.v \
+				/export/home/user/juxb/rtlqa/rtl/lab/user/impl/lab/bsd/work/net/current/TOP.v \
+    -P /ecad/synopsys/newtool/synthesis_z2007.03_sp1/linux/stildpv/lib/stildpv_vcs.tab \
+       /ecad/synopsys/newtool/synthesis_z2007.03_sp1/linux/stildpv/lib/libstildpv.a \
+    -v /export/home/user/juxb/rtlqa/rtl/lab/techlib/std_cell/verilog/tcb013ghp.v \
+    -v /export/home/user/juxb/rtlqa/rtl/lab/techlib/pads/verilog/tpz013g2.v \
+    +notimingcheck +delay_mode_zero +acc+4 +nospecify +notice +evalorder \
+		+define+tmax_par_force_time=2

@@ -1,0 +1,1 @@
+/ecad/synopsys/pt_b200806sp3/bin/pt_shell -f runptpx.tcl | tee ../log/ptpx.log

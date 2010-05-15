@@ -1,0 +1,30 @@
+@debussy rc file Version 1.0
+[KeyNote]
+Line1 = The last exit status session file
+[hb]
+viewport = 4 28 804 500 182 303 148 804
+activeNode = "AN2"
+interactiveMode = False
+viewType = Source
+simulatorMode = False
+sourceBeginLine = 24
+baMode = False
+cmdToolbar = True
+simToolbar = True
+baToolbar = True
+srcLineNum = True
+syncSignal = False
+traceMode = Hierarchical
+showTraceInSchema = True
+paMode = False
+traceCrossHier = True
+leadingZero = False
+showSubprog = True
+Scope1 = "AN2"
+[imp.design1]
+dbEnum =  oh
+invokeDir = /export/home/project/juxb/project/ttt/rtlqa_lib/digital/rwork
+design = DebussyLib
+hostCommand = -2001 -f rwork.lst
+[memoryWindow]
+count = 0

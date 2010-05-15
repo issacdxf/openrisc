@@ -1,0 +1,23 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : disable_timing
+Design : des
+Version: Z-2007.03-SP1
+Date   : Fri Sep 18 12:13:15 2009
+****************************************
+
+
+
+Flags:       c  case-analysis
+             f  false net arc
+             C  Conditional arc
+             l  loop breaking
+             u  user-defined
+
+
+  Cell or Port        From        To             Sense               Flag
+--------------------------------------------------------------------------------
+
+
+1

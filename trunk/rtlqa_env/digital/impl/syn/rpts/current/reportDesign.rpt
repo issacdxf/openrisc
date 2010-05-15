@@ -1,0 +1,87 @@
+ 
+****************************************
+Report : design
+Design : des
+Version: Z-2007.03-SP1
+Date   : Fri Sep 18 12:13:11 2009
+****************************************
+
+Design allows ideal nets on clock nets.
+Design allows ideal nets on constant nets.
+
+Library(s) Used:
+
+    fsa0a_c_sc_wc (File: /export/home/user/wangyl/rtlqa_env/techlib/std_cell/FrontEnd/synopsys/fsa0a_c_sc_wc.db)
+
+Local Link Library:
+
+    {fsa0a_c_sc_wc.db}
+
+Flip-Flop Types:
+
+    No flip-flop types specified.
+
+Latch Types:
+
+    No latch types specified.
+
+Operating Conditions:
+
+
+    Operating Condition Name : WCCOM
+    Library : fsa0a_c_sc_wc
+    Process :   1.00
+    Temperature : 125.00
+    Voltage :   1.62
+    Interconnect Model : worst_case_tree
+
+Wire Loading Model:
+
+    Selected manually by the user.
+
+Name           :   enG500K
+Location       :   fsa0a_c_sc_wc
+Resistance     :   0
+Capacitance    :   0.000175
+Area           :   0
+Slope          :   0.5
+Fanout   Length   Points Average Cap Std Deviation
+--------------------------------------------------------------
+     1   275.20
+     2   380.60
+     3   514.60
+     4   684.20
+     5   698.30
+    10  1163.80
+    16  1173.80
+    50  1330.30
+    90  1902.50
+
+
+
+Wire Loading Model Mode: top.
+
+Timing Ranges:
+
+    No timing ranges specified.
+
+Pin Input Delays:
+
+    None specified.
+
+Pin Output Delays:
+
+    None specified.
+
+Disabled Timing Arcs:
+
+    No arcs disabled.
+
+Required Licenses:
+
+    None Required
+
+Design Parameters:
+
+    None specified.
+1

@@ -1,0 +1,45 @@
+
+********************************************************************************
+Report    : partitions
+Design    : des (mapped)
+Date      : Fri Sep 18 12:13:11 2009
+********************************************************************************
+
+Partition attributes :
+
+  (*)   -  partition.
+  %     -  the percentage w.r.t total design area.
+  d     -  dont_touch.
+  m(n)  -  multiple instantiated design (number of instantiation).
+
+Warning: No area estimation numbers are available yet. (ACS-153)
+Designs                                                     Attributes
+--------------------------------------------------------------------------------
+des(*)                                                       0.0%
+    des_spares_0                                             0.0%
+    SNPS_CLOCK_GATE_OBS_des                                  0.0%
+    POWERMODULE_HIGH_des_0                                   0.0%
+    des_cop                                                  0.0%
+        tiny_des                                             0.0%
+            tiny_des_round                                   0.0%
+                SNPS_CLOCK_GATE_OBS_tiny_des_round           0.0%
+                POWERMODULE_HIGH_tiny_des_round_0            0.0%
+    des_dat                                                  0.0%
+        SNPS_CLOCK_GATE_OBS_des_dat                          0.0%
+        POWERMODULE_HIGH_des_dat_0_0                         0.0%
+        POWERMODULE_HIGH_des_dat_0_1                         0.0%
+    des_iv                                                   0.0%
+        SNPS_CLOCK_GATE_OBS_des_iv                           0.0%
+        POWERMODULE_HIGH_des_iv_0_0                          0.0%
+        POWERMODULE_HIGH_des_iv_0_1                          0.0%
+    des_key                                                  0.0%
+        SNPS_CLOCK_GATE_OBS_des_key                          0.0%
+        POWERMODULE_HIGH_des_key_0_0                         0.0%
+        POWERMODULE_HIGH_des_key_0_1                         0.0%
+        POWERMODULE_HIGH_des_key_0_2                         0.0%
+        POWERMODULE_HIGH_des_key_0_3                         0.0%
+        POWERMODULE_HIGH_des_key_0_4                         0.0%
+        POWERMODULE_HIGH_des_key_0_5                         0.0%
+
+
+1

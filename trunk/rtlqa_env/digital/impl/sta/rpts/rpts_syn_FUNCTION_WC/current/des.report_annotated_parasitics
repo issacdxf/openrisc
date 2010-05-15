@@ -1,0 +1,129 @@
+****************************************
+Report : annotated_parasitics
+	-internal_nets
+	-boundary_nets
+	-list_not_annotated
+	-max_nets 100
+Design : des
+Version: B-2008.06-SP3
+Date   : Fri Sep 11 18:42:53 2009
+****************************************
+
+1.  desctrl[6] (driver: pin desctrl_reg_6/Q)
+2.  dbusin[16] (driver: pin data_in_reg_16/Q)
+3.  deskey2_64_out[52] (driver: pin deskey_unit/fifo_mem_reg_3_20/Q)
+4.  hrdata[20] (driver: pin U164/O)
+5.  desdat_64_out[5] (driver: pin desdat_unit/fifo_mem_reg_0_5/Q)
+6.  dbusin[13] (driver: pin data_in_reg_13/Q)
+7.  deskey2_64_out[21] (driver: pin deskey_unit/fifo_mem_reg_2_21/Q)
+8.  desdat_64_out[37] (driver: pin desdat_unit/fifo_mem_reg_1_5/Q)
+9.  haddr[4] (driver: port haddr[4])
+10.  desdat_64_out[6] (driver: pin desdat_unit/fifo_mem_reg_0_6/Q)
+11.  n39 (driver: pin U239/O)
+12.  hwdata[30] (driver: port hwdata[30])
+13.  hrdata[7] (driver: pin U153/O)
+14.  deskey2_64_out[54] (driver: pin deskey_unit/fifo_mem_reg_3_22/Q)
+15.  hrdata[26] (driver: pin U170/O)
+16.  deskey3_64_out[36] (driver: pin deskey_unit/fifo_mem_reg_5_4/Q)
+17.  hwdata[5] (driver: port hwdata[5])
+18.  N62 (driver: pin U215/O)
+19.  deskey3_64_out[15] (driver: pin deskey_unit/fifo_mem_reg_4_15/Q)
+20.  N67 (driver: pin U220/O)
+21.  desdat_8_out[11] (driver: pin desdat_unit/U47/O)
+22.  deskey3_64_out[54] (driver: pin deskey_unit/fifo_mem_reg_5_22/Q)
+23.  deskey2_64_out[19] (driver: pin deskey_unit/fifo_mem_reg_2_19/Q)
+24.  desiv_64_out[23] (driver: pin desiv_unit/fifo_mem_reg_0_23/Q)
+25.  desdat_8_out[6] (driver: pin desdat_unit/U41/O)
+26.  dbusin[17] (driver: pin data_in_reg_17/Q)
+27.  haddr[9] (driver: port haddr[9])
+28.  N70 (driver: pin U223/O)
+29.  desdat_8_out[15] (driver: pin desdat_unit/U55/O)
+30.  desiv_64_out[18] (driver: pin desiv_unit/fifo_mem_reg_0_18/Q)
+31.  n22 (driver: pin desdat_sel_reg/QB)
+32.  deskey1_64_out[50] (driver: pin deskey_unit/fifo_mem_reg_1_18/Q)
+33.  deskey1_64_out[37] (driver: pin deskey_unit/fifo_mem_reg_1_5/Q)
+34.  hrdata[4] (driver: pin U150/O)
+35.  deskey3_64_out[41] (driver: pin deskey_unit/fifo_mem_reg_5_9/Q)
+36.  desdat_64_out[45] (driver: pin desdat_unit/fifo_mem_reg_1_13/Q)
+37.  desiv_64_out[27] (driver: pin desiv_unit/fifo_mem_reg_0_27/Q)
+38.  hwdata[6] (driver: port hwdata[6])
+39.  desdat_64_out[43] (driver: pin desdat_unit/fifo_mem_reg_1_11/Q)
+40.  hwdata[27] (driver: port hwdata[27])
+41.  deskey3_64_out[55] (driver: pin deskey_unit/fifo_mem_reg_5_23/Q)
+42.  desdat_64_out[24] (driver: pin desdat_unit/fifo_mem_reg_0_24/Q)
+43.  desiv_64_out[42] (driver: pin desiv_unit/fifo_mem_reg_1_10/Q)
+44.  desdat_64_out[59] (driver: pin desdat_unit/fifo_mem_reg_1_27/Q)
+45.  desiv_64_out[22] (driver: pin desiv_unit/fifo_mem_reg_0_22/Q)
+46.  n27 (driver: pin U189/O)
+47.  desdat_8_out[27] (driver: pin desdat_unit/U79/O)
+48.  hready (driver: port hready)
+49.  desdat_64_out[8] (driver: pin desdat_unit/fifo_mem_reg_0_8/Q)
+50.  hrdata[10] (driver: pin U154/O)
+51.  desdat_64_in[61] (driver: pin des_cop_unit/U425/O)
+52.  hrdata[21] (driver: pin U165/O)
+53.  desiv_64_out[19] (driver: pin desiv_unit/fifo_mem_reg_0_19/Q)
+54.  dbusin[20] (driver: pin data_in_reg_20/Q)
+55.  deskey2_64_out[7] (driver: pin deskey_unit/fifo_mem_reg_2_7/Q)
+56.  N75 (driver: pin U228/O)
+57.  desdat_64_out[7] (driver: pin desdat_unit/fifo_mem_reg_0_7/Q)
+58.  deskey3_64_out[61] (driver: pin deskey_unit/fifo_mem_reg_5_29/Q)
+59.  n29 (driver: pin U188/O)
+60.  hrdata[5] (driver: pin U151/O)
+61.  desdat_64_out[0] (driver: pin desdat_unit/fifo_mem_reg_0_0/Q)
+62.  haddr[1] (driver: port haddr[1])
+63.  hwdata[7] (driver: port hwdata[7])
+64.  N42 (driver: pin U137/O)
+65.  desiv_64_out[15] (driver: pin desiv_unit/fifo_mem_reg_0_15/Q)
+66.  N47 (driver: pin U200/O)
+67.  deskey1_64_out[55] (driver: pin deskey_unit/fifo_mem_reg_1_23/Q)
+68.  hrdata[27] (driver: pin U171/O)
+69.  desiv_64_out[26] (driver: pin desiv_unit/fifo_mem_reg_0_26/Q)
+70.  desdat_8_out[4] (driver: pin desdat_unit/U37/O)
+71.  desdat_64_in[33] (driver: pin des_cop_unit/U387/O)
+72.  desdat_8_out[10] (driver: pin desdat_unit/U45/O)
+73.  deskey3_64_out[10] (driver: pin deskey_unit/fifo_mem_reg_4_10/Q)
+74.  desdat_8_out[14] (driver: pin desdat_unit/U53/O)
+75.  desdat_64_in[59] (driver: pin des_cop_unit/U421/O)
+76.  deskey1_64_out[52] (driver: pin deskey_unit/fifo_mem_reg_1_20/Q)
+77.  desdat_64_in[14] (driver: pin des_cop_unit/U457/O)
+78.  desiv_64_out[44] (driver: pin desiv_unit/fifo_mem_reg_1_12/Q)
+79.  deskey1_64_out[36] (driver: pin deskey_unit/fifo_mem_reg_1_4/Q)
+80.  haddr[0] (driver: port haddr[0])
+81.  deskey3_64_out[3] (driver: pin deskey_unit/fifo_mem_reg_4_3/Q)
+82.  desdat_64_out[25] (driver: pin desdat_unit/fifo_mem_reg_0_25/Q)
+83.  desdat_wr (driver: pin U133/O)
+84.  dbusin[30] (driver: pin data_in_reg_30/Q)
+85.  n14 (driver: pin U236/O)
+86.  deskey2_64_out[17] (driver: pin deskey_unit/fifo_mem_reg_2_17/Q)
+87.  desiv_64_out[58] (driver: pin desiv_unit/fifo_mem_reg_1_26/Q)
+88.  dbusin[18] (driver: pin data_in_reg_18/Q)
+89.  deskey2_64_out[13] (driver: pin deskey_unit/fifo_mem_reg_2_13/Q)
+90.  desdat_64_out[52] (driver: pin desdat_unit/fifo_mem_reg_1_20/Q)
+91.  hrdata[22] (driver: pin U166/O)
+92.  deskey2_64_out[5] (driver: pin deskey_unit/fifo_mem_reg_2_5/Q)
+93.  deskey2_64_out[50] (driver: pin deskey_unit/fifo_mem_reg_3_18/Q)
+94.  deskey3_64_out[7] (driver: pin deskey_unit/fifo_mem_reg_4_7/Q)
+95.  deskey3_64_out[50] (driver: pin deskey_unit/fifo_mem_reg_5_18/Q)
+96.  desiv_64_out[17] (driver: pin desiv_unit/fifo_mem_reg_0_17/Q)
+97.  deskey1_64_out[57] (driver: pin deskey_unit/fifo_mem_reg_1_25/Q)
+98.  desdat_64_in[28] (driver: pin des_cop_unit/U485/O)
+99.  desiv_64_out[37] (driver: pin desiv_unit/fifo_mem_reg_1_5/Q)
+100.  desdat_64_out[1] (driver: pin desdat_unit/fifo_mem_reg_0_1/Q)
+..... suppressed 4244 additional unannotated nets.
+
+                    |         |         |         |   RC    |   Not   |
+Net Type            |  Total  | Lumped  |  RC pi  | network |Annotated|
+--------------------+---------+---------+---------+---------+---------+
+Internal nets       |         |         |         |         |         |
+  - Pin to pin nets |    4239 |       0 |       0 |       0 |    4239 |
+  - Driverless nets |       0 |       0 |       0 |       0 |       0 |
+  - Loadless nets   |      14 |       0 |       0 |       0 |      14 |
+--------------------+---------+---------+---------+---------+---------+
+Boundary/port nets  |         |         |         |         |         |
+  - Pin to pin nets |      84 |       0 |       0 |       0 |      84 |
+  - Driverless nets |       0 |       0 |       0 |       0 |       0 |
+  - Loadless nets   |       7 |       0 |       0 |       0 |       7 |
+--------------------+---------+---------+---------+---------+---------+
+                    |    4344 |       0 |       0 |       0 |    4344 |
+
+1

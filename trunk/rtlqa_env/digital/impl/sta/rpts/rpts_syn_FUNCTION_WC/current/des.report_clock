@@ -1,0 +1,103 @@
+****************************************
+Report : clock
+Design : des
+Version: B-2008.06-SP3
+Date   : Fri Sep 11 18:42:53 2009
+****************************************
+
+
+Attributes:
+    p - Propagated clock
+    G - Generated  clock
+    I - Inactive   clock
+
+Clock          Period   Waveform            Attrs     Sources
+-------------------------------------------------------------------------------
+hclk            50.00   {0 25}                        {hclk}
+
+****************************************
+Report : clock_skew
+Design : des
+Version: B-2008.06-SP3
+Date   : Fri Sep 11 18:42:53 2009
+****************************************
+
+              Min Rise  Min Fall  Max Rise  Max Fall     Hold          Setup        Related
+Object          Delay     Delay     Delay     Delay   Uncertainty   Uncertainty      Clock
+----------------------------------------------------------------------------------
+hclk             5.00      5.00      5.00      5.00      0.00          0.00           -- 
+
+****************************************
+Report : clock timing
+	-type summary
+Design : des
+Version: B-2008.06-SP3
+Date   : Fri Sep 11 18:42:53 2009
+****************************************
+
+  Clock: hclk                                                  
+----------------------------------------------------------------------------
+  Maximum setup launch latency:
+      deskey_unit/fifo_mem_reg_3_22/CK                         5.00    r-+
+
+  Minimum setup capture latency:
+      deskey_unit/fifo_mem_reg_3_22/CK                         5.00    r-+
+
+  Minimum hold launch latency:
+      deskey_unit/fifo_mem_reg_3_22/CK                         5.00    r-+
+
+  Maximum hold capture latency:
+      deskey_unit/fifo_mem_reg_3_22/CK                         5.00    r-+
+
+  Maximum active transition:
+      deskey_unit/fifo_mem_reg_3_22/CK                         0.00    r-+
+
+  Minimum active transition:
+      deskey_unit/fifo_mem_reg_3_22/CK                         0.00    r-+
+
+  Maximum setup skew:
+      data_in_reg_0/CK                                                 r-+
+      desctrl_reg_0/CK                                         0.00    r-+
+
+  Maximum hold skew:
+      data_in_reg_0/CK                                                 r-+
+      desctrl_reg_0/CK                                         0.00    r-+
+----------------------------------------------------------------------------
+
+****************************************
+Report : clock gating check
+Design : des
+Version: B-2008.06-SP3
+Date   : Fri Sep 11 18:42:53 2009
+****************************************
+
+
+                                 Rise                Fall
+Cell     Enable  Clock     Setup     Hold      Setup     Hold    High/Low  Attr
+-------------------------------------------------------------------------------
+desiv_unit/POWERGATING_hclk_N66_0/latch
+         E       CK          0.25      0.24      0.31      0.20           P L
+desiv_unit/POWERGATING_hclk_N130_0/latch
+         E       CK          0.21      0.21      0.24      0.18           P L
+desdat_unit/POWERGATING_hclk_N70_0/latch
+         E       CK          0.25      0.24      0.31      0.20           P L
+desdat_unit/POWERGATING_hclk_N134_0/latch
+         E       CK          0.21      0.21      0.24      0.18           P L
+des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/latch
+         E       CK          0.22      0.22      0.26      0.20           P L
+deskey_unit/POWERGATING_hclk_N115_0/latch
+         E       CK          0.25      0.24      0.26      0.19           P L
+deskey_unit/POWERGATING_hclk_N147_0/latch
+         E       CK          0.21      0.21      0.23      0.18           P L
+deskey_unit/POWERGATING_hclk_N83_0/latch
+         E       CK          0.25      0.25      0.28      0.19           P L
+deskey_unit/POWERGATING_hclk_N179_0/latch
+         E       CK          0.21      0.21      0.23      0.18           P L
+deskey_unit/POWERGATING_hclk_N211_0/latch
+         E       CK          0.21      0.21      0.23      0.18           P L
+deskey_unit/POWERGATING_hclk_N243_0/latch
+         E       CK          0.21      0.21      0.23      0.18           P L
+
+Note: *  indicates user override of tool inferred controlling value
+Attr: I:auto inferred, P:power compiler inserted, L:library cell defined
+1

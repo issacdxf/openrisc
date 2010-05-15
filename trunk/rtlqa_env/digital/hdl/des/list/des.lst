@@ -1,0 +1,7 @@
+../../../hdl/des/des_cop.v
+../../../hdl/des/des_dat.v
+../../../hdl/des/des_iv.v
+../../../hdl/des/des_key.v
+../../../hdl/des/des.v
+../../../hdl/des/tiny_des_round.v
+../../../hdl/des/tiny_des.v

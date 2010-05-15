@@ -1,0 +1,210 @@
+ 
+****************************************
+Report : timing
+        -path full_clock
+        -delay min
+        -nworst 2
+        -input_pins
+        -nets
+        -max_paths 5
+        -transition_time
+        -capacitance
+Design : des
+Version: Z-2007.03-SP1
+Date   : Fri Sep 18 12:13:21 2009
+****************************************
+
+Operating Conditions: WCCOM   Library: fsa0a_c_sc_wc
+Wire Load Model Mode: top
+
+  Startpoint: Test_Mode (input port)
+  Endpoint: clk_gate_obs/main_gate
+            (gating element for clock hclk)
+  Path Group: hclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  des                enG500K               fsa0a_c_sc_wc
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock (input port clock) (rise edge)                                        0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  input external delay                                                        0.00       0.00 r
+  Test_Mode (in)                                                    0.00      0.00       0.00 r
+  Test_Mode (net)                               8         0.19                0.00       0.00 r
+  clk_gate_obs/TE (SNPS_CLOCK_GATE_OBS_des)                                   0.00       0.00 r
+  clk_gate_obs/TE (net)                                   0.19                0.00       0.00 r
+  clk_gate_obs/main_gate/I1 (AN2)                                   0.00      0.00       0.00 r
+  data arrival time                                                                      0.00
+
+  clock hclk (fall edge)                                                     25.00      25.00
+  clock network delay (ideal)                                                 5.00      30.00
+  clk_gate_obs/main_gate/I2 (AN2)                                             0.00      30.00 f
+  clock gating hold time                                                      0.00      30.00
+  data required time                                                                    30.00
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    30.00
+  data arrival time                                                                      0.00
+  ----------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                     -30.00
+
+
+  Startpoint: Test_Mode (input port)
+  Endpoint: clk_gate_obs/main_gate
+            (gating element for clock hclk)
+  Path Group: hclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  des                enG500K               fsa0a_c_sc_wc
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock (input port clock) (rise edge)                                        0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  input external delay                                                        0.00       0.00 f
+  Test_Mode (in)                                                    0.00      0.00       0.00 f
+  Test_Mode (net)                               8         0.19                0.00       0.00 f
+  clk_gate_obs/TE (SNPS_CLOCK_GATE_OBS_des)                                   0.00       0.00 f
+  clk_gate_obs/TE (net)                                   0.19                0.00       0.00 f
+  clk_gate_obs/main_gate/I1 (AN2)                                   0.00      0.00       0.00 f
+  data arrival time                                                                      0.00
+
+  clock hclk (fall edge)                                                     25.00      25.00
+  clock network delay (ideal)                                                 5.00      30.00
+  clk_gate_obs/main_gate/I2 (AN2)                                             0.00      30.00 f
+  clock gating hold time                                                      0.00      30.00
+  data required time                                                                    30.00
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    30.00
+  data arrival time                                                                      0.00
+  ----------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                     -30.00
+
+
+  Startpoint: Test_Mode (input port)
+  Endpoint: POWERGATING_hclk_N26_0/main_gate
+            (gating element for clock hclk)
+  Path Group: hclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  des                enG500K               fsa0a_c_sc_wc
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock (input port clock) (rise edge)                                        0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  input external delay                                                        0.00       0.00 f
+  Test_Mode (in)                                                    0.00      0.00       0.00 f
+  Test_Mode (net)                               8         0.19                0.00       0.00 f
+  POWERGATING_hclk_N26_0/TE (POWERMODULE_HIGH_des_0)                          0.00       0.00 f
+  POWERGATING_hclk_N26_0/TE (net)                         0.19                0.00       0.00 f
+  POWERGATING_hclk_N26_0/U2/I1 (OR2)                                0.00      0.00       0.00 f
+  POWERGATING_hclk_N26_0/U2/O (OR2)                                 0.26      0.30       0.30 f
+  POWERGATING_hclk_N26_0/net1740 (net)          1         0.05                0.00       0.30 f
+  POWERGATING_hclk_N26_0/main_gate/I1 (AN2)                         0.26      0.00       0.30 f
+  data arrival time                                                                      0.30
+
+  clock hclk (fall edge)                                                     25.00      25.00
+  clock network delay (ideal)                                                 5.00      30.00
+  POWERGATING_hclk_N26_0/main_gate/I2 (AN2)                                   0.00      30.00 f
+  clock gating hold time                                                      0.00      30.00
+  data required time                                                                    30.00
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    30.00
+  data arrival time                                                                     -0.30
+  ----------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                     -29.70
+
+
+  Startpoint: Test_Mode (input port)
+  Endpoint: POWERGATING_hclk_N26_0/main_gate
+            (gating element for clock hclk)
+  Path Group: hclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  des                enG500K               fsa0a_c_sc_wc
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock (input port clock) (rise edge)                                        0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  input external delay                                                        0.00       0.00 r
+  Test_Mode (in)                                                    0.00      0.00       0.00 r
+  Test_Mode (net)                               8         0.19                0.00       0.00 r
+  POWERGATING_hclk_N26_0/TE (POWERMODULE_HIGH_des_0)                          0.00       0.00 r
+  POWERGATING_hclk_N26_0/TE (net)                         0.19                0.00       0.00 r
+  POWERGATING_hclk_N26_0/U2/I1 (OR2)                                0.00      0.00       0.00 r
+  POWERGATING_hclk_N26_0/U2/O (OR2)                                 0.39      0.30       0.30 r
+  POWERGATING_hclk_N26_0/net1740 (net)          1         0.05                0.00       0.30 r
+  POWERGATING_hclk_N26_0/main_gate/I1 (AN2)                         0.39      0.00       0.30 r
+  data arrival time                                                                      0.30
+
+  clock hclk (fall edge)                                                     25.00      25.00
+  clock network delay (ideal)                                                 5.00      30.00
+  POWERGATING_hclk_N26_0/main_gate/I2 (AN2)                                   0.00      30.00 f
+  clock gating hold time                                                      0.00      30.00
+  data required time                                                                    30.00
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    30.00
+  data arrival time                                                                     -0.30
+  ----------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                     -29.70
+
+
+  Startpoint: Test_Mode (input port)
+  Endpoint: des_cop_unit/des_unit/u_tiny_des_round/clk_gate_obs/main_gate
+            (gating element for clock hclk)
+  Path Group: hclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  des                enG500K               fsa0a_c_sc_wc
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock (input port clock) (rise edge)                                        0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  input external delay                                                        0.00       0.00 f
+  Test_Mode (in)                                                    0.00      0.00       0.00 f
+  Test_Mode (net)                               8         0.19                0.00       0.00 f
+  des_cop_unit/test_mode (des_cop)                                            0.00       0.00 f
+  des_cop_unit/test_mode (net)                            0.19                0.00       0.00 f
+  des_cop_unit/des_unit/test_mode (tiny_des)                                  0.00       0.00 f
+  des_cop_unit/des_unit/test_mode (net)                   0.19                0.00       0.00 f
+  des_cop_unit/des_unit/u_tiny_des_round/test_mode (tiny_des_round)           0.00       0.00 f
+  des_cop_unit/des_unit/u_tiny_des_round/test_mode (net)
+                                                          0.19                0.00       0.00 f
+  des_cop_unit/des_unit/u_tiny_des_round/U2588/I (BUF1)             0.00      0.00       0.00 f
+  des_cop_unit/des_unit/u_tiny_des_round/U2588/O (BUF1)             0.42      0.33       0.33 f
+  des_cop_unit/des_unit/u_tiny_des_round/n2555 (net)
+                                                3         0.10                0.00       0.33 f
+  des_cop_unit/des_unit/u_tiny_des_round/clk_gate_obs/TE (SNPS_CLOCK_GATE_OBS_tiny_des_round)
+                                                                              0.00       0.33 f
+  des_cop_unit/des_unit/u_tiny_des_round/clk_gate_obs/TE (net)
+                                                          0.10                0.00       0.33 f
+  des_cop_unit/des_unit/u_tiny_des_round/clk_gate_obs/main_gate/I1 (AN2)
+                                                                    0.42      0.00       0.33 f
+  data arrival time                                                                      0.33
+
+  clock hclk (fall edge)                                                     25.00      25.00
+  clock network delay (ideal)                                                 5.00      30.00
+  des_cop_unit/des_unit/u_tiny_des_round/clk_gate_obs/main_gate/I2 (AN2)      0.00      30.00 f
+  clock gating hold time                                                      0.00      30.00
+  data required time                                                                    30.00
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    30.00
+  data arrival time                                                                     -0.33
+  ----------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                     -29.67
+
+
+1

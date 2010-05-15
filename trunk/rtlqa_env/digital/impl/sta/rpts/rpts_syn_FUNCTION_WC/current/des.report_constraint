@@ -1,0 +1,470 @@
+****************************************
+Report : constraint
+	-all_violators
+	-path slack_only
+Design : des
+Version: B-2008.06-SP3
+Date   : Fri Sep 11 18:42:52 2009
+****************************************
+
+
+
+
+
+
+
+
+   max_transition
+
+                             Required        Actual
+   Pin                      Transition     Transition        Slack
+   -----------------------------------------------------------------
+   U56/I1                       1.20           2.40          -1.20  (VIOLATED)
+   U142/A1                      1.20           2.40          -1.20  (VIOLATED)
+   U192/B2                      1.20           2.40          -1.20  (VIOLATED)
+   U193/B2                      1.20           2.40          -1.20  (VIOLATED)
+   U194/B2                      1.20           2.40          -1.20  (VIOLATED)
+   U199/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U200/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U201/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U202/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U203/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U204/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U205/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U206/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U207/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U208/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U209/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U210/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U211/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U212/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U213/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U214/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U215/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U216/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U217/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U218/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U219/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U220/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U221/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U222/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U223/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U224/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U225/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U226/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U227/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U228/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U229/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U230/I2                      1.20           2.40          -1.20  (VIOLATED)
+   U244/I2                      1.20           2.40          -1.20  (VIOLATED)
+   hwrite_d1_reg/Q              1.20           2.40          -1.20  (VIOLATED)
+   des_cop_unit/des_unit/u_tiny_des_round/U24/O
+                                1.20           1.22          -0.02  (VIOLATED)
+   des_cop_unit/des_unit/u_tiny_des_round/U861/B2
+                                1.20           1.22          -0.02  (VIOLATED)
+   des_cop_unit/des_unit/u_tiny_des_round/U988/I2
+                                1.20           1.22          -0.02  (VIOLATED)
+   des_cop_unit/des_unit/u_tiny_des_round/U1005/I3
+                                1.20           1.22          -0.02  (VIOLATED)
+   des_cop_unit/des_unit/u_tiny_des_round/U1100/B2
+                                1.20           1.22          -0.02  (VIOLATED)
+   des_cop_unit/des_unit/u_tiny_des_round/U1947/I3
+                                1.20           1.22          -0.02  (VIOLATED)
+
+
+   max_fanout
+
+                             Required        Actual
+   Pin                        Fanout         Fanout          Slack
+   -----------------------------------------------------------------
+   hwrite_d1_reg/Q             16.00          38.00         -22.00  (VIOLATED)
+   U56/O                       16.00          32.00         -16.00  (VIOLATED)
+
+
+****************************************
+Report : constraint
+	-all_violators
+	-verbose
+Design : des
+Version: B-2008.06-SP3
+Date   : Fri Sep 11 18:42:53 2009
+****************************************
+
+
+    Pin: U56/I1
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U142/A1
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U192/B2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U193/B2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U194/B2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U199/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U200/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U201/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U202/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U203/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U204/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U205/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U206/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U207/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U208/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U209/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U210/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U211/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U212/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U213/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U214/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U215/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U216/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U217/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U218/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U219/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U220/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U221/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U222/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U223/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U224/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U225/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U226/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U227/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U228/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U229/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U230/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: U244/I2
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: hwrite_d1_reg/Q
+
+    max_transition         1.20
+  - Transition Time        2.40
+  ------------------------------
+    Slack                 -1.20  (VIOLATED)
+
+
+    Pin: des_cop_unit/des_unit/u_tiny_des_round/U24/O
+
+    max_transition         1.20
+  - Transition Time        1.22
+  ------------------------------
+    Slack                 -0.02  (VIOLATED)
+
+
+    Pin: des_cop_unit/des_unit/u_tiny_des_round/U861/B2
+
+    max_transition         1.20
+  - Transition Time        1.22
+  ------------------------------
+    Slack                 -0.02  (VIOLATED)
+
+
+    Pin: des_cop_unit/des_unit/u_tiny_des_round/U988/I2
+
+    max_transition         1.20
+  - Transition Time        1.22
+  ------------------------------
+    Slack                 -0.02  (VIOLATED)
+
+
+    Pin: des_cop_unit/des_unit/u_tiny_des_round/U1005/I3
+
+    max_transition         1.20
+  - Transition Time        1.22
+  ------------------------------
+    Slack                 -0.02  (VIOLATED)
+
+
+    Pin: des_cop_unit/des_unit/u_tiny_des_round/U1100/B2
+
+    max_transition         1.20
+  - Transition Time        1.22
+  ------------------------------
+    Slack                 -0.02  (VIOLATED)
+
+
+    Pin: des_cop_unit/des_unit/u_tiny_des_round/U1947/I3
+
+    max_transition         1.20
+  - Transition Time        1.22
+  ------------------------------
+    Slack                 -0.02  (VIOLATED)
+
+
+    Pin: hwrite_d1_reg/Q
+
+    max_fanout            16.00
+  - Fanout                38.00
+  ------------------------------
+    Slack                -22.00  (VIOLATED)
+
+
+    Pin: U56/O
+
+    max_fanout            16.00
+  - Fanout                32.00
+  ------------------------------
+    Slack                -16.00  (VIOLATED)
+
+
+1

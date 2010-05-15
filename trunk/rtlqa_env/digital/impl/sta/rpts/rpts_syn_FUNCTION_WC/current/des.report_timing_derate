@@ -1,0 +1,19 @@
+****************************************
+Report : timing derate
+	-include_inherited
+Design : des
+Version: B-2008.06-SP3
+Date   : Fri Sep 11 18:42:53 2009
+****************************************
+
+                                  ----- Clock ------                  ------ Data ------
+                                Rise              Fall              Rise              Fall
+                           Early     Late    Early     Late    Early     Late    Early     Late
+ -----------------------------------------------------------------------------------------------
+ design: des
+   Net delay static         1.00     1.00     1.00     1.00     1.00     1.00     1.00     1.00
+   Net delay dynamic        1.00     1.00     1.00     1.00     1.00     1.00     1.00     1.00
+   Cell delay               1.00     1.00     1.00     1.00     1.00     1.00     1.00     1.00
+   Cell check                --       --       --       --       --       --       --       -- 
+
+1

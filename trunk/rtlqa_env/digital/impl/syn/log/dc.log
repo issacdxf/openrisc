@@ -1,0 +1,3518 @@
+
+                        DC Professional (TM)
+                           DC Expert (TM)
+                            DC Ultra (TM)
+                       FloorPlan Manager (TM)
+                          HDL Compiler (TM)
+                         VHDL Compiler (TM)
+                        Library Compiler (TM)
+                      DesignWare Developer (TM)
+                          DFT Compiler (TM)
+                            BSD Compiler
+                         Power Compiler (TM)
+
+           Version Z-2007.03-SP1 for linux -- Apr 19, 2007
+              Copyright (c) 1988-2007 by Synopsys, Inc.
+                         ALL RIGHTS RESERVED
+
+This software and the associated documentation are confidential and 
+proprietary to Synopsys, Inc. Your use or disclosure of this software 
+is subject to the terms and conditions of a written license agreement 
+between you, or your company, and Synopsys, Inc.
+
+The above trademark notice does not imply that you are licensed to use 
+all of the listed products. You are licensed to use only those products 
+for which you have lawfully obtained a valid license key.
+
+Initializing...
+Starting shell in XG mode...
+#----------------------------------------------------------------------
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      rundc.tcl
+#
+#      DESCRIPTION:
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#----------------------------------------------------------------------
+#================ Parameters Setting ===============#
+get_license    DC-Expert
+1
+get_license    Power-Optimization
+1
+set runSetType 		DC		;# runSetType defines script category,RTL-QA flow will use this
+DC
+;# variable to setup stage-process environments
+set projectName		des		;#
+des
+set topModuleName	des	 	;# Define top-module name of the whole chip.RTL-QA flow will use
+des
+;# this variable to link designs,define transformed data name etc.
+#-----------------------------------#
+# Synthesis Flow Control
+#-----------------------------------#
+set setupLib 		true 		;# true/false.To be true,setupLib.tcl will be sourced in;Otherwise,
+true
+;# library environment should be setup manually
+set readInDesign  	true		;# true/false.To be true,rtl designs will be read in automatically
+true
+;# according to the rtl design list; Otherwise,read in designs manually
+set clockgating		true		;# true/false.Perform clock gating insertion or not
+true
+set constrainDesign  	true		;# true/false.Define constrains or not. To be true, design will be
+true
+;# optimized by performing "compile" command; Otherwise,do it manually
+set phyConstrainDesign 	false		;# true/false. Define physical constraints or not.
+false
+; # It's a new var to support DCT
+set compileDesign  	true;	# true/false.Perform optimization or not. To be true,design will be
+true
+;# optimized by performing "compile" command; Otherwise,do it manually
+set designReport 	true;# true/false.Generate reports or not. To be true,detailed informations
+true
+;# will be reported out
+set rptBufferTree	false;# true/false.To be true,high-fanout nets such as clock and reset will be
+false
+;# checked to find out if unexpected buffers/inverters were inserted
+set CleanBufferTree	false		;# true/false.To be true,unexpected buffers/inverters will be removed from
+false
+;# high-fanout ideal nets
+set fullCmpEffort 	high  		;# none/low/medium/high Define full compile effort level
+high
+set increCmpEffort	high		;# none/low/medium/high Define incremental compile effort level
+high
+set GenSDCfile		true		;# true/false.To be true, SDC file will be generated for P&R
+true
+set milkywayDatabase 	false		;# true/flase.Save milkyway CEL, used in DCT flow.
+false
+#set hdlFilePath	""		;# set this variable only when special rtl file directory is used than default.
+#set hdlFileList 	""		;# set this variable only when special rtl file list is used than default.
+#-----------------------------------#
+# Generate Report
+#-----------------------------------#
+set padCellName 	 ""
+set rptDesignInfo        true
+true
+set rptHierarchy         true
+true
+set rptAreaInfo          true
+true
+set rptClkInfo           true
+true
+set rptCheckTiming   	 true
+true
+set rptTimingExcept      true
+true
+set rptTimingCnst        true
+true
+set rptMaxDelayPath      true
+true
+set rptMinDelayPath      true
+true
+#-----------------------------------------#
+# Reserved variables
+#-----------------------------------------#
+#set readDbFile 	false		;# true/false.Reserved variable
+#set readMilkyWayFile	false		;# true/false.Reserved variable
+#set acsRead            false		;# true/false.Reserved variable.Use acs_read method or not.
+#set prepareOnly	false		;# true/false.Reserved variable.Used in acs flow.
+#set useLsf 		false		;# true/false.Reserved variable.Used in acs flow.
+#set acs_compile 	false		;# true/false.Reserved variable.Used in acs flow.
+#set acsParalJobNum  	0		;# integer.Reserved variable.Used in acs flow.
+#set levelPartition	false		;# true/false.Reserved variable.Used in acs flow.
+#set levelNum       	0		;# integer.Reserved variable.Used in acs flow.
+#set designPartition	false		;# true/false.Reserved variable.Used in acs flow.
+#set designList 	[list]		;# collection.Reserved variable.Used in acs flow.
+#set milkywayDatabase 	true		;# true/flase.Reserved variable.Used in acs flow.
+#set optmiCost 		timing 		;# timing/timing_area.Reserved variable.Used in acs flow.
+# ===================== Flow Control ========================#
+#-----------------------------------#
+# Include Environment Setup Script
+#-----------------------------------#
+source -echo -verbose ../../script/con/setupEnv.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      setupEnv.tcl
+#
+#      DESCRIPTION:
+#         This script is used to setup environment for R2N flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+set RUN_DIR             [pwd]
+/export/home/user/wangyl/rtlqa_env/digital/impl/syn/run_dir
+cd ../../
+set IMP_HOME            [pwd]
+/export/home/user/wangyl/rtlqa_env/digital/impl
+cd ../
+set ENV_HOME            [pwd]
+/export/home/user/wangyl/rtlqa_env/digital
+cd ../
+set PJT_HOME		[pwd]
+/export/home/user/wangyl/rtlqa_env
+if { $runSetType == "DC" } {
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set dcScriptPath        $IMP_HOME/script/syn
+  set dtclConstraintPath  $IMP_HOME/script/syn
+  set workPath            $IMP_HOME/syn/work
+  set rptDir 		  $IMP_HOME/syn/rpts
+  set netlistFilePath     $workPath/SourceDB
+  set milkywayPath        $workPath/milkyway
+  cd $RUN_DIR
+  if { [info exists hdlFilePath] == 0 } {
+    set hdlFilePath         $ENV_HOME/hdl/$projectName
+  }
+  if { [info exists hdlFileList] == 0 } {
+    set hdlFileList    	  $hdlFilePath/list/$projectName.lst
+  }
+  set_svf 		  $workPath/svf_dir/$topModuleName.svf
+} elseif { $runSetType == "PT" } {
+  set PTScriptPath        $IMP_HOME/script/sta
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set ptConstraintPath    $IMP_HOME/script/sta  
+  set workPath            $IMP_HOME/sta/work
+  set rptDir      	  $IMP_HOME/sta/rpts/rpts_${runPTstage}_${PTCase}_${OperatingCondition}
+  if { [info exists ParasiticFilePath] == 0 } {
+    set ParasiticFilePath   $IMP_HOME/$runPTstage/work/$ParasiticModel/current
+  }
+  cd $RUN_DIR
+  if { $runPTstage == "syn" } {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath   $IMP_HOME/syn/work/net/current
+    }
+    set ParasiticFile	   $ParasiticFilePath/$ParasiticFileName
+  } elseif { $runPTstage == "dft" } {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath   $IMP_HOME/dft/work/net/current
+    }
+    set ParasiticFile	   $ParasiticFilePath/$ParasiticFileName 
+  } elseif { $runPTstage == "bsd"} {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath   $IMP_HOME/bsd/work/net/current
+    }
+      set ParasiticFile	   $ParasiticFilePath/$ParasiticFileName 
+  } elseif { $runPTstage == "rt" } {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath   $IMP_HOME/rt/work/net/current
+    }
+    set ParasiticFile	  $ParasiticFilePath/$ParasiticFileName
+  }
+} elseif { $runSetType == "FM" } {
+  set fmScriptPath        $IMP_HOME/script/formal
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set fmConstraintPath    $IMP_HOME/script/formal
+  set workPath            $IMP_HOME/formal/work
+  set rptDir  		  $IMP_HOME/formal/rpts/rpts_$runFMstage
+  cd $RUN_DIR
+  if { $runFMstage == "syn" } {
+    if { [info exists REFFilePath] == 0 } {
+  	set REFFilePath       $ENV_HOME/hdl/$projectName
+    }
+    if { [info exists IMPFilePath] == 0 } {
+  	set IMPFilePath       $IMP_HOME/syn/work/net/current
+    }
+    if { [info exists REFsourcefilelist] == 0 } {
+        set REFsourcefilelist $REFFilePath/list/$topModuleName.fm.lst
+    }
+	set_svf		      $IMP_HOME/syn/work/svf_dir
+  } elseif {$runFMstage == "dft" } {
+    if { [info exists REFFilePath] == 0 } {
+	set REFFilePath         $IMP_HOME/syn/work/net/current
+    }
+    if { [info exists IMPFilePath] == 0 } {
+	set IMPFilePath         $IMP_HOME/dft/work/net/current
+    }
+    if { [info exists REFsourcefilelist] == 0 } {
+	set REFsourcefilelist   $REFFilePath/${topModuleName}.lst
+    }
+    if { [info exists IMPsourcefilelist] == 0 } {
+	set IMPsourcefilelist   $IMPFilePath/${topModuleName}.lst
+    }
+	set_svf		        $IMP_HOME/dft/work/svf_dir
+  } elseif {$runFMstage == "bsd" } {
+    if { [info exists REFFilePath] == 0 } {
+	set REFFilePath         $IMP_HOME/syn/work/net/current
+    }
+    if { [info exists IMPFilePath] == 0 } {
+	set IMPFilePath         $IMP_HOME/bsd/work/net/current
+    }
+    if { [info exists REFsourcefilelist] == 0 } {
+	set REFsourcefilelist   $REFFilePath/${topModuleName}.lst
+    }
+    if { [info exists IMPsourcefilelist] == 0 } {
+	set IMPsourcefilelist   $IMPFilePath/${topModuleName}.lst
+    }
+	set_svf		        $IMP_HOME/bsd/work/svf_dir
+  } elseif {$runFMstage == "rt" } {
+    if { [info exists REFFilePath] == 0 } {
+        set REFFilePath         $IMP_HOME/syn/work/net/current
+    }
+    if { [info exists IMPFilePath] == 0 } {
+        set IMPFilePath         $IMP_HOME/rt/net/current
+    }
+    if { [info exists REFsourcefilelist] == 0 } {
+        set REFsourcefilelist   $REFFilePath/${topModuleName}.lst
+    }
+    if { [info exists IMPsourcefilelist] == 0 } {
+        set IMPsourcefilelist   $IMPFilePath/${topModuleName}.lst
+    }
+  }
+} elseif { $runSetType == "DFT" } {
+  set dftScriptPath       $IMP_HOME/script/dft
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set workPath            $IMP_HOME/dft/work
+  set synWorkPath         $IMP_HOME/syn/work/
+  set bsdWorkPath         $IMP_HOME/bsd/work/
+  set rptDir              $IMP_HOME/dft/rpts
+  set dftConstraintPath   $IMP_HOME/script/dft
+  set synConstraintPath   $IMP_HOME/script/syn
+  set_svf 		  $workPath/svf_dir/$topModuleName.svf
+  cd $RUN_DIR
+} elseif { $runSetType == "BSD" } {
+
+  set bsdScriptPath       $IMP_HOME/script/bsd
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set workPath            $IMP_HOME/bsd/work
+  set synWorkPath         $IMP_HOME/syn/work/
+  set dftWorkPath	  $IMP_HOME/dft/work/
+  set rptDir              $IMP_HOME/bsd/rpts
+  set bsdConstraintPath   $IMP_HOME/script/bsd
+  set synConstraintPath   $IMP_HOME/script/syn
+  set_svf 		  $workPath/svf_dir/$topModuleName.svf
+  cd $RUN_DIR
+
+} elseif { $runSetType == "POWER" } {
+  set PPScriptPath        $IMP_HOME/script/power
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set ppConstraintPath    $IMP_HOME/script/power
+  set workPath            $IMP_HOME/power/work
+  set rptDir              $IMP_HOME/power/rpts/rpts_$OperatingCondition
+  if { [info exists netlistFileList] == 0 } {
+    set netlistFileList ${topModuleName}.lst
+  }
+  if { [info exists vcdFilePath] == 0 } {
+    set vcdFilePath         $IMP_HOME/power/work/vcd
+  }
+  if { $runPPstage == "syn" } {
+    if { [info exists netlistFilePath] == 0 } { 
+      set netlistFilePath     $IMP_HOME/$runPPstage/work/net/current
+    }
+    if { [info exists parasiticsFilePath]  == 0} {
+      set parasiticsFilePath  $IMP_HOME/$runPPstage/work/$parasiticsFileFormat/current
+    }
+  } elseif {$runPPstage == "dft" } {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath     $IMP_HOME/$runPPstage/work/net/current
+  }
+    if { [info exists parasiticsFilePath] == 0 } {
+      set parasiticsFilePath  $IMP_HOME/$runPPstage/work/$parasiticsFileFormat/current
+  }
+	} elseif {$runPPstage == "bsd" } {
+ 		if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath     $IMP_HOME/$runPPstage/work/net/current
+  }
+    if { [info exists parasiticsFilePath] == 0 } {
+      set parasiticsFilePath  $IMP_HOME/$runPPstage/work/$parasiticsFileFormat/current
+  }
+  } elseif {$runPPstage == "rt" } {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath     $IMP_HOME/$runPPstage/work/net/current
+    }
+    if { [info exists parasiticsFilePath] == 0 } {
+      set parasiticsFilePath  $IMP_HOME/$runPPstage/work/$parasiticsFileFormat/current
+    }
+  }
+  cd $RUN_DIR
+} elseif { $runSetType == "TMAX" } {
+  set tmaxScriptPath	  $IMP_HOME/script/tmax
+  set tmaxConstraintPath  $IMP_HOME/script/tmax
+  set workPath            $IMP_HOME/tmax/work
+  set rptDir              $IMP_HOME/tmax/rpts
+  set protocolPath	  $IMP_HOME/dft/work/spf/current
+  cd $RUN_DIR
+} elseif { $runSetType == "LEDA" } {
+
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  if { [info exists hdlFilePath] == 0 } {
+    set hdlFilePath         $ENV_HOME/hdl/$projectName
+  }
+  if { [info exists hdlFileList] == 0 } {
+    set hdlFileList    	  $hdlFilePath/list/$topModuleName.leda.lst
+  }
+  set ledaScriptPath 	  $IMP_HOME/script/leda
+  set ledaConstrainPath	  $IMP_HOME/script/leda
+  set workPath		  $IMP_HOME/leda/work
+  set rptDir		  $IMP_HOME/leda/rpts
+  cd  $RUN_DIR
+}
+1
+1
+source -echo -verbose ../../script/con/setupVar.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      setupVar.tcl
+#
+#      DESCRIPTION:
+#         This script is used to setup variables for R2N flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+if { $runSetType == "DC" } {
+#  set prestoHdlCompiler   true
+  set hdlin_auto_save_templates true
+  set hdlin_work_directory $workPath/template/
+  set hdlin_check_no_latch true
+  set compile_no_new_cells_at_top_level true
+  set compile_preserve_subdesign_interfaces true
+  set hdlin_latch_always_async_set_reset true
+#  set timing_self_loops_no_skew true
+  set enable_recovery_removal_arcs true
+  set verilogout_no_tri true
+  set power_cg_flatten true
+  set verilogout_show_unconnected_pins true
+  set dcVersion           2007.03sp1
+  set DC_ULTRA            true
+  define_design_lib work -path $workPath/template/
+  suppress_message {UISN-26 VER-129 VER-130 VER-173}
+  if { $clockgating == "true" } {
+    set power_cg_gated_clock_net_naming_style "CLKGATING_%c_%g_%d"
+    set power_cg_module_naming_style "POWERMODULE_%e_%p_%d"
+    set power_cg_cell_naming_style "POWERGATING_%c_%n_%d"
+  }
+} elseif { $runSetType == "PT" } {
+  set link_create_black_boxes false
+  set timing_clock_reconvergence_pessimism normal
+  set timing_remove_clock_reconvergence_pessimism true
+  set svr_keep_unconnected_nets  true
+  set timing_slew_propagation_mode worst_slew
+#  set case_analysis_sequential_propagation always
+  suppress_message PARA-023
+  if { $EnablePTSI == "true" } {
+    set si_enable_analysis true
+    set si_xtalk_reselect_critical_path false
+    set si_xtalk_reselect_clock_network true
+    set si_xtalk_reselect_delta_delay 0.3
+    set si_xtalk_reselect_delta_delay_ratio 0.95
+    set si_xtalk_reselect_max_mode_slack 0
+    set si_xtalk_reselect_min_mode_slack 0
+    set si_xtalk_exit_on_max_iteration_count 3
+  }
+} elseif { $runSetType == "POWER"} {
+	set power_enable_analysis true 
+	set power_default_static_probability 0.5
+	set power_default_toggle_rate 0.5
+	set power_clock_network_include_clock_gating_network true
+} elseif { $runSetType == "FM" } {
+  set my_dc_shell_file [exec which dc_shell-t]
+  set my_dc_shell_install   	[string range $my_dc_shell_file 0 [expr [string last "/" $my_dc_shell_file] - 4]]
+#  set my_dc_shell_install /ecad/synopsys/newtool/synthesis_z2007.03_sp1 
+  set hdlin_dwroot $my_dc_shell_install
+  set hdlin_synroot $my_dc_shell_install
+
+  set hdlin_ignore_dc_script true
+#  set verification_passing_mode consistency
+  set hdlin_error_on_mismatch_message false
+  set verification_clock_gate_hold_mode any
+  set hdlin_warn_on_mismatch_message "FMR_ELAB-146 FMR_ELAB-034"
+#  set verification_verify_directly_undriven_output false
+
+  set hdlin_unresolved_modules "black_box"
+# set verification_clock_gate_hold_mode low
+  set verification_blackbox_match_mode identity
+# set verification_set_undriven_signals "X"
+  set verification_constant_prop_mode top
+} elseif { $runSetType == "DFT" } {
+#  set prestoHdlCompiler   true
+  set hdlin_auto_save_templates true
+  set hdlin_check_no_latch true
+  set case_analysis_with_logic_constants true
+  set case_analysis_with_logic_constants true
+  set test_default_bidir_delay 0
+  set test_default_delay 0
+  set test_default_strobe 40
+  set test_dft_drc_ungate_clocks true
+  set test_enable_dft_drc true
+  #set test_preset_bidi_signals false
+  #set test_setup_additional_clock_pulse true
+  set compile_no_new_cells_at_top_level true
+  #set test_dedicated_subdesign_scan_outs false
+  set test_stil_netlist_format verilog
+  set test_use_test_models true
+  set verilogout_no_tri true
+#  set timing_self_loops_no_skew true
+  #set_auto_disable_drc_nets -clock true -constant true
+  set enable_recovery_removal_arcs true
+  suppress_message {UISN-26 VER-129 VER-130 VER-173}
+  define_design_lib work -path $workPath/template/
+} elseif { $runSetType == "BSD"} {
+#	set prestoHdlCompiler   true
+  set hdlin_auto_save_templates true
+  set hdlin_check_no_latch true
+  set case_analysis_with_logic_constants true
+  set case_analysis_with_logic_constants true
+  set test_default_bidir_delay 0
+  set test_default_delay 0
+  set test_default_strobe 40
+  set test_dft_drc_ungate_clocks true
+  set test_enable_dft_drc true
+  #set test_preset_bidi_signals false
+  #set test_setup_additional_clock_pulse true
+  set compile_no_new_cells_at_top_level true
+  #set test_dedicated_subdesign_scan_outs false
+  set test_stil_netlist_format verilog
+  set test_use_test_models true
+  set verilogout_no_tri true
+# set timing_self_loops_no_skew true
+#	set_auto_disable_drc_nets -clock true -constant true
+  set enable_recovery_removal_arcs true
+  suppress_message {UISN-26 VER-129 VER-130 VER-173}
+  define_design_lib work -path $workPath/template/
+} elseif { $runSetType == "TMAX" } {
+
+} elseif { $runSetType == "LEDA" } {
+
+} 
+Information: Variable 'hdlin_work_directory' is obsolete and is being ignored. (INFO-100)
+POWERGATING_%c_%n_%d
+POWERGATING_%c_%n_%d
+#-----------------------------------#
+# Include Library Setup Script
+#-----------------------------------#
+if {$setupLib == "true"} {
+source -echo -verbose $LibrarySetupPath/setupLib.tcl
+}
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      setupLib.tcl
+#
+#      DESCRIPTION:
+#         This script is used to setup libraries for R2N flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+set maxOptCond WCCOM 
+WCCOM
+set maxLibName fsa0a_c_sc_wc
+fsa0a_c_sc_wc
+set minOptCond BCCOM
+BCCOM
+set minLibName fsa0a_c_sc_bc
+fsa0a_c_sc_bc
+set typOptcond TCCOM
+TCCOM
+set typLibName fsa0a_c_sc_tc
+fsa0a_c_sc_tc
+set wireLoadModelName none
+none
+set slew_lower_threshold_pct_rise 10
+10
+set slew_lower_threshold_pct_fall 10
+10
+set slew_upper_threshold_pct_rise 90
+90
+set slew_upper_threshold_pct_fall 90
+90
+set input_threshold_pct_rise  50
+50
+set input_threshold_pct_fall  50
+50
+set output_threshold_pct_rise 50
+50
+set output_threshold_pct_fall 50
+50
+if { $runSetType == "DC" } {
+
+  set search_path   ".                       $search_path .                      $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                      $ENV_HOME/hdl/des                      "
+
+  set target_library "fsa0a_c_sc_wc.db"
+  
+  set synthetic_library "standard.sldb dw_foundation.sldb"
+  
+  set link_library [concat *                     $target_library                     $synthetic_library                    ]
+  
+  set_dont_use {fsa0a_c_sc_wc/JK* fsa0a_c_sc_wc/BUF*CK}
+  set_dont_use {fsa0a_c_sc_wc/RAM*}
+  set_dont_use {fsa0a_c_sc_wc/DLY*}
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCB*] dont_use
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCK*] dont_use
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/TIE*] dont_use
+  set auto_wire_load_selection true
+
+} elseif { $runSetType == "PT" } {
+  set search_path  ".                        $search_path .                    $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                    $ENV_HOME/hdl/des"
+
+  if { $OperatingCondition == "WC" || $OperatingCondition == "BCWC" } {                       
+    set target_library      "fsa0a_c_sc_wc.db"
+    set link_library [concat *                       $target_library                       ]
+
+  } elseif { $OperatingCondition == "BC" } {
+    set target_library      "fsa0a_c_sc_bc.db"
+    set link_library [concat *                       $target_library                      ]
+  }
+  if { $OperatingCondition == "BCWC" } {
+    set_min_library fsa0a_c_sc_wc.db     -min_version fsa0a_c_sc_bc.db
+  }
+} elseif { $runSetType == "POWER" } {
+  set search_path ".                        $search_path .                    $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                    $ENV_HOME/hdl/des"
+
+  if { $OperatingCondition == "WC" || $OperatingCondition == "BCWC" } {                       
+    set target_library      "fsa0a_c_sc_wc.db"
+    set link_library [concat *                       $target_library                       ]
+
+  } elseif { $OperatingCondition == "BC" } {
+    set target_library      "fsa0a_c_sc_bc.db"
+    set link_library [concat *                       $target_library                       ]
+  } elseif { $OperatingCondition == "TC" } {
+    set target_library      "fsa0a_c_sc_tc.db"
+    set link_library [concat *                       $target_library                       ]
+  }
+  if { $OperatingCondition == "BCWC" } {
+    set_min_library fsa0a_c_sc_wc.db -min_version fsa0a_c_sc_bc.db
+
+  }
+} elseif { $runSetType == "FM" } {
+  set target_library  "fsa0a_c_sc_wc.db"
+  set search_path     "$search_path .                        $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                        $ENV_HOME/hdl/des"
+  set link_library [list                     fsa0a_c_sc_wc.db                     ]
+
+  foreach lib $link_library {
+    if { $lib == "*" } { continue }
+    read_db -technology_library $lib
+  }
+} elseif { $runSetType == "DFT" || $runSetType == "BSD" } {
+
+  set search_path  "$search_path .                     $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                     $ENV_HOME/hdl/des                     "
+  set target_library  "fsa0a_c_sc_wc.db"
+  
+  set synthetic_library "standard.sldb dw_foundation.sldb"
+  
+  set link_library [concat *                     $target_library                     $synthetic_library                     ]
+  
+  #set_dont_use {fsa0a_c_sc_wc/TIE1 fsa0a_c_sc_wc/TIE0 fsa0a_c_sc_wc/JK* fsa0a_c_sc_wc/BUF*CK}
+  set_dont_use {fsa0a_c_sc_wc/JK* fsa0a_c_sc_wc/BUF*CK}
+  set_dont_use {fsa0a_c_sc_wc/RAM*}
+  set_dont_use {fsa0a_c_sc_wc/DLY*}
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCB*] dont_use
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCK*] dont_use
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/TIE*] dont_use
+  
+  set auto_wire_load_selection true
+  
+  set test_simulation_library [list                                $PJT_HOME/techlib/memory/verilog/memory.v]
+
+} elseif { $runSetType == "TMAX" } {
+	
+} elseif { $runSetType == "LEDA" } {
+
+  set search_path    "$search_path .                       $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                       $ENV_HOME/hdl/des                       "
+
+  set target_library    "fsa0a_c_sc_wc.db"
+
+  set link_library [concat *                     $target_library                    ]
+}
+Loading db file '/export/home/user/wangyl/rtlqa_env/techlib/std_cell/FrontEnd/synopsys/fsa0a_c_sc_wc.db'
+Loading db file '/ecad/synopsys/synthesis_z2007.03_sp1/libraries/syn/standard.sldb'
+Loading db file '/ecad/synopsys/synthesis_z2007.03_sp1/libraries/syn/dw_foundation.sldb'
+true
+true
+#-----------------------------------#
+# Include Design Read In Script
+#-----------------------------------#
+if {$readInDesign == "true"} {
+source -echo -verbose $dcScriptPath/designReadIn.tcl
+}
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      designReadIn.tcl
+#
+#      DESCRIPTION:
+#         This script is used to read in the designs in SYN flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+#-----------------------------------#
+# Define Design Library Path 
+#-----------------------------------#
+#define_design_lib work -path $workPath\template
+#define_design_lib WORK -path $workPath\template
+set RTLFileList [exec cat $hdlFileList]
+../../../hdl/des/des_cop.v
+../../../hdl/des/des_dat.v
+../../../hdl/des/des_iv.v
+../../../hdl/des/des_key.v
+../../../hdl/des/des.v
+../../../hdl/des/tiny_des_round.v
+../../../hdl/des/tiny_des.v
+foreach rtlfile $RTLFileList {
+  echo "\n\n\nPerform $rtlfile Reading ..........................\n\n\n"
+  if { [file exists $rtlfile] == 1 } {
+    if { [file extension $rtlfile ] == ".v" || [file extension $rtlfile ] == ".V" || [file extension $rtlfile ] == ".vg" || [file extension $rtlfile] == ".VG"} {
+      #read_verilog [file join $hdlFilePath $rtlfile]
+      analyze -f verilog $rtlfile
+    } elseif { [file extension $rtlfile] == ".vhdl" || [file extension $rtlfile] == ".VHDL" || [file extension $rtlfile] == ".vhd" || [file extension $rtlfile] == ".VHD"} {
+      read_vhdl $hdlFilePath/$rtlfile
+    } else {
+      echo "\n\n\nERROR: File $rtlfile can not be recognized\n\n\n"
+      quit
+    }
+  } else {
+    echo "\n\nCan not find file $rtlfile! Please check it.\n\n"
+    quit
+  }
+}
+
+
+
+Perform ../../../hdl/des/des_cop.v Reading ..........................
+
+
+
+Running PRESTO HDLC
+Compiling source file ../../../hdl/des/des_cop.v
+Presto compilation completed successfully.
+
+
+
+Perform ../../../hdl/des/des_dat.v Reading ..........................
+
+
+
+Running PRESTO HDLC
+Compiling source file ../../../hdl/des/des_dat.v
+Presto compilation completed successfully.
+
+
+
+Perform ../../../hdl/des/des_iv.v Reading ..........................
+
+
+
+Running PRESTO HDLC
+Compiling source file ../../../hdl/des/des_iv.v
+Presto compilation completed successfully.
+
+
+
+Perform ../../../hdl/des/des_key.v Reading ..........................
+
+
+
+Running PRESTO HDLC
+Compiling source file ../../../hdl/des/des_key.v
+Presto compilation completed successfully.
+
+
+
+Perform ../../../hdl/des/des.v Reading ..........................
+
+
+
+Running PRESTO HDLC
+Compiling source file ../../../hdl/des/des.v
+Presto compilation completed successfully.
+
+
+
+Perform ../../../hdl/des/tiny_des_round.v Reading ..........................
+
+
+
+Running PRESTO HDLC
+Compiling source file ../../../hdl/des/tiny_des_round.v
+Presto compilation completed successfully.
+
+
+
+Perform ../../../hdl/des/tiny_des.v Reading ..........................
+
+
+
+Running PRESTO HDLC
+Compiling source file ../../../hdl/des/tiny_des.v
+Presto compilation completed successfully.
+#set temp_filelist ""
+#foreach rtlfile $RTLFileList {
+#lappend temp_filelist $hdlFilePath/$rtlfile
+#}
+analyze -f verilog $temp_filelist
+Error: can't read "temp_filelist": no such variable
+	Use error_info for more info. (CMD-013)
+elaborate -update $topModuleName
+Loading db file '/ecad/synopsys/synthesis_z2007.03_sp1/libraries/syn/gtech.db'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Inferred memory devices in process
+	in routine des line 179 in file
+		'../../../hdl/des/des.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| nextiv_ready_en_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    run_delay_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine des line 193 in file
+		'../../../hdl/des/des.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     desctrl_reg     | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine des line 381 in file
+		'../../../hdl/des/des.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   hready_resp_reg   | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine des line 262 in file
+		'../../../hdl/des/des.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  desdat_sel_d1_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  deskey_sel_d1_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  desiv_sel_d1_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    hwrite_d1_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+| desctrl_sel_d1_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine des line 312 in file
+		'../../../hdl/des/des.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   desdat_sel_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     data_in_reg     | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   deskey_sel_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|       rw_reg        | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|   desctrl_sel_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    desiv_sel_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Information:  Complex logic will not be considered for set/reset inference. (ELAB-2008)
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'des'.
+Information: Building the design 'des_key'. (HDL-193)
+Warning:  Starting with the 2000.11-1 release, the Presto Verilog reader treats Verilog 'integer' types as signed; synthesized result may not match earlier versions of HDL Compiler. (VER-314)
+Warning:  ../../../hdl/des/des_key.v:78: Potential simulation-synthesis mismatch if index exceeds size of array 'fifo_mem'. (ELAB-349)
+
+Inferred memory devices in process
+	in routine des_key line 47 in file
+		'../../../hdl/des/des_key.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       ptr_reg       | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     wr_ptr_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine des_key line 72 in file
+		'../../../hdl/des/des_key.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    fifo_mem_reg     | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    fifo_mem_reg     | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    fifo_mem_reg     | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    fifo_mem_reg     | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    fifo_mem_reg     | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    fifo_mem_reg     | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Information:  Complex logic will not be considered for set/reset inference. (ELAB-2008)
+Presto compilation completed successfully.
+Information: Building the design 'des_iv'. (HDL-193)
+
+Inferred memory devices in process
+	in routine des_iv line 56 in file
+		'../../../hdl/des/des_iv.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    fifo_mem_reg     | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    fifo_mem_reg     | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine des_iv line 73 in file
+		'../../../hdl/des/des_iv.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       ptr_reg       | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     wr_ptr_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'des_dat'. (HDL-193)
+
+Inferred memory devices in process
+	in routine des_dat line 58 in file
+		'../../../hdl/des/des_dat.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    fifo_mem_reg     | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    fifo_mem_reg     | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine des_dat line 75 in file
+		'../../../hdl/des/des_dat.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     wr_ptr_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|       ptr_reg       | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     rd_ptr_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine des_dat line 104 in file
+		'../../../hdl/des/des_dat.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      full_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine des_dat line 116 in file
+		'../../../hdl/des/des_dat.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   full_delay_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine des_dat line 124 in file
+		'../../../hdl/des/des_dat.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   full_pulse_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+===========================================================
+| block name/line  | Inputs | Outputs | # sel inputs | MB |
+===========================================================
+|   des_dat/132    |   2    |   32    |      1       | N  |
+===========================================================
+Presto compilation completed successfully.
+Information: Building the design 'des_cop'. (HDL-193)
+
+Statistics for case statements in always block at line 143 in file
+	'../../../hdl/des/des_cop.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           145            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine des_cop line 116 in file
+		'../../../hdl/des/des_cop.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      flag_reg       | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine des_cop line 131 in file
+		'../../../hdl/des/des_cop.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| din_valid_eins_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Information:  Complex logic will not be considered for set/reset inference. (ELAB-2008)
+Presto compilation completed successfully.
+Information: Building the design 'tiny_des'. (HDL-193)
+
+Statistics for case statements in always block at line 76 in file
+	'../../../hdl/des/tiny_des.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            82            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 131 in file
+	'../../../hdl/des/tiny_des.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           133            |    auto/auto     |
+|           137            |    auto/auto     |
+|           151            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine tiny_des line 76 in file
+		'../../../hdl/des/tiny_des.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      state_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine tiny_des line 98 in file
+		'../../../hdl/des/tiny_des.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      round_reg      | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine tiny_des line 244 in file
+		'../../../hdl/des/tiny_des.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   dout_valid_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'tiny_des_round'. (HDL-193)
+Warning:  ../../../hdl/des/tiny_des_round.v:1740: Value of function des_sbox may be used before being assigned; the synthesized result may not match simulations. (ELAB-392)
+
+Statistics for case statements in always block at line 57 in file
+	'../../../hdl/des/tiny_des_round.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           152            |    auto/auto     |
+|           286            |    auto/auto     |
+|           420            |    auto/auto     |
+|           554            |    auto/auto     |
+|           688            |    auto/auto     |
+|           951            |    auto/auto     |
+|           1214           |    auto/auto     |
+|           1477           |    auto/auto     |
+|           152            |    auto/auto     |
+|           286            |    auto/auto     |
+|           420            |    auto/auto     |
+|           554            |    auto/auto     |
+|           688            |    auto/auto     |
+|           951            |    auto/auto     |
+|           1214           |    auto/auto     |
+|           1477           |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine tiny_des_round line 57 in file
+		'../../../hdl/des/tiny_des_round.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      dout_reg       | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+1
+current_design $topModuleName
+Current design is 'des'.
+{des}
+link
+
+  Linking design 'des'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (7 designs)               /export/home/user/wangyl/rtlqa_env/digital/impl/syn/run_dir/des.db, etc
+  fsa0a_c_sc_wc (library)     /export/home/user/wangyl/rtlqa_env/techlib/std_cell/FrontEnd/synopsys/fsa0a_c_sc_wc.db
+  dw_foundation.sldb (library) /ecad/synopsys/synthesis_z2007.03_sp1/libraries/syn/dw_foundation.sldb
+
+1
+#-----------------------------------#
+# Perform Clock Gating insertion
+#-----------------------------------#
+if { $clockgating == "true" } {
+        echo "\n\nPerform Clock Gating style define\n";
+        source $dtclConstraintPath/clock_gating.tcl
+}
+
+
+Perform Clock Gating style define
+
+
+Current clock gating style....
+Sequential cell: latch
+Minimum register bank size: 4
+Minimum bank size for enhanced clock gating: 8
+Maximum fanout: unlimited
+Setup time for clock gate: 0.000000
+Hold time for clock gate: 0.000000
+Clock gating circuitry (positive edge): and
+Clock gating circuitry (negative edge): or
+ Note: inverter between clock gating circuitry 
+       and (negative edge) register clock pin.
+Control point insertion: after
+Control signal for control point: test_mode
+Observation point insertion: true
+Observation logic depth: 5
+1
+write -format ddc -hierarchy -output $workPath/sourceDb/$topModuleName.gtech.ddc
+Writing ddc file '/export/home/user/wangyl/rtlqa_env/digital/impl/syn/work/sourceDb/des.gtech.ddc'.
+1
+current_design $topModuleName
+Current design is 'des'.
+{des}
+link
+
+  Linking design 'des'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (7 designs)               /export/home/user/wangyl/rtlqa_env/digital/impl/syn/run_dir/des.db, etc
+  fsa0a_c_sc_wc (library)     /export/home/user/wangyl/rtlqa_env/techlib/std_cell/FrontEnd/synopsys/fsa0a_c_sc_wc.db
+  dw_foundation.sldb (library) /ecad/synopsys/synthesis_z2007.03_sp1/libraries/syn/dw_foundation.sldb
+
+1
+#
+link
+
+  Linking design 'des'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (7 designs)               /export/home/user/wangyl/rtlqa_env/digital/impl/syn/run_dir/des.db, etc
+  fsa0a_c_sc_wc (library)     /export/home/user/wangyl/rtlqa_env/techlib/std_cell/FrontEnd/synopsys/fsa0a_c_sc_wc.db
+  dw_foundation.sldb (library) /ecad/synopsys/synthesis_z2007.03_sp1/libraries/syn/dw_foundation.sldb
+
+1
+#-----------------------------------#
+# Include Design Logical Constraint Script
+#-----------------------------------#
+if {$constrainDesign == "true"} {
+source -echo -verbose $dcScriptPath/cnstDsg.tcl
+}
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      cnstDsg.tcl
+#
+#      DESCRIPTION:
+#         This script is used to constraint the design in SYN flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+current_design $topModuleName
+Current design is 'des'.
+{des}
+#-----------------------------------#
+# Set Operating condition Constraints
+#-----------------------------------#
+set_operating_conditions $maxOptCond -library $maxLibName
+Using operating conditions 'WCCOM' found in library 'fsa0a_c_sc_wc'.
+1
+set auto_wire_load_selection false
+false
+set_wire_load_mode top
+1
+set_wire_load_model -max -lib $maxLibName -name enG500K
+1
+#-----------------------------------#
+# Source Design Rule Constraint 
+#-----------------------------------#
+source -echo -verbose $dtclConstraintPath/drcCnst.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      drcCnst.tcl
+#
+#      DESCRIPTION:
+#         This script is used to define drc constraints in SYN flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+set_max_transition 1.2 $topModuleName
+1
+set_max_fanout 16 $topModuleName
+1
+#set_max_capacitance 0.5 $topModuleName
+#-----------------------------------#
+# Source Optimization Constraint
+#-----------------------------------#
+# Creat Clocks  
+source -echo -verbose $dtclConstraintPath/bfCTSClk.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      bfCTSClk.tcl
+#
+#      DESCRIPTION:
+#         This script is used to define clocks and resets in SYN flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+#-------------------------------------#
+# keywords for setting clock model  
+#-------------------------------------#
+set clockNameList  [list hclk]
+hclk
+set clockPortList  [list hclk]
+hclk
+set clockPinList   [list ]
+#-------------------------------------#
+# keywords for setting reset model
+#-------------------------------------#
+set resetNameList [list]
+set resetPortList [list]
+set resetPinList [list]
+#----------------------------#
+# reset signal
+#----------------------------#
+set resetName {POR hresetn}
+POR hresetn
+set resetNameList [concat $resetNameList $resetName]
+POR hresetn
+set resetPort {POR hresetn}
+POR hresetn
+set resetPortList [concat $resetPortList $resetPort]
+POR hresetn
+set resetPin     "" 
+set resetPinList [concat $resetPinList $resetPin]
+foreach reset_port $resetPortList {
+    set_dont_touch_network [get_ports $reset_port]
+    set_ideal_network [get_ports $reset_port]
+}
+foreach reset_pin $resetPinList {
+    set_dont_touch_network [get_pins $reset_pin]
+    set_ideal_network [get_pins $reset_pin]
+}
+#----------------------------#
+# clk
+#----------------------------#
+set HCLK_PERIOD    50.0
+50.0
+set HCLK_PERIOD_HALF      [expr $HCLK_PERIOD/2.0]
+25.0
+create_clock -name hclk -period $HCLK_PERIOD -waveform "0 $HCLK_PERIOD_HALF" [get_ports hclk]
+1
+set_clock_latency -max 5.0  [get_clocks hclk]
+1
+set_clock_latency -min 5.0  [get_clocks hclk]
+1
+1
+# IO timing definition
+source -echo -verbose $dtclConstraintPath/ioCnst.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      ioCnst.tcl
+#
+#      DESCRIPTION:
+#         This script is used to specify io constraints in SYN flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+#==========================#
+#   Input Constraints      #
+#==========================# 
+set_input_delay -max $HCLK_PERIOD_HALF  -clock hclk [remove_from_collection [all_inputs] hclk] -net -source
+1
+set_input_delay -min $HCLK_PERIOD_HALF  -clock hclk [remove_from_collection [all_inputs] hclk] -net -source
+1
+set_output_delay -max $HCLK_PERIOD_HALF -clock hclk [remove_from_collection [all_outputs] hclk] -net -source 
+1
+set_output_delay -min $HCLK_PERIOD_HALF -clock hclk [remove_from_collection [all_outputs] hclk] -net -source 
+1
+1
+#-----------------------------------#
+# Source Timing Exception Constraint
+#-----------------------------------#
+source -echo -verbose $dtclConstraintPath/dontTouch.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      dontTouch.tcl
+#
+#      DESCRIPTION:
+#         This script is used to specify dont_touch attribute in SYN flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+source -echo -verbose $dtclConstraintPath/timeExcpt.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      timeExcpt.tcl
+#
+#      DESCRIPTION:
+#         This script is used to setup timing exceptions in SYN flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+#-----------------------------------#
+# Source Case Analysis Constraints
+#-----------------------------------#
+#-----------------------------------#
+# Include Compile Script
+#-----------------------------------#
+if {$compileDesign == "true"} {
+source -echo -verbose $dcScriptPath/cmpDsg.tcl
+}
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      cmpDsg.tcl
+#
+#      DESCRIPTION:
+#         This script is used to compile the design in SYN flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+#-----------------------------------#
+# prepare the env/designs ready
+#-----------------------------------#
+if { $clockgating == "true" } {
+  current_design $topModuleName
+  create_port -direction "in" {Test_Mode}
+  set_dft_signal -view existing_dft -type TestMode -port Test_Mode
+  insert_clock_gating
+  hookup_testports -verbose -tm_port Test_Mode
+}
+Current design is 'des'.
+Creating port 'Test_Mode' in design 'des'.
+Accepted dft signal specification for modes: all_dft
+Information: Performing clock-gating on design des
+
+
+Clock Gate Insertion Report
+===============================================================================
+| Gated |                   | Include |      | Enable | Setup | Width | Clock |
+| Group |  Flip-Flop Name   | Exclude | Bits | Cond.  | Cond. | Cond. | Gated |
+===============================================================================
+|       |                   |         |      |        |       |       |       |
+|       |  GATED REGISTERS  |         |      |        |       |       |       |
+| cg0   |                   |         |  8   |  yes   |  yes  |  yes  |  yes  |
+|       |  desctrl_reg[7]   |    -    |  1   |        |       |       |       |
+|       |  desctrl_reg[6]   |    -    |  1   |        |       |       |       |
+|       |  desctrl_reg[5]   |    -    |  1   |        |       |       |       |
+|       |  desctrl_reg[4]   |    -    |  1   |        |       |       |       |
+|       |  desctrl_reg[3]   |    -    |  1   |        |       |       |       |
+|       |  desctrl_reg[2]   |    -    |  1   |        |       |       |       |
+|       |  desctrl_reg[1]   |    -    |  1   |        |       |       |       |
+|       |  desctrl_reg[0]   |    -    |  1   |        |       |       |       |
+|       |                   |         |      |        |       |       |       |
+|       | UNGATED REGISTERS |         |      |        |       |       |       |
+|       | nextiv_ready_en_reg |   -   |  1   |   no   |  ??   |  ??   |  no   |
+|       |   run_delay_reg   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       | desdat_sel_d1_reg |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       | deskey_sel_d1_reg |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       | desiv_sel_d1_reg  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |   hwrite_d1_reg   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       | desctrl_sel_d1_reg |   -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  desdat_sel_reg   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[31]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[30]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[29]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[28]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[27]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[26]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[25]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[24]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[23]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[22]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[21]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[20]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[19]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[18]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[17]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[16]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[15]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[14]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[13]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[12]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[11]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[10]  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[9]   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[8]   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[7]   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[6]   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[5]   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[4]   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[3]   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[2]   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[1]   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  data_in_reg[0]   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  deskey_sel_reg   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |   desiv_sel_reg   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |      rw_reg       |    -    |  1   |  yes   |  yes  |  no   |  no   |
+|       |  desctrl_sel_reg  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  hready_resp_reg  |    -    |  1   |   no   |  ??   |  ??   |  no   |
+===============================================================================
+
+Summary:
+Flip-Flops                        Banks                   Bit-Width
+                              number  percentage      number  percentage
+Clock gated (total):             1            6          8           15
+Clock not gated because
+   Bank was excluded:            0            0          0            0
+   Bank width too small:         1            6          1            1
+   Enable condition not met:    13           86         44           83
+   Setup condition violated:     0            0          0            0
+Total:                          15          100         53          100
+
+
+Information: Performing clock-gating on design des_cop
+
+
+Clock Gate Insertion Report
+===============================================================================
+| Gated |                   | Include |      | Enable | Setup | Width | Clock |
+| Group |  Flip-Flop Name   | Exclude | Bits | Cond.  | Cond. | Cond. | Gated |
+===============================================================================
+|       |                   |         |      |        |       |       |       |
+|       |  GATED REGISTERS  |         |      |        |       |       |       |
+|       |                   |         |      |        |       |       |       |
+|       | UNGATED REGISTERS |         |      |        |       |       |       |
+|       |    flag_reg[1]    |    -    |  1   |  yes   |  yes  |  no   |  no   |
+|       |    flag_reg[0]    |    -    |  1   |  yes   |  yes  |  no   |  no   |
+|       | din_valid_eins_reg |   -    |  1   |   no   |  ??   |  ??   |  no   |
+===============================================================================
+
+Summary:
+Flip-Flops                        Banks                   Bit-Width
+                              number  percentage      number  percentage
+Clock gated (total):             0            0          0            0
+Clock not gated because
+   Bank was excluded:            0            0          0            0
+   Bank width too small:         1           50          2           66
+   Enable condition not met:     1           50          1           33
+   Setup condition violated:     0            0          0            0
+Total:                           2          100          3          100
+No clock gating opportunities were found.
+Information: Performing clock-gating on design tiny_des
+
+
+Clock Gate Insertion Report
+===============================================================================
+| Gated |                   | Include |      | Enable | Setup | Width | Clock |
+| Group |  Flip-Flop Name   | Exclude | Bits | Cond.  | Cond. | Cond. | Gated |
+===============================================================================
+|       |                   |         |      |        |       |       |       |
+|       |  GATED REGISTERS  |         |      |        |       |       |       |
+|       |                   |         |      |        |       |       |       |
+|       | UNGATED REGISTERS |         |      |        |       |       |       |
+|       |     state_reg     |    -    |  1   |  yes   |  yes  |  no   |  no   |
+|       |   round_reg[3]    |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |   round_reg[2]    |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |   round_reg[1]    |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |   round_reg[0]    |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  dout_valid_reg   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+===============================================================================
+
+Summary:
+Flip-Flops                        Banks                   Bit-Width
+                              number  percentage      number  percentage
+Clock gated (total):             0            0          0            0
+Clock not gated because
+   Bank was excluded:            0            0          0            0
+   Bank width too small:         1           33          1           16
+   Enable condition not met:     2           66          5           83
+   Setup condition violated:     0            0          0            0
+Total:                           3          100          6          100
+No clock gating opportunities were found.
+Information: Performing clock-gating on design tiny_des_round
+
+
+Clock Gate Insertion Report
+===============================================================================
+| Gated |                   | Include |      | Enable | Setup | Width | Clock |
+| Group |  Flip-Flop Name   | Exclude | Bits | Cond.  | Cond. | Cond. | Gated |
+===============================================================================
+|       |                   |         |      |        |       |       |       |
+|       |  GATED REGISTERS  |         |      |        |       |       |       |
+| cg0   |                   |         |  64  |  yes   |  yes  |  yes  |  yes  |
+|       |   dout_reg[63]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[62]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[61]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[60]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[59]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[58]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[57]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[56]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[55]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[54]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[53]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[52]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[51]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[50]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[49]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[48]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[47]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[46]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[45]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[44]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[43]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[42]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[41]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[40]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[39]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[38]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[37]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[36]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[35]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[34]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[33]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[32]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[31]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[30]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[29]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[28]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[27]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[26]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[25]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[24]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[23]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[22]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[21]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[20]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[19]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[18]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[17]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[16]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[15]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[14]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[13]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[12]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[11]    |    -    |  1   |        |       |       |       |
+|       |   dout_reg[10]    |    -    |  1   |        |       |       |       |
+|       |    dout_reg[9]    |    -    |  1   |        |       |       |       |
+|       |    dout_reg[8]    |    -    |  1   |        |       |       |       |
+|       |    dout_reg[7]    |    -    |  1   |        |       |       |       |
+|       |    dout_reg[6]    |    -    |  1   |        |       |       |       |
+|       |    dout_reg[5]    |    -    |  1   |        |       |       |       |
+|       |    dout_reg[4]    |    -    |  1   |        |       |       |       |
+|       |    dout_reg[3]    |    -    |  1   |        |       |       |       |
+|       |    dout_reg[2]    |    -    |  1   |        |       |       |       |
+|       |    dout_reg[1]    |    -    |  1   |        |       |       |       |
+|       |    dout_reg[0]    |    -    |  1   |        |       |       |       |
+|       |                   |         |      |        |       |       |       |
+|       | UNGATED REGISTERS |         |      |        |       |       |       |
+===============================================================================
+
+Summary:
+Flip-Flops                        Banks                   Bit-Width
+                              number  percentage      number  percentage
+Clock gated (total):             1          100         64          100
+Clock not gated because
+   Bank was excluded:            0            0          0            0
+   Bank width too small:         0            0          0            0
+   Enable condition not met:     0            0          0            0
+   Setup condition violated:     0            0          0            0
+Total:                           1          100         64          100
+
+
+Information: Performing clock-gating on design des_dat
+
+
+Clock Gate Insertion Report
+===============================================================================
+| Gated |                   | Include |      | Enable | Setup | Width | Clock |
+| Group |  Flip-Flop Name   | Exclude | Bits | Cond.  | Cond. | Cond. | Gated |
+===============================================================================
+|       |                   |         |      |        |       |       |       |
+|       |  GATED REGISTERS  |         |      |        |       |       |       |
+| cg0   |                   |         |  32  |  yes   |  yes  |  yes  |  yes  |
+|       | fifo_mem_reg[1][31] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][30] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][29] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][28] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][27] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][26] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][25] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][24] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][23] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][22] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][21] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][20] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][19] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][18] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][17] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][16] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][15] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][14] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][13] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][12] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][11] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][10] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][9] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][8] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][7] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][6] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][5] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][4] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][3] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][2] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][1] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][0] |   -    |  1   |        |       |       |       |
+| cg1   |                   |         |  32  |  yes   |  yes  |  yes  |  yes  |
+|       | fifo_mem_reg[0][31] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][30] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][29] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][28] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][27] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][26] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][25] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][24] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][23] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][22] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][21] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][20] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][19] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][18] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][17] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][16] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][15] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][14] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][13] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][12] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][11] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][10] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][9] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][8] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][7] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][6] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][5] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][4] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][3] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][2] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][1] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][0] |   -    |  1   |        |       |       |       |
+|       |                   |         |      |        |       |       |       |
+|       | UNGATED REGISTERS |         |      |        |       |       |       |
+|       |    wr_ptr_reg     |    -    |  1   |  yes   |  yes  |  no   |  no   |
+|       |    rd_ptr_reg     |    -    |  1   |  yes   |  yes  |  no   |  no   |
+|       |    ptr_reg[1]     |    -    |  1   |  yes   |  yes  |  no   |  no   |
+|       |    ptr_reg[0]     |    -    |  1   |  yes   |  yes  |  no   |  no   |
+|       |     full_reg      |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  full_delay_reg   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+|       |  full_pulse_reg   |    -    |  1   |   no   |  ??   |  ??   |  no   |
+===============================================================================
+
+Summary:
+Flip-Flops                        Banks                   Bit-Width
+                              number  percentage      number  percentage
+Clock gated (total):             2           25         64           90
+Clock not gated because
+   Bank was excluded:            0            0          0            0
+   Bank width too small:         3           37          4            5
+   Enable condition not met:     3           37          3            4
+   Setup condition violated:     0            0          0            0
+Total:                           8          100         71          100
+
+
+Information: Performing clock-gating on design des_iv
+
+
+Clock Gate Insertion Report
+===============================================================================
+| Gated |                   | Include |      | Enable | Setup | Width | Clock |
+| Group |  Flip-Flop Name   | Exclude | Bits | Cond.  | Cond. | Cond. | Gated |
+===============================================================================
+|       |                   |         |      |        |       |       |       |
+|       |  GATED REGISTERS  |         |      |        |       |       |       |
+| cg0   |                   |         |  32  |  yes   |  yes  |  yes  |  yes  |
+|       | fifo_mem_reg[1][31] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][30] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][29] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][28] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][27] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][26] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][25] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][24] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][23] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][22] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][21] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][20] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][19] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][18] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][17] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][16] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][15] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][14] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][13] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][12] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][11] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][10] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][9] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][8] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][7] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][6] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][5] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][4] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][3] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][2] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][1] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][0] |   -    |  1   |        |       |       |       |
+| cg1   |                   |         |  32  |  yes   |  yes  |  yes  |  yes  |
+|       | fifo_mem_reg[0][31] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][30] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][29] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][28] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][27] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][26] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][25] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][24] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][23] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][22] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][21] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][20] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][19] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][18] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][17] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][16] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][15] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][14] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][13] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][12] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][11] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][10] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][9] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][8] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][7] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][6] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][5] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][4] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][3] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][2] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][1] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][0] |   -    |  1   |        |       |       |       |
+|       |                   |         |      |        |       |       |       |
+|       | UNGATED REGISTERS |         |      |        |       |       |       |
+|       |    ptr_reg[1]     |    -    |  1   |  yes   |  yes  |  no   |  no   |
+|       |    ptr_reg[0]     |    -    |  1   |  yes   |  yes  |  no   |  no   |
+|       |    wr_ptr_reg     |    -    |  1   |  yes   |  yes  |  no   |  no   |
+===============================================================================
+
+Summary:
+Flip-Flops                        Banks                   Bit-Width
+                              number  percentage      number  percentage
+Clock gated (total):             2           50         64           95
+Clock not gated because
+   Bank was excluded:            0            0          0            0
+   Bank width too small:         2           50          3            4
+   Enable condition not met:     0            0          0            0
+   Setup condition violated:     0            0          0            0
+Total:                           4          100         67          100
+
+
+Information: Performing clock-gating on design des_key
+
+
+Clock Gate Insertion Report
+===============================================================================
+| Gated |                   | Include |      | Enable | Setup | Width | Clock |
+| Group |  Flip-Flop Name   | Exclude | Bits | Cond.  | Cond. | Cond. | Gated |
+===============================================================================
+|       |                   |         |      |        |       |       |       |
+|       |  GATED REGISTERS  |         |      |        |       |       |       |
+| cg0   |                   |         |  32  |  yes   |  yes  |  yes  |  yes  |
+|       | fifo_mem_reg[5][31] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][30] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][29] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][28] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][27] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][26] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][25] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][24] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][23] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][22] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][21] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][20] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][19] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][18] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][17] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][16] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][15] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][14] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][13] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][12] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][11] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][10] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][9] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][8] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][7] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][6] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][5] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][4] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][3] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][2] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][1] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[5][0] |   -    |  1   |        |       |       |       |
+| cg1   |                   |         |  32  |  yes   |  yes  |  yes  |  yes  |
+|       | fifo_mem_reg[4][31] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][30] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][29] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][28] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][27] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][26] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][25] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][24] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][23] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][22] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][21] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][20] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][19] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][18] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][17] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][16] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][15] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][14] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][13] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][12] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][11] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][10] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][9] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][8] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][7] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][6] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][5] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][4] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][3] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][2] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][1] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[4][0] |   -    |  1   |        |       |       |       |
+| cg2   |                   |         |  32  |  yes   |  yes  |  yes  |  yes  |
+|       | fifo_mem_reg[3][31] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][30] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][29] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][28] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][27] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][26] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][25] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][24] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][23] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][22] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][21] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][20] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][19] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][18] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][17] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][16] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][15] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][14] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][13] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][12] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][11] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][10] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][9] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][8] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][7] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][6] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][5] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][4] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][3] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][2] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][1] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[3][0] |   -    |  1   |        |       |       |       |
+| cg3   |                   |         |  32  |  yes   |  yes  |  yes  |  yes  |
+|       | fifo_mem_reg[2][31] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][30] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][29] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][28] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][27] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][26] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][25] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][24] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][23] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][22] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][21] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][20] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][19] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][18] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][17] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][16] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][15] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][14] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][13] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][12] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][11] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][10] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][9] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][8] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][7] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][6] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][5] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][4] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][3] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][2] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][1] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[2][0] |   -    |  1   |        |       |       |       |
+| cg4   |                   |         |  32  |  yes   |  yes  |  yes  |  yes  |
+|       | fifo_mem_reg[1][31] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][30] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][29] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][28] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][27] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][26] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][25] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][24] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][23] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][22] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][21] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][20] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][19] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][18] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][17] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][16] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][15] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][14] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][13] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][12] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][11] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][10] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][9] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][8] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][7] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][6] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][5] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][4] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][3] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][2] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][1] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[1][0] |   -    |  1   |        |       |       |       |
+| cg5   |                   |         |  32  |  yes   |  yes  |  yes  |  yes  |
+|       | fifo_mem_reg[0][31] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][30] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][29] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][28] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][27] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][26] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][25] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][24] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][23] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][22] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][21] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][20] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][19] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][18] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][17] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][16] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][15] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][14] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][13] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][12] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][11] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][10] |   -   |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][9] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][8] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][7] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][6] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][5] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][4] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][3] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][2] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][1] |   -    |  1   |        |       |       |       |
+|       | fifo_mem_reg[0][0] |   -    |  1   |        |       |       |       |
+|       |                   |         |      |        |       |       |       |
+|       | UNGATED REGISTERS |         |      |        |       |       |       |
+|       |    ptr_reg[2]     |    -    |  1   |  yes   |  yes  |  no   |  no   |
+|       |    ptr_reg[1]     |    -    |  1   |  yes   |  yes  |  no   |  no   |
+|       |    ptr_reg[0]     |    -    |  1   |  yes   |  yes  |  no   |  no   |
+|       |   wr_ptr_reg[2]   |    -    |  1   |  yes   |  yes  |  no   |  no   |
+|       |   wr_ptr_reg[1]   |    -    |  1   |  yes   |  yes  |  no   |  no   |
+|       |   wr_ptr_reg[0]   |    -    |  1   |  yes   |  yes  |  no   |  no   |
+===============================================================================
+
+Summary:
+Flip-Flops                        Banks                   Bit-Width
+                              number  percentage      number  percentage
+Clock gated (total):             6           75        192           96
+Clock not gated because
+   Bank was excluded:            0            0          0            0
+   Bank width too small:         2           25          6            3
+   Enable condition not met:     0            0          0            0
+   Setup condition violated:     0            0          0            0
+Total:                           8          100        198          100
+
+
+Collecting test_ports in design des
+Completed collecting test_ports in design des, we got...
+	...the  test_mode port:     Test_Mode
+     Collecting test_ports in design SNPS_CLOCK_GATE_OBS_des (referenced by cell clk_gate_obs)
+     Completed collecting test_ports in design SNPS_CLOCK_GATE_OBS_des, we got...
+     	...the  test_mode port:     TE
+     Collecting test_ports in design POWERMODULE_HIGH_des_0 (referenced by cell POWERGATING_hclk_N26_0)
+     Completed collecting test_ports in design POWERMODULE_HIGH_des_0, we got...
+     	...the  test_mode port:     TE
+     Collecting test_ports in design des_cop (referenced by cell des_cop_unit)
+     Completed collecting test_ports in design des_cop, we got...
+     	...none
+          Collecting test_ports in design tiny_des (referenced by cell des_cop_unit/des_unit)
+          Completed collecting test_ports in design tiny_des, we got...
+          	...none
+               Collecting test_ports in design tiny_des_round (referenced by cell des_cop_unit/des_unit/u_tiny_des_round)
+               Completed collecting test_ports in design tiny_des_round, we got...
+               	...none
+                    Collecting test_ports in design SNPS_CLOCK_GATE_OBS_tiny_des_round (referenced by cell des_cop_unit/des_unit/u_tiny_des_round/clk_gate_obs)
+                    Completed collecting test_ports in design SNPS_CLOCK_GATE_OBS_tiny_des_round, we got...
+                    	...the  test_mode port:     TE
+                    Collecting test_ports in design POWERMODULE_HIGH_tiny_des_round_0 (referenced by cell des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0)
+                    Completed collecting test_ports in design POWERMODULE_HIGH_tiny_des_round_0, we got...
+                    	...the  test_mode port:     TE
+     Collecting test_ports in design des_dat (referenced by cell desdat_unit)
+     Completed collecting test_ports in design des_dat, we got...
+     	...none
+          Collecting test_ports in design SNPS_CLOCK_GATE_OBS_des_dat (referenced by cell desdat_unit/clk_gate_obs)
+          Completed collecting test_ports in design SNPS_CLOCK_GATE_OBS_des_dat, we got...
+          	...the  test_mode port:     TE
+          Collecting test_ports in design POWERMODULE_HIGH_des_dat_0 (referenced by cell desdat_unit/POWERGATING_hclk_N70_0)
+          Completed collecting test_ports in design POWERMODULE_HIGH_des_dat_0, we got...
+          	...the  test_mode port:     TE
+          Collecting test_ports in design POWERMODULE_HIGH_des_dat_0 (referenced by cell desdat_unit/POWERGATING_hclk_N134_0)
+          ...has already been done before for this design; at that time we got...
+          	...the  test_mode port:     TE
+     Collecting test_ports in design des_iv (referenced by cell desiv_unit)
+     Completed collecting test_ports in design des_iv, we got...
+     	...none
+          Collecting test_ports in design SNPS_CLOCK_GATE_OBS_des_iv (referenced by cell desiv_unit/clk_gate_obs)
+          Completed collecting test_ports in design SNPS_CLOCK_GATE_OBS_des_iv, we got...
+          	...the  test_mode port:     TE
+          Collecting test_ports in design POWERMODULE_HIGH_des_iv_0 (referenced by cell desiv_unit/POWERGATING_hclk_N66_0)
+          Completed collecting test_ports in design POWERMODULE_HIGH_des_iv_0, we got...
+          	...the  test_mode port:     TE
+          Collecting test_ports in design POWERMODULE_HIGH_des_iv_0 (referenced by cell desiv_unit/POWERGATING_hclk_N130_0)
+          ...has already been done before for this design; at that time we got...
+          	...the  test_mode port:     TE
+     Collecting test_ports in design des_key (referenced by cell deskey_unit)
+     Completed collecting test_ports in design des_key, we got...
+     	...none
+          Collecting test_ports in design SNPS_CLOCK_GATE_OBS_des_key (referenced by cell deskey_unit/clk_gate_obs)
+          Completed collecting test_ports in design SNPS_CLOCK_GATE_OBS_des_key, we got...
+          	...the  test_mode port:     TE
+          Collecting test_ports in design POWERMODULE_HIGH_des_key_0 (referenced by cell deskey_unit/POWERGATING_hclk_N83_0)
+          Completed collecting test_ports in design POWERMODULE_HIGH_des_key_0, we got...
+          	...the  test_mode port:     TE
+          Collecting test_ports in design POWERMODULE_HIGH_des_key_0 (referenced by cell deskey_unit/POWERGATING_hclk_N115_0)
+          ...has already been done before for this design; at that time we got...
+          	...the  test_mode port:     TE
+          Collecting test_ports in design POWERMODULE_HIGH_des_key_0 (referenced by cell deskey_unit/POWERGATING_hclk_N147_0)
+          ...has already been done before for this design; at that time we got...
+          	...the  test_mode port:     TE
+          Collecting test_ports in design POWERMODULE_HIGH_des_key_0 (referenced by cell deskey_unit/POWERGATING_hclk_N179_0)
+          ...has already been done before for this design; at that time we got...
+          	...the  test_mode port:     TE
+          Collecting test_ports in design POWERMODULE_HIGH_des_key_0 (referenced by cell deskey_unit/POWERGATING_hclk_N211_0)
+          ...has already been done before for this design; at that time we got...
+          	...the  test_mode port:     TE
+          Collecting test_ports in design POWERMODULE_HIGH_des_key_0 (referenced by cell deskey_unit/POWERGATING_hclk_N243_0)
+          ...has already been done before for this design; at that time we got...
+          	...the  test_mode port:     TE
+
+Connecting test_ports in design SNPS_CLOCK_GATE_OBS_des
+Connecting test_ports in design POWERMODULE_HIGH_des_0
+Connecting test_ports in design SNPS_CLOCK_GATE_OBS_tiny_des_round
+Connecting test_ports in design POWERMODULE_HIGH_tiny_des_round_0
+Connecting test_ports in design tiny_des_round
+...Created new input port test_mode on design tiny_des_round
+  ...connecting test_mode pins test_mode and clk_gate_obs/TE
+  ...connecting test_mode pins test_mode and POWERGATING_hclk_N1778_0/TE
+Connecting test_ports in design tiny_des
+...Created new input port test_mode on design tiny_des
+  ...connecting test_mode pins test_mode and u_tiny_des_round/test_mode
+Connecting test_ports in design des_cop
+...Created new input port test_mode on design des_cop
+  ...connecting test_mode pins test_mode and des_unit/test_mode
+Connecting test_ports in design SNPS_CLOCK_GATE_OBS_des_dat
+Connecting test_ports in design POWERMODULE_HIGH_des_dat_0
+Connecting test_ports in design POWERMODULE_HIGH_des_dat_0
+Connecting test_ports in design des_dat
+...Created new input port test_mode on design des_dat
+  ...connecting test_mode pins test_mode and clk_gate_obs/TE
+  ...connecting test_mode pins test_mode and POWERGATING_hclk_N70_0/TE
+  ...connecting test_mode pins test_mode and POWERGATING_hclk_N134_0/TE
+Connecting test_ports in design SNPS_CLOCK_GATE_OBS_des_iv
+Connecting test_ports in design POWERMODULE_HIGH_des_iv_0
+Connecting test_ports in design POWERMODULE_HIGH_des_iv_0
+Connecting test_ports in design des_iv
+...Created new input port test_mode on design des_iv
+  ...connecting test_mode pins test_mode and clk_gate_obs/TE
+  ...connecting test_mode pins test_mode and POWERGATING_hclk_N66_0/TE
+  ...connecting test_mode pins test_mode and POWERGATING_hclk_N130_0/TE
+Connecting test_ports in design SNPS_CLOCK_GATE_OBS_des_key
+Connecting test_ports in design POWERMODULE_HIGH_des_key_0
+Connecting test_ports in design POWERMODULE_HIGH_des_key_0
+Connecting test_ports in design POWERMODULE_HIGH_des_key_0
+Connecting test_ports in design POWERMODULE_HIGH_des_key_0
+Connecting test_ports in design POWERMODULE_HIGH_des_key_0
+Connecting test_ports in design POWERMODULE_HIGH_des_key_0
+Connecting test_ports in design des_key
+...Created new input port test_mode on design des_key
+  ...connecting test_mode pins test_mode and clk_gate_obs/TE
+  ...connecting test_mode pins test_mode and POWERGATING_hclk_N83_0/TE
+  ...connecting test_mode pins test_mode and POWERGATING_hclk_N115_0/TE
+  ...connecting test_mode pins test_mode and POWERGATING_hclk_N147_0/TE
+  ...connecting test_mode pins test_mode and POWERGATING_hclk_N179_0/TE
+  ...connecting test_mode pins test_mode and POWERGATING_hclk_N211_0/TE
+  ...connecting test_mode pins test_mode and POWERGATING_hclk_N243_0/TE
+Connecting test_ports in design des
+  ...connecting test_mode pins Test_Mode and clk_gate_obs/TE
+  ...connecting test_mode pins Test_Mode and POWERGATING_hclk_N26_0/TE
+  ...connecting test_mode pins Test_Mode and cop_unit/test_mode
+  ...connecting test_mode pins Test_Mode and at_unit/test_mode
+  ...connecting test_mode pins Test_Mode and v_unit/test_mode
+  ...connecting test_mode pins Test_Mode and ey_unit/test_mode
+
+1
+set uniquify_naming_style {%s_%d}
+%s_%d
+uniquify
+Removing uniquified design 'POWERMODULE_HIGH_des_dat_0'.
+Removing uniquified design 'POWERMODULE_HIGH_des_iv_0'.
+Removing uniquified design 'POWERMODULE_HIGH_des_key_0'.
+  Uniquified 2 instances of design 'POWERMODULE_HIGH_des_dat_0'.
+  Uniquified 2 instances of design 'POWERMODULE_HIGH_des_iv_0'.
+  Uniquified 6 instances of design 'POWERMODULE_HIGH_des_key_0'.
+1
+link
+
+  Linking design 'des'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (24 designs)              /export/home/user/wangyl/rtlqa_env/digital/impl/syn/run_dir/des.db, etc
+  fsa0a_c_sc_wc (library)     /export/home/user/wangyl/rtlqa_env/techlib/std_cell/FrontEnd/synopsys/fsa0a_c_sc_wc.db
+  dw_foundation.sldb (library) /ecad/synopsys/synthesis_z2007.03_sp1/libraries/syn/dw_foundation.sldb
+
+1
+if { $clockgating == "true" } {
+current_design $topModuleName
+  propagate_constraints -gate_clock
+}
+Current design is 'des'.
+
+#   Propagate Constraints from cell clk_gate_obs/ (SNPS_CLOCK_GATE_OBS_des) #
+
+#   Propagate Constraints from cell POWERGATING_hclk_N26_0/ (POWERMODULE_HIGH_des_0) #
+
+#   Propagate Constraints from cell des_cop_unit/ (des_cop) #
+
+#   Propagate Constraints from cell des_cop_unit/des_unit/ (tiny_des) #
+
+#   Propagate Constraints from cell des_cop_unit/des_unit/u_tiny_des_round/ (tiny_des_round) #
+
+#   Propagate Constraints from cell des_cop_unit/des_unit/u_tiny_des_round/clk_gate_obs/ (SNPS_CLOCK_GATE_OBS_tiny_des_round) #
+
+#   Propagate Constraints from cell des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/ (POWERMODULE_HIGH_tiny_des_round_0) #
+
+#   Propagate Constraints from cell desdat_unit/ (des_dat) #
+
+#   Propagate Constraints from cell desdat_unit/clk_gate_obs/ (SNPS_CLOCK_GATE_OBS_des_dat) #
+
+#   Propagate Constraints from cell desdat_unit/POWERGATING_hclk_N70_0/ (POWERMODULE_HIGH_des_dat_0_0) #
+
+#   Propagate Constraints from cell desdat_unit/POWERGATING_hclk_N134_0/ (POWERMODULE_HIGH_des_dat_0_1) #
+
+#   Propagate Constraints from cell desiv_unit/ (des_iv) #
+
+#   Propagate Constraints from cell desiv_unit/clk_gate_obs/ (SNPS_CLOCK_GATE_OBS_des_iv) #
+
+#   Propagate Constraints from cell desiv_unit/POWERGATING_hclk_N66_0/ (POWERMODULE_HIGH_des_iv_0_0) #
+
+#   Propagate Constraints from cell desiv_unit/POWERGATING_hclk_N130_0/ (POWERMODULE_HIGH_des_iv_0_1) #
+
+#   Propagate Constraints from cell deskey_unit/ (des_key) #
+
+#   Propagate Constraints from cell deskey_unit/clk_gate_obs/ (SNPS_CLOCK_GATE_OBS_des_key) #
+
+#   Propagate Constraints from cell deskey_unit/POWERGATING_hclk_N83_0/ (POWERMODULE_HIGH_des_key_0_0) #
+
+#   Propagate Constraints from cell deskey_unit/POWERGATING_hclk_N115_0/ (POWERMODULE_HIGH_des_key_0_1) #
+
+#   Propagate Constraints from cell deskey_unit/POWERGATING_hclk_N147_0/ (POWERMODULE_HIGH_des_key_0_2) #
+
+#   Propagate Constraints from cell deskey_unit/POWERGATING_hclk_N179_0/ (POWERMODULE_HIGH_des_key_0_3) #
+
+#   Propagate Constraints from cell deskey_unit/POWERGATING_hclk_N211_0/ (POWERMODULE_HIGH_des_key_0_4) #
+
+#   Propagate Constraints from cell deskey_unit/POWERGATING_hclk_N243_0/ (POWERMODULE_HIGH_des_key_0_5) #
+1
+current_design $topModuleName
+Current design is 'des'.
+{des}
+set compile_log_format {  %elap_time %trials %mem %wns %max_delay %min_delay %tns %drc %area %group_path %endpoint}
+  %elap_time %trials %mem %wns %max_delay %min_delay %tns %drc %area %group_path %endpoint
+set_fix_multiple_port_nets -feedthroughs -outputs -buffer_constants [get_designs *]
+1
+set_auto_disable_drc_nets -clock true -constant true
+1
+#compile -map $increCmpEffort -no_design_rule
+compile -map $increCmpEffort -area_effort high
+Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library       |      Version       | Available |
+============================================================================
+| Basic DW Building Blocks                | Z-2007.03-DWBB_0704 |    *     |
+| Licensed DW Building Blocks             | Z-2007.03-DWBB_0704 |    *     |
+============================================================================
+
+
+Information: There are 367 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'SNPS_CLOCK_GATE_OBS_des'
+  Processing 'POWERMODULE_HIGH_des_0'
+  Processing 'SNPS_CLOCK_GATE_OBS_tiny_des_round'
+  Processing 'POWERMODULE_HIGH_tiny_des_round_0'
+  Processing 'tiny_des_round'
+  Processing 'tiny_des'
+  Processing 'des_cop'
+Information: Added key list 'DesignWare' to design 'des_cop'. (DDB-72)
+  Processing 'SNPS_CLOCK_GATE_OBS_des_dat'
+  Processing 'POWERMODULE_HIGH_des_dat_0_0'
+  Processing 'des_dat'
+Information: Added key list 'DesignWare' to design 'des_dat'. (DDB-72)
+  Processing 'SNPS_CLOCK_GATE_OBS_des_iv'
+  Processing 'POWERMODULE_HIGH_des_iv_0_0'
+  Processing 'des_iv'
+  Processing 'SNPS_CLOCK_GATE_OBS_des_key'
+  Processing 'POWERMODULE_HIGH_des_key_0_0'
+  Processing 'des_key'
+Information: Added key list 'DesignWare' to design 'des_key'. (DDB-72)
+Information: The register 'fifo_mem_reg[5][24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[5][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[5][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[5][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[4][24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[4][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[4][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[4][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[3][24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[3][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[3][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[3][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[2][24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[2][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[2][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[2][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[1][24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[1][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[1][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[0][24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[0][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[0][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fifo_mem_reg[0][0]' is a constant and will be removed. (OPT-1206)
+  Processing 'des'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+
+  Beginning Mapping Optimizations  (High effort)
+  -------------------------------
+Warning: In design des, there are sequential cells not driving any load. (OPT-109)
+
+   ELAPSED                WORST NEG MAX DELAY MIN DELAY TOTAL NEG  DESIGN                                                 
+    TIME    TRIALS MBYTES   SLACK     COST      COST      SLACK   RULE COST   AREA    PATH GROUP         ENDPOINT         
+  --------- ------ ------ --------- --------- --------- --------- --------- --------- ---------- -------------------------
+    0:01:17      1  110.8      0.00      0.00      0.00       0.0      55.6   52769.0                                     
+    0:01:42  14562  110.8      0.00      0.00      0.00       0.0      40.2   32078.0                                     
+    0:01:48   4820  110.8      0.00      0.00      0.00       0.0      40.2   31682.0                                     
+    0:01:51   1326  110.8      0.00      0.00      0.00       0.0      40.1   31682.0                                     
+    0:01:51      4  110.8      0.00      0.00      0.00       0.0      40.1   31682.0                                     
+    0:01:51      1  110.8      0.00      0.00      0.00       0.0      40.1   31682.0                                     
+    0:01:51      1  110.8      0.00      0.00      0.00       0.0      40.1   31682.0                                     
+    0:01:51      1  110.8      0.00      0.00      0.00       0.0      40.1   31682.0                                     
+    0:01:51     15  110.8      0.00      0.00      0.00       0.0      38.8   31689.0                                     
+    0:01:52     15  110.8      0.00      0.00      0.00       0.0      38.0   31694.0                                     
+    0:01:52      1  110.8      0.00      0.00      0.00       0.0      38.0   31694.0                                     
+    0:01:52      1  110.8      0.00      0.00      0.00       0.0      38.0   31694.0                                     
+    0:01:52      1  110.8      0.00      0.00      0.00       0.0      38.0   31694.0                                     
+                 0
+            ------
+             20749
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+   ELAPSED                WORST NEG MAX DELAY MIN DELAY TOTAL NEG  DESIGN                                                 
+    TIME    TRIALS MBYTES   SLACK     COST      COST      SLACK   RULE COST   AREA    PATH GROUP         ENDPOINT         
+  --------- ------ ------ --------- --------- --------- --------- --------- --------- ---------- -------------------------
+    0:01:52   5000  110.8      0.00      0.00      0.00       0.0      38.0   31694.0                                     
+    0:01:55    187  110.8      0.00      0.00      0.00       0.0      41.3   31642.0                                     
+                 2
+            ------
+              5189
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_fanout)
+  ----------------------------
+
+   ELAPSED                WORST NEG MAX DELAY MIN DELAY TOTAL NEG  DESIGN                                                 
+    TIME    TRIALS MBYTES   SLACK     COST      COST      SLACK   RULE COST   AREA    PATH GROUP         ENDPOINT         
+  --------- ------ ------ --------- --------- --------- --------- --------- --------- ---------- -------------------------
+    0:01:55   5000  110.8      0.00      0.00      0.00       0.0      41.3   31642.0                                     
+    0:01:59     74  110.8      0.00      0.00      0.00       0.0      39.2   31649.0                                     
+                 1
+            ------
+              5075
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+   ELAPSED                WORST NEG MAX DELAY MIN DELAY TOTAL NEG  DESIGN                                                 
+    TIME    TRIALS MBYTES   SLACK     COST      COST      SLACK   RULE COST   AREA    PATH GROUP         ENDPOINT         
+  --------- ------ ------ --------- --------- --------- --------- --------- --------- ---------- -------------------------
+    0:01:59   5000  110.8      0.00      0.00      0.00       0.0      39.2   31649.0                                     
+    0:01:59      1  110.8      0.00      0.00      0.00       0.0      39.2   31649.0                                     
+    0:02:09   1115  110.8      0.00      0.00      0.00       0.0      39.2   31616.0                                     
+    0:02:11    153  110.8      0.00      0.00      0.00       0.0      39.2   31596.0                                     
+    0:02:11     23  110.8      0.00      0.00      0.00       0.0      39.2   31590.0                                     
+    0:02:11      4  110.8      0.00      0.00      0.00       0.0      39.2   31587.0                                     
+    0:02:11     13  110.8      0.00      0.00      0.00       0.0      39.2   31587.0                                     
+    0:02:11      1  110.8      0.00      0.00      0.00       0.0      39.2   31587.0                                     
+    0:02:12      1  110.8      0.00      0.00      0.00       0.0      39.2   31587.0                                     
+    0:02:17    848  110.8      0.00      0.00      0.00       0.0      39.2   31485.0                                     
+    0:02:17      1  110.8      0.00      0.00      0.00       0.0      39.2   31485.0                                     
+    0:02:17      1  110.8      0.00      0.00      0.00       0.0      39.2   31485.0                                     
+    0:02:17      1  110.8      0.00      0.00      0.00       0.0      39.2   31485.0                                     
+    0:02:17      1  110.8      0.00      0.00      0.00       0.0      39.2   31485.0                                     
+    0:02:17      1  110.8      0.00      0.00      0.00       0.0      39.2   31485.0                                     
+    0:02:18      1  110.8      0.00      0.00      0.00       0.0      39.2   31494.0                                     
+                 0
+            ------
+              7165
+Loading db file '/export/home/user/wangyl/rtlqa_env/techlib/std_cell/FrontEnd/synopsys/fsa0a_c_sc_wc.db'
+
+  Optimization Complete
+  ---------------------
+1
+set verilogout_higher_designs_first false
+false
+set verilogout_equation false
+false
+set verilogout_no_tri true
+true
+set verilogout_single_bit false
+false
+# Setup naming rule
+source -echo -verbose $dtclConstraintPath/insert_sparecell.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      insert_sparecell.tcl
+#
+#      DESCRIPTION:
+#         This script is used to insert sparecell in SYN flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+set clk_type ""
+set designList [list]
+set designList [concat $designList des]
+des
+read_file -f verilog ../../script/syn/hjtc018_sparecells.v
+Loading verilog file '/export/home/user/wangyl/rtlqa_env/digital/impl/script/syn/hjtc018_sparecells.v'
+Running PRESTO HDLC
+Compiling source file /export/home/user/wangyl/rtlqa_env/digital/impl/script/syn/hjtc018_sparecells.v
+Presto compilation completed successfully.
+Current design is now '/export/home/user/wangyl/rtlqa_env/digital/impl/script/syn/sparecells.db:sparecells'
+Loaded 1 design.
+Current design is 'sparecells'.
+sparecells
+foreach item_name $designList {
+    current_design $item_name
+    if { $item_name == "des" } {    
+      set  SPARE_COUNT 1
+      set clk_type "hclk"
+    }
+
+   for {set x 0} {$x< $SPARE_COUNT} {incr x} {
+     copy_design sparecells $item_name\_spares_$x
+     current_design $item_name
+     create_cell  u_$item_name\_spares_$x $item_name\_spares_$x
+     if { $clk_type == "hclk" } {
+       connect_net  hclk     [get_pin u_$item_name\_spares_$x/clk]
+       connect_net  hresetn  [get_pin u_$item_name\_spares_$x/resetn]
+     } elseif {$clk_type == "pclk"} {
+       connect_net  pclk     [get_pin u_$item_name\_spares_$x/clk]
+       connect_net  presetn  [get_pin u_$item_name\_spares_$x/resetn]
+     }
+   }
+}
+Current design is 'des'.
+Information: Copying design /export/home/user/wangyl/rtlqa_env/digital/impl/script/syn/sparecells.db:sparecells to /export/home/user/wangyl/rtlqa_env/digital/impl/script/syn/sparecells.db:des_spares_0. (UIMG-45)
+Current design is 'des'.
+Creating cell 'u_des_spares_0' in design 'des'.
+Connecting net 'hclk' to pin 'u_des_spares_0/clk'.
+Connecting net 'hresetn' to pin 'u_des_spares_0/resetn'.
+current_design $topModuleName 
+Current design is 'des'.
+{des}
+set_dont_touch [get_cells *SPARE* -hier  -filter "is_hierarchical == false"]
+1
+1
+current_design $topModuleName
+Current design is 'des'.
+{des}
+source -echo -verbose $dtclConstraintPath/namRule.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      namRule.tcl
+#
+#      DESCRIPTION:
+#         This script is used to define naming rules in SYN flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+#-------------------------------#
+# Define Naming Rules
+#-------------------------------#
+set bus_inference_descending_sort    true
+true
+set bus_inference_style              %s\[%d\]
+%s[%d]
+set bus_naming_style                 %s\[%d\]
+%s[%d]
+set verilogout_no_tri true
+true
+set change_names_dont_change_bus_members true
+true
+set_fix_multiple_port_nets -all
+1
+define_name_rules lab_vlog -type port 			-allowed {a-zA-Z0-9[]_} 			-equal_ports_nets 			-first_restricted "0-9_" 			-max_length 256
+1
+define_name_rules lab_vlog -type net 			-allowed "a-zA-Z0-9_" 			-equal_ports_nets 			-first_restricted "_0-9" 			-max_length 256
+1
+define_name_rules lab_vlog -type cell 			-allowed "a-zA-Z0-9_" 			-first_restricted "_0-9" 			-map {{ {"\[", "_"}, {"\]", ""}, {"\[", "_"} }} 			-max_length 256
+1
+define_name_rules slash -restricted {/} -replace {_}
+1
+change_names -verbose -hier -rules slash
+
+Design          Type    Object                  New Name
+--------------------------------------------------------------------------------
+1
+change_names -verbose -hier -rules lab_vlog
+
+Design          Type    Object                  New Name
+--------------------------------------------------------------------------------
+des             cell    data_in_reg[24]         data_in_reg_24
+des             cell    data_in_reg[16]         data_in_reg_16
+des             cell    data_in_reg[8]          data_in_reg_8
+des             cell    data_in_reg[0]          data_in_reg_0
+des             cell    data_in_reg[31]         data_in_reg_31
+des             cell    data_in_reg[30]         data_in_reg_30
+des             cell    data_in_reg[29]         data_in_reg_29
+des             cell    data_in_reg[28]         data_in_reg_28
+des             cell    data_in_reg[27]         data_in_reg_27
+des             cell    data_in_reg[26]         data_in_reg_26
+des             cell    data_in_reg[25]         data_in_reg_25
+des             cell    data_in_reg[23]         data_in_reg_23
+des             cell    data_in_reg[22]         data_in_reg_22
+des             cell    data_in_reg[21]         data_in_reg_21
+des             cell    data_in_reg[20]         data_in_reg_20
+des             cell    data_in_reg[19]         data_in_reg_19
+des             cell    data_in_reg[18]         data_in_reg_18
+des             cell    data_in_reg[17]         data_in_reg_17
+des             cell    data_in_reg[15]         data_in_reg_15
+des             cell    data_in_reg[14]         data_in_reg_14
+des             cell    data_in_reg[13]         data_in_reg_13
+des             cell    data_in_reg[12]         data_in_reg_12
+des             cell    data_in_reg[11]         data_in_reg_11
+des             cell    data_in_reg[10]         data_in_reg_10
+des             cell    data_in_reg[9]          data_in_reg_9
+des             cell    data_in_reg[7]          data_in_reg_7
+des             cell    data_in_reg[6]          data_in_reg_6
+des             cell    data_in_reg[5]          data_in_reg_5
+des             cell    data_in_reg[4]          data_in_reg_4
+des             cell    data_in_reg[3]          data_in_reg_3
+des             cell    data_in_reg[2]          data_in_reg_2
+des             cell    data_in_reg[1]          data_in_reg_1
+des             cell    desctrl_reg[7]          desctrl_reg_7
+des             cell    desctrl_reg[6]          desctrl_reg_6
+des             cell    desctrl_reg[5]          desctrl_reg_5
+des             cell    desctrl_reg[4]          desctrl_reg_4
+des             cell    desctrl_reg[3]          desctrl_reg_3
+des             cell    desctrl_reg[1]          desctrl_reg_1
+des             cell    desctrl_reg[0]          desctrl_reg_0
+des             cell    desctrl_reg[2]          desctrl_reg_2
+des_key         cell    ptr_reg[0]              ptr_reg_0
+des_key         cell    ptr_reg[2]              ptr_reg_2
+des_key         cell    fifo_mem_reg[3][31]     fifo_mem_reg_3_31
+des_key         cell    fifo_mem_reg[3][30]     fifo_mem_reg_3_30
+des_key         cell    fifo_mem_reg[3][29]     fifo_mem_reg_3_29
+des_key         cell    fifo_mem_reg[3][28]     fifo_mem_reg_3_28
+des_key         cell    fifo_mem_reg[3][27]     fifo_mem_reg_3_27
+des_key         cell    fifo_mem_reg[3][26]     fifo_mem_reg_3_26
+des_key         cell    fifo_mem_reg[3][25]     fifo_mem_reg_3_25
+des_key         cell    fifo_mem_reg[3][23]     fifo_mem_reg_3_23
+des_key         cell    fifo_mem_reg[3][22]     fifo_mem_reg_3_22
+des_key         cell    fifo_mem_reg[3][21]     fifo_mem_reg_3_21
+des_key         cell    fifo_mem_reg[3][20]     fifo_mem_reg_3_20
+des_key         cell    fifo_mem_reg[3][19]     fifo_mem_reg_3_19
+des_key         cell    fifo_mem_reg[3][18]     fifo_mem_reg_3_18
+des_key         cell    fifo_mem_reg[3][17]     fifo_mem_reg_3_17
+des_key         cell    fifo_mem_reg[3][15]     fifo_mem_reg_3_15
+des_key         cell    fifo_mem_reg[3][14]     fifo_mem_reg_3_14
+des_key         cell    fifo_mem_reg[3][13]     fifo_mem_reg_3_13
+des_key         cell    fifo_mem_reg[3][12]     fifo_mem_reg_3_12
+des_key         cell    fifo_mem_reg[3][11]     fifo_mem_reg_3_11
+des_key         cell    fifo_mem_reg[3][10]     fifo_mem_reg_3_10
+des_key         cell    fifo_mem_reg[3][9]      fifo_mem_reg_3_9
+des_key         cell    fifo_mem_reg[3][7]      fifo_mem_reg_3_7
+des_key         cell    fifo_mem_reg[3][6]      fifo_mem_reg_3_6
+des_key         cell    fifo_mem_reg[3][5]      fifo_mem_reg_3_5
+des_key         cell    fifo_mem_reg[3][4]      fifo_mem_reg_3_4
+des_key         cell    fifo_mem_reg[3][3]      fifo_mem_reg_3_3
+des_key         cell    fifo_mem_reg[3][2]      fifo_mem_reg_3_2
+des_key         cell    fifo_mem_reg[3][1]      fifo_mem_reg_3_1
+des_key         cell    fifo_mem_reg[2][31]     fifo_mem_reg_2_31
+des_key         cell    fifo_mem_reg[2][30]     fifo_mem_reg_2_30
+des_key         cell    fifo_mem_reg[2][29]     fifo_mem_reg_2_29
+des_key         cell    fifo_mem_reg[2][28]     fifo_mem_reg_2_28
+des_key         cell    fifo_mem_reg[2][27]     fifo_mem_reg_2_27
+des_key         cell    fifo_mem_reg[2][26]     fifo_mem_reg_2_26
+des_key         cell    fifo_mem_reg[2][25]     fifo_mem_reg_2_25
+des_key         cell    fifo_mem_reg[2][23]     fifo_mem_reg_2_23
+des_key         cell    fifo_mem_reg[2][22]     fifo_mem_reg_2_22
+des_key         cell    fifo_mem_reg[2][21]     fifo_mem_reg_2_21
+des_key         cell    fifo_mem_reg[2][20]     fifo_mem_reg_2_20
+des_key         cell    fifo_mem_reg[2][19]     fifo_mem_reg_2_19
+des_key         cell    fifo_mem_reg[2][18]     fifo_mem_reg_2_18
+des_key         cell    fifo_mem_reg[2][17]     fifo_mem_reg_2_17
+des_key         cell    fifo_mem_reg[2][15]     fifo_mem_reg_2_15
+des_key         cell    fifo_mem_reg[2][14]     fifo_mem_reg_2_14
+des_key         cell    fifo_mem_reg[2][13]     fifo_mem_reg_2_13
+des_key         cell    fifo_mem_reg[2][12]     fifo_mem_reg_2_12
+des_key         cell    fifo_mem_reg[2][11]     fifo_mem_reg_2_11
+des_key         cell    fifo_mem_reg[2][10]     fifo_mem_reg_2_10
+des_key         cell    fifo_mem_reg[2][9]      fifo_mem_reg_2_9
+des_key         cell    fifo_mem_reg[2][7]      fifo_mem_reg_2_7
+des_key         cell    fifo_mem_reg[2][6]      fifo_mem_reg_2_6
+des_key         cell    fifo_mem_reg[2][5]      fifo_mem_reg_2_5
+des_key         cell    fifo_mem_reg[2][4]      fifo_mem_reg_2_4
+des_key         cell    fifo_mem_reg[2][3]      fifo_mem_reg_2_3
+des_key         cell    fifo_mem_reg[2][2]      fifo_mem_reg_2_2
+des_key         cell    fifo_mem_reg[2][1]      fifo_mem_reg_2_1
+des_key         cell    fifo_mem_reg[1][31]     fifo_mem_reg_1_31
+des_key         cell    fifo_mem_reg[1][28]     fifo_mem_reg_1_28
+des_key         cell    fifo_mem_reg[1][27]     fifo_mem_reg_1_27
+des_key         cell    fifo_mem_reg[1][26]     fifo_mem_reg_1_26
+des_key         cell    fifo_mem_reg[1][25]     fifo_mem_reg_1_25
+des_key         cell    fifo_mem_reg[1][23]     fifo_mem_reg_1_23
+des_key         cell    fifo_mem_reg[1][22]     fifo_mem_reg_1_22
+des_key         cell    fifo_mem_reg[1][21]     fifo_mem_reg_1_21
+des_key         cell    fifo_mem_reg[1][20]     fifo_mem_reg_1_20
+des_key         cell    fifo_mem_reg[1][19]     fifo_mem_reg_1_19
+des_key         cell    fifo_mem_reg[1][18]     fifo_mem_reg_1_18
+des_key         cell    fifo_mem_reg[1][17]     fifo_mem_reg_1_17
+des_key         cell    fifo_mem_reg[1][15]     fifo_mem_reg_1_15
+des_key         cell    fifo_mem_reg[1][13]     fifo_mem_reg_1_13
+des_key         cell    fifo_mem_reg[1][12]     fifo_mem_reg_1_12
+des_key         cell    fifo_mem_reg[1][11]     fifo_mem_reg_1_11
+des_key         cell    fifo_mem_reg[1][10]     fifo_mem_reg_1_10
+des_key         cell    fifo_mem_reg[1][9]      fifo_mem_reg_1_9
+des_key         cell    fifo_mem_reg[1][7]      fifo_mem_reg_1_7
+des_key         cell    fifo_mem_reg[1][6]      fifo_mem_reg_1_6
+des_key         cell    fifo_mem_reg[1][5]      fifo_mem_reg_1_5
+des_key         cell    fifo_mem_reg[1][4]      fifo_mem_reg_1_4
+des_key         cell    fifo_mem_reg[1][3]      fifo_mem_reg_1_3
+des_key         cell    fifo_mem_reg[1][2]      fifo_mem_reg_1_2
+des_key         cell    fifo_mem_reg[1][1]      fifo_mem_reg_1_1
+des_key         cell    fifo_mem_reg[0][31]     fifo_mem_reg_0_31
+des_key         cell    fifo_mem_reg[0][29]     fifo_mem_reg_0_29
+des_key         cell    fifo_mem_reg[0][28]     fifo_mem_reg_0_28
+des_key         cell    fifo_mem_reg[0][27]     fifo_mem_reg_0_27
+des_key         cell    fifo_mem_reg[0][26]     fifo_mem_reg_0_26
+des_key         cell    fifo_mem_reg[0][25]     fifo_mem_reg_0_25
+des_key         cell    fifo_mem_reg[0][23]     fifo_mem_reg_0_23
+des_key         cell    fifo_mem_reg[0][22]     fifo_mem_reg_0_22
+des_key         cell    fifo_mem_reg[0][20]     fifo_mem_reg_0_20
+des_key         cell    fifo_mem_reg[0][19]     fifo_mem_reg_0_19
+des_key         cell    fifo_mem_reg[0][18]     fifo_mem_reg_0_18
+des_key         cell    fifo_mem_reg[0][17]     fifo_mem_reg_0_17
+des_key         cell    fifo_mem_reg[0][15]     fifo_mem_reg_0_15
+des_key         cell    fifo_mem_reg[0][14]     fifo_mem_reg_0_14
+des_key         cell    fifo_mem_reg[0][11]     fifo_mem_reg_0_11
+des_key         cell    fifo_mem_reg[0][10]     fifo_mem_reg_0_10
+des_key         cell    fifo_mem_reg[0][9]      fifo_mem_reg_0_9
+des_key         cell    fifo_mem_reg[0][7]      fifo_mem_reg_0_7
+des_key         cell    fifo_mem_reg[0][6]      fifo_mem_reg_0_6
+des_key         cell    fifo_mem_reg[0][4]      fifo_mem_reg_0_4
+des_key         cell    fifo_mem_reg[0][3]      fifo_mem_reg_0_3
+des_key         cell    fifo_mem_reg[0][2]      fifo_mem_reg_0_2
+des_key         cell    fifo_mem_reg[0][1]      fifo_mem_reg_0_1
+des_key         cell    fifo_mem_reg[5][31]     fifo_mem_reg_5_31
+des_key         cell    fifo_mem_reg[5][28]     fifo_mem_reg_5_28
+des_key         cell    fifo_mem_reg[5][27]     fifo_mem_reg_5_27
+des_key         cell    fifo_mem_reg[5][26]     fifo_mem_reg_5_26
+des_key         cell    fifo_mem_reg[5][25]     fifo_mem_reg_5_25
+des_key         cell    fifo_mem_reg[5][23]     fifo_mem_reg_5_23
+des_key         cell    fifo_mem_reg[5][21]     fifo_mem_reg_5_21
+des_key         cell    fifo_mem_reg[5][20]     fifo_mem_reg_5_20
+des_key         cell    fifo_mem_reg[5][19]     fifo_mem_reg_5_19
+des_key         cell    fifo_mem_reg[5][18]     fifo_mem_reg_5_18
+des_key         cell    fifo_mem_reg[5][17]     fifo_mem_reg_5_17
+des_key         cell    fifo_mem_reg[5][15]     fifo_mem_reg_5_15
+des_key         cell    fifo_mem_reg[5][12]     fifo_mem_reg_5_12
+des_key         cell    fifo_mem_reg[5][11]     fifo_mem_reg_5_11
+des_key         cell    fifo_mem_reg[5][10]     fifo_mem_reg_5_10
+des_key         cell    fifo_mem_reg[5][9]      fifo_mem_reg_5_9
+des_key         cell    fifo_mem_reg[5][7]      fifo_mem_reg_5_7
+des_key         cell    fifo_mem_reg[5][5]      fifo_mem_reg_5_5
+des_key         cell    fifo_mem_reg[5][4]      fifo_mem_reg_5_4
+des_key         cell    fifo_mem_reg[5][3]      fifo_mem_reg_5_3
+des_key         cell    fifo_mem_reg[5][2]      fifo_mem_reg_5_2
+des_key         cell    fifo_mem_reg[5][1]      fifo_mem_reg_5_1
+des_key         cell    fifo_mem_reg[4][31]     fifo_mem_reg_4_31
+des_key         cell    fifo_mem_reg[4][28]     fifo_mem_reg_4_28
+des_key         cell    fifo_mem_reg[4][27]     fifo_mem_reg_4_27
+des_key         cell    fifo_mem_reg[4][26]     fifo_mem_reg_4_26
+des_key         cell    fifo_mem_reg[4][25]     fifo_mem_reg_4_25
+des_key         cell    fifo_mem_reg[4][23]     fifo_mem_reg_4_23
+des_key         cell    fifo_mem_reg[4][22]     fifo_mem_reg_4_22
+des_key         cell    fifo_mem_reg[4][19]     fifo_mem_reg_4_19
+des_key         cell    fifo_mem_reg[4][18]     fifo_mem_reg_4_18
+des_key         cell    fifo_mem_reg[4][17]     fifo_mem_reg_4_17
+des_key         cell    fifo_mem_reg[4][15]     fifo_mem_reg_4_15
+des_key         cell    fifo_mem_reg[4][14]     fifo_mem_reg_4_14
+des_key         cell    fifo_mem_reg[4][11]     fifo_mem_reg_4_11
+des_key         cell    fifo_mem_reg[4][10]     fifo_mem_reg_4_10
+des_key         cell    fifo_mem_reg[4][9]      fifo_mem_reg_4_9
+des_key         cell    fifo_mem_reg[4][7]      fifo_mem_reg_4_7
+des_key         cell    fifo_mem_reg[4][6]      fifo_mem_reg_4_6
+des_key         cell    fifo_mem_reg[4][3]      fifo_mem_reg_4_3
+des_key         cell    fifo_mem_reg[4][2]      fifo_mem_reg_4_2
+des_key         cell    fifo_mem_reg[4][1]      fifo_mem_reg_4_1
+des_key         cell    fifo_mem_reg[1][30]     fifo_mem_reg_1_30
+des_key         cell    fifo_mem_reg[1][29]     fifo_mem_reg_1_29
+des_key         cell    fifo_mem_reg[1][14]     fifo_mem_reg_1_14
+des_key         cell    fifo_mem_reg[0][30]     fifo_mem_reg_0_30
+des_key         cell    fifo_mem_reg[0][21]     fifo_mem_reg_0_21
+des_key         cell    fifo_mem_reg[0][13]     fifo_mem_reg_0_13
+des_key         cell    fifo_mem_reg[0][12]     fifo_mem_reg_0_12
+des_key         cell    fifo_mem_reg[0][5]      fifo_mem_reg_0_5
+des_key         cell    fifo_mem_reg[5][30]     fifo_mem_reg_5_30
+des_key         cell    fifo_mem_reg[5][29]     fifo_mem_reg_5_29
+des_key         cell    fifo_mem_reg[5][22]     fifo_mem_reg_5_22
+des_key         cell    fifo_mem_reg[5][14]     fifo_mem_reg_5_14
+des_key         cell    fifo_mem_reg[5][13]     fifo_mem_reg_5_13
+des_key         cell    fifo_mem_reg[5][6]      fifo_mem_reg_5_6
+des_key         cell    fifo_mem_reg[4][30]     fifo_mem_reg_4_30
+des_key         cell    fifo_mem_reg[4][29]     fifo_mem_reg_4_29
+des_key         cell    fifo_mem_reg[4][21]     fifo_mem_reg_4_21
+des_key         cell    fifo_mem_reg[4][20]     fifo_mem_reg_4_20
+des_key         cell    fifo_mem_reg[4][13]     fifo_mem_reg_4_13
+des_key         cell    fifo_mem_reg[4][12]     fifo_mem_reg_4_12
+des_key         cell    fifo_mem_reg[4][5]      fifo_mem_reg_4_5
+des_key         cell    fifo_mem_reg[4][4]      fifo_mem_reg_4_4
+des_key         cell    wr_ptr_reg[1]           wr_ptr_reg_1
+des_key         cell    ptr_reg[1]              ptr_reg_1
+des_key         cell    wr_ptr_reg[0]           wr_ptr_reg_0
+des_key         cell    wr_ptr_reg[2]           wr_ptr_reg_2
+des_key         net     data_23                 data[23]
+des_key         net     data_22                 data[22]
+des_key         net     data_21                 data[21]
+des_key         net     data_20                 data[20]
+des_key         net     data_19                 data[19]
+des_key         net     data_18                 data[18]
+des_key         net     data_17                 data[17]
+des_key         net     data_15                 data[15]
+des_key         net     data_14                 data[14]
+des_key         net     data_13                 data[13]
+des_key         net     data_12                 data[12]
+des_key         net     data_11                 data[11]
+des_key         net     data_10                 data[10]
+des_key         net     data_9                  data[9]
+des_key         net     data_7                  data[7]
+des_key         net     data_6                  data[6]
+des_key         net     data_5                  data[5]
+des_key         net     data_4                  data[4]
+des_key         net     data_3                  data[3]
+des_key         net     data_2                  data[2]
+des_key         net     data_1                  data[1]
+des_iv          cell    ptr_reg[1]              ptr_reg_1
+des_iv          cell    ptr_reg[0]              ptr_reg_0
+des_iv          cell    fifo_mem_reg[0][30]     fifo_mem_reg_0_30
+des_iv          cell    fifo_mem_reg[0][28]     fifo_mem_reg_0_28
+des_iv          cell    fifo_mem_reg[0][26]     fifo_mem_reg_0_26
+des_iv          cell    fifo_mem_reg[0][24]     fifo_mem_reg_0_24
+des_iv          cell    fifo_mem_reg[0][22]     fifo_mem_reg_0_22
+des_iv          cell    fifo_mem_reg[0][20]     fifo_mem_reg_0_20
+des_iv          cell    fifo_mem_reg[0][18]     fifo_mem_reg_0_18
+des_iv          cell    fifo_mem_reg[0][16]     fifo_mem_reg_0_16
+des_iv          cell    fifo_mem_reg[0][14]     fifo_mem_reg_0_14
+des_iv          cell    fifo_mem_reg[0][12]     fifo_mem_reg_0_12
+des_iv          cell    fifo_mem_reg[0][10]     fifo_mem_reg_0_10
+des_iv          cell    fifo_mem_reg[0][8]      fifo_mem_reg_0_8
+des_iv          cell    fifo_mem_reg[0][6]      fifo_mem_reg_0_6
+des_iv          cell    fifo_mem_reg[0][4]      fifo_mem_reg_0_4
+des_iv          cell    fifo_mem_reg[0][2]      fifo_mem_reg_0_2
+des_iv          cell    fifo_mem_reg[0][0]      fifo_mem_reg_0_0
+des_iv          cell    fifo_mem_reg[1][30]     fifo_mem_reg_1_30
+des_iv          cell    fifo_mem_reg[1][28]     fifo_mem_reg_1_28
+des_iv          cell    fifo_mem_reg[1][26]     fifo_mem_reg_1_26
+des_iv          cell    fifo_mem_reg[1][24]     fifo_mem_reg_1_24
+des_iv          cell    fifo_mem_reg[1][22]     fifo_mem_reg_1_22
+des_iv          cell    fifo_mem_reg[1][20]     fifo_mem_reg_1_20
+des_iv          cell    fifo_mem_reg[1][18]     fifo_mem_reg_1_18
+des_iv          cell    fifo_mem_reg[1][16]     fifo_mem_reg_1_16
+des_iv          cell    fifo_mem_reg[1][14]     fifo_mem_reg_1_14
+des_iv          cell    fifo_mem_reg[1][12]     fifo_mem_reg_1_12
+des_iv          cell    fifo_mem_reg[1][10]     fifo_mem_reg_1_10
+des_iv          cell    fifo_mem_reg[1][8]      fifo_mem_reg_1_8
+des_iv          cell    fifo_mem_reg[1][6]      fifo_mem_reg_1_6
+des_iv          cell    fifo_mem_reg[1][4]      fifo_mem_reg_1_4
+des_iv          cell    fifo_mem_reg[1][2]      fifo_mem_reg_1_2
+des_iv          cell    fifo_mem_reg[1][0]      fifo_mem_reg_1_0
+des_iv          cell    fifo_mem_reg[0][15]     fifo_mem_reg_0_15
+des_iv          cell    fifo_mem_reg[1][23]     fifo_mem_reg_1_23
+des_iv          cell    fifo_mem_reg[1][13]     fifo_mem_reg_1_13
+des_iv          cell    fifo_mem_reg[1][11]     fifo_mem_reg_1_11
+des_iv          cell    fifo_mem_reg[1][9]      fifo_mem_reg_1_9
+des_iv          cell    fifo_mem_reg[0][31]     fifo_mem_reg_0_31
+des_iv          cell    fifo_mem_reg[0][29]     fifo_mem_reg_0_29
+des_iv          cell    fifo_mem_reg[0][27]     fifo_mem_reg_0_27
+des_iv          cell    fifo_mem_reg[0][25]     fifo_mem_reg_0_25
+des_iv          cell    fifo_mem_reg[0][23]     fifo_mem_reg_0_23
+des_iv          cell    fifo_mem_reg[0][21]     fifo_mem_reg_0_21
+des_iv          cell    fifo_mem_reg[0][19]     fifo_mem_reg_0_19
+des_iv          cell    fifo_mem_reg[0][17]     fifo_mem_reg_0_17
+des_iv          cell    fifo_mem_reg[0][13]     fifo_mem_reg_0_13
+des_iv          cell    fifo_mem_reg[0][11]     fifo_mem_reg_0_11
+des_iv          cell    fifo_mem_reg[0][9]      fifo_mem_reg_0_9
+des_iv          cell    fifo_mem_reg[0][7]      fifo_mem_reg_0_7
+des_iv          cell    fifo_mem_reg[0][5]      fifo_mem_reg_0_5
+des_iv          cell    fifo_mem_reg[0][3]      fifo_mem_reg_0_3
+des_iv          cell    fifo_mem_reg[0][1]      fifo_mem_reg_0_1
+des_iv          cell    fifo_mem_reg[1][29]     fifo_mem_reg_1_29
+des_iv          cell    fifo_mem_reg[1][27]     fifo_mem_reg_1_27
+des_iv          cell    fifo_mem_reg[1][25]     fifo_mem_reg_1_25
+des_iv          cell    fifo_mem_reg[1][21]     fifo_mem_reg_1_21
+des_iv          cell    fifo_mem_reg[1][19]     fifo_mem_reg_1_19
+des_iv          cell    fifo_mem_reg[1][17]     fifo_mem_reg_1_17
+des_iv          cell    fifo_mem_reg[1][15]     fifo_mem_reg_1_15
+des_iv          cell    fifo_mem_reg[1][7]      fifo_mem_reg_1_7
+des_iv          cell    fifo_mem_reg[1][5]      fifo_mem_reg_1_5
+des_iv          cell    fifo_mem_reg[1][3]      fifo_mem_reg_1_3
+des_iv          cell    fifo_mem_reg[1][1]      fifo_mem_reg_1_1
+des_iv          cell    fifo_mem_reg[1][31]     fifo_mem_reg_1_31
+des_dat         cell    ptr_reg[1]              ptr_reg_1
+des_dat         cell    ptr_reg[0]              ptr_reg_0
+des_dat         cell    fifo_mem_reg[1][31]     fifo_mem_reg_1_31
+des_dat         cell    fifo_mem_reg[1][30]     fifo_mem_reg_1_30
+des_dat         cell    fifo_mem_reg[1][29]     fifo_mem_reg_1_29
+des_dat         cell    fifo_mem_reg[1][28]     fifo_mem_reg_1_28
+des_dat         cell    fifo_mem_reg[1][27]     fifo_mem_reg_1_27
+des_dat         cell    fifo_mem_reg[1][26]     fifo_mem_reg_1_26
+des_dat         cell    fifo_mem_reg[1][25]     fifo_mem_reg_1_25
+des_dat         cell    fifo_mem_reg[1][24]     fifo_mem_reg_1_24
+des_dat         cell    fifo_mem_reg[1][23]     fifo_mem_reg_1_23
+des_dat         cell    fifo_mem_reg[1][22]     fifo_mem_reg_1_22
+des_dat         cell    fifo_mem_reg[1][21]     fifo_mem_reg_1_21
+des_dat         cell    fifo_mem_reg[1][20]     fifo_mem_reg_1_20
+des_dat         cell    fifo_mem_reg[1][19]     fifo_mem_reg_1_19
+des_dat         cell    fifo_mem_reg[1][18]     fifo_mem_reg_1_18
+des_dat         cell    fifo_mem_reg[1][17]     fifo_mem_reg_1_17
+des_dat         cell    fifo_mem_reg[1][16]     fifo_mem_reg_1_16
+des_dat         cell    fifo_mem_reg[1][15]     fifo_mem_reg_1_15
+des_dat         cell    fifo_mem_reg[1][14]     fifo_mem_reg_1_14
+des_dat         cell    fifo_mem_reg[1][13]     fifo_mem_reg_1_13
+des_dat         cell    fifo_mem_reg[1][12]     fifo_mem_reg_1_12
+des_dat         cell    fifo_mem_reg[1][11]     fifo_mem_reg_1_11
+des_dat         cell    fifo_mem_reg[1][10]     fifo_mem_reg_1_10
+des_dat         cell    fifo_mem_reg[1][9]      fifo_mem_reg_1_9
+des_dat         cell    fifo_mem_reg[1][8]      fifo_mem_reg_1_8
+des_dat         cell    fifo_mem_reg[1][7]      fifo_mem_reg_1_7
+des_dat         cell    fifo_mem_reg[1][6]      fifo_mem_reg_1_6
+des_dat         cell    fifo_mem_reg[1][5]      fifo_mem_reg_1_5
+des_dat         cell    fifo_mem_reg[1][4]      fifo_mem_reg_1_4
+des_dat         cell    fifo_mem_reg[1][3]      fifo_mem_reg_1_3
+des_dat         cell    fifo_mem_reg[1][2]      fifo_mem_reg_1_2
+des_dat         cell    fifo_mem_reg[1][1]      fifo_mem_reg_1_1
+des_dat         cell    fifo_mem_reg[1][0]      fifo_mem_reg_1_0
+des_dat         cell    fifo_mem_reg[0][31]     fifo_mem_reg_0_31
+des_dat         cell    fifo_mem_reg[0][30]     fifo_mem_reg_0_30
+des_dat         cell    fifo_mem_reg[0][29]     fifo_mem_reg_0_29
+des_dat         cell    fifo_mem_reg[0][28]     fifo_mem_reg_0_28
+des_dat         cell    fifo_mem_reg[0][27]     fifo_mem_reg_0_27
+des_dat         cell    fifo_mem_reg[0][26]     fifo_mem_reg_0_26
+des_dat         cell    fifo_mem_reg[0][25]     fifo_mem_reg_0_25
+des_dat         cell    fifo_mem_reg[0][24]     fifo_mem_reg_0_24
+des_dat         cell    fifo_mem_reg[0][23]     fifo_mem_reg_0_23
+des_dat         cell    fifo_mem_reg[0][22]     fifo_mem_reg_0_22
+des_dat         cell    fifo_mem_reg[0][21]     fifo_mem_reg_0_21
+des_dat         cell    fifo_mem_reg[0][20]     fifo_mem_reg_0_20
+des_dat         cell    fifo_mem_reg[0][19]     fifo_mem_reg_0_19
+des_dat         cell    fifo_mem_reg[0][18]     fifo_mem_reg_0_18
+des_dat         cell    fifo_mem_reg[0][17]     fifo_mem_reg_0_17
+des_dat         cell    fifo_mem_reg[0][16]     fifo_mem_reg_0_16
+des_dat         cell    fifo_mem_reg[0][15]     fifo_mem_reg_0_15
+des_dat         cell    fifo_mem_reg[0][14]     fifo_mem_reg_0_14
+des_dat         cell    fifo_mem_reg[0][13]     fifo_mem_reg_0_13
+des_dat         cell    fifo_mem_reg[0][12]     fifo_mem_reg_0_12
+des_dat         cell    fifo_mem_reg[0][11]     fifo_mem_reg_0_11
+des_dat         cell    fifo_mem_reg[0][10]     fifo_mem_reg_0_10
+des_dat         cell    fifo_mem_reg[0][9]      fifo_mem_reg_0_9
+des_dat         cell    fifo_mem_reg[0][8]      fifo_mem_reg_0_8
+des_dat         cell    fifo_mem_reg[0][7]      fifo_mem_reg_0_7
+des_dat         cell    fifo_mem_reg[0][6]      fifo_mem_reg_0_6
+des_dat         cell    fifo_mem_reg[0][5]      fifo_mem_reg_0_5
+des_dat         cell    fifo_mem_reg[0][4]      fifo_mem_reg_0_4
+des_dat         cell    fifo_mem_reg[0][3]      fifo_mem_reg_0_3
+des_dat         cell    fifo_mem_reg[0][2]      fifo_mem_reg_0_2
+des_dat         cell    fifo_mem_reg[0][1]      fifo_mem_reg_0_1
+des_dat         cell    fifo_mem_reg[0][0]      fifo_mem_reg_0_0
+des_cop         cell    flag_reg[1]             flag_reg_1
+des_cop         cell    flag_reg[0]             flag_reg_0
+POWERMODULE_HIGH_des_0 net net1734              CLK
+POWERMODULE_HIGH_des_0 net net1736              ENCLK
+POWERMODULE_HIGH_des_0 net net1737              EN
+POWERMODULE_HIGH_des_0 net net1743              TE
+POWERMODULE_HIGH_des_0 net net1744              ENOBS
+SNPS_CLOCK_GATE_OBS_des net net1754             hclk
+SNPS_CLOCK_GATE_OBS_des net net1756             TE
+SNPS_CLOCK_GATE_OBS_des net net1760             net1749
+POWERMODULE_HIGH_des_key_0_5 net net1874        CLK
+POWERMODULE_HIGH_des_key_0_5 net net1876        ENCLK
+POWERMODULE_HIGH_des_key_0_5 net net1877        EN
+POWERMODULE_HIGH_des_key_0_5 net net1883        TE
+POWERMODULE_HIGH_des_key_0_5 net net1884        ENOBS
+POWERMODULE_HIGH_des_key_0_4 net net1874        CLK
+POWERMODULE_HIGH_des_key_0_4 net net1876        ENCLK
+POWERMODULE_HIGH_des_key_0_4 net net1877        EN
+POWERMODULE_HIGH_des_key_0_4 net net1883        TE
+POWERMODULE_HIGH_des_key_0_4 net net1884        ENOBS
+POWERMODULE_HIGH_des_key_0_3 net net1874        CLK
+POWERMODULE_HIGH_des_key_0_3 net net1876        ENCLK
+POWERMODULE_HIGH_des_key_0_3 net net1877        EN
+POWERMODULE_HIGH_des_key_0_3 net net1883        TE
+POWERMODULE_HIGH_des_key_0_3 net net1884        ENOBS
+POWERMODULE_HIGH_des_key_0_2 net net1874        CLK
+POWERMODULE_HIGH_des_key_0_2 net net1876        ENCLK
+POWERMODULE_HIGH_des_key_0_2 net net1877        EN
+POWERMODULE_HIGH_des_key_0_2 net net1883        TE
+POWERMODULE_HIGH_des_key_0_2 net net1884        ENOBS
+POWERMODULE_HIGH_des_key_0_1 net net1874        CLK
+POWERMODULE_HIGH_des_key_0_1 net net1876        ENCLK
+POWERMODULE_HIGH_des_key_0_1 net net1877        EN
+POWERMODULE_HIGH_des_key_0_1 net net1883        TE
+POWERMODULE_HIGH_des_key_0_1 net net1884        ENOBS
+POWERMODULE_HIGH_des_key_0_0 net net1874        CLK
+POWERMODULE_HIGH_des_key_0_0 net net1876        ENCLK
+POWERMODULE_HIGH_des_key_0_0 net net1877        EN
+POWERMODULE_HIGH_des_key_0_0 net net1883        TE
+POWERMODULE_HIGH_des_key_0_0 net net1884        ENOBS
+SNPS_CLOCK_GATE_OBS_des_key net net1919         hclk
+SNPS_CLOCK_GATE_OBS_des_key net net1921         TE
+SNPS_CLOCK_GATE_OBS_des_key net net1925         net1889
+SNPS_CLOCK_GATE_OBS_des_key net net1927         net1894
+SNPS_CLOCK_GATE_OBS_des_key net net1929         net1899
+SNPS_CLOCK_GATE_OBS_des_key net net1931         net1904
+SNPS_CLOCK_GATE_OBS_des_key net net1933         net1909
+SNPS_CLOCK_GATE_OBS_des_key net net1935         net1914
+POWERMODULE_HIGH_des_iv_0_1 net net1835         CLK
+POWERMODULE_HIGH_des_iv_0_1 net net1837         ENCLK
+POWERMODULE_HIGH_des_iv_0_1 net net1838         EN
+POWERMODULE_HIGH_des_iv_0_1 net net1844         TE
+POWERMODULE_HIGH_des_iv_0_1 net net1845         ENOBS
+POWERMODULE_HIGH_des_iv_0_0 net net1835         CLK
+POWERMODULE_HIGH_des_iv_0_0 net net1837         ENCLK
+POWERMODULE_HIGH_des_iv_0_0 net net1838         EN
+POWERMODULE_HIGH_des_iv_0_0 net net1844         TE
+POWERMODULE_HIGH_des_iv_0_0 net net1845         ENOBS
+SNPS_CLOCK_GATE_OBS_des_iv net net1860          hclk
+SNPS_CLOCK_GATE_OBS_des_iv net net1862          TE
+SNPS_CLOCK_GATE_OBS_des_iv net net1866          net1850
+SNPS_CLOCK_GATE_OBS_des_iv net net1868          net1855
+POWERMODULE_HIGH_des_dat_0_1 net net1796        CLK
+POWERMODULE_HIGH_des_dat_0_1 net net1798        ENCLK
+POWERMODULE_HIGH_des_dat_0_1 net net1799        EN
+POWERMODULE_HIGH_des_dat_0_1 net net1805        TE
+POWERMODULE_HIGH_des_dat_0_1 net net1806        ENOBS
+POWERMODULE_HIGH_des_dat_0_0 net net1796        CLK
+POWERMODULE_HIGH_des_dat_0_0 net net1798        ENCLK
+POWERMODULE_HIGH_des_dat_0_0 net net1799        EN
+POWERMODULE_HIGH_des_dat_0_0 net net1805        TE
+POWERMODULE_HIGH_des_dat_0_0 net net1806        ENOBS
+SNPS_CLOCK_GATE_OBS_des_dat net net1821         hclk
+SNPS_CLOCK_GATE_OBS_des_dat net net1823         TE
+SNPS_CLOCK_GATE_OBS_des_dat net net1827         net1811
+SNPS_CLOCK_GATE_OBS_des_dat net net1829         net1816
+tiny_des        cell    round_reg[0]            round_reg_0
+tiny_des        cell    round_reg[3]            round_reg_3
+tiny_des        cell    round_reg[1]            round_reg_1
+tiny_des        cell    round_reg[2]            round_reg_2
+tiny_des_round  cell    dout_reg[62]            dout_reg_62
+tiny_des_round  cell    dout_reg[61]            dout_reg_61
+tiny_des_round  cell    dout_reg[58]            dout_reg_58
+tiny_des_round  cell    dout_reg[57]            dout_reg_57
+tiny_des_round  cell    dout_reg[53]            dout_reg_53
+tiny_des_round  cell    dout_reg[51]            dout_reg_51
+tiny_des_round  cell    dout_reg[50]            dout_reg_50
+tiny_des_round  cell    dout_reg[49]            dout_reg_49
+tiny_des_round  cell    dout_reg[47]            dout_reg_47
+tiny_des_round  cell    dout_reg[46]            dout_reg_46
+tiny_des_round  cell    dout_reg[42]            dout_reg_42
+tiny_des_round  cell    dout_reg[41]            dout_reg_41
+tiny_des_round  cell    dout_reg[38]            dout_reg_38
+tiny_des_round  cell    dout_reg[37]            dout_reg_37
+tiny_des_round  cell    dout_reg[35]            dout_reg_35
+tiny_des_round  cell    dout_reg[34]            dout_reg_34
+tiny_des_round  cell    dout_reg[33]            dout_reg_33
+tiny_des_round  cell    dout_reg[31]            dout_reg_31
+tiny_des_round  cell    dout_reg[30]            dout_reg_30
+tiny_des_round  cell    dout_reg[29]            dout_reg_29
+tiny_des_round  cell    dout_reg[28]            dout_reg_28
+tiny_des_round  cell    dout_reg[27]            dout_reg_27
+tiny_des_round  cell    dout_reg[26]            dout_reg_26
+tiny_des_round  cell    dout_reg[25]            dout_reg_25
+tiny_des_round  cell    dout_reg[23]            dout_reg_23
+tiny_des_round  cell    dout_reg[21]            dout_reg_21
+tiny_des_round  cell    dout_reg[20]            dout_reg_20
+tiny_des_round  cell    dout_reg[19]            dout_reg_19
+tiny_des_round  cell    dout_reg[18]            dout_reg_18
+tiny_des_round  cell    dout_reg[17]            dout_reg_17
+tiny_des_round  cell    dout_reg[16]            dout_reg_16
+tiny_des_round  cell    dout_reg[15]            dout_reg_15
+tiny_des_round  cell    dout_reg[14]            dout_reg_14
+tiny_des_round  cell    dout_reg[13]            dout_reg_13
+tiny_des_round  cell    dout_reg[12]            dout_reg_12
+tiny_des_round  cell    dout_reg[11]            dout_reg_11
+tiny_des_round  cell    dout_reg[10]            dout_reg_10
+tiny_des_round  cell    dout_reg[8]             dout_reg_8
+tiny_des_round  cell    dout_reg[7]             dout_reg_7
+tiny_des_round  cell    dout_reg[6]             dout_reg_6
+tiny_des_round  cell    dout_reg[5]             dout_reg_5
+tiny_des_round  cell    dout_reg[4]             dout_reg_4
+tiny_des_round  cell    dout_reg[3]             dout_reg_3
+tiny_des_round  cell    dout_reg[2]             dout_reg_2
+tiny_des_round  cell    dout_reg[1]             dout_reg_1
+tiny_des_round  cell    dout_reg[0]             dout_reg_0
+tiny_des_round  cell    dout_reg[9]             dout_reg_9
+tiny_des_round  cell    dout_reg[63]            dout_reg_63
+tiny_des_round  cell    dout_reg[60]            dout_reg_60
+tiny_des_round  cell    dout_reg[59]            dout_reg_59
+tiny_des_round  cell    dout_reg[56]            dout_reg_56
+tiny_des_round  cell    dout_reg[55]            dout_reg_55
+tiny_des_round  cell    dout_reg[54]            dout_reg_54
+tiny_des_round  cell    dout_reg[52]            dout_reg_52
+tiny_des_round  cell    dout_reg[48]            dout_reg_48
+tiny_des_round  cell    dout_reg[45]            dout_reg_45
+tiny_des_round  cell    dout_reg[44]            dout_reg_44
+tiny_des_round  cell    dout_reg[43]            dout_reg_43
+tiny_des_round  cell    dout_reg[40]            dout_reg_40
+tiny_des_round  cell    dout_reg[39]            dout_reg_39
+tiny_des_round  cell    dout_reg[36]            dout_reg_36
+tiny_des_round  cell    dout_reg[32]            dout_reg_32
+tiny_des_round  cell    dout_reg[24]            dout_reg_24
+tiny_des_round  cell    dout_reg[22]            dout_reg_22
+tiny_des_round  net     key_in_55               key_in[55]
+tiny_des_round  net     key_in_54               key_in[54]
+tiny_des_round  net     key_in_53               key_in[53]
+tiny_des_round  net     key_in_52               key_in[52]
+tiny_des_round  net     key_in_51               key_in[51]
+tiny_des_round  net     key_in_50               key_in[50]
+tiny_des_round  net     key_in_49               key_in[49]
+tiny_des_round  net     key_in_47               key_in[47]
+tiny_des_round  net     key_in_46               key_in[46]
+tiny_des_round  net     key_in_45               key_in[45]
+tiny_des_round  net     key_in_44               key_in[44]
+tiny_des_round  net     key_in_43               key_in[43]
+tiny_des_round  net     key_in_42               key_in[42]
+tiny_des_round  net     key_in_41               key_in[41]
+tiny_des_round  net     key_in_39               key_in[39]
+tiny_des_round  net     key_in_38               key_in[38]
+tiny_des_round  net     key_in_37               key_in[37]
+tiny_des_round  net     key_in_36               key_in[36]
+tiny_des_round  net     key_in_35               key_in[35]
+tiny_des_round  net     key_in_34               key_in[34]
+tiny_des_round  net     key_in_33               key_in[33]
+tiny_des_round  net     key_in_31               key_in[31]
+tiny_des_round  net     key_in_30               key_in[30]
+tiny_des_round  net     key_in_29               key_in[29]
+tiny_des_round  net     key_in_28               key_in[28]
+tiny_des_round  net     key_in_27               key_in[27]
+tiny_des_round  net     key_in_26               key_in[26]
+tiny_des_round  net     key_in_25               key_in[25]
+tiny_des_round  net     key_in_23               key_in[23]
+tiny_des_round  net     key_in_22               key_in[22]
+tiny_des_round  net     key_in_21               key_in[21]
+tiny_des_round  net     key_in_20               key_in[20]
+tiny_des_round  net     key_in_19               key_in[19]
+tiny_des_round  net     key_in_18               key_in[18]
+tiny_des_round  net     key_in_17               key_in[17]
+tiny_des_round  net     key_in_15               key_in[15]
+tiny_des_round  net     key_in_14               key_in[14]
+tiny_des_round  net     key_in_13               key_in[13]
+tiny_des_round  net     key_in_12               key_in[12]
+tiny_des_round  net     key_in_11               key_in[11]
+tiny_des_round  net     key_in_10               key_in[10]
+tiny_des_round  net     key_in_9                key_in[9]
+tiny_des_round  net     key_in_7                key_in[7]
+tiny_des_round  net     key_in_6                key_in[6]
+tiny_des_round  net     key_in_5                key_in[5]
+tiny_des_round  net     key_in_4                key_in[4]
+tiny_des_round  net     key_in_3                key_in[3]
+tiny_des_round  net     key_in_2                key_in[2]
+tiny_des_round  net     key_in_1                key_in[1]
+POWERMODULE_HIGH_tiny_des_round_0 net net1765   CLK
+POWERMODULE_HIGH_tiny_des_round_0 net net1767   ENCLK
+POWERMODULE_HIGH_tiny_des_round_0 net net1768   EN
+POWERMODULE_HIGH_tiny_des_round_0 net net1774   TE
+POWERMODULE_HIGH_tiny_des_round_0 net net1775   ENOBS
+SNPS_CLOCK_GATE_OBS_tiny_des_round net net1785  hclk
+SNPS_CLOCK_GATE_OBS_tiny_des_round net net1787  TE
+SNPS_CLOCK_GATE_OBS_tiny_des_round net net1791  net1780
+1
+1
+if { [ file exists $workPath/net ] == 1 } {
+  if { [ file exists $workPath/net/current ] == 1 } {
+  exec mv $workPath/net/current $workPath/net/20[clock format [clock seconds] -format "%y%m%d_%H%M"]
+  }
+} else {
+  file mkdir $workPath/net
+}
+if { [ file exists $workPath/ddc ] == 1 } {
+  if { [ file exists $workPath/ddc/current ] == 1 } {
+  exec mv $workPath/ddc/current $workPath/ddc/20[clock format [clock seconds] -format "%y%m%d_%H%M"]
+  }
+} else {
+  file mkdir $workPath/ddc
+}
+if { [ file exists $workPath/SPEF ] == 1 } {
+  if { [ file exists $workPath/SPEF/current ] == 1 } {
+  exec mv $workPath/SPEF/current $workPath/SPEF/20[clock format [clock seconds] -format "%y%m%d_%H%M"]
+  }
+} else {
+  file mkdir $workPath/SPEF
+}
+file mkdir $workPath/net/current
+file mkdir $workPath/ddc/current
+file mkdir $workPath/SPEF/current
+write -f ddc     -hier -output $workPath/ddc/current/${topModuleName}.ddc $topModuleName
+Writing ddc file '/export/home/user/wangyl/rtlqa_env/digital/impl/syn/work/ddc/current/des.ddc'.
+1
+write -f verilog -hier -output $workPath/net/current/${topModuleName}.v $topModuleName
+Writing verilog file '/export/home/user/wangyl/rtlqa_env/digital/impl/syn/work/net/current/des.v'.
+1
+write_parasitics -output $workPath/SPEF/current/${topModuleName}.spef
+Information: Writing parasitics to file '/export/home/user/wangyl/rtlqa_env/digital/impl/syn/work/SPEF/current/des.spef'. (WP-3)
+1
+echo "${topModuleName}.v" > $workPath/net/current/${topModuleName}.lst
+#-----------------------------------#
+# Include Post Compile Report Script
+#-----------------------------------#
+if {$designReport == "true"} {
+source -echo -verbose $dcScriptPath/designRpt.tcl
+}
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      designRpt.tcl
+#
+#      DESCRIPTION:
+#         This script is used to report kinds of result in SYN flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+if { [ file exists $rptDir ] == 1 } {
+} else {
+  file mkdir $rptDir
+}
+if { [ file exists $rptDir/current ] == 1 } {
+  exec mv $rptDir/current $rptDir/20[clock format [clock seconds] -format "%y%m%d_%H%M"]
+}
+file mkdir $rptDir/current
+set rptDir $rptDir/current
+/export/home/user/wangyl/rtlqa_env/digital/impl/syn/rpts/current
+current_design $topModuleName
+Current design is 'des'.
+{des}
+###############
+# timing exception
+###############    
+if {$rptTimingExcept == "true"} {   
+  redirect [file join $rptDir reportTimingRequirements.rpt] {
+    echo "Info : report_timing_requirements "
+    report_timing_requirements
+    echo ""
+    echo "Info : report_timing_requirements -ignored"
+  }
+}
+if {$rptCheckTiming == "true"} {   
+  redirect [file join $rptDir checkTiming.rpt] { check_timing }
+
+  redirect [file join $rptDir reportTimingLoops.rpt ]     { report_timing -loops -max_paths 50 }
+}
+###############
+# clock
+###############
+if {$rptClkInfo == "true"} { 
+  redirect [file join $rptDir reportPathGroup.rpt] { report_path_group }
+
+  redirect [file join $rptDir reportClockAttributeSkew.rpt]     { report_clock -attributes -skew }
+
+  redirect [file join $rptDir reportTransitiveFanout.rpt]     { report_transitive_fanout -clock_tree }
+
+  set rptFile [file join $rptDir reportClockFanout_Summary.rpt]
+  set clockList [concat $clockPortList $clockPinList]
+  redirect $rptFile { 
+    echo "" 
+    echo "  clock_list: $clockNameList"  
+    echo ""  
+    echo "" 
+    echo ">> Report All Seq. Cells(FF,Latch,MSFF) Clocked by Clock Source" 
+    echo ""       
+  } 
+  redirect [file join $rptDir reportClockFanout_ClockedSeqCellOnly.rpt] {
+    echo "" 
+    echo "  clock_list: $clockNameList"  
+    echo ""  
+    echo "" 
+    echo ">> Report All Seq. Cells(FF,Latch,MSFF) Clocked by Clock Source" 
+    echo "" 
+    foreach clock_name $clockNameList {
+      # Collection Produced by all_registers
+      set clocked_cell_coll [all_registers -cells -clock $clock_name] 
+      set clocked_cell_cnt 0
+
+      foreach_in_collection clocked_cell $clocked_cell_coll {
+        set cked_cell [get_attribute $clocked_cell full_name]
+        set clocked_cell_cnt [expr $clocked_cell_cnt + 1]
+        echo "Info: Clock Name: $clock_name Clocked to Seq. Cell: $cked_cell"  
+      }
+      redirect -append $rptFile { echo "Info: Clocked Seq. Cells Count= $clocked_cell_cnt for $clock_name" } 
+      echo "Info: Clocked Seq. Cells Count= $clocked_cell_cnt for $clock_name"  
+      echo ""  
+    }
+  } 
+  
+  redirect -append $rptFile { 
+    echo ""  
+    echo "" 
+    echo ">> Report All Seq.(FF,Latch,MSFF)/Com.(AND,...) Cells in Transitive Fanout from Clock Source" 
+    echo ""       
+  }    
+  redirect [file join $rptDir reportClockFanout_TransitiveConnectedCell.rpt] {
+    echo "" 
+    echo "  clock_list: $clockNameList"  
+    echo ""   
+    echo "" 
+    echo ">> Report All Seq.(FF,Latch,MSFF)/Com.(AND,...) Cells in Transitive Fanout from Clock Source"        
+    echo "" 
+    foreach clock_name $clockList {
+      # Collection Produced by all_fanout
+      set clocked_cell_coll [all_fanout -from $clock_name -only_cells -flat]
+      set clocked_cell_cnt 0
+  
+      foreach_in_collection clocked_cell $clocked_cell_coll {
+        set cked_cell [get_attribute $clocked_cell full_name]
+        set clocked_cell_cnt [expr $clocked_cell_cnt + 1]
+        echo "Info: Clock Port/Pin: $clock_name Transitive-Connected to Seq./Com. Cell: $cked_cell"  
+      }
+      redirect -append $rptFile { echo "Info: Transitive-Connected Seq./Com. Cells Count= $clocked_cell_cnt for $clock_name" }
+      echo "Info: Transitive-Connected Seq./Com. Cells Count= $clocked_cell_cnt for $clock_name"  
+      echo ""  
+    }
+  }
+  
+  redirect -append $rptFile { 
+    echo ""  
+    echo "" 
+    echo ">> Report All Seq.(FF,Latch,MSFF)/Com.(AND,...) Cells Direct-Connected from Clock Source" 
+    echo ""       
+  }     
+  redirect [file join $rptDir reportClockFanout_DirectConnectedCell.rpt] {
+    echo "" 
+    echo "  clock_list: $clockNameList"  
+    echo ""   
+    echo "" 
+    echo ">> Report All Seq.(FF,Latch,MSFF)/Com.(AND,...) Cells Direct-Connected from Clock Source" 
+        
+    echo "" 
+    foreach clock_name $clockList {
+
+      # Collection Produced by all_fanout
+      set clocked_cell_coll [all_fanout -from $clock_name -only_cells -flat -levels 1]
+      set clocked_cell_cnt 0
+  
+      foreach_in_collection clocked_cell $clocked_cell_coll {
+        set cked_cell [get_attribute $clocked_cell full_name]
+        set clocked_cell_cnt [expr $clocked_cell_cnt + 1]
+        echo "Info: Clock Port/Pin: $clock_name Direct-Connected to Seq./Com. Cell: $cked_cell"  
+      }
+      redirect -append $rptFile { echo "Info: Direct-Connected Seq./Com. Cells Count= $clocked_cell_cnt for $clock_name" }
+      echo "Info: Direct-Connected Seq./Com. Cells Count= $clocked_cell_cnt for $clock_name"  
+      echo ""  
+    }  
+  }
+}
+###############
+# report design
+###############
+if {$rptDesignInfo == "true"} {   
+  redirect [file join $rptDir reportDesign.rpt] { report_design }
+
+  redirect [file join $rptDir reportPort.rpt] { report_port -verbose }
+
+  redirect [file join $rptDir reportAttributePort.rpt]     { report_attribute -port }
+    
+  redirect [file join $rptDir reportNetTransitionTimes.rpt]     { report_net -transition_times }
+    
+  redirect [file join $rptDir reportCell.rpt]     { report_cell }        
+
+  redirect [file join $rptDir reportHighFanoutNet.rpt]     { report_net_fanout -threshold 50 }
+  
+  if {$compileDesign == "true" } {   
+    redirect [file join $rptDir reportPartitions.rpt]       { report_partitions }      
+  }
+  
+  if {$padCellName != ""} { 
+    redirect [file join $rptDir reportPadCell.rpt]     { report_cell -connections [get_cells $padCellName] }        
+  }
+  
+  redirect [file join $rptDir checkDesign.rpt] { check_design }
+
+  redirect [file join $rptDir problemCells.rpt] {
+    echo "Info : unmapped cells"
+    get_cells "*" -filter "@is_unmapped == true"
+    echo ""
+    echo "Info : black_box cells"
+    get_cells "*" -filter "@is_black_box==true"
+    echo ""
+  }
+
+  redirect [file join $rptDir link.rpt] { link }
+
+  redirect [file join $rptDir reportResources.rpt] { report_resources }
+
+  redirect [file join $rptDir reportQOR.rpt] { report_qor }
+  
+  redirect [file join $rptDir reportCompileOptions.rpt] { report_compile_options }    
+}
+###############
+# hierarchy
+###############
+if {$rptHierarchy == "true"} {   
+  redirect [file join $rptDir reportHierarchy.rpt] { report_hierarchy }
+
+  redirect [file join $rptDir listInstances.rpt] {
+    echo "Info : list_instances -hierarchy -max_levels 1"
+    list_instances -hierarchy -max_levels 1
+
+    echo "Info : list_instances -hierarchy -max_levels 2"
+    list_instances -hierarchy -max_levels 2
+
+    echo "Info : list_instances -hierarchy -max_levels 3"
+    list_instances -hierarchy -max_levels 3
+
+    echo "Info : list_instances -hierarchy -max_levels 4"
+    list_instances -hierarchy -max_levels 4
+  }
+}
+###############
+# area
+###############
+if {$rptAreaInfo == "true"} {     
+  redirect [file join $rptDir reportArea.rpt] { 
+    report_area
+    
+    echo ""
+    echo ""
+    echo "********************************"
+    echo "*  Report area for sub-blocks  *"
+    echo "********************************"
+    foreach_in_collection hCell [get_cells "*" -filter "@is_hierarchical == true"] {
+        set count 0
+        set design_name [get_attribute $hCell ref_name]
+        current_design $design_name
+        redirect temp.txt report_area
+        set fileID [open temp.txt r]
+        while {[gets $fileID line] >= 0} {
+          regexp {(Total cell area:)(\s+)(.*)} $line m1 m2 m3 area
+        }
+        foreach_in_collection sub_item [get_cells "*" -hier] { incr count }
+        echo "The cell counts of the design $design_name : $count"
+        echo "The cell area is : $area"
+        echo ""
+        close $fileID
+        file delete temp.txt
+    }
+  }
+  current_design $topModuleName
+}
+Current design is 'des'.
+{des}
+###############
+# timing constraint
+###############
+if {$rptTimingCnst == "true"} {   
+  redirect [file join $rptDir reportDisableTiming.rpt] { report_disable_timing }
+  
+  redirect [file join $rptDir reportCaseAnalysis.rpt] { report_case_analysis }    
+
+  redirect [file join $rptDir reportConstraint.rpt] { 
+    echo "Info : report_constraint"
+    report_constraint 
+    echo ""
+    echo "Info : report_constraint -all_violators"
+    report_constraint -all_violators
+    echo ""
+    echo "Info : report_constraint -all_violators -verboes"
+    report_constraint -all_violators -verbose
+    echo ""
+    echo "Info : report_constraint -max_fanout -verboes"
+    report_constraint -max_fanout -verbose
+    echo ""
+    echo "Info : report_constraint -max_transition -verboes"
+    report_constraint -max_transition -verbose
+  }
+}
+###############
+# delay path
+###############
+if {$rptMaxDelayPath == "true"} {   
+  redirect [file join $rptDir reportTimingMaxDelay.rpt] { 
+    report_timing  -nets                                        -transition_time                             -input_pins                                  -capacitance                                 -path      full_clock                        -delay     max                               -nworst  2                     -max_paths 5
+  }
+}
+if {$rptMinDelayPath == "true"} {   
+  redirect [file join $rptDir reportTimingMinDelay.rpt] { 
+    report_timing  -nets                                        -transition_time                             -input_pins                                  -capacitance                                 -path      full_clock                        -delay     min                               -nworst 2                       -max_paths 5
+  }
+}  
+if {$rptBufferTree == "true"} {
+  redirect [file join $rptDir ClockBufferTree.rpt] {
+    foreach my_clock $clockPinList {
+                report_buffer_tree -from $my_clock -hier
+    }
+  }
+  redirect [file join $rptDir ResetBufferTree.rpt] {
+    foreach my_reset $resetPin {
+                report_buffer_tree -from $my_reset -hier 
+    }
+  }
+}
+if {$GenSDCfile == "true"} {
+source -echo -verbose $dcScriptPath/genSDC.tcl
+}
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      genSDC.tcl 
+#
+#      DESCRIPTION:
+#         This script is used to generate SDC file in PT flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+if { $GenSDCfile == "true" } { 
+  echo "Generating SDC files\n"
+  set SDCDir $workPath/SDC
+  if { [file exists $SDCDir] == 1 } {
+    if { [file exists $SDCDir/current] == 1 } {
+      exec mv $SDCDir/current $SDCDir/20[clock format [clock seconds] -format "%y%m%d_%H%M"]
+      file mkdir $SDCDir/current
+    } else {
+      file mkdir $SDCDir/current
+    }
+  } else {
+    file mkdir $SDCDir
+    file mkdir $SDCDir/current
+  }
+
+  set filename $SDCDir/current/$topModuleName.sdc
+  write_sdc $filename
+}
+Generating SDC files
+
+1
+1
+#-----------------------------------#
+# Include Clean Buffer Tree Script
+#-----------------------------------#
+if {$CleanBufferTree == "true"} {
+source -echo -verbose $dtclConstraintPath/CleanBufferTree.tcl
+}
+#quit
+Information: Defining new variable 'SDCDir'. (CMD-041)
+Information: Defining new variable 'm1'. (CMD-041)
+Information: Defining new variable 'm2'. (CMD-041)
+Information: Defining new variable 'm3'. (CMD-041)
+Information: Defining new variable 'filename'. (CMD-041)
+Information: Defining new variable 'milkywayDatabase'. (CMD-041)
+Information: Defining new variable 'HCLK_PERIOD_HALF'. (CMD-041)
+Information: Defining new variable 'clocked_cell'. (CMD-041)
+Information: Defining new variable 'resetPin'. (CMD-041)
+Information: Defining new variable 'minOptCond'. (CMD-041)
+Information: Defining new variable 'rptBufferTree'. (CMD-041)
+Information: Defining new variable 'area'. (CMD-041)
+Information: Defining new variable 'output_threshold_pct_rise'. (CMD-041)
+Information: Defining new variable 'hCell'. (CMD-041)
+Information: Defining new variable 'rptAreaInfo'. (CMD-041)
+Information: Defining new variable 'x'. (CMD-041)
+Information: Defining new variable 'wireLoadModelName'. (CMD-041)
+Information: Defining new variable 'padCellName'. (CMD-041)
+Information: Defining new variable 'rptCheckTiming'. (CMD-041)
+Information: Defining new variable 'PJT_HOME'. (CMD-041)
+Information: Defining new variable 'fileID'. (CMD-041)
+Information: Defining new variable 'clocked_cell_cnt'. (CMD-041)
+Information: Defining new variable 'maxOptCond'. (CMD-041)
+Information: Defining new variable 'slew_lower_threshold_pct_fall'. (CMD-041)
+Information: Defining new variable 'rptFile'. (CMD-041)
+Information: Defining new variable 'slew_upper_threshold_pct_fall'. (CMD-041)
+Information: Defining new variable 'line'. (CMD-041)
+Information: Defining new variable 'resetPortList'. (CMD-041)
+Information: Defining new variable 'resetNameList'. (CMD-041)
+Information: Defining new variable 'rptTimingCnst'. (CMD-041)
+Information: Defining new variable 'rptTimingExcept'. (CMD-041)
+Information: Defining new variable 'DC_ULTRA'. (CMD-041)
+Information: Defining new variable 'IMP_HOME'. (CMD-041)
+Information: Defining new variable 'resetName'. (CMD-041)
+Information: Defining new variable 'topModuleName'. (CMD-041)
+Information: Defining new variable 'rptDir'. (CMD-041)
+Information: Defining new variable 'designList'. (CMD-041)
+Information: Defining new variable 'rtlfile'. (CMD-041)
+Information: Defining new variable 'hdlFileList'. (CMD-041)
+Information: Defining new variable 'clk_type'. (CMD-041)
+Information: Defining new variable 'clock_name'. (CMD-041)
+Information: Defining new variable 'slew_lower_threshold_pct_rise'. (CMD-041)
+Information: Defining new variable 'HCLK_PERIOD'. (CMD-041)
+Information: Defining new variable 'netlistFilePath'. (CMD-041)
+Information: Defining new variable 'slew_upper_threshold_pct_rise'. (CMD-041)
+Information: Defining new variable 'rptDesignInfo'. (CMD-041)
+Information: Defining new variable 'rptHierarchy'. (CMD-041)
+Information: Defining new variable 'CleanBufferTree'. (CMD-041)
+Information: Defining new variable 'constrainDesign'. (CMD-041)
+Information: Defining new variable 'rptClkInfo'. (CMD-041)
+Information: Defining new variable 'input_threshold_pct_fall'. (CMD-041)
+Information: Defining new variable 'clockgating'. (CMD-041)
+Information: Defining new variable 'reset_port'. (CMD-041)
+Information: Defining new variable 'clockList'. (CMD-041)
+Information: Defining new variable 'clockPortList'. (CMD-041)
+Information: Defining new variable 'resetPinList'. (CMD-041)
+Information: Defining new variable 'hdlFilePath'. (CMD-041)
+Information: Defining new variable 'RTLFileList'. (CMD-041)
+Information: Defining new variable 'readInDesign'. (CMD-041)
+Information: Defining new variable 'clockNameList'. (CMD-041)
+Information: Defining new variable 'cked_cell'. (CMD-041)
+Information: Defining new variable 'projectName'. (CMD-041)
+Information: Defining new variable 'count'. (CMD-041)
+Information: Defining new variable 'fullCmpEffort'. (CMD-041)
+Information: Defining new variable 'design_name'. (CMD-041)
+Information: Defining new variable 'rptMinDelayPath'. (CMD-041)
+Information: Defining new variable 'GenSDCfile'. (CMD-041)
+Information: Defining new variable 'increCmpEffort'. (CMD-041)
+Information: Defining new variable 'clockPinList'. (CMD-041)
+Information: Defining new variable 'rptMaxDelayPath'. (CMD-041)
+Information: Defining new variable 'dcScriptPath'. (CMD-041)
+Information: Defining new variable 'input_threshold_pct_rise'. (CMD-041)
+Information: Defining new variable 'minLibName'. (CMD-041)
+Information: Defining new variable 'typLibName'. (CMD-041)
+Information: Defining new variable 'workPath'. (CMD-041)
+Information: Defining new variable 'RUN_DIR'. (CMD-041)
+Information: Defining new variable 'typOptcond'. (CMD-041)
+Information: Defining new variable 'output_threshold_pct_fall'. (CMD-041)
+Information: Defining new variable 'milkywayPath'. (CMD-041)
+Information: Defining new variable 'item_name'. (CMD-041)
+Information: Defining new variable 'compileDesign'. (CMD-041)
+Information: Defining new variable 'dcVersion'. (CMD-041)
+Information: Defining new variable 'ENV_HOME'. (CMD-041)
+Information: Defining new variable 'sub_item'. (CMD-041)
+Information: Defining new variable 'LibrarySetupPath'. (CMD-041)
+Information: Defining new variable 'setupLib'. (CMD-041)
+Information: Defining new variable 'phyConstrainDesign'. (CMD-041)
+Information: Defining new variable 'clocked_cell_coll'. (CMD-041)
+Information: Defining new variable 'runSetType'. (CMD-041)
+Information: Defining new variable 'SPARE_COUNT'. (CMD-041)
+Information: Defining new variable 'designReport'. (CMD-041)
+Information: Defining new variable 'dtclConstraintPath'. (CMD-041)
+Information: Defining new variable 'maxLibName'. (CMD-041)
+Information: Defining new variable 'resetPort'. (CMD-041)
+dc_shell-xg-t> exit
+
+Memory usage for this session 113436 Kbytes.
+CPU usage for this session 51 seconds.
+
+Thank you...

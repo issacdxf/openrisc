@@ -1,0 +1,4 @@
+srcSourceCodeView
+srcResizeWindow 4 28 804 500
+debImport "-2001" "-f" "rwork.lst"
+debExit

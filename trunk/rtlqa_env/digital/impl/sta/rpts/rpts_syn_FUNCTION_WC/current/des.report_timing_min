@@ -1,0 +1,2246 @@
+****************************************
+Report : timing
+	-path_type full_clock_expanded
+	-delay_type min
+	-input_pins
+	-nets
+	-nworst 2
+	-max_paths 20
+	-transition_time
+	-capacitance
+	-crosstalk_delta
+Design : des
+Version: B-2008.06-SP3
+Date   : Fri Sep 11 18:42:52 2009
+****************************************
+
+
+  Startpoint: hresetn (input port clocked by hclk)
+  Endpoint: data_in_reg_0
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                     Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------
+  clock hclk (rise edge)                              0.00              0.00       0.00
+  clock network delay (ideal)                                           0.00       0.00
+  input external delay                                                 25.00      25.00 r
+  hresetn (in)                                        0.00              0.00      25.00 r
+  hresetn (net)             248     0.00 
+  data_in_reg_0/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                               25.00
+
+  clock hclk (rise edge)                              0.00              0.00       0.00
+  clock network delay (ideal)                                           5.00       5.00
+  clock reconvergence pessimism                                         0.00       5.00
+  data_in_reg_0/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                  0.18       5.18
+  data required time                                                               5.18
+  ----------------------------------------------------------------------------------------
+  data required time                                                               5.18
+  data arrival time                                                              -25.00
+  ----------------------------------------------------------------------------------------
+  slack (MET)                                                                     19.82
+
+
+  Startpoint: hresetn (input port clocked by hclk)
+  Endpoint: data_in_reg_8
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                     Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------
+  clock hclk (rise edge)                              0.00              0.00       0.00
+  clock network delay (ideal)                                           0.00       0.00
+  input external delay                                                 25.00      25.00 r
+  hresetn (in)                                        0.00              0.00      25.00 r
+  hresetn (net)             248     0.00 
+  data_in_reg_8/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                               25.00
+
+  clock hclk (rise edge)                              0.00              0.00       0.00
+  clock network delay (ideal)                                           5.00       5.00
+  clock reconvergence pessimism                                         0.00       5.00
+  data_in_reg_8/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                  0.18       5.18
+  data required time                                                               5.18
+  ----------------------------------------------------------------------------------------
+  data required time                                                               5.18
+  data arrival time                                                              -25.00
+  ----------------------------------------------------------------------------------------
+  slack (MET)                                                                     19.82
+
+
+  Startpoint: hresetn (input port clocked by hclk)
+  Endpoint: data_in_reg_16
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                      Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -----------------------------------------------------------------------------------------
+  clock hclk (rise edge)                               0.00              0.00       0.00
+  clock network delay (ideal)                                            0.00       0.00
+  input external delay                                                  25.00      25.00 r
+  hresetn (in)                                         0.00              0.00      25.00 r
+  hresetn (net)              248     0.00 
+  data_in_reg_16/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                25.00
+
+  clock hclk (rise edge)                               0.00              0.00       0.00
+  clock network delay (ideal)                                            5.00       5.00
+  clock reconvergence pessimism                                          0.00       5.00
+  data_in_reg_16/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                   0.18       5.18
+  data required time                                                                5.18
+  -----------------------------------------------------------------------------------------
+  data required time                                                                5.18
+  data arrival time                                                               -25.00
+  -----------------------------------------------------------------------------------------
+  slack (MET)                                                                      19.82
+
+
+  Startpoint: hresetn (input port clocked by hclk)
+  Endpoint: data_in_reg_24
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                      Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -----------------------------------------------------------------------------------------
+  clock hclk (rise edge)                               0.00              0.00       0.00
+  clock network delay (ideal)                                            0.00       0.00
+  input external delay                                                  25.00      25.00 r
+  hresetn (in)                                         0.00              0.00      25.00 r
+  hresetn (net)              248     0.00 
+  data_in_reg_24/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                25.00
+
+  clock hclk (rise edge)                               0.00              0.00       0.00
+  clock network delay (ideal)                                            5.00       5.00
+  clock reconvergence pessimism                                          0.00       5.00
+  data_in_reg_24/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                   0.18       5.18
+  data required time                                                                5.18
+  -----------------------------------------------------------------------------------------
+  data required time                                                                5.18
+  data arrival time                                                               -25.00
+  -----------------------------------------------------------------------------------------
+  slack (MET)                                                                      19.82
+
+
+  Startpoint: hresetn (input port clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/dout_valid_reg
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                            Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ---------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                     0.00              0.00       0.00
+  clock network delay (ideal)                                                                  0.00       0.00
+  input external delay                                                                        25.00      25.00 r
+  hresetn (in)                                                               0.00              0.00      25.00 r
+  hresetn (net)                                    248     0.00 
+  des_cop_unit/hresetn (des_cop)                                             0.00              0.00      25.00 r
+  des_cop_unit/hresetn (net) 
+  des_cop_unit/des_unit/hresetn (tiny_des)                                   0.00              0.00      25.00 r
+  des_cop_unit/des_unit/hresetn (net) 
+  des_cop_unit/des_unit/dout_valid_reg/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                                      25.00
+
+  clock hclk (rise edge)                                                     0.00              0.00       0.00
+  clock network delay (ideal)                                                                  5.00       5.00
+  clock reconvergence pessimism                                                                0.00       5.00
+  des_cop_unit/des_unit/dout_valid_reg/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                                         0.18       5.18
+  data required time                                                                                      5.18
+  ---------------------------------------------------------------------------------------------------------------
+  data required time                                                                                      5.18
+  data arrival time                                                                                     -25.00
+  ---------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                            19.82
+
+
+  Startpoint: hresetn (input port clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/round_reg_0
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                         Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                               0.00       0.00
+  input external delay                                                                     25.00      25.00 r
+  hresetn (in)                                                            0.00              0.00      25.00 r
+  hresetn (net)                                 248     0.00 
+  des_cop_unit/hresetn (des_cop)                                          0.00              0.00      25.00 r
+  des_cop_unit/hresetn (net) 
+  des_cop_unit/des_unit/hresetn (tiny_des)                                0.00              0.00      25.00 r
+  des_cop_unit/des_unit/hresetn (net) 
+  des_cop_unit/des_unit/round_reg_0/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                                   25.00
+
+  clock hclk (rise edge)                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                               5.00       5.00
+  clock reconvergence pessimism                                                             0.00       5.00
+  des_cop_unit/des_unit/round_reg_0/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                                      0.18       5.18
+  data required time                                                                                   5.18
+  ------------------------------------------------------------------------------------------------------------
+  data required time                                                                                   5.18
+  data arrival time                                                                                  -25.00
+  ------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                         19.82
+
+
+  Startpoint: hresetn (input port clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/state_reg
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                       Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                0.00              0.00       0.00
+  clock network delay (ideal)                                                             0.00       0.00
+  input external delay                                                                   25.00      25.00 r
+  hresetn (in)                                                          0.00              0.00      25.00 r
+  hresetn (net)                               248     0.00 
+  des_cop_unit/hresetn (des_cop)                                        0.00              0.00      25.00 r
+  des_cop_unit/hresetn (net) 
+  des_cop_unit/des_unit/hresetn (tiny_des)                              0.00              0.00      25.00 r
+  des_cop_unit/des_unit/hresetn (net) 
+  des_cop_unit/des_unit/state_reg/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                                 25.00
+
+  clock hclk (rise edge)                                                0.00              0.00       0.00
+  clock network delay (ideal)                                                             5.00       5.00
+  clock reconvergence pessimism                                                           0.00       5.00
+  des_cop_unit/des_unit/state_reg/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                                    0.18       5.18
+  data required time                                                                                 5.18
+  ----------------------------------------------------------------------------------------------------------
+  data required time                                                                                 5.18
+  data arrival time                                                                                -25.00
+  ----------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                       19.82
+
+
+  Startpoint: POR (input port clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/u_tiny_des_round/dout_reg_0
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                         Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               0.00       0.00
+  input external delay                                                                                     25.00      25.00 r
+  POR (in)                                                                                0.00              0.00      25.00 r
+  POR (net)                                                     192     0.00 
+  des_cop_unit/POR (des_cop)                                                              0.00              0.00      25.00 r
+  des_cop_unit/POR (net) 
+  des_cop_unit/des_unit/POR (tiny_des)                                                    0.00              0.00      25.00 r
+  des_cop_unit/des_unit/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/POR (tiny_des_round)                             0.00              0.00      25.00 r
+  des_cop_unit/des_unit/u_tiny_des_round/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_0/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                                                   25.00
+
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               5.00       5.00
+  clock reconvergence pessimism                                                                             0.00       5.00
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_0/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                                                      0.18       5.18
+  data required time                                                                                                   5.18
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                   5.18
+  data arrival time                                                                                                  -25.00
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                         19.82
+
+
+  Startpoint: POR (input port clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/u_tiny_des_round/dout_reg_1
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                         Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               0.00       0.00
+  input external delay                                                                                     25.00      25.00 r
+  POR (in)                                                                                0.00              0.00      25.00 r
+  POR (net)                                                     192     0.00 
+  des_cop_unit/POR (des_cop)                                                              0.00              0.00      25.00 r
+  des_cop_unit/POR (net) 
+  des_cop_unit/des_unit/POR (tiny_des)                                                    0.00              0.00      25.00 r
+  des_cop_unit/des_unit/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/POR (tiny_des_round)                             0.00              0.00      25.00 r
+  des_cop_unit/des_unit/u_tiny_des_round/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_1/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                                                   25.00
+
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               5.00       5.00
+  clock reconvergence pessimism                                                                             0.00       5.00
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_1/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                                                      0.18       5.18
+  data required time                                                                                                   5.18
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                   5.18
+  data arrival time                                                                                                  -25.00
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                         19.82
+
+
+  Startpoint: POR (input port clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/u_tiny_des_round/dout_reg_2
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                         Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               0.00       0.00
+  input external delay                                                                                     25.00      25.00 r
+  POR (in)                                                                                0.00              0.00      25.00 r
+  POR (net)                                                     192     0.00 
+  des_cop_unit/POR (des_cop)                                                              0.00              0.00      25.00 r
+  des_cop_unit/POR (net) 
+  des_cop_unit/des_unit/POR (tiny_des)                                                    0.00              0.00      25.00 r
+  des_cop_unit/des_unit/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/POR (tiny_des_round)                             0.00              0.00      25.00 r
+  des_cop_unit/des_unit/u_tiny_des_round/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_2/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                                                   25.00
+
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               5.00       5.00
+  clock reconvergence pessimism                                                                             0.00       5.00
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_2/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                                                      0.18       5.18
+  data required time                                                                                                   5.18
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                   5.18
+  data arrival time                                                                                                  -25.00
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                         19.82
+
+
+  Startpoint: POR (input port clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/u_tiny_des_round/dout_reg_3
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                         Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               0.00       0.00
+  input external delay                                                                                     25.00      25.00 r
+  POR (in)                                                                                0.00              0.00      25.00 r
+  POR (net)                                                     192     0.00 
+  des_cop_unit/POR (des_cop)                                                              0.00              0.00      25.00 r
+  des_cop_unit/POR (net) 
+  des_cop_unit/des_unit/POR (tiny_des)                                                    0.00              0.00      25.00 r
+  des_cop_unit/des_unit/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/POR (tiny_des_round)                             0.00              0.00      25.00 r
+  des_cop_unit/des_unit/u_tiny_des_round/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_3/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                                                   25.00
+
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               5.00       5.00
+  clock reconvergence pessimism                                                                             0.00       5.00
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_3/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                                                      0.18       5.18
+  data required time                                                                                                   5.18
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                   5.18
+  data arrival time                                                                                                  -25.00
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                         19.82
+
+
+  Startpoint: POR (input port clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/u_tiny_des_round/dout_reg_4
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                         Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               0.00       0.00
+  input external delay                                                                                     25.00      25.00 r
+  POR (in)                                                                                0.00              0.00      25.00 r
+  POR (net)                                                     192     0.00 
+  des_cop_unit/POR (des_cop)                                                              0.00              0.00      25.00 r
+  des_cop_unit/POR (net) 
+  des_cop_unit/des_unit/POR (tiny_des)                                                    0.00              0.00      25.00 r
+  des_cop_unit/des_unit/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/POR (tiny_des_round)                             0.00              0.00      25.00 r
+  des_cop_unit/des_unit/u_tiny_des_round/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_4/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                                                   25.00
+
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               5.00       5.00
+  clock reconvergence pessimism                                                                             0.00       5.00
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_4/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                                                      0.18       5.18
+  data required time                                                                                                   5.18
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                   5.18
+  data arrival time                                                                                                  -25.00
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                         19.82
+
+
+  Startpoint: POR (input port clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/u_tiny_des_round/dout_reg_5
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                         Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               0.00       0.00
+  input external delay                                                                                     25.00      25.00 r
+  POR (in)                                                                                0.00              0.00      25.00 r
+  POR (net)                                                     192     0.00 
+  des_cop_unit/POR (des_cop)                                                              0.00              0.00      25.00 r
+  des_cop_unit/POR (net) 
+  des_cop_unit/des_unit/POR (tiny_des)                                                    0.00              0.00      25.00 r
+  des_cop_unit/des_unit/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/POR (tiny_des_round)                             0.00              0.00      25.00 r
+  des_cop_unit/des_unit/u_tiny_des_round/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_5/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                                                   25.00
+
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               5.00       5.00
+  clock reconvergence pessimism                                                                             0.00       5.00
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_5/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                                                      0.18       5.18
+  data required time                                                                                                   5.18
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                   5.18
+  data arrival time                                                                                                  -25.00
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                         19.82
+
+
+  Startpoint: POR (input port clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/u_tiny_des_round/dout_reg_6
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                         Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               0.00       0.00
+  input external delay                                                                                     25.00      25.00 r
+  POR (in)                                                                                0.00              0.00      25.00 r
+  POR (net)                                                     192     0.00 
+  des_cop_unit/POR (des_cop)                                                              0.00              0.00      25.00 r
+  des_cop_unit/POR (net) 
+  des_cop_unit/des_unit/POR (tiny_des)                                                    0.00              0.00      25.00 r
+  des_cop_unit/des_unit/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/POR (tiny_des_round)                             0.00              0.00      25.00 r
+  des_cop_unit/des_unit/u_tiny_des_round/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_6/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                                                   25.00
+
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               5.00       5.00
+  clock reconvergence pessimism                                                                             0.00       5.00
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_6/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                                                      0.18       5.18
+  data required time                                                                                                   5.18
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                   5.18
+  data arrival time                                                                                                  -25.00
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                         19.82
+
+
+  Startpoint: POR (input port clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/u_tiny_des_round/dout_reg_7
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                         Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               0.00       0.00
+  input external delay                                                                                     25.00      25.00 r
+  POR (in)                                                                                0.00              0.00      25.00 r
+  POR (net)                                                     192     0.00 
+  des_cop_unit/POR (des_cop)                                                              0.00              0.00      25.00 r
+  des_cop_unit/POR (net) 
+  des_cop_unit/des_unit/POR (tiny_des)                                                    0.00              0.00      25.00 r
+  des_cop_unit/des_unit/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/POR (tiny_des_round)                             0.00              0.00      25.00 r
+  des_cop_unit/des_unit/u_tiny_des_round/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_7/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                                                   25.00
+
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               5.00       5.00
+  clock reconvergence pessimism                                                                             0.00       5.00
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_7/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                                                      0.18       5.18
+  data required time                                                                                                   5.18
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                   5.18
+  data arrival time                                                                                                  -25.00
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                         19.82
+
+
+  Startpoint: POR (input port clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/u_tiny_des_round/dout_reg_8
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                         Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               0.00       0.00
+  input external delay                                                                                     25.00      25.00 r
+  POR (in)                                                                                0.00              0.00      25.00 r
+  POR (net)                                                     192     0.00 
+  des_cop_unit/POR (des_cop)                                                              0.00              0.00      25.00 r
+  des_cop_unit/POR (net) 
+  des_cop_unit/des_unit/POR (tiny_des)                                                    0.00              0.00      25.00 r
+  des_cop_unit/des_unit/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/POR (tiny_des_round)                             0.00              0.00      25.00 r
+  des_cop_unit/des_unit/u_tiny_des_round/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_8/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                                                   25.00
+
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               5.00       5.00
+  clock reconvergence pessimism                                                                             0.00       5.00
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_8/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                                                      0.18       5.18
+  data required time                                                                                                   5.18
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                   5.18
+  data arrival time                                                                                                  -25.00
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                         19.82
+
+
+  Startpoint: POR (input port clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/u_tiny_des_round/dout_reg_9
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                         Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               0.00       0.00
+  input external delay                                                                                     25.00      25.00 r
+  POR (in)                                                                                0.00              0.00      25.00 r
+  POR (net)                                                     192     0.00 
+  des_cop_unit/POR (des_cop)                                                              0.00              0.00      25.00 r
+  des_cop_unit/POR (net) 
+  des_cop_unit/des_unit/POR (tiny_des)                                                    0.00              0.00      25.00 r
+  des_cop_unit/des_unit/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/POR (tiny_des_round)                             0.00              0.00      25.00 r
+  des_cop_unit/des_unit/u_tiny_des_round/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_9/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                                                   25.00
+
+  clock hclk (rise edge)                                                                  0.00              0.00       0.00
+  clock network delay (ideal)                                                                               5.00       5.00
+  clock reconvergence pessimism                                                                             0.00       5.00
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_9/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                                                      0.18       5.18
+  data required time                                                                                                   5.18
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                   5.18
+  data arrival time                                                                                                  -25.00
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                         19.82
+
+
+  Startpoint: POR (input port clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/u_tiny_des_round/dout_reg_10
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                          Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -----------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                   0.00              0.00       0.00
+  clock network delay (ideal)                                                                                0.00       0.00
+  input external delay                                                                                      25.00      25.00 r
+  POR (in)                                                                                 0.00              0.00      25.00 r
+  POR (net)                                                      192     0.00 
+  des_cop_unit/POR (des_cop)                                                               0.00              0.00      25.00 r
+  des_cop_unit/POR (net) 
+  des_cop_unit/des_unit/POR (tiny_des)                                                     0.00              0.00      25.00 r
+  des_cop_unit/des_unit/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/POR (tiny_des_round)                              0.00              0.00      25.00 r
+  des_cop_unit/des_unit/u_tiny_des_round/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_10/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                                                    25.00
+
+  clock hclk (rise edge)                                                                   0.00              0.00       0.00
+  clock network delay (ideal)                                                                                5.00       5.00
+  clock reconvergence pessimism                                                                              0.00       5.00
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_10/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                                                       0.18       5.18
+  data required time                                                                                                    5.18
+  -----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                    5.18
+  data arrival time                                                                                                   -25.00
+  -----------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                          19.82
+
+
+  Startpoint: POR (input port clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/u_tiny_des_round/dout_reg_11
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                          Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -----------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                   0.00              0.00       0.00
+  clock network delay (ideal)                                                                                0.00       0.00
+  input external delay                                                                                      25.00      25.00 r
+  POR (in)                                                                                 0.00              0.00      25.00 r
+  POR (net)                                                      192     0.00 
+  des_cop_unit/POR (des_cop)                                                               0.00              0.00      25.00 r
+  des_cop_unit/POR (net) 
+  des_cop_unit/des_unit/POR (tiny_des)                                                     0.00              0.00      25.00 r
+  des_cop_unit/des_unit/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/POR (tiny_des_round)                              0.00              0.00      25.00 r
+  des_cop_unit/des_unit/u_tiny_des_round/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_11/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                                                    25.00
+
+  clock hclk (rise edge)                                                                   0.00              0.00       0.00
+  clock network delay (ideal)                                                                                5.00       5.00
+  clock reconvergence pessimism                                                                              0.00       5.00
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_11/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                                                       0.18       5.18
+  data required time                                                                                                    5.18
+  -----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                    5.18
+  data arrival time                                                                                                   -25.00
+  -----------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                          19.82
+
+
+  Startpoint: POR (input port clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/u_tiny_des_round/dout_reg_12
+               (removal check against rising-edge clock hclk)
+  Path Group: **async_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                          Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -----------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                   0.00              0.00       0.00
+  clock network delay (ideal)                                                                                0.00       0.00
+  input external delay                                                                                      25.00      25.00 r
+  POR (in)                                                                                 0.00              0.00      25.00 r
+  POR (net)                                                      192     0.00 
+  des_cop_unit/POR (des_cop)                                                               0.00              0.00      25.00 r
+  des_cop_unit/POR (net) 
+  des_cop_unit/des_unit/POR (tiny_des)                                                     0.00              0.00      25.00 r
+  des_cop_unit/des_unit/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/POR (tiny_des_round)                              0.00              0.00      25.00 r
+  des_cop_unit/des_unit/u_tiny_des_round/POR (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_12/RB (QDFFRBN)                 0.00     0.00     0.00     0.00      25.00 r
+  data arrival time                                                                                                    25.00
+
+  clock hclk (rise edge)                                                                   0.00              0.00       0.00
+  clock network delay (ideal)                                                                                5.00       5.00
+  clock reconvergence pessimism                                                                              0.00       5.00
+  des_cop_unit/des_unit/u_tiny_des_round/dout_reg_12/CK (QDFFRBN)                                                       5.00 r
+  library removal time                                                                                       0.18       5.18
+  data required time                                                                                                    5.18
+  -----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                    5.18
+  data arrival time                                                                                                   -25.00
+  -----------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                          19.82
+
+
+  Startpoint: desdat_unit/wr_ptr_reg
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: desdat_unit/POWERGATING_hclk_N134_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                                Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -----------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  desdat_unit/wr_ptr_reg/CK (QDFFRBN)                                                            0.00              0.00       5.00 r
+  desdat_unit/wr_ptr_reg/Q (QDFFRBN)                                                             0.42              0.57       5.57 f
+  desdat_unit/wr_ptr (net)                                               3     0.10 
+  desdat_unit/U159/B2 (AO12)                                                            0.00     0.42     0.00     0.00       5.57 f
+  desdat_unit/U159/O (AO12)                                                                      0.28              0.45       6.02 f
+  desdat_unit/N134 (net)                                                 1     0.05 
+  desdat_unit/POWERGATING_hclk_N134_0/EN (POWERMODULE_HIGH_des_dat_0_1)                          0.00              0.00       6.02 f
+  desdat_unit/POWERGATING_hclk_N134_0/EN (net) 
+  desdat_unit/POWERGATING_hclk_N134_0/latch/E (GCKESN)                                  0.00     0.28     0.00     0.00       6.02 f
+  data arrival time                                                                                                           6.02
+
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  clock reconvergence pessimism                                                                                    0.00       5.00
+  desdat_unit/POWERGATING_hclk_N134_0/latch/CK (GCKESN)                                                                       5.00 r
+  clock gating hold time                                                                                          -0.18       4.82
+  data required time                                                                                                          4.82
+  -----------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                          4.82
+  data arrival time                                                                                                          -6.02
+  -----------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                                 1.20
+
+
+  Startpoint: desiv_unit/wr_ptr_reg
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: desiv_unit/POWERGATING_hclk_N130_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                              Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ---------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                       0.00              0.00       0.00
+  clock network delay (ideal)                                                                                    5.00       5.00
+  desiv_unit/wr_ptr_reg/CK (QDFFRBN)                                                           0.00              0.00       5.00 r
+  desiv_unit/wr_ptr_reg/Q (QDFFRBN)                                                            0.42              0.57       5.57 f
+  desiv_unit/wr_ptr (net)                                              3     0.10 
+  desiv_unit/U91/B2 (AO12)                                                            0.00     0.42     0.00     0.00       5.57 f
+  desiv_unit/U91/O (AO12)                                                                      0.28              0.45       6.02 f
+  desiv_unit/N130 (net)                                                1     0.05 
+  desiv_unit/POWERGATING_hclk_N130_0/EN (POWERMODULE_HIGH_des_iv_0_1)                          0.00              0.00       6.02 f
+  desiv_unit/POWERGATING_hclk_N130_0/EN (net) 
+  desiv_unit/POWERGATING_hclk_N130_0/latch/E (GCKESN)                                 0.00     0.28     0.00     0.00       6.02 f
+  data arrival time                                                                                                         6.02
+
+  clock hclk (rise edge)                                                                       0.00              0.00       0.00
+  clock network delay (ideal)                                                                                    5.00       5.00
+  clock reconvergence pessimism                                                                                  0.00       5.00
+  desiv_unit/POWERGATING_hclk_N130_0/latch/CK (GCKESN)                                                                      5.00 r
+  clock gating hold time                                                                                        -0.18       4.82
+  data required time                                                                                                        4.82
+  ---------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                        4.82
+  data arrival time                                                                                                        -6.02
+  ---------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                               1.20
+
+
+  Startpoint: desdat_unit/wr_ptr_reg
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: desdat_unit/POWERGATING_hclk_N134_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                                Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -----------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  desdat_unit/wr_ptr_reg/CK (QDFFRBN)                                                            0.00              0.00       5.00 r
+  desdat_unit/wr_ptr_reg/Q (QDFFRBN)                                                             0.75              0.69       5.69 r
+  desdat_unit/wr_ptr (net)                                               3     0.10 
+  desdat_unit/U159/B2 (AO12)                                                            0.00     0.75     0.00     0.00       5.69 r
+  desdat_unit/U159/O (AO12)                                                                      0.42              0.38       6.07 r
+  desdat_unit/N134 (net)                                                 1     0.05 
+  desdat_unit/POWERGATING_hclk_N134_0/EN (POWERMODULE_HIGH_des_dat_0_1)                          0.00              0.00       6.07 r
+  desdat_unit/POWERGATING_hclk_N134_0/EN (net) 
+  desdat_unit/POWERGATING_hclk_N134_0/latch/E (GCKESN)                                  0.00     0.42     0.00     0.00       6.07 r
+  data arrival time                                                                                                           6.07
+
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  clock reconvergence pessimism                                                                                    0.00       5.00
+  desdat_unit/POWERGATING_hclk_N134_0/latch/CK (GCKESN)                                                                       5.00 r
+  clock gating hold time                                                                                          -0.21       4.79
+  data required time                                                                                                          4.79
+  -----------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                          4.79
+  data arrival time                                                                                                          -6.07
+  -----------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                                 1.28
+
+
+  Startpoint: desiv_unit/wr_ptr_reg
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: desiv_unit/POWERGATING_hclk_N130_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                              Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ---------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                       0.00              0.00       0.00
+  clock network delay (ideal)                                                                                    5.00       5.00
+  desiv_unit/wr_ptr_reg/CK (QDFFRBN)                                                           0.00              0.00       5.00 r
+  desiv_unit/wr_ptr_reg/Q (QDFFRBN)                                                            0.75              0.69       5.69 r
+  desiv_unit/wr_ptr (net)                                              3     0.10 
+  desiv_unit/U91/B2 (AO12)                                                            0.00     0.75     0.00     0.00       5.69 r
+  desiv_unit/U91/O (AO12)                                                                      0.42              0.38       6.07 r
+  desiv_unit/N130 (net)                                                1     0.05 
+  desiv_unit/POWERGATING_hclk_N130_0/EN (POWERMODULE_HIGH_des_iv_0_1)                          0.00              0.00       6.07 r
+  desiv_unit/POWERGATING_hclk_N130_0/EN (net) 
+  desiv_unit/POWERGATING_hclk_N130_0/latch/E (GCKESN)                                 0.00     0.42     0.00     0.00       6.07 r
+  data arrival time                                                                                                         6.07
+
+  clock hclk (rise edge)                                                                       0.00              0.00       0.00
+  clock network delay (ideal)                                                                                    5.00       5.00
+  clock reconvergence pessimism                                                                                  0.00       5.00
+  desiv_unit/POWERGATING_hclk_N130_0/latch/CK (GCKESN)                                                                      5.00 r
+  clock gating hold time                                                                                        -0.21       4.79
+  data required time                                                                                                        4.79
+  ---------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                        4.79
+  data arrival time                                                                                                        -6.07
+  ---------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                               1.28
+
+
+  Startpoint: desdat_unit/wr_ptr_reg
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: desdat_unit/POWERGATING_hclk_N70_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                               Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                        0.00              0.00       0.00
+  clock network delay (ideal)                                                                                     5.00       5.00
+  desdat_unit/wr_ptr_reg/CK (QDFFRBN)                                                           0.00              0.00       5.00 r
+  desdat_unit/wr_ptr_reg/Q (QDFFRBN)                                                            0.75              0.69       5.69 r
+  desdat_unit/wr_ptr (net)                                              3     0.10 
+  desdat_unit/U168/B1 (OAI12S)                                                         0.00     0.75     0.00     0.00       5.69 r
+  desdat_unit/U168/O (OAI12S)                                                                   0.62              0.43       6.12 f
+  desdat_unit/N70 (net)                                                 1     0.05 
+  desdat_unit/POWERGATING_hclk_N70_0/EN (POWERMODULE_HIGH_des_dat_0_0)                          0.00              0.00       6.12 f
+  desdat_unit/POWERGATING_hclk_N70_0/EN (net) 
+  desdat_unit/POWERGATING_hclk_N70_0/latch/E (GCKESN)                                  0.00     0.62     0.00     0.00       6.12 f
+  data arrival time                                                                                                          6.12
+
+  clock hclk (rise edge)                                                                        0.00              0.00       0.00
+  clock network delay (ideal)                                                                                     5.00       5.00
+  clock reconvergence pessimism                                                                                   0.00       5.00
+  desdat_unit/POWERGATING_hclk_N70_0/latch/CK (GCKESN)                                                                       5.00 r
+  clock gating hold time                                                                                         -0.20       4.80
+  data required time                                                                                                         4.80
+  ----------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                         4.80
+  data arrival time                                                                                                         -6.12
+  ----------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                                1.32
+
+
+  Startpoint: desiv_unit/wr_ptr_reg
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: desiv_unit/POWERGATING_hclk_N66_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                             Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  --------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                      0.00              0.00       0.00
+  clock network delay (ideal)                                                                                   5.00       5.00
+  desiv_unit/wr_ptr_reg/CK (QDFFRBN)                                                          0.00              0.00       5.00 r
+  desiv_unit/wr_ptr_reg/Q (QDFFRBN)                                                           0.75              0.69       5.69 r
+  desiv_unit/wr_ptr (net)                                             3     0.10 
+  desiv_unit/U92/B1 (OAI12S)                                                         0.00     0.75     0.00     0.00       5.69 r
+  desiv_unit/U92/O (OAI12S)                                                                   0.62              0.43       6.12 f
+  desiv_unit/N66 (net)                                                1     0.05 
+  desiv_unit/POWERGATING_hclk_N66_0/EN (POWERMODULE_HIGH_des_iv_0_0)                          0.00              0.00       6.12 f
+  desiv_unit/POWERGATING_hclk_N66_0/EN (net) 
+  desiv_unit/POWERGATING_hclk_N66_0/latch/E (GCKESN)                                 0.00     0.62     0.00     0.00       6.12 f
+  data arrival time                                                                                                        6.12
+
+  clock hclk (rise edge)                                                                      0.00              0.00       0.00
+  clock network delay (ideal)                                                                                   5.00       5.00
+  clock reconvergence pessimism                                                                                 0.00       5.00
+  desiv_unit/POWERGATING_hclk_N66_0/latch/CK (GCKESN)                                                                      5.00 r
+  clock gating hold time                                                                                       -0.20       4.80
+  data required time                                                                                                       4.80
+  --------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                       4.80
+  data arrival time                                                                                                       -6.12
+  --------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                              1.32
+
+
+  Startpoint: deskey_unit/wr_ptr_reg_0
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/POWERGATING_hclk_N211_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                                Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -----------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  deskey_unit/wr_ptr_reg_0/CK (QDFFRBN)                                                          0.00              0.00       5.00 r
+  deskey_unit/wr_ptr_reg_0/Q (QDFFRBN)                                                           0.59              0.66       5.66 f
+  deskey_unit/wr_ptr[0] (net)                                            4     0.15 
+  deskey_unit/U62/I2 (NR3P)                                                             0.00     0.59     0.00     0.00       5.66 f
+  deskey_unit/U62/O (NR3P)                                                                       0.41              0.50       6.15 r
+  deskey_unit/N211 (net)                                                 1     0.05 
+  deskey_unit/POWERGATING_hclk_N211_0/EN (POWERMODULE_HIGH_des_key_0_4)                          0.00              0.00       6.15 r
+  deskey_unit/POWERGATING_hclk_N211_0/EN (net) 
+  deskey_unit/POWERGATING_hclk_N211_0/latch/E (GCKESN)                                  0.00     0.41     0.00     0.00       6.15 r
+  data arrival time                                                                                                           6.15
+
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  clock reconvergence pessimism                                                                                    0.00       5.00
+  deskey_unit/POWERGATING_hclk_N211_0/latch/CK (GCKESN)                                                                       5.00 r
+  clock gating hold time                                                                                          -0.21       4.79
+  data required time                                                                                                          4.79
+  -----------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                          4.79
+  data arrival time                                                                                                          -6.15
+  -----------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                                 1.36
+
+
+  Startpoint: desdat_unit/wr_ptr_reg
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: desdat_unit/POWERGATING_hclk_N70_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                               Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                        0.00              0.00       0.00
+  clock network delay (ideal)                                                                                     5.00       5.00
+  desdat_unit/wr_ptr_reg/CK (QDFFRBN)                                                           0.00              0.00       5.00 r
+  desdat_unit/wr_ptr_reg/Q (QDFFRBN)                                                            0.42              0.57       5.57 f
+  desdat_unit/wr_ptr (net)                                              3     0.10 
+  desdat_unit/U168/B1 (OAI12S)                                                         0.00     0.42     0.00     0.00       5.57 f
+  desdat_unit/U168/O (OAI12S)                                                                   0.91              0.56       6.13 r
+  desdat_unit/N70 (net)                                                 1     0.05 
+  desdat_unit/POWERGATING_hclk_N70_0/EN (POWERMODULE_HIGH_des_dat_0_0)                          0.00              0.00       6.13 r
+  desdat_unit/POWERGATING_hclk_N70_0/EN (net) 
+  desdat_unit/POWERGATING_hclk_N70_0/latch/E (GCKESN)                                  0.00     0.91     0.00     0.00       6.13 r
+  data arrival time                                                                                                          6.13
+
+  clock hclk (rise edge)                                                                        0.00              0.00       0.00
+  clock network delay (ideal)                                                                                     5.00       5.00
+  clock reconvergence pessimism                                                                                   0.00       5.00
+  desdat_unit/POWERGATING_hclk_N70_0/latch/CK (GCKESN)                                                                       5.00 r
+  clock gating hold time                                                                                         -0.24       4.76
+  data required time                                                                                                         4.76
+  ----------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                         4.76
+  data arrival time                                                                                                         -6.13
+  ----------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                                1.37
+
+
+  Startpoint: desiv_unit/wr_ptr_reg
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: desiv_unit/POWERGATING_hclk_N66_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                             Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  --------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                      0.00              0.00       0.00
+  clock network delay (ideal)                                                                                   5.00       5.00
+  desiv_unit/wr_ptr_reg/CK (QDFFRBN)                                                          0.00              0.00       5.00 r
+  desiv_unit/wr_ptr_reg/Q (QDFFRBN)                                                           0.42              0.57       5.57 f
+  desiv_unit/wr_ptr (net)                                             3     0.10 
+  desiv_unit/U92/B1 (OAI12S)                                                         0.00     0.42     0.00     0.00       5.57 f
+  desiv_unit/U92/O (OAI12S)                                                                   0.91              0.56       6.13 r
+  desiv_unit/N66 (net)                                                1     0.05 
+  desiv_unit/POWERGATING_hclk_N66_0/EN (POWERMODULE_HIGH_des_iv_0_0)                          0.00              0.00       6.13 r
+  desiv_unit/POWERGATING_hclk_N66_0/EN (net) 
+  desiv_unit/POWERGATING_hclk_N66_0/latch/E (GCKESN)                                 0.00     0.91     0.00     0.00       6.13 r
+  data arrival time                                                                                                        6.13
+
+  clock hclk (rise edge)                                                                      0.00              0.00       0.00
+  clock network delay (ideal)                                                                                   5.00       5.00
+  clock reconvergence pessimism                                                                                 0.00       5.00
+  desiv_unit/POWERGATING_hclk_N66_0/latch/CK (GCKESN)                                                                      5.00 r
+  clock gating hold time                                                                                       -0.24       4.76
+  data required time                                                                                                       4.76
+  --------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                       4.76
+  data arrival time                                                                                                       -6.13
+  --------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                              1.37
+
+
+  Startpoint: deskey_unit/wr_ptr_reg_2
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/POWERGATING_hclk_N211_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                                Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -----------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  deskey_unit/wr_ptr_reg_2/CK (DFFRBP)                                                           0.00              0.00       5.00 r
+  deskey_unit/wr_ptr_reg_2/QB (DFFRBP)                                                           0.64              0.82       5.82 r
+  deskey_unit/n11 (net)                                                  6     0.17 
+  deskey_unit/U62/I3 (NR3P)                                                             0.00     0.64     0.00     0.00       5.82 r
+  deskey_unit/U62/O (NR3P)                                                                       0.25              0.41       6.23 f
+  deskey_unit/N211 (net)                                                 1     0.05 
+  deskey_unit/POWERGATING_hclk_N211_0/EN (POWERMODULE_HIGH_des_key_0_4)                          0.00              0.00       6.23 f
+  deskey_unit/POWERGATING_hclk_N211_0/EN (net) 
+  deskey_unit/POWERGATING_hclk_N211_0/latch/E (GCKESN)                                  0.00     0.25     0.00     0.00       6.23 f
+  data arrival time                                                                                                           6.23
+
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  clock reconvergence pessimism                                                                                    0.00       5.00
+  deskey_unit/POWERGATING_hclk_N211_0/latch/CK (GCKESN)                                                                       5.00 r
+  clock gating hold time                                                                                          -0.18       4.82
+  data required time                                                                                                          4.82
+  -----------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                          4.82
+  data arrival time                                                                                                          -6.23
+  -----------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                                 1.42
+
+
+  Startpoint: deskey_unit/wr_ptr_reg_2
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/POWERGATING_hclk_N243_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                                Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -----------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  deskey_unit/wr_ptr_reg_2/CK (DFFRBP)                                                           0.00              0.00       5.00 r
+  deskey_unit/wr_ptr_reg_2/QB (DFFRBP)                                                           0.64              0.82       5.82 r
+  deskey_unit/n11 (net)                                                  6     0.17 
+  deskey_unit/U45/I2 (NR3P)                                                             0.00     0.64     0.00     0.00       5.82 r
+  deskey_unit/U45/O (NR3P)                                                                       0.25              0.46       6.29 f
+  deskey_unit/N243 (net)                                                 1     0.05 
+  deskey_unit/POWERGATING_hclk_N243_0/EN (POWERMODULE_HIGH_des_key_0_5)                          0.00              0.00       6.29 f
+  deskey_unit/POWERGATING_hclk_N243_0/EN (net) 
+  deskey_unit/POWERGATING_hclk_N243_0/latch/E (GCKESN)                                  0.00     0.25     0.00     0.00       6.29 f
+  data arrival time                                                                                                           6.29
+
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  clock reconvergence pessimism                                                                                    0.00       5.00
+  deskey_unit/POWERGATING_hclk_N243_0/latch/CK (GCKESN)                                                                       5.00 r
+  clock gating hold time                                                                                          -0.18       4.82
+  data required time                                                                                                          4.82
+  -----------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                          4.82
+  data arrival time                                                                                                          -6.29
+  -----------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                                 1.47
+
+
+  Startpoint: deskey_unit/wr_ptr_reg_2
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/POWERGATING_hclk_N243_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                                Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -----------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  deskey_unit/wr_ptr_reg_2/CK (DFFRBP)                                                           0.00              0.00       5.00 r
+  deskey_unit/wr_ptr_reg_2/QB (DFFRBP)                                                           0.42              0.80       5.80 f
+  deskey_unit/n11 (net)                                                  6     0.17 
+  deskey_unit/U45/I2 (NR3P)                                                             0.00     0.42     0.00     0.00       5.80 f
+  deskey_unit/U45/O (NR3P)                                                                       0.41              0.48       6.28 r
+  deskey_unit/N243 (net)                                                 1     0.05 
+  deskey_unit/POWERGATING_hclk_N243_0/EN (POWERMODULE_HIGH_des_key_0_5)                          0.00              0.00       6.28 r
+  deskey_unit/POWERGATING_hclk_N243_0/EN (net) 
+  deskey_unit/POWERGATING_hclk_N243_0/latch/E (GCKESN)                                  0.00     0.41     0.00     0.00       6.28 r
+  data arrival time                                                                                                           6.28
+
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  clock reconvergence pessimism                                                                                    0.00       5.00
+  deskey_unit/POWERGATING_hclk_N243_0/latch/CK (GCKESN)                                                                       5.00 r
+  clock gating hold time                                                                                          -0.21       4.79
+  data required time                                                                                                          4.79
+  -----------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                          4.79
+  data arrival time                                                                                                          -6.28
+  -----------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                                 1.49
+
+
+  Startpoint: des_cop_unit/din_valid_eins_reg
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                                                                 Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                                                          0.00              0.00       0.00
+  clock network delay (ideal)                                                                                                                       5.00       5.00
+  des_cop_unit/din_valid_eins_reg/CK (QDFFRBN)                                                                                    0.00              0.00       5.00 r
+  des_cop_unit/din_valid_eins_reg/Q (QDFFRBN)                                                                                     0.80              0.71       5.71 r
+  des_cop_unit/din_valid_eins (net)                                                                       3     0.11 
+  des_cop_unit/des_unit/din_valid (tiny_des)                                                                                      0.00              0.00       5.71 r
+  des_cop_unit/des_unit/din_valid (net) 
+  des_cop_unit/des_unit/U167/I2 (NR2)                                                                                    0.00     0.80     0.00     0.00       5.71 r
+  des_cop_unit/des_unit/U167/O (NR2)                                                                                              0.53              0.35       6.06 f
+  des_cop_unit/des_unit/stall (net)                                                                       1     0.06 
+  des_cop_unit/des_unit/u_tiny_des_round/stall (tiny_des_round)                                                                   0.00              0.00       6.06 f
+  des_cop_unit/des_unit/u_tiny_des_round/stall (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/U2587/I (INV2)                                                                  0.00     0.53     0.00     0.00       6.06 f
+  des_cop_unit/des_unit/u_tiny_des_round/U2587/O (INV2)                                                                           0.36              0.26       6.33 r
+  des_cop_unit/des_unit/u_tiny_des_round/N1778 (net)                                                      1     0.05 
+  des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/EN (POWERMODULE_HIGH_tiny_des_round_0)                          0.00              0.00       6.33 r
+  des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/EN (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/latch/E (GCKESP)                                       0.00     0.36     0.00     0.00       6.33 r
+  data arrival time                                                                                                                                            6.33
+
+  clock hclk (rise edge)                                                                                                          0.00              0.00       0.00
+  clock network delay (ideal)                                                                                                                       5.00       5.00
+  clock reconvergence pessimism                                                                                                                     0.00       5.00
+  des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/latch/CK (GCKESP)                                                                            5.00 r
+  clock gating hold time                                                                                                                           -0.22       4.78
+  data required time                                                                                                                                           4.78
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                                                           4.78
+  data arrival time                                                                                                                                           -6.33
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                                                                  1.55
+
+
+  Startpoint: des_cop_unit/din_valid_eins_reg
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                                                                 Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                                                          0.00              0.00       0.00
+  clock network delay (ideal)                                                                                                                       5.00       5.00
+  des_cop_unit/din_valid_eins_reg/CK (QDFFRBN)                                                                                    0.00              0.00       5.00 r
+  des_cop_unit/din_valid_eins_reg/Q (QDFFRBN)                                                                                     0.45              0.58       5.58 f
+  des_cop_unit/din_valid_eins (net)                                                                       3     0.11 
+  des_cop_unit/des_unit/din_valid (tiny_des)                                                                                      0.00              0.00       5.58 f
+  des_cop_unit/des_unit/din_valid (net) 
+  des_cop_unit/des_unit/U167/I2 (NR2)                                                                                    0.00     0.45     0.00     0.00       5.58 f
+  des_cop_unit/des_unit/U167/O (NR2)                                                                                              1.10              0.61       6.19 r
+  des_cop_unit/des_unit/stall (net)                                                                       1     0.06 
+  des_cop_unit/des_unit/u_tiny_des_round/stall (tiny_des_round)                                                                   0.00              0.00       6.19 r
+  des_cop_unit/des_unit/u_tiny_des_round/stall (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/U2587/I (INV2)                                                                  0.00     1.10     0.00     0.00       6.19 r
+  des_cop_unit/des_unit/u_tiny_des_round/U2587/O (INV2)                                                                           0.35              0.19       6.38 f
+  des_cop_unit/des_unit/u_tiny_des_round/N1778 (net)                                                      1     0.05 
+  des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/EN (POWERMODULE_HIGH_tiny_des_round_0)                          0.00              0.00       6.38 f
+  des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/EN (net) 
+  des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/latch/E (GCKESP)                                       0.00     0.35     0.00     0.00       6.38 f
+  data arrival time                                                                                                                                            6.38
+
+  clock hclk (rise edge)                                                                                                          0.00              0.00       0.00
+  clock network delay (ideal)                                                                                                                       5.00       5.00
+  clock reconvergence pessimism                                                                                                                     0.00       5.00
+  des_cop_unit/des_unit/u_tiny_des_round/POWERGATING_hclk_N1778_0/latch/CK (GCKESP)                                                                            5.00 r
+  clock gating hold time                                                                                                                           -0.20       4.80
+  data required time                                                                                                                                           4.80
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                                                           4.80
+  data arrival time                                                                                                                                           -6.38
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                                                                  1.58
+
+
+  Startpoint: deskey_unit/wr_ptr_reg_0
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/POWERGATING_hclk_N115_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                                Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -----------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  deskey_unit/wr_ptr_reg_0/CK (QDFFRBN)                                                          0.00              0.00       5.00 r
+  deskey_unit/wr_ptr_reg_0/Q (QDFFRBN)                                                           0.59              0.66       5.66 f
+  deskey_unit/wr_ptr[0] (net)                                            4     0.15 
+  deskey_unit/U63/I1 (ND2P)                                                             0.00     0.59     0.00     0.00       5.66 f
+  deskey_unit/U63/O (ND2P)                                                                       0.61              0.41       6.07 r
+  deskey_unit/n21 (net)                                                  3     0.11 
+  deskey_unit/U47/I1 (NR2)                                                              0.00     0.61     0.00     0.00       6.07 r
+  deskey_unit/U47/O (NR2)                                                                        0.47              0.32       6.39 f
+  deskey_unit/N115 (net)                                                 1     0.05 
+  deskey_unit/POWERGATING_hclk_N115_0/EN (POWERMODULE_HIGH_des_key_0_1)                          0.00              0.00       6.39 f
+  deskey_unit/POWERGATING_hclk_N115_0/EN (net) 
+  deskey_unit/POWERGATING_hclk_N115_0/latch/E (GCKESN)                                  0.00     0.47     0.00     0.00       6.39 f
+  data arrival time                                                                                                           6.39
+
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  clock reconvergence pessimism                                                                                    0.00       5.00
+  deskey_unit/POWERGATING_hclk_N115_0/latch/CK (GCKESN)                                                                       5.00 r
+  clock gating hold time                                                                                          -0.19       4.81
+  data required time                                                                                                          4.81
+  -----------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                          4.81
+  data arrival time                                                                                                          -6.39
+  -----------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                                 1.58
+
+
+  Startpoint: deskey_unit/wr_ptr_reg_2
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/POWERGATING_hclk_N115_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                                Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -----------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  deskey_unit/wr_ptr_reg_2/CK (DFFRBP)                                                           0.00              0.00       5.00 r
+  deskey_unit/wr_ptr_reg_2/QB (DFFRBP)                                                           0.42              0.80       5.80 f
+  deskey_unit/n11 (net)                                                  6     0.17 
+  deskey_unit/U63/I2 (ND2P)                                                             0.00     0.42     0.00     0.00       5.80 f
+  deskey_unit/U63/O (ND2P)                                                                       0.61              0.39       6.19 r
+  deskey_unit/n21 (net)                                                  3     0.11 
+  deskey_unit/U47/I1 (NR2)                                                              0.00     0.61     0.00     0.00       6.19 r
+  deskey_unit/U47/O (NR2)                                                                        0.47              0.32       6.51 f
+  deskey_unit/N115 (net)                                                 1     0.05 
+  deskey_unit/POWERGATING_hclk_N115_0/EN (POWERMODULE_HIGH_des_key_0_1)                          0.00              0.00       6.51 f
+  deskey_unit/POWERGATING_hclk_N115_0/EN (net) 
+  deskey_unit/POWERGATING_hclk_N115_0/latch/E (GCKESN)                                  0.00     0.47     0.00     0.00       6.51 f
+  data arrival time                                                                                                           6.51
+
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  clock reconvergence pessimism                                                                                    0.00       5.00
+  deskey_unit/POWERGATING_hclk_N115_0/latch/CK (GCKESN)                                                                       5.00 r
+  clock gating hold time                                                                                          -0.19       4.81
+  data required time                                                                                                          4.81
+  -----------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                          4.81
+  data arrival time                                                                                                          -6.51
+  -----------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                                 1.70
+
+
+  Startpoint: deskey_unit/wr_ptr_reg_0
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/POWERGATING_hclk_N179_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                                Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -----------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  deskey_unit/wr_ptr_reg_0/CK (QDFFRBN)                                                          0.00              0.00       5.00 r
+  deskey_unit/wr_ptr_reg_0/Q (QDFFRBN)                                                           0.59              0.66       5.66 f
+  deskey_unit/wr_ptr[0] (net)                                            4     0.15 
+  deskey_unit/U63/I1 (ND2P)                                                             0.00     0.59     0.00     0.00       5.66 f
+  deskey_unit/U63/O (ND2P)                                                                       0.61              0.41       6.07 r
+  deskey_unit/n21 (net)                                                  3     0.11 
+  deskey_unit/U43/I1 (NR3P)                                                             0.00     0.61     0.00     0.00       6.07 r
+  deskey_unit/U43/O (NR3P)                                                                       0.25              0.49       6.56 f
+  deskey_unit/N179 (net)                                                 1     0.05 
+  deskey_unit/POWERGATING_hclk_N179_0/EN (POWERMODULE_HIGH_des_key_0_3)                          0.00              0.00       6.56 f
+  deskey_unit/POWERGATING_hclk_N179_0/EN (net) 
+  deskey_unit/POWERGATING_hclk_N179_0/latch/E (GCKESN)                                  0.00     0.25     0.00     0.00       6.56 f
+  data arrival time                                                                                                           6.56
+
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  clock reconvergence pessimism                                                                                    0.00       5.00
+  deskey_unit/POWERGATING_hclk_N179_0/latch/CK (GCKESN)                                                                       5.00 r
+  clock gating hold time                                                                                          -0.18       4.82
+  data required time                                                                                                          4.82
+  -----------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                          4.82
+  data arrival time                                                                                                          -6.56
+  -----------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                                 1.74
+
+
+  Startpoint: deskey_unit/wr_ptr_reg_2
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/POWERGATING_hclk_N179_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                                Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -----------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  deskey_unit/wr_ptr_reg_2/CK (DFFRBP)                                                           0.00              0.00       5.00 r
+  deskey_unit/wr_ptr_reg_2/QB (DFFRBP)                                                           0.64              0.82       5.82 r
+  deskey_unit/n11 (net)                                                  6     0.17 
+  deskey_unit/U63/I2 (ND2P)                                                             0.00     0.64     0.00     0.00       5.82 r
+  deskey_unit/U63/O (ND2P)                                                                       0.45              0.28       6.10 f
+  deskey_unit/n21 (net)                                                  3     0.11 
+  deskey_unit/U43/I1 (NR3P)                                                             0.00     0.45     0.00     0.00       6.10 f
+  deskey_unit/U43/O (NR3P)                                                                       0.41              0.50       6.60 r
+  deskey_unit/N179 (net)                                                 1     0.05 
+  deskey_unit/POWERGATING_hclk_N179_0/EN (POWERMODULE_HIGH_des_key_0_3)                          0.00              0.00       6.60 r
+  deskey_unit/POWERGATING_hclk_N179_0/EN (net) 
+  deskey_unit/POWERGATING_hclk_N179_0/latch/E (GCKESN)                                  0.00     0.41     0.00     0.00       6.60 r
+  data arrival time                                                                                                           6.60
+
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  clock reconvergence pessimism                                                                                    0.00       5.00
+  deskey_unit/POWERGATING_hclk_N179_0/latch/CK (GCKESN)                                                                       5.00 r
+  clock gating hold time                                                                                          -0.21       4.79
+  data required time                                                                                                          4.79
+  -----------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                          4.79
+  data arrival time                                                                                                          -6.60
+  -----------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                                 1.81
+
+
+  Startpoint: deskey_sel_reg
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/POWERGATING_hclk_N83_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                               Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                        0.00              0.00       0.00
+  clock network delay (ideal)                                                                                     5.00       5.00
+  deskey_sel_reg/CK (QDFFRBN)                                                                   0.00              0.00       5.00 r
+  deskey_sel_reg/Q (QDFFRBN)                                                                    0.23              0.47       5.47 f
+  deskey_sel (net)                                                      1     0.05 
+  U235/I1 (AN2)                                                                        0.00     0.23     0.00     0.00       5.47 f
+  U235/O (AN2)                                                                                  0.39              0.43       5.90 f
+  deskey_wr (net)                                                       2     0.09 
+  deskey_unit/wr (des_key)                                                                      0.00              0.00       5.90 f
+  deskey_unit/wr (net) 
+  deskey_unit/U46/I1 (ND2P)                                                            0.00     0.39     0.00     0.00       5.90 f
+  deskey_unit/U46/O (ND2P)                                                                      0.70              0.42       6.32 r
+  deskey_unit/n36 (net)                                                 4     0.14 
+  deskey_unit/U32/I2 (NR2)                                                             0.00     0.70     0.00     0.00       6.32 r
+  deskey_unit/U32/O (NR2)                                                                       0.48              0.32       6.63 f
+  deskey_unit/N83 (net)                                                 1     0.05 
+  deskey_unit/POWERGATING_hclk_N83_0/EN (POWERMODULE_HIGH_des_key_0_0)                          0.00              0.00       6.63 f
+  deskey_unit/POWERGATING_hclk_N83_0/EN (net) 
+  deskey_unit/POWERGATING_hclk_N83_0/latch/E (GCKESN)                                  0.00     0.48     0.00     0.00       6.63 f
+  data arrival time                                                                                                          6.63
+
+  clock hclk (rise edge)                                                                        0.00              0.00       0.00
+  clock network delay (ideal)                                                                                     5.00       5.00
+  clock reconvergence pessimism                                                                                   0.00       5.00
+  deskey_unit/POWERGATING_hclk_N83_0/latch/CK (GCKESN)                                                                       5.00 r
+  clock gating hold time                                                                                         -0.19       4.81
+  data required time                                                                                                         4.81
+  ----------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                         4.81
+  data arrival time                                                                                                         -6.63
+  ----------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                                1.83
+
+
+  Startpoint: deskey_sel_reg
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/POWERGATING_hclk_N147_0/latch
+               (rising clock gating-check end-point clocked by hclk)
+  Path Group: **clock_gating_default**
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                                                Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -----------------------------------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  deskey_sel_reg/CK (QDFFRBN)                                                                    0.00              0.00       5.00 r
+  deskey_sel_reg/Q (QDFFRBN)                                                                     0.23              0.47       5.47 f
+  deskey_sel (net)                                                       1     0.05 
+  U235/I1 (AN2)                                                                         0.00     0.23     0.00     0.00       5.47 f
+  U235/O (AN2)                                                                                   0.39              0.43       5.90 f
+  deskey_wr (net)                                                        2     0.09 
+  deskey_unit/wr (des_key)                                                                       0.00              0.00       5.90 f
+  deskey_unit/wr (net) 
+  deskey_unit/U37/I (INV2)                                                              0.00     0.39     0.00     0.00       5.90 f
+  deskey_unit/U37/O (INV2)                                                                       0.56              0.35       6.25 r
+  deskey_unit/n35 (net)                                                  3     0.10 
+  deskey_unit/U44/I3 (NR3P)                                                             0.00     0.56     0.00     0.00       6.25 r
+  deskey_unit/U44/O (NR3P)                                                                       0.25              0.40       6.65 f
+  deskey_unit/N147 (net)                                                 1     0.05 
+  deskey_unit/POWERGATING_hclk_N147_0/EN (POWERMODULE_HIGH_des_key_0_2)                          0.00              0.00       6.65 f
+  deskey_unit/POWERGATING_hclk_N147_0/EN (net) 
+  deskey_unit/POWERGATING_hclk_N147_0/latch/E (GCKESN)                                  0.00     0.25     0.00     0.00       6.65 f
+  data arrival time                                                                                                           6.65
+
+  clock hclk (rise edge)                                                                         0.00              0.00       0.00
+  clock network delay (ideal)                                                                                      5.00       5.00
+  clock reconvergence pessimism                                                                                    0.00       5.00
+  deskey_unit/POWERGATING_hclk_N147_0/latch/CK (GCKESN)                                                                       5.00 r
+  clock gating hold time                                                                                          -0.18       4.82
+  data required time                                                                                                          4.82
+  -----------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                                          4.82
+  data arrival time                                                                                                          -6.65
+  -----------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                                 1.83
+
+
+  Startpoint: desdat_unit/full_reg
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: desdat_unit/full_delay_reg
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                 Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                          0.00              0.00       0.00
+  clock network delay (ideal)                                                       5.00       5.00
+  desdat_unit/full_reg/CK (QDFFRBN)                               0.00              0.00       5.00 r
+  desdat_unit/full_reg/Q (QDFFRBN)                                0.35              0.53       5.53 f
+  desdat_unit/full (net)                  2     0.08 
+  desdat_unit/full_delay_reg/D (QDFFRBN)                 0.00     0.35     0.00     0.00       5.53 f
+  data arrival time                                                                            5.53
+
+  clock hclk (rise edge)                                          0.00              0.00       0.00
+  clock network delay (ideal)                                                       5.00       5.00
+  clock reconvergence pessimism                                                     0.00       5.00
+  desdat_unit/full_delay_reg/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                -0.05       4.95
+  data required time                                                                           4.95
+  ----------------------------------------------------------------------------------------------------
+  data required time                                                                           4.95
+  data arrival time                                                                           -5.53
+  ----------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                  0.58
+
+
+  Startpoint: desctrl_reg_7
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: run_delay_reg
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                     Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ----------------------------------------------------------------------------------------
+  clock hclk (rise edge)                              0.00              0.00       0.00
+  clock network delay (ideal)                                           5.00       5.00
+  desctrl_reg_7/CK (QDFFRBN)                          0.00              0.00       5.00 r
+  desctrl_reg_7/Q (QDFFRBN)                           0.45              0.58       5.58 f
+  desctrl[7] (net)            3     0.11 
+  run_delay_reg/D (QDFFRBN)                  0.00     0.45     0.00     0.00       5.58 f
+  data arrival time                                                                5.58
+
+  clock hclk (rise edge)                              0.00              0.00       0.00
+  clock network delay (ideal)                                           5.00       5.00
+  clock reconvergence pessimism                                         0.00       5.00
+  run_delay_reg/CK (QDFFRBN)                                                       5.00 r
+  library hold time                                                    -0.06       4.94
+  data required time                                                               4.94
+  ----------------------------------------------------------------------------------------
+  data required time                                                               4.94
+  data arrival time                                                               -5.58
+  ----------------------------------------------------------------------------------------
+  slack (MET)                                                                      0.64
+
+
+  Startpoint: data_in_reg_9
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_9
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                   Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  ------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                            0.00              0.00       0.00
+  clock network delay (ideal)                                                         5.00       5.00
+  data_in_reg_9/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_9/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[9] (net)                           8     0.23 
+  deskey_unit/data[9] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[9] (net) 
+  deskey_unit/fifo_mem_reg_0_9/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                              5.62
+
+  clock hclk (rise edge)                                            0.00              0.00       0.00
+  clock network delay (ideal)                                                         5.00       5.00
+  clock reconvergence pessimism                                                       0.00       5.00
+  deskey_unit/fifo_mem_reg_0_9/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                  -0.06       4.94
+  data required time                                                                             4.94
+  ------------------------------------------------------------------------------------------------------
+  data required time                                                                             4.94
+  data arrival time                                                                             -5.62
+  ------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                    0.68
+
+
+  Startpoint: data_in_reg_10
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_10
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                    Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  data_in_reg_10/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_10/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[10] (net)                           8     0.23 
+  deskey_unit/data[10] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[10] (net) 
+  deskey_unit/fifo_mem_reg_0_10/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                               5.62
+
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  clock reconvergence pessimism                                                        0.00       5.00
+  deskey_unit/fifo_mem_reg_0_10/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                   -0.06       4.94
+  data required time                                                                              4.94
+  -------------------------------------------------------------------------------------------------------
+  data required time                                                                              4.94
+  data arrival time                                                                              -5.62
+  -------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                     0.68
+
+
+  Startpoint: data_in_reg_11
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_11
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                    Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  data_in_reg_11/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_11/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[11] (net)                           8     0.23 
+  deskey_unit/data[11] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[11] (net) 
+  deskey_unit/fifo_mem_reg_0_11/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                               5.62
+
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  clock reconvergence pessimism                                                        0.00       5.00
+  deskey_unit/fifo_mem_reg_0_11/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                   -0.06       4.94
+  data required time                                                                              4.94
+  -------------------------------------------------------------------------------------------------------
+  data required time                                                                              4.94
+  data arrival time                                                                              -5.62
+  -------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                     0.68
+
+
+  Startpoint: data_in_reg_12
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_12
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                    Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  data_in_reg_12/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_12/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[12] (net)                           8     0.23 
+  deskey_unit/data[12] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[12] (net) 
+  deskey_unit/fifo_mem_reg_0_12/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                               5.62
+
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  clock reconvergence pessimism                                                        0.00       5.00
+  deskey_unit/fifo_mem_reg_0_12/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                   -0.06       4.94
+  data required time                                                                              4.94
+  -------------------------------------------------------------------------------------------------------
+  data required time                                                                              4.94
+  data arrival time                                                                              -5.62
+  -------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                     0.68
+
+
+  Startpoint: data_in_reg_13
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_13
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                    Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  data_in_reg_13/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_13/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[13] (net)                           8     0.23 
+  deskey_unit/data[13] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[13] (net) 
+  deskey_unit/fifo_mem_reg_0_13/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                               5.62
+
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  clock reconvergence pessimism                                                        0.00       5.00
+  deskey_unit/fifo_mem_reg_0_13/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                   -0.06       4.94
+  data required time                                                                              4.94
+  -------------------------------------------------------------------------------------------------------
+  data required time                                                                              4.94
+  data arrival time                                                                              -5.62
+  -------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                     0.68
+
+
+  Startpoint: data_in_reg_14
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_14
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                    Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  data_in_reg_14/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_14/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[14] (net)                           8     0.23 
+  deskey_unit/data[14] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[14] (net) 
+  deskey_unit/fifo_mem_reg_0_14/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                               5.62
+
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  clock reconvergence pessimism                                                        0.00       5.00
+  deskey_unit/fifo_mem_reg_0_14/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                   -0.06       4.94
+  data required time                                                                              4.94
+  -------------------------------------------------------------------------------------------------------
+  data required time                                                                              4.94
+  data arrival time                                                                              -5.62
+  -------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                     0.68
+
+
+  Startpoint: data_in_reg_15
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_15
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                    Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  data_in_reg_15/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_15/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[15] (net)                           8     0.23 
+  deskey_unit/data[15] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[15] (net) 
+  deskey_unit/fifo_mem_reg_0_15/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                               5.62
+
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  clock reconvergence pessimism                                                        0.00       5.00
+  deskey_unit/fifo_mem_reg_0_15/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                   -0.06       4.94
+  data required time                                                                              4.94
+  -------------------------------------------------------------------------------------------------------
+  data required time                                                                              4.94
+  data arrival time                                                                              -5.62
+  -------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                     0.68
+
+
+  Startpoint: data_in_reg_17
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_17
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                    Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  data_in_reg_17/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_17/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[17] (net)                           8     0.23 
+  deskey_unit/data[17] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[17] (net) 
+  deskey_unit/fifo_mem_reg_0_17/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                               5.62
+
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  clock reconvergence pessimism                                                        0.00       5.00
+  deskey_unit/fifo_mem_reg_0_17/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                   -0.06       4.94
+  data required time                                                                              4.94
+  -------------------------------------------------------------------------------------------------------
+  data required time                                                                              4.94
+  data arrival time                                                                              -5.62
+  -------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                     0.68
+
+
+  Startpoint: data_in_reg_18
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_18
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                    Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  data_in_reg_18/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_18/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[18] (net)                           8     0.23 
+  deskey_unit/data[18] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[18] (net) 
+  deskey_unit/fifo_mem_reg_0_18/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                               5.62
+
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  clock reconvergence pessimism                                                        0.00       5.00
+  deskey_unit/fifo_mem_reg_0_18/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                   -0.06       4.94
+  data required time                                                                              4.94
+  -------------------------------------------------------------------------------------------------------
+  data required time                                                                              4.94
+  data arrival time                                                                              -5.62
+  -------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                     0.68
+
+
+  Startpoint: data_in_reg_19
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_19
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                    Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  data_in_reg_19/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_19/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[19] (net)                           8     0.23 
+  deskey_unit/data[19] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[19] (net) 
+  deskey_unit/fifo_mem_reg_0_19/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                               5.62
+
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  clock reconvergence pessimism                                                        0.00       5.00
+  deskey_unit/fifo_mem_reg_0_19/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                   -0.06       4.94
+  data required time                                                                              4.94
+  -------------------------------------------------------------------------------------------------------
+  data required time                                                                              4.94
+  data arrival time                                                                              -5.62
+  -------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                     0.68
+
+
+  Startpoint: data_in_reg_20
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_20
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                    Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  data_in_reg_20/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_20/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[20] (net)                           8     0.23 
+  deskey_unit/data[20] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[20] (net) 
+  deskey_unit/fifo_mem_reg_0_20/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                               5.62
+
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  clock reconvergence pessimism                                                        0.00       5.00
+  deskey_unit/fifo_mem_reg_0_20/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                   -0.06       4.94
+  data required time                                                                              4.94
+  -------------------------------------------------------------------------------------------------------
+  data required time                                                                              4.94
+  data arrival time                                                                              -5.62
+  -------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                     0.68
+
+
+  Startpoint: data_in_reg_21
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_21
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                    Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  data_in_reg_21/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_21/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[21] (net)                           8     0.23 
+  deskey_unit/data[21] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[21] (net) 
+  deskey_unit/fifo_mem_reg_0_21/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                               5.62
+
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  clock reconvergence pessimism                                                        0.00       5.00
+  deskey_unit/fifo_mem_reg_0_21/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                   -0.06       4.94
+  data required time                                                                              4.94
+  -------------------------------------------------------------------------------------------------------
+  data required time                                                                              4.94
+  data arrival time                                                                              -5.62
+  -------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                     0.68
+
+
+  Startpoint: data_in_reg_22
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_22
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                    Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  data_in_reg_22/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_22/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[22] (net)                           8     0.23 
+  deskey_unit/data[22] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[22] (net) 
+  deskey_unit/fifo_mem_reg_0_22/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                               5.62
+
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  clock reconvergence pessimism                                                        0.00       5.00
+  deskey_unit/fifo_mem_reg_0_22/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                   -0.06       4.94
+  data required time                                                                              4.94
+  -------------------------------------------------------------------------------------------------------
+  data required time                                                                              4.94
+  data arrival time                                                                              -5.62
+  -------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                     0.68
+
+
+  Startpoint: data_in_reg_23
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_23
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                    Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  data_in_reg_23/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_23/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[23] (net)                           8     0.23 
+  deskey_unit/data[23] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[23] (net) 
+  deskey_unit/fifo_mem_reg_0_23/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                               5.62
+
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  clock reconvergence pessimism                                                        0.00       5.00
+  deskey_unit/fifo_mem_reg_0_23/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                   -0.06       4.94
+  data required time                                                                              4.94
+  -------------------------------------------------------------------------------------------------------
+  data required time                                                                              4.94
+  data arrival time                                                                              -5.62
+  -------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                     0.68
+
+
+  Startpoint: data_in_reg_25
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_25
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                    Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  data_in_reg_25/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_25/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[25] (net)                           8     0.23 
+  deskey_unit/data[25] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[25] (net) 
+  deskey_unit/fifo_mem_reg_0_25/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                               5.62
+
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  clock reconvergence pessimism                                                        0.00       5.00
+  deskey_unit/fifo_mem_reg_0_25/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                   -0.06       4.94
+  data required time                                                                              4.94
+  -------------------------------------------------------------------------------------------------------
+  data required time                                                                              4.94
+  data arrival time                                                                              -5.62
+  -------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                     0.68
+
+
+  Startpoint: data_in_reg_26
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_26
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                    Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  data_in_reg_26/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_26/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[26] (net)                           8     0.23 
+  deskey_unit/data[26] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[26] (net) 
+  deskey_unit/fifo_mem_reg_0_26/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                               5.62
+
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  clock reconvergence pessimism                                                        0.00       5.00
+  deskey_unit/fifo_mem_reg_0_26/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                   -0.06       4.94
+  data required time                                                                              4.94
+  -------------------------------------------------------------------------------------------------------
+  data required time                                                                              4.94
+  data arrival time                                                                              -5.62
+  -------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                     0.68
+
+
+  Startpoint: data_in_reg_27
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_27
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                    Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  data_in_reg_27/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_27/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[27] (net)                           8     0.23 
+  deskey_unit/data[27] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[27] (net) 
+  deskey_unit/fifo_mem_reg_0_27/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                               5.62
+
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  clock reconvergence pessimism                                                        0.00       5.00
+  deskey_unit/fifo_mem_reg_0_27/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                   -0.06       4.94
+  data required time                                                                              4.94
+  -------------------------------------------------------------------------------------------------------
+  data required time                                                                              4.94
+  data arrival time                                                                              -5.62
+  -------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                     0.68
+
+
+  Startpoint: data_in_reg_28
+               (rising edge-triggered flip-flop clocked by hclk)
+  Endpoint: deskey_unit/fifo_mem_reg_0_28
+               (rising edge-triggered flip-flop clocked by hclk)
+  Path Group: hclk
+  Path Type: min
+  Min Data Paths Derating Factor  : 1.00
+  Min Clock Paths Derating Factor : 1.00
+  Max Clock Paths Derating Factor : 1.00
+
+  Point                                    Fanout   Cap    DTrans   Trans    Delta     Incr       Path
+  -------------------------------------------------------------------------------------------------------
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  data_in_reg_28/CK (QDFFRBP)                                        0.00              0.00       5.00 r
+  data_in_reg_28/Q (QDFFRBP)                                         0.46              0.62       5.62 f
+  dbusin[28] (net)                           8     0.23 
+  deskey_unit/data[28] (des_key)                                     0.00              0.00       5.62 f
+  deskey_unit/data[28] (net) 
+  deskey_unit/fifo_mem_reg_0_28/D (QDFFRBN)                 0.00     0.46     0.00     0.00       5.62 f
+  data arrival time                                                                               5.62
+
+  clock hclk (rise edge)                                             0.00              0.00       0.00
+  clock network delay (ideal)                                                          5.00       5.00
+  clock reconvergence pessimism                                                        0.00       5.00
+  deskey_unit/fifo_mem_reg_0_28/CK (QDFFRBN)                                                      5.00 r
+  library hold time                                                                   -0.06       4.94
+  data required time                                                                              4.94
+  -------------------------------------------------------------------------------------------------------
+  data required time                                                                              4.94
+  data arrival time                                                                              -5.62
+  -------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                     0.68
+
+
+1

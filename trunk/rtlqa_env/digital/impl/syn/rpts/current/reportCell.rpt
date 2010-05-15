@@ -1,0 +1,203 @@
+ 
+****************************************
+Report : cell
+Design : des
+Version: Z-2007.03-SP1
+Date   : Fri Sep 18 12:13:11 2009
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   cg - clock gating logic
+   du - deletion of unloaded gates is off
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    u - contains unmapped logic
+
+Cell                      Reference       Library             Area  Attributes
+--------------------------------------------------------------------------------
+POWERGATING_hclk_N26_0    POWERMODULE_HIGH_des_0          20.000000 cg, h, n
+U38                       NR2F            fsa0a_c_sc_wc   11.000000 
+U120                      TIE1            fsa0a_c_sc_wc   3.000000  
+U121                      INV2            fsa0a_c_sc_wc   3.000000  
+U122                      INV2            fsa0a_c_sc_wc   3.000000  
+U123                      ND2P            fsa0a_c_sc_wc   6.000000  
+U124                      NR2P            fsa0a_c_sc_wc   6.000000  
+U125                      ND3             fsa0a_c_sc_wc   4.000000  
+U126                      OR3B2           fsa0a_c_sc_wc   6.000000  
+U127                      OR2             fsa0a_c_sc_wc   4.000000  
+U128                      INV2            fsa0a_c_sc_wc   3.000000  
+U129                      NR2             fsa0a_c_sc_wc   3.000000  
+U130                      INV3            fsa0a_c_sc_wc   4.000000  
+U131                      ND2             fsa0a_c_sc_wc   3.000000  
+U132                      ND3P            fsa0a_c_sc_wc   8.000000  
+U133                      OAI12S          fsa0a_c_sc_wc   5.000000  
+U134                      OA12            fsa0a_c_sc_wc   6.000000  
+U135                      INV1            fsa0a_c_sc_wc   3.000000  
+U136                      INV1            fsa0a_c_sc_wc   3.000000  
+U137                      INV2            fsa0a_c_sc_wc   3.000000  
+U138                      AOI112P         fsa0a_c_sc_wc   11.000000 
+U139                      NR2P            fsa0a_c_sc_wc   6.000000  
+U140                      INV2            fsa0a_c_sc_wc   3.000000  
+U141                      AN2             fsa0a_c_sc_wc   4.000000  
+U142                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U143                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U144                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U145                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U146                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U147                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U148                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U149                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U150                      AN2             fsa0a_c_sc_wc   4.000000  
+U151                      AN2             fsa0a_c_sc_wc   4.000000  
+U152                      AN2             fsa0a_c_sc_wc   4.000000  
+U153                      AN2             fsa0a_c_sc_wc   4.000000  
+U154                      AN2             fsa0a_c_sc_wc   4.000000  
+U155                      AN2             fsa0a_c_sc_wc   4.000000  
+U156                      AN2             fsa0a_c_sc_wc   4.000000  
+U157                      AN2             fsa0a_c_sc_wc   4.000000  
+U158                      AN2             fsa0a_c_sc_wc   4.000000  
+U159                      AN2             fsa0a_c_sc_wc   4.000000  
+U160                      AN2             fsa0a_c_sc_wc   4.000000  
+U161                      AN2             fsa0a_c_sc_wc   4.000000  
+U162                      AN2             fsa0a_c_sc_wc   4.000000  
+U163                      AN2             fsa0a_c_sc_wc   4.000000  
+U164                      AN2             fsa0a_c_sc_wc   4.000000  
+U165                      AN2             fsa0a_c_sc_wc   4.000000  
+U166                      AN2             fsa0a_c_sc_wc   4.000000  
+U167                      AN2             fsa0a_c_sc_wc   4.000000  
+U168                      AN2             fsa0a_c_sc_wc   4.000000  
+U169                      AN2             fsa0a_c_sc_wc   4.000000  
+U170                      AN2             fsa0a_c_sc_wc   4.000000  
+U171                      AN2             fsa0a_c_sc_wc   4.000000  
+U172                      AN2             fsa0a_c_sc_wc   4.000000  
+U173                      AN2             fsa0a_c_sc_wc   4.000000  
+U174                      INV2            fsa0a_c_sc_wc   3.000000  
+U175                      AN2             fsa0a_c_sc_wc   4.000000  
+U176                      NR2             fsa0a_c_sc_wc   3.000000  
+U177                      MAOI1           fsa0a_c_sc_wc   8.000000  
+U178                      AN2             fsa0a_c_sc_wc   4.000000  
+U179                      NR3P            fsa0a_c_sc_wc   7.000000  
+U180                      ND3             fsa0a_c_sc_wc   4.000000  
+U181                      ND3             fsa0a_c_sc_wc   4.000000  
+U182                      ND3             fsa0a_c_sc_wc   4.000000  
+U183                      AN4B1           fsa0a_c_sc_wc   9.000000  
+U184                      NR3P            fsa0a_c_sc_wc   7.000000  
+U185                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U186                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U187                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U188                      ND2P            fsa0a_c_sc_wc   6.000000  
+U189                      INV2            fsa0a_c_sc_wc   3.000000  
+U190                      INV2            fsa0a_c_sc_wc   3.000000  
+U191                      INV2            fsa0a_c_sc_wc   3.000000  
+U192                      AN2             fsa0a_c_sc_wc   4.000000  
+U193                      AN2             fsa0a_c_sc_wc   4.000000  
+U194                      AN2             fsa0a_c_sc_wc   4.000000  
+U195                      AN2             fsa0a_c_sc_wc   4.000000  
+U196                      AN2             fsa0a_c_sc_wc   4.000000  
+U197                      AN2             fsa0a_c_sc_wc   4.000000  
+U198                      AN2             fsa0a_c_sc_wc   4.000000  
+U199                      AN2             fsa0a_c_sc_wc   4.000000  
+U200                      AN2             fsa0a_c_sc_wc   4.000000  
+U201                      AN2             fsa0a_c_sc_wc   4.000000  
+U202                      AN2             fsa0a_c_sc_wc   4.000000  
+U203                      AN2             fsa0a_c_sc_wc   4.000000  
+U204                      AN2             fsa0a_c_sc_wc   4.000000  
+U205                      AN2             fsa0a_c_sc_wc   4.000000  
+U206                      AN2             fsa0a_c_sc_wc   4.000000  
+U207                      AN2             fsa0a_c_sc_wc   4.000000  
+U208                      AN2             fsa0a_c_sc_wc   4.000000  
+U209                      AN2             fsa0a_c_sc_wc   4.000000  
+U210                      AN2             fsa0a_c_sc_wc   4.000000  
+U211                      AN2             fsa0a_c_sc_wc   4.000000  
+U212                      AN2             fsa0a_c_sc_wc   4.000000  
+U213                      AN2             fsa0a_c_sc_wc   4.000000  
+U214                      AN2             fsa0a_c_sc_wc   4.000000  
+U215                      AN2             fsa0a_c_sc_wc   4.000000  
+U216                      AN2             fsa0a_c_sc_wc   4.000000  
+U217                      AN2             fsa0a_c_sc_wc   4.000000  
+U218                      AN2             fsa0a_c_sc_wc   4.000000  
+U219                      AN2             fsa0a_c_sc_wc   4.000000  
+U220                      AN2             fsa0a_c_sc_wc   4.000000  
+U221                      AN2             fsa0a_c_sc_wc   4.000000  
+U222                      AN2             fsa0a_c_sc_wc   4.000000  
+U223                      AN2             fsa0a_c_sc_wc   4.000000  
+U224                      OR2P            fsa0a_c_sc_wc   6.000000  
+U225                      ND2             fsa0a_c_sc_wc   3.000000  
+U226                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U227                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U228                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U229                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U230                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U231                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U232                      MOAI1           fsa0a_c_sc_wc   7.000000  
+U233                      AN2             fsa0a_c_sc_wc   4.000000  
+U234                      AN2             fsa0a_c_sc_wc   4.000000  
+clk_gate_obs              SNPS_CLOCK_GATE_OBS_des         23.000000 cg, du, h, n
+data_in_reg_0             QDFFRBN         fsa0a_c_sc_wc   17.000000 n
+data_in_reg_1             QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_2             QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_3             QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_4             QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_5             QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_6             QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_7             QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_8             QDFFRBN         fsa0a_c_sc_wc   17.000000 n
+data_in_reg_9             QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_10            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_11            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_12            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_13            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_14            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_15            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_16            QDFFRBN         fsa0a_c_sc_wc   17.000000 n
+data_in_reg_17            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_18            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_19            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_20            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_21            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_22            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_23            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_24            QDFFRBN         fsa0a_c_sc_wc   17.000000 n
+data_in_reg_25            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_26            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_27            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_28            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_29            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_30            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+data_in_reg_31            QDFFRBP         fsa0a_c_sc_wc   19.000000 n
+des_cop_unit              des_cop                         22199.000000
+                                                                    h, n
+desctrl_reg_0             DFFRBN          fsa0a_c_sc_wc   19.000000 n
+desctrl_reg_1             DFFRBN          fsa0a_c_sc_wc   19.000000 n
+desctrl_reg_2             DFFRBP          fsa0a_c_sc_wc   21.000000 n
+desctrl_reg_3             DFFRBN          fsa0a_c_sc_wc   19.000000 n
+desctrl_reg_4             DFFRBN          fsa0a_c_sc_wc   19.000000 n
+desctrl_reg_5             DFFRBN          fsa0a_c_sc_wc   19.000000 n
+desctrl_reg_6             DFFRBN          fsa0a_c_sc_wc   19.000000 n
+desctrl_reg_7             QDFFRBN         fsa0a_c_sc_wc   17.000000 n
+desctrl_sel_d1_reg        QDFFRBN         fsa0a_c_sc_wc   17.000000 n
+desctrl_sel_reg           QDFFRBN         fsa0a_c_sc_wc   17.000000 n
+desdat_sel_d1_reg         QDFFRBN         fsa0a_c_sc_wc   17.000000 n
+desdat_sel_reg            DFFRBN          fsa0a_c_sc_wc   19.000000 n
+desdat_unit               des_dat                         2393.000000
+                                                                    h, n
+desiv_sel_d1_reg          QDFFRBN         fsa0a_c_sc_wc   17.000000 n
+desiv_sel_reg             QDFFRBN         fsa0a_c_sc_wc   17.000000 n
+desiv_unit                des_iv                          1895.000000
+                                                                    h, n
+deskey_sel_d1_reg         QDFFRBN         fsa0a_c_sc_wc   17.000000 n
+deskey_sel_reg            QDFFRBN         fsa0a_c_sc_wc   17.000000 n
+deskey_unit               des_key                         3431.000000
+                                                                    h, n
+hready_resp_reg           DFFSBN          fsa0a_c_sc_wc   20.000000 n
+hwrite_d1_reg             DFFRBN          fsa0a_c_sc_wc   19.000000 n
+nextiv_ready_en_reg       QDFFRBN         fsa0a_c_sc_wc   17.000000 n
+run_delay_reg             QDFFRBN         fsa0a_c_sc_wc   17.000000 n
+rw_reg                    DFFSBN          fsa0a_c_sc_wc   20.000000 n
+u_des_spares_0            des_spares_0                    184.000000
+                                                                    h, n
+--------------------------------------------------------------------------------
+Total 176 cells                                           31678.000000
+1

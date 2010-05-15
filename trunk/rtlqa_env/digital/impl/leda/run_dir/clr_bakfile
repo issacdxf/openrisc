@@ -1,0 +1,9 @@
+rm -rf leda.cmd
+rm -rf leda_command.log
+rm -rf leda_history.log
+rm -rf leda-libs
+rm -rf leda-logs
+rm -rf leda.pro
+rm -rf prodesign.log
+rm -rf _prodesign_result
+rm -rf ../rpts/20*

@@ -1,0 +1,30 @@
+****************************************
+Report : analysis_coverage
+	-status_details {untested violated }
+	-sort_by slack
+	-check_type {setup hold recovery removal min_period min_pulse_width clock_separation max_skew clock_gating_setup clock_gating_hold out_setup out_hold nochange }
+	-exclude_untested {no_clockno_endpoint_clockconstant_disabledmode_disableduser_disableduser_disabledno_pathsfalse_paths}
+Design : des
+Version: B-2008.06-SP3
+Date   : Fri Sep 11 18:42:53 2009
+****************************************
+
+Type of Check         Total              Met         Violated         Untested
+--------------------------------------------------------------------------------
+setup                   438       438 (100%)         0 (  0%)         0 (  0%)
+hold                    438       438 (100%)         0 (  0%)         0 (  0%)
+recovery                438       438 (100%)         0 (  0%)         0 (  0%)
+removal                 438       438 (100%)         0 (  0%)         0 (  0%)
+min_pulse_width         891       891 (100%)         0 (  0%)         0 (  0%)
+clock_gating_setup       11        11 (100%)         0 (  0%)         0 (  0%)
+clock_gating_hold        11        11 (100%)         0 (  0%)         0 (  0%)
+out_setup                33        33 (100%)         0 (  0%)         0 (  0%)
+out_hold                 33        33 (100%)         0 (  0%)         0 (  0%)
+--------------------------------------------------------------------------------
+All Checks             2731      2731 (100%)         0 (  0%)         0 (  0%)
+
+
+Constrained                            Related   Check
+Pin                                    Pin       Type                      Slack
+--------------------------------------------------------------------------------
+1

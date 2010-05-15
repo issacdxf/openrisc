@@ -1,0 +1,13 @@
+Info : report_timing_requirements 
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing_requirements
+        -attributes
+Design : des
+Version: Z-2007.03-SP1
+Date   : Fri Sep 18 12:13:11 2009
+****************************************
+
+
+Info : report_timing_requirements -ignored

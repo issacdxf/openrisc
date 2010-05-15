@@ -1,0 +1,80 @@
+****************************************
+Report : design
+Design : des
+Version: B-2008.06-SP3
+Date   : Fri Sep 11 18:42:51 2009
+****************************************
+
+Design Attribute                         Value
+---------------------------------------------------------------------------
+Operating Conditions:
+  analysis_type                          on_chip_variation
+  operating_condition_min_name           WCCOM
+  process_min                            1
+  temperature_min                        125
+  voltage_min                            1.62
+  tree_type_min                          worst_case
+
+  operating_condition_max_name           WCCOM
+  process_max                            1
+  temperature_max                        125
+  voltage_max                            1.62
+  tree_type_max                          worst_case
+
+Wire Load:                               (use report_wire_load for more information)
+  wire_load_mode                         top
+  wire_load_model_max                    enG500K
+  wire_load_model_library_max            fsa0a_c_sc_wc
+  wire_load_selection_type_max           user-specified
+  wire_load_model_min                    enG500K
+  wire_load_model_library_min            fsa0a_c_sc_wc
+  wire_load_selection_type_min           user-specified
+  wire_load_selection_group_max          DEFAULT
+  wire_load_selection_group_min          DEFAULT
+  wire_load_min_block_size               0
+
+Design Rules:
+  max_capacitance                        --
+  min_capacitance                        --
+  max_fanout                             16
+  max_transition                         1.2
+  max_area                               --
+
+Timing Ranges:
+  early_rise_clk_net_derate_factor       1
+  early_fall_clk_net_derate_factor       1
+  early_rise_data_net_derate_factor      1
+  early_fall_data_net_derate_factor      1
+  early_rise_clk_net_delta_derate_factor 1
+  early_fall_clk_net_delta_derate_factor 1
+  early_rise_data_net_delta_derate_factor
+                                         1
+  early_fall_data_net_delta_derate_factor
+                                         1
+  early_rise_clk_cell_derate_factor      1
+  early_fall_clk_cell_derate_factor      1
+  early_rise_data_cell_derate_factor     1
+  early_fall_data_cell_derate_factor     1
+  early_rise_cell_check_derate_factor    --
+  early_fall_cell_check_derate_factor    --
+  late_rise_clk_net_derate_factor        1
+  late_fall_clk_net_derate_factor        1
+  late_rise_data_net_derate_factor       1
+  late_fall_data_net_derate_factor       1
+  late_rise_clk_net_delta_derate_factor  1
+  late_fall_clk_net_delta_derate_factor  1
+  late_rise_data_net_delta_derate_factor 1
+  late_fall_data_net_delta_derate_factor 1
+  late_rise_clk_cell_derate_factor       1
+  late_fall_clk_cell_derate_factor       1
+  late_rise_data_cell_derate_factor      1
+  late_fall_data_cell_derate_factor      1
+  late_rise_cell_check_derate_factor     --
+  late_fall_cell_check_derate_factor     --
+
+Pin Input Delays:
+None specified.
+
+Pin Output Delays:
+None specified.
+1

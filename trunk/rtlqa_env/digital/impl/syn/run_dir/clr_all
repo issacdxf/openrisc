@@ -1,0 +1,9 @@
+rm -rf ../rpts/*
+rm -rf ../work/ddc/*
+rm -rf ../work/milkyway/*
+rm -rf ../work/net/*
+rm -rf ../work/SDC/*
+rm -rf ../work/sourceDb/*
+rm -rf ../work/SPEF/*
+rm -rf ../work/svf_dir/*
+rm -rf ../work/template/*

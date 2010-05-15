@@ -1,0 +1,47 @@
+Warning: Neither event file or switching activity data present for power estimation. The command will propagate switching activity values for power calculation.  (PWR-246)
+****************************************
+Report : Statistical Average Power
+	-hierarchy
+	-levels 5
+Design : des
+Version: B-2008.06-SP3
+Date   : Thu Sep 17 12:10:20 2009
+****************************************
+
+
+
+                                      Switch   Int      Leak      Total
+Hierarchy                             Power    Power    Power     Power    %
+--------------------------------------------------------------------------------
+des                                   2.87e-06 8.69e-05 3.35e-07  9.01e-05 100.0
+  u_des_spares_0 (des_spares_0)          0.000 1.87e-06 3.26e-09  1.87e-06   2.1
+  desiv_unit (des_iv)                 6.60e-09 4.71e-06 1.81e-08  4.74e-06   5.3
+    POWERGATING_hclk_N66_0 (POWERMODULE_HIGH_des_iv_0_0)
+                                      4.22e-10 9.52e-07 1.58e-10  9.52e-07   1.1
+    POWERGATING_hclk_N130_0 (POWERMODULE_HIGH_des_iv_0_1)
+                                         0.000 9.52e-07 1.58e-10  9.52e-07   1.1
+  desdat_unit (des_dat)               1.94e-08 8.46e-06 2.56e-08  8.50e-06   9.4
+    POWERGATING_hclk_N70_0 (POWERMODULE_HIGH_des_dat_0_0)
+                                      3.37e-09 9.52e-07 1.58e-10  9.56e-07   1.1
+    POWERGATING_hclk_N134_0 (POWERMODULE_HIGH_des_dat_0_1)
+                                         0.000 9.52e-07 1.58e-10  9.52e-07   1.1
+  des_cop_unit (des_cop)              1.51e-08 9.39e-06 2.36e-07  9.64e-06  10.7
+    des_unit (tiny_des)               1.46e-08 6.58e-06 2.03e-07  6.80e-06   7.5
+      u_tiny_des_round (tiny_des_round)
+                                      1.46e-08 9.57e-07 1.91e-07  1.16e-06   1.3
+        POWERGATING_hclk_N1778_0 (POWERMODULE_HIGH_tiny_des_round_0)
+                                         0.000 9.45e-07 1.82e-10  9.45e-07   1.0
+  deskey_unit (des_key)               2.46e-09 1.14e-05 3.40e-08  1.14e-05  12.6
+    POWERGATING_hclk_N115_0 (POWERMODULE_HIGH_des_key_0_1)
+                                         0.000 9.52e-07 1.58e-10  9.52e-07   1.1
+    POWERGATING_hclk_N147_0 (POWERMODULE_HIGH_des_key_0_2)
+                                         0.000 9.52e-07 1.58e-10  9.52e-07   1.1
+    POWERGATING_hclk_N83_0 (POWERMODULE_HIGH_des_key_0_0)
+                                      3.87e-10 9.52e-07 1.58e-10  9.52e-07   1.1
+    POWERGATING_hclk_N179_0 (POWERMODULE_HIGH_des_key_0_3)
+                                         0.000 9.52e-07 1.58e-10  9.52e-07   1.1
+    POWERGATING_hclk_N211_0 (POWERMODULE_HIGH_des_key_0_4)
+                                         0.000 9.52e-07 1.58e-10  9.52e-07   1.1
+    POWERGATING_hclk_N243_0 (POWERMODULE_HIGH_des_key_0_5)
+                                         0.000 9.52e-07 1.58e-10  9.52e-07   1.1
+1

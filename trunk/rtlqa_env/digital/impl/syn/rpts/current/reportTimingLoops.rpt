@@ -1,0 +1,15 @@
+ 
+****************************************
+Report : timing
+        -loops
+        -max_paths 50
+Design : des
+Version: Z-2007.03-SP1
+Date   : Fri Sep 18 12:13:11 2009
+****************************************
+
+Operating Conditions: WCCOM   Library: fsa0a_c_sc_wc
+Wire Load Model Mode: top
+No loops.
+
+1

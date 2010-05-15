@@ -1,0 +1,18 @@
+#!/bin/csh -f
+
+set item_list = ""
+set item_list = "$item_list leda"
+set item_list = "$item_list syn"
+set item_list = "$item_list power"
+set item_list = "$item_list formal"
+set item_list = "$item_list sta"
+
+foreach item_name ($item_list)
+  if (-d ../$item_name) then
+     cd ../$item_name/run_dir
+     if (-f ./clr_all) then
+        ./clr_all
+     endif
+     cd ../../run_dir
+  endif
+end

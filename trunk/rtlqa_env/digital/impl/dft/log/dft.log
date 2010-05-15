@@ -1,0 +1,1148 @@
+
+                        DC Professional (TM)
+                           DC Expert (TM)
+                            DC Ultra (TM)
+                       FloorPlan Manager (TM)
+                          HDL Compiler (TM)
+                         VHDL Compiler (TM)
+                        Library Compiler (TM)
+                      DesignWare Developer (TM)
+                          DFT Compiler (TM)
+                            BSD Compiler
+                         Power Compiler (TM)
+
+           Version Z-2007.03-SP1 for linux -- Apr 19, 2007
+              Copyright (c) 1988-2007 by Synopsys, Inc.
+                         ALL RIGHTS RESERVED
+
+This software and the associated documentation are confidential and 
+proprietary to Synopsys, Inc. Your use or disclosure of this software 
+is subject to the terms and conditions of a written license agreement 
+between you, or your company, and Synopsys, Inc.
+
+The above trademark notice does not imply that you are licensed to use 
+all of the listed products. You are licensed to use only those products 
+for which you have lawfully obtained a valid license key.
+
+Initializing...
+Starting shell in XG mode...
+#----------------------------------------------------------------------
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      rundft.tcl
+#
+#      DESCRIPTION:
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#----------------------------------------------------------------------
+#================ Parameters Setting ===============#
+set runSetType 		DFT		;# runSetType defines script category,RTL-QA flow will use
+DFT
+;# this variable to setup stage-process environments
+set projectName 	des		;#
+des
+set runDFTstage         syn             ;# syn/bsd From syn or from bsd phase
+syn
+set AutoFix		false		;# true/false To be true,DFT-compiler will autofix drc violations
+false
+set ReCompile		false           ;# true/false To be true,DFT-compiler will perform incremental 
+false
+;# compile to re-optimize design after dft insertion
+set topModuleName       des		;# Define top-module name to perform DFT
+des
+set ReadFileFormat      netlist         ; # ddc/netlist. Determine what kind of files to read in during DFT
+netlist
+; # In DCT mode, the ReadFileFormat will be default as ddc
+set ScanChainNum        4; # Number of external scan chains
+4
+# Below variables are for Scan Compression use
+# If the ScanCompression is set to true, ScanCompRate will be used .
+set ScanCompression    false; # true/false
+false
+set ScanCompRate       2; # number to determine scan compression rate
+2
+; # The internal scan number will be ScanChainNum * ScanCompRate * 1.2
+# ===================== Flow Control ========================#
+#-----------------------------------#
+# Include Library Setup Script
+#-----------------------------------#
+source -echo -verbose ../../script/con/setupEnv.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      setupEnv.tcl
+#
+#      DESCRIPTION:
+#         This script is used to setup environment for R2N flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+set RUN_DIR             [pwd]
+/export/home/user/wangyl/rtlqa_env/digital/impl/dft/run_dir
+cd ../../
+set IMP_HOME            [pwd]
+/export/home/user/wangyl/rtlqa_env/digital/impl
+cd ../
+set ENV_HOME            [pwd]
+/export/home/user/wangyl/rtlqa_env/digital
+cd ../
+set PJT_HOME		[pwd]
+/export/home/user/wangyl/rtlqa_env
+if { $runSetType == "DC" } {
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set dcScriptPath        $IMP_HOME/script/syn
+  set dtclConstraintPath  $IMP_HOME/script/syn
+  set workPath            $IMP_HOME/syn/work
+  set rptDir 		  $IMP_HOME/syn/rpts
+  set netlistFilePath     $workPath/SourceDB
+  set milkywayPath        $workPath/milkyway
+  cd $RUN_DIR
+  if { [info exists hdlFilePath] == 0 } {
+    set hdlFilePath         $ENV_HOME/hdl/$projectName
+  }
+  if { [info exists hdlFileList] == 0 } {
+    set hdlFileList    	  $hdlFilePath/list/$projectName.lst
+  }
+  set_svf 		  $workPath/svf_dir/$topModuleName.svf
+} elseif { $runSetType == "PT" } {
+  set PTScriptPath        $IMP_HOME/script/sta
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set ptConstraintPath    $IMP_HOME/script/sta  
+  set workPath            $IMP_HOME/sta/work
+  set rptDir      	  $IMP_HOME/sta/rpts/rpts_${runPTstage}_${PTCase}_${OperatingCondition}
+  if { [info exists ParasiticFilePath] == 0 } {
+    set ParasiticFilePath   $IMP_HOME/$runPTstage/work/$ParasiticModel/current
+  }
+  cd $RUN_DIR
+  if { $runPTstage == "syn" } {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath   $IMP_HOME/syn/work/net/current
+    }
+    set ParasiticFile	   $ParasiticFilePath/$ParasiticFileName
+  } elseif { $runPTstage == "dft" } {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath   $IMP_HOME/dft/work/net/current
+    }
+    set ParasiticFile	   $ParasiticFilePath/$ParasiticFileName 
+  } elseif { $runPTstage == "bsd"} {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath   $IMP_HOME/bsd/work/net/current
+    }
+      set ParasiticFile	   $ParasiticFilePath/$ParasiticFileName 
+  } elseif { $runPTstage == "rt" } {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath   $IMP_HOME/rt/work/net/current
+    }
+    set ParasiticFile	  $ParasiticFilePath/$ParasiticFileName
+  }
+} elseif { $runSetType == "FM" } {
+  set fmScriptPath        $IMP_HOME/script/formal
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set fmConstraintPath    $IMP_HOME/script/formal
+  set workPath            $IMP_HOME/formal/work
+  set rptDir  		  $IMP_HOME/formal/rpts/rpts_$runFMstage
+  cd $RUN_DIR
+  if { $runFMstage == "syn" } {
+    if { [info exists REFFilePath] == 0 } {
+  	set REFFilePath       $ENV_HOME/hdl/$projectName
+    }
+    if { [info exists IMPFilePath] == 0 } {
+  	set IMPFilePath       $IMP_HOME/syn/work/net/current
+    }
+    if { [info exists REFsourcefilelist] == 0 } {
+        set REFsourcefilelist $REFFilePath/list/$topModuleName.fm.lst
+    }
+	set_svf		      $IMP_HOME/syn/work/svf_dir
+  } elseif {$runFMstage == "dft" } {
+    if { [info exists REFFilePath] == 0 } {
+	set REFFilePath         $IMP_HOME/syn/work/net/current
+    }
+    if { [info exists IMPFilePath] == 0 } {
+	set IMPFilePath         $IMP_HOME/dft/work/net/current
+    }
+    if { [info exists REFsourcefilelist] == 0 } {
+	set REFsourcefilelist   $REFFilePath/${topModuleName}.lst
+    }
+    if { [info exists IMPsourcefilelist] == 0 } {
+	set IMPsourcefilelist   $IMPFilePath/${topModuleName}.lst
+    }
+	set_svf		        $IMP_HOME/dft/work/svf_dir
+  } elseif {$runFMstage == "bsd" } {
+    if { [info exists REFFilePath] == 0 } {
+	set REFFilePath         $IMP_HOME/syn/work/net/current
+    }
+    if { [info exists IMPFilePath] == 0 } {
+	set IMPFilePath         $IMP_HOME/bsd/work/net/current
+    }
+    if { [info exists REFsourcefilelist] == 0 } {
+	set REFsourcefilelist   $REFFilePath/${topModuleName}.lst
+    }
+    if { [info exists IMPsourcefilelist] == 0 } {
+	set IMPsourcefilelist   $IMPFilePath/${topModuleName}.lst
+    }
+	set_svf		        $IMP_HOME/bsd/work/svf_dir
+  } elseif {$runFMstage == "rt" } {
+    if { [info exists REFFilePath] == 0 } {
+        set REFFilePath         $IMP_HOME/syn/work/net/current
+    }
+    if { [info exists IMPFilePath] == 0 } {
+        set IMPFilePath         $IMP_HOME/rt/net/current
+    }
+    if { [info exists REFsourcefilelist] == 0 } {
+        set REFsourcefilelist   $REFFilePath/${topModuleName}.lst
+    }
+    if { [info exists IMPsourcefilelist] == 0 } {
+        set IMPsourcefilelist   $IMPFilePath/${topModuleName}.lst
+    }
+  }
+} elseif { $runSetType == "DFT" } {
+  set dftScriptPath       $IMP_HOME/script/dft
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set workPath            $IMP_HOME/dft/work
+  set synWorkPath         $IMP_HOME/syn/work/
+  set bsdWorkPath         $IMP_HOME/bsd/work/
+  set rptDir              $IMP_HOME/dft/rpts
+  set dftConstraintPath   $IMP_HOME/script/dft
+  set synConstraintPath   $IMP_HOME/script/syn
+  set_svf 		  $workPath/svf_dir/$topModuleName.svf
+  cd $RUN_DIR
+} elseif { $runSetType == "BSD" } {
+
+  set bsdScriptPath       $IMP_HOME/script/bsd
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set workPath            $IMP_HOME/bsd/work
+  set synWorkPath         $IMP_HOME/syn/work/
+  set dftWorkPath	  $IMP_HOME/dft/work/
+  set rptDir              $IMP_HOME/bsd/rpts
+  set bsdConstraintPath   $IMP_HOME/script/bsd
+  set synConstraintPath   $IMP_HOME/script/syn
+  set_svf 		  $workPath/svf_dir/$topModuleName.svf
+  cd $RUN_DIR
+
+} elseif { $runSetType == "POWER" } {
+  set PPScriptPath        $IMP_HOME/script/power
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  set ppConstraintPath    $IMP_HOME/script/power
+  set workPath            $IMP_HOME/power/work
+  set rptDir              $IMP_HOME/power/rpts/rpts_$OperatingCondition
+  if { [info exists netlistFileList] == 0 } {
+    set netlistFileList ${topModuleName}.lst
+  }
+  if { [info exists vcdFilePath] == 0 } {
+    set vcdFilePath         $IMP_HOME/power/work/vcd
+  }
+  if { $runPPstage == "syn" } {
+    if { [info exists netlistFilePath] == 0 } { 
+      set netlistFilePath     $IMP_HOME/$runPPstage/work/net/current
+    }
+    if { [info exists parasiticsFilePath]  == 0} {
+      set parasiticsFilePath  $IMP_HOME/$runPPstage/work/$parasiticsFileFormat/current
+    }
+  } elseif {$runPPstage == "dft" } {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath     $IMP_HOME/$runPPstage/work/net/current
+  }
+    if { [info exists parasiticsFilePath] == 0 } {
+      set parasiticsFilePath  $IMP_HOME/$runPPstage/work/$parasiticsFileFormat/current
+  }
+	} elseif {$runPPstage == "bsd" } {
+ 		if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath     $IMP_HOME/$runPPstage/work/net/current
+  }
+    if { [info exists parasiticsFilePath] == 0 } {
+      set parasiticsFilePath  $IMP_HOME/$runPPstage/work/$parasiticsFileFormat/current
+  }
+  } elseif {$runPPstage == "rt" } {
+    if { [info exists netlistFilePath] == 0 } {
+      set netlistFilePath     $IMP_HOME/$runPPstage/work/net/current
+    }
+    if { [info exists parasiticsFilePath] == 0 } {
+      set parasiticsFilePath  $IMP_HOME/$runPPstage/work/$parasiticsFileFormat/current
+    }
+  }
+  cd $RUN_DIR
+} elseif { $runSetType == "TMAX" } {
+  set tmaxScriptPath	  $IMP_HOME/script/tmax
+  set tmaxConstraintPath  $IMP_HOME/script/tmax
+  set workPath            $IMP_HOME/tmax/work
+  set rptDir              $IMP_HOME/tmax/rpts
+  set protocolPath	  $IMP_HOME/dft/work/spf/current
+  cd $RUN_DIR
+} elseif { $runSetType == "LEDA" } {
+
+  set LibrarySetupPath	  $IMP_HOME/script/con
+  if { [info exists hdlFilePath] == 0 } {
+    set hdlFilePath         $ENV_HOME/hdl/$projectName
+  }
+  if { [info exists hdlFileList] == 0 } {
+    set hdlFileList    	  $hdlFilePath/list/$topModuleName.leda.lst
+  }
+  set ledaScriptPath 	  $IMP_HOME/script/leda
+  set ledaConstrainPath	  $IMP_HOME/script/leda
+  set workPath		  $IMP_HOME/leda/work
+  set rptDir		  $IMP_HOME/leda/rpts
+  cd  $RUN_DIR
+}
+source -echo -verbose ../../script/con/setupVar.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      setupVar.tcl
+#
+#      DESCRIPTION:
+#         This script is used to setup variables for R2N flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+if { $runSetType == "DC" } {
+#  set prestoHdlCompiler   true
+  set hdlin_auto_save_templates true
+  set hdlin_work_directory $workPath/template/
+  set hdlin_check_no_latch true
+  set compile_no_new_cells_at_top_level true
+  set compile_preserve_subdesign_interfaces true
+  set hdlin_latch_always_async_set_reset true
+#  set timing_self_loops_no_skew true
+  set enable_recovery_removal_arcs true
+  set verilogout_no_tri true
+  set power_cg_flatten true
+  set verilogout_show_unconnected_pins true
+  set dcVersion           2007.03sp1
+  set DC_ULTRA            true
+  define_design_lib work -path $workPath/template/
+  suppress_message {UISN-26 VER-129 VER-130 VER-173}
+  if { $clockgating == "true" } {
+    set power_cg_gated_clock_net_naming_style "CLKGATING_%c_%g_%d"
+    set power_cg_module_naming_style "POWERMODULE_%e_%p_%d"
+    set power_cg_cell_naming_style "POWERGATING_%c_%n_%d"
+  }
+} elseif { $runSetType == "PT" } {
+  set link_create_black_boxes false
+  set timing_clock_reconvergence_pessimism normal
+  set timing_remove_clock_reconvergence_pessimism true
+  set svr_keep_unconnected_nets  true
+  set timing_slew_propagation_mode worst_slew
+#  set case_analysis_sequential_propagation always
+  suppress_message PARA-023
+  if { $EnablePTSI == "true" } {
+    set si_enable_analysis true
+    set si_xtalk_reselect_critical_path false
+    set si_xtalk_reselect_clock_network true
+    set si_xtalk_reselect_delta_delay 0.3
+    set si_xtalk_reselect_delta_delay_ratio 0.95
+    set si_xtalk_reselect_max_mode_slack 0
+    set si_xtalk_reselect_min_mode_slack 0
+    set si_xtalk_exit_on_max_iteration_count 3
+  }
+} elseif { $runSetType == "POWER"} {
+	set power_enable_analysis true 
+	set power_default_static_probability 0.5
+	set power_default_toggle_rate 0.5
+	set power_clock_network_include_clock_gating_network true
+} elseif { $runSetType == "FM" } {
+  set my_dc_shell_file [exec which dc_shell-t]
+  set my_dc_shell_install   	[string range $my_dc_shell_file 0 [expr [string last "/" $my_dc_shell_file] - 4]]
+#  set my_dc_shell_install /ecad/synopsys/newtool/synthesis_z2007.03_sp1 
+  set hdlin_dwroot $my_dc_shell_install
+  set hdlin_synroot $my_dc_shell_install
+
+  set hdlin_ignore_dc_script true
+#  set verification_passing_mode consistency
+  set hdlin_error_on_mismatch_message false
+  set verification_clock_gate_hold_mode any
+  set hdlin_warn_on_mismatch_message "FMR_ELAB-146 FMR_ELAB-034"
+#  set verification_verify_directly_undriven_output false
+
+  set hdlin_unresolved_modules "black_box"
+# set verification_clock_gate_hold_mode low
+  set verification_blackbox_match_mode identity
+# set verification_set_undriven_signals "X"
+  set verification_constant_prop_mode top
+} elseif { $runSetType == "DFT" } {
+#  set prestoHdlCompiler   true
+  set hdlin_auto_save_templates true
+  set hdlin_check_no_latch true
+  set case_analysis_with_logic_constants true
+  set case_analysis_with_logic_constants true
+  set test_default_bidir_delay 0
+  set test_default_delay 0
+  set test_default_strobe 40
+  set test_dft_drc_ungate_clocks true
+  set test_enable_dft_drc true
+  #set test_preset_bidi_signals false
+  #set test_setup_additional_clock_pulse true
+  set compile_no_new_cells_at_top_level true
+  #set test_dedicated_subdesign_scan_outs false
+  set test_stil_netlist_format verilog
+  set test_use_test_models true
+  set verilogout_no_tri true
+#  set timing_self_loops_no_skew true
+  #set_auto_disable_drc_nets -clock true -constant true
+  set enable_recovery_removal_arcs true
+  suppress_message {UISN-26 VER-129 VER-130 VER-173}
+  define_design_lib work -path $workPath/template/
+} elseif { $runSetType == "BSD"} {
+#	set prestoHdlCompiler   true
+  set hdlin_auto_save_templates true
+  set hdlin_check_no_latch true
+  set case_analysis_with_logic_constants true
+  set case_analysis_with_logic_constants true
+  set test_default_bidir_delay 0
+  set test_default_delay 0
+  set test_default_strobe 40
+  set test_dft_drc_ungate_clocks true
+  set test_enable_dft_drc true
+  #set test_preset_bidi_signals false
+  #set test_setup_additional_clock_pulse true
+  set compile_no_new_cells_at_top_level true
+  #set test_dedicated_subdesign_scan_outs false
+  set test_stil_netlist_format verilog
+  set test_use_test_models true
+  set verilogout_no_tri true
+# set timing_self_loops_no_skew true
+#	set_auto_disable_drc_nets -clock true -constant true
+  set enable_recovery_removal_arcs true
+  suppress_message {UISN-26 VER-129 VER-130 VER-173}
+  define_design_lib work -path $workPath/template/
+} elseif { $runSetType == "TMAX" } {
+
+} elseif { $runSetType == "LEDA" } {
+
+} 
+1
+1
+source -echo -verbose $LibrarySetupPath/setupLib.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      setupLib.tcl
+#
+#      DESCRIPTION:
+#         This script is used to setup libraries for R2N flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+set maxOptCond WCCOM 
+WCCOM
+set maxLibName fsa0a_c_sc_wc
+fsa0a_c_sc_wc
+set minOptCond BCCOM
+BCCOM
+set minLibName fsa0a_c_sc_bc
+fsa0a_c_sc_bc
+set typOptcond TCCOM
+TCCOM
+set typLibName fsa0a_c_sc_tc
+fsa0a_c_sc_tc
+set wireLoadModelName none
+none
+set slew_lower_threshold_pct_rise 10
+10
+set slew_lower_threshold_pct_fall 10
+10
+set slew_upper_threshold_pct_rise 90
+90
+set slew_upper_threshold_pct_fall 90
+90
+set input_threshold_pct_rise  50
+50
+set input_threshold_pct_fall  50
+50
+set output_threshold_pct_rise 50
+50
+set output_threshold_pct_fall 50
+50
+if { $runSetType == "DC" } {
+
+  set search_path   ".                       $search_path .                      $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                      $ENV_HOME/hdl/des                      "
+
+  set target_library "fsa0a_c_sc_wc.db"
+  
+  set synthetic_library "standard.sldb dw_foundation.sldb"
+  
+  set link_library [concat *                     $target_library                     $synthetic_library                    ]
+  
+  set_dont_use {fsa0a_c_sc_wc/JK* fsa0a_c_sc_wc/BUF*CK}
+  set_dont_use {fsa0a_c_sc_wc/RAM*}
+  set_dont_use {fsa0a_c_sc_wc/DLY*}
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCB*] dont_use
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCK*] dont_use
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/TIE*] dont_use
+  set auto_wire_load_selection true
+
+} elseif { $runSetType == "PT" } {
+  set search_path  ".                        $search_path .                    $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                    $ENV_HOME/hdl/des"
+
+  if { $OperatingCondition == "WC" || $OperatingCondition == "BCWC" } {                       
+    set target_library      "fsa0a_c_sc_wc.db"
+    set link_library [concat *                       $target_library                       ]
+
+  } elseif { $OperatingCondition == "BC" } {
+    set target_library      "fsa0a_c_sc_bc.db"
+    set link_library [concat *                       $target_library                      ]
+  }
+  if { $OperatingCondition == "BCWC" } {
+    set_min_library fsa0a_c_sc_wc.db     -min_version fsa0a_c_sc_bc.db
+  }
+} elseif { $runSetType == "POWER" } {
+  set search_path ".                        $search_path .                    $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                    $ENV_HOME/hdl/des"
+
+  if { $OperatingCondition == "WC" || $OperatingCondition == "BCWC" } {                       
+    set target_library      "fsa0a_c_sc_wc.db"
+    set link_library [concat *                       $target_library                       ]
+
+  } elseif { $OperatingCondition == "BC" } {
+    set target_library      "fsa0a_c_sc_bc.db"
+    set link_library [concat *                       $target_library                       ]
+  } elseif { $OperatingCondition == "TC" } {
+    set target_library      "fsa0a_c_sc_tc.db"
+    set link_library [concat *                       $target_library                       ]
+  }
+  if { $OperatingCondition == "BCWC" } {
+    set_min_library fsa0a_c_sc_wc.db -min_version fsa0a_c_sc_bc.db
+
+  }
+} elseif { $runSetType == "FM" } {
+  set target_library  "fsa0a_c_sc_wc.db"
+  set search_path     "$search_path .                        $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                        $ENV_HOME/hdl/des"
+  set link_library [list                     fsa0a_c_sc_wc.db                     ]
+
+  foreach lib $link_library {
+    if { $lib == "*" } { continue }
+    read_db -technology_library $lib
+  }
+} elseif { $runSetType == "DFT" || $runSetType == "BSD" } {
+
+  set search_path  "$search_path .                     $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                     $ENV_HOME/hdl/des                     "
+  set target_library  "fsa0a_c_sc_wc.db"
+  
+  set synthetic_library "standard.sldb dw_foundation.sldb"
+  
+  set link_library [concat *                     $target_library                     $synthetic_library                     ]
+  
+  #set_dont_use {fsa0a_c_sc_wc/TIE1 fsa0a_c_sc_wc/TIE0 fsa0a_c_sc_wc/JK* fsa0a_c_sc_wc/BUF*CK}
+  set_dont_use {fsa0a_c_sc_wc/JK* fsa0a_c_sc_wc/BUF*CK}
+  set_dont_use {fsa0a_c_sc_wc/RAM*}
+  set_dont_use {fsa0a_c_sc_wc/DLY*}
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCB*] dont_use
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/GCK*] dont_use
+  remove_attribute [get_lib_cells fsa0a_c_sc_wc/TIE*] dont_use
+  
+  set auto_wire_load_selection true
+  
+  set test_simulation_library [list                                $PJT_HOME/techlib/memory/verilog/memory.v]
+
+} elseif { $runSetType == "TMAX" } {
+	
+} elseif { $runSetType == "LEDA" } {
+
+  set search_path    "$search_path .                       $PJT_HOME/techlib/std_cell/FrontEnd/synopsys                       $ENV_HOME/hdl/des                       "
+
+  set target_library    "fsa0a_c_sc_wc.db"
+
+  set link_library [concat *                     $target_library                    ]
+}
+Loading db file '/export/home/user/wangyl/rtlqa_env/techlib/std_cell/FrontEnd/synopsys/fsa0a_c_sc_wc.db'
+Loading db file '/ecad/synopsys/synthesis_z2007.03_sp1/libraries/syn/standard.sldb'
+Loading db file '/ecad/synopsys/synthesis_z2007.03_sp1/libraries/syn/dw_foundation.sldb'
+/export/home/user/wangyl/rtlqa_env/techlib/memory/verilog/memory.v
+/export/home/user/wangyl/rtlqa_env/techlib/memory/verilog/memory.v
+#-----------------------------------#
+# Include Design Read In Script
+#-----------------------------------#
+source -echo -verbose $dftScriptPath/designReadIn.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      designReadIn.tcl
+#
+#      DESCRIPTION:
+#         This script is used to read in the designs in DFT flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+if { $ReadFileFormat == "ddc" } {
+
+	if { $runDFTstage == "syn" } {
+		read_ddc $synWorkPath/ddc/current/$topModuleName.ddc
+		current_design $topModuleName
+		link
+	} elseif { $runDFTstage == "bsd" } {
+		read_ddc $bsdWorkPath/ddc/current/$topModuleName.ddc
+		current_design $topModuleName
+		link
+	}
+} elseif { $ReadFileFormat == "netlist" } {
+	if { $runDFTstage == "syn" } { 
+		read_verilog -netlist $synWorkPath/net/current/$topModuleName.v
+		current_design $topModuleName
+		link
+	} elseif { $runDFTstage == "bsd" } {
+		read_verilog -netlist $bsdWorkPath/net/current/$topModuleName.v
+		current_design $topModuleName
+		link
+	}
+} else {
+echo "No files are reading in, var ReadFileFormat is not correctly specified!"
+}
+Loading db file '/ecad/synopsys/synthesis_z2007.03_sp1/libraries/syn/gtech.db'
+  Loading link library 'gtech'
+Loading verilog file '/export/home/user/wangyl/rtlqa_env/digital/impl/syn/work/net/current/des.v'
+Running DC verilog reader
+Performing 'read' command.
+Compiling source file /export/home/user/wangyl/rtlqa_env/digital/impl/syn/work/net/current/des.v
+Verilog netlist reader completed successfully.
+Current design is now '/export/home/user/wangyl/rtlqa_env/digital/impl/syn/work/net/current/POWERMODULE_HIGH_tiny_des_round_0.db:POWERMODULE_HIGH_tiny_des_round_0'
+Loaded 25 designs.
+Current design is 'POWERMODULE_HIGH_tiny_des_round_0'.
+Current design is 'des'.
+
+  Linking design 'des'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (25 designs)              /export/home/user/wangyl/rtlqa_env/digital/impl/syn/work/net/current/des.db, etc
+  fsa0a_c_sc_wc (library)     /export/home/user/wangyl/rtlqa_env/techlib/std_cell/FrontEnd/synopsys/fsa0a_c_sc_wc.db
+  dw_foundation.sldb (library) /ecad/synopsys/synthesis_z2007.03_sp1/libraries/syn/dw_foundation.sldb
+
+1
+1
+current_design $topModuleName
+Current design is 'des'.
+{des}
+link
+
+  Linking design 'des'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (25 designs)              /export/home/user/wangyl/rtlqa_env/digital/impl/syn/work/net/current/des.db, etc
+  fsa0a_c_sc_wc (library)     /export/home/user/wangyl/rtlqa_env/techlib/std_cell/FrontEnd/synopsys/fsa0a_c_sc_wc.db
+  dw_foundation.sldb (library) /ecad/synopsys/synthesis_z2007.03_sp1/libraries/syn/dw_foundation.sldb
+
+1
+#-----------------------------------#
+# Include Design Constraint Script
+#-----------------------------------#
+source -echo -verbose $dftScriptPath/designConstraintIn.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      designConstraintIn.tcl
+#
+#      DESCRIPTION:
+#         This script is used to read in the design constraints in DFT flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+  if { $AutoFix == "true" } {
+    if { [file exists $dftConstraintPath/AutoFix.tcl] == 1 } {
+          source -echo -verbose $dftConstraintPath/AutoFix.tcl
+    } else {
+          echo    "Can not find design constraints AutoFix.tcl\n"
+          quit
+    }
+  }	  
+  if { [file exists $dftConstraintPath/DefineScanConfig.tcl] == 1 } {
+          source -echo -verbose $dftConstraintPath/DefineScanConfig.tcl
+  } else {
+          echo    "Can not find design constraints DefineScanConfig.tcl\n"
+          quit
+  }
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      DefineScanConfig.tcl
+#
+#      DESCRIPTION:
+#         This script is used to setup scan configrations in DFT flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+#set_scan_configuration -add_lockup true
+#set_scan_configuration -bidi_mode input
+#set_scan_configuration -chain_count 1
+#set_scan_configuration -clock_mixing mix_clocks
+#set_scan_configuration -dedicated_scan_ports true
+#set_scan_configuration -disable true
+#set_scan_configuration -hierarchical_isolation true
+#set_scan_configuration -internal_clocks false
+#set_scan_configuration -internal_tri disable_all
+#set_scan_configuration -methodology full_scan
+#set_scan_configuration -rebalance true
+#set_scan_configuration -route true
+#set_scan_configuration -route_signals all
+#set_scan_configuration -style multiplexed_flip_flop
+#set_scan_configuration -insert_end_of_chain_lockup_latch true
+set_scan_configuration  -clock_mixing mix_clocks
+Accepted scan configuration for modes: all_dft
+1
+set_scan_configuration  -chain_count $ScanChainNum
+Accepted scan configuration for modes: all_dft
+1
+set_scan_configuration  -add_lockup true
+Accepted scan configuration for modes: all_dft
+1
+set_scan_configuration  -insert_terminal_lockup true
+Accepted scan configuration for modes: all_dft
+1
+set_scan_configuration  -create_dedicated_scan_out_ports true
+Accepted scan configuration for modes: all_dft
+1
+if {$ScanCompression == "true"} {
+	set_dft_configuration -scan_compression enable
+	set_scan_compression_configuration -minimum_compression $ScanCompRate
+}
+# New version DFTC does not support shadow_wrapper
+#set_dft_configuration -shadow_wrapper
+#set_wrapper_element I_RISC_CORE/I_MULT_STORE/I_RAM -type shadow
+#set_port_configuration -cell sp256x16 -clock Clk -port Q
+#set_port_configuration -cell sp256x16 -clock Clk -port D
+  if { [file exists $dftConstraintPath/DefineScanSignal.tcl] == 1 } {
+          source -echo -verbose $dftConstraintPath/DefineScanSignal.tcl
+  } else {
+          echo    "Can not find design constraints DefineScanSignal.tcl\n"
+          quit
+  }
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      DefineScanSignal.tcl
+#
+#      DESCRIPTION:
+#         This script is used to setup scan signals in DFT flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+# Define DFT Clock
+set_dft_signal -view exist -type ScanClock -timing {45 55} -port [get_ports hclk] 
+Accepted dft signal specification for modes: all_dft
+1
+# Define DFT Reset if the reset signal is async
+# Define DFT Scan Enable
+# Note: if the scan enable is used to connect the test pin of CG, 
+# The exist view is also needed to pass drc check
+create_port -direction "in" {Test_Se}
+Creating port 'Test_Se' in design 'des'.
+1
+set_dft_signal -view spec -type ScanEnable -port Test_Se 
+Accepted dft signal specification for modes: all_dft
+1
+# Define this variable for subsequent set_ideal_network $DFTScanEnable
+set DFTScanEnable [list]
+set DFTScanEnable "Test_Se"
+Test_Se
+# Define DFT Scan In
+create_port -direction "in"  {si0 si1 si2 si3}
+Creating port 'si0' in design 'des'.
+Creating port 'si1' in design 'des'.
+Creating port 'si2' in design 'des'.
+Creating port 'si3' in design 'des'.
+1
+set_dft_signal -view spec  -type ScanDataIn -port si0 
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -view spec  -type ScanDataIn -port si1 
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -view spec  -type ScanDataIn -port si2 
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -view spec  -type ScanDataIn -port si3 
+Accepted dft signal specification for modes: all_dft
+1
+# Define DFT Scan Out
+create_port -direction "out"  {so0 so1 so2 so3}
+Creating port 'so0' in design 'des'.
+Creating port 'so1' in design 'des'.
+Creating port 'so2' in design 'des'.
+Creating port 'so3' in design 'des'.
+1
+set_dft_signal -view spec -type ScanDataOut -port so0
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -view spec -type ScanDataOut -port so1
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -view spec -type ScanDataOut -port so2 
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -view spec -type ScanDataOut -port so3 
+Accepted dft signal specification for modes: all_dft
+1
+# Define Scan Connection
+set_scan_path -view spec -scan_data_in si0 -scan_data_out so0 chain_1
+Accepted scan path specification for mode: Internal_scan
+1
+set_scan_path -view spec -scan_data_in si1 -scan_data_out so1 chain_2
+Accepted scan path specification for mode: Internal_scan
+1
+set_scan_path -view spec -scan_data_in si2 -scan_data_out so2 chain_3
+Accepted scan path specification for mode: Internal_scan
+1
+set_scan_path -view spec -scan_data_in si3 -scan_data_out so3 chain_4
+Accepted scan path specification for mode: Internal_scan
+1
+# Define DFT Test Mode
+create_port -direction "in"  {Test_Mode}
+Error: Port 'Test_Mode' already exists in design 'des'. (UIED-27)
+1
+set_dft_signal -view exist -type Constant -port Test_Mode -active 1
+Accepted dft signal specification for modes: all_dft
+1
+#set_dft_signal -view exist -type TestMode -port Comp_Mode -active 1 
+# Define DFT Autofix Signals
+# The definitions are in Autofix.tcl
+  if { [file exists $dftConstraintPath/DefineScanHold.tcl] == 1 } {
+          source -echo -verbose $dftConstraintPath/DefineScanHold.tcl
+  } else {
+          echo    "Can not find design constraints DefineScanHold.tcl\n"
+          quit
+  }
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      DefineScanHold.tcl
+#
+#      DESCRIPTION:
+#         This script is used to setup scan hold signals in DFT flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+# Define DFT Constants
+set_dft_signal -view exist -type Constant -port Test_Mode -active 1
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -view exist -type Constant -port hresetn   -active 1 
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -view exist -type Constant -port POR       -active 1
+Accepted dft signal specification for modes: all_dft
+1
+# Set the BSD reset signal to always active to pass drc_check
+#set_dft_signal -view exist -type Constant -port BSD_trst -active 0
+  if { [file exists $dftConstraintPath/ScanException.tcl] == 1 } {
+          source -echo -verbose $dftConstraintPath/ScanException.tcl
+  } else {
+          echo    "Can not find design constraints ScanException.tcl\n"
+          quit
+  }
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      ScanException.tcl
+#
+#      DESCRIPTION:
+#         This script is used to setup scan exceptions in DFT flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+#-----------------------------------#
+# Include Design Verify Script
+#-----------------------------------#
+source -echo -verbose $dftScriptPath/InsertScan.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      InsertScan.tcl
+#
+#      DESCRIPTION:
+#         This script is used to complete the scan chain insertion in DFT flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+if { [file exists $rptDir] == 1 } {
+} else {
+  file mkdir $rptDir
+}
+if { [file exists $rptDir/current] == 1 } {
+  exec mv $rptDir/current $rptDir/20[clock format [clock seconds] -format "%y%m%d_%H%M"]
+  file mkdir $rptDir/current
+} else {
+  file mkdir $rptDir/current
+}
+set rptDir $rptDir/current
+/export/home/user/wangyl/rtlqa_env/digital/impl/dft/rpts/current
+if { [ file exists $workPath/net ] == 1 } {
+  if { [ file exists $workPath/net/current ] == 1 } {
+  exec mv $workPath/net/current $workPath/net/20[clock format [clock seconds] -format "%y%m%d_%H%M"]
+  }
+} else {
+  file mkdir $workPath/net
+}
+if { [ file exists $workPath/ddc ] == 1 } {
+  if { [ file exists $workPath/ddc/current ] == 1 } {
+  exec mv $workPath/ddc/current $workPath/ddc/20[clock format [clock seconds] -format "%y%m%d_%H%M"]
+  }
+} else {
+  file mkdir $workPath/ddc
+}
+if { [ file exists $workPath/spf ] == 1 } {
+  if { [ file exists $workPath/spf/current ] == 1 } {
+  exec mv $workPath/spf/current $workPath/spf/20[clock format [clock seconds] -format "%y%m%d_%H%M"]
+  }
+} else {
+  file mkdir $workPath/spf
+}
+if { [ file exists $workPath/SPEF ] == 1 } {
+  if { [ file exists $workPath/SPEF/current ] == 1 } {
+  exec mv $workPath/SPEF/current $workPath/SPEF/20[clock format [clock seconds] -format "%y%m%d_%H%M"]
+  }
+} else {
+  file mkdir $workPath/SPEF
+}
+file mkdir $workPath/net/current
+file mkdir $workPath/ddc/current
+file mkdir $workPath/spf/current
+file mkdir $workPath/SPEF/current
+current_design $topModuleName
+Current design is 'des'.
+{des}
+uniquify
+1
+link
+
+  Linking design 'des'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (25 designs)              /export/home/user/wangyl/rtlqa_env/digital/impl/syn/work/net/current/des.db, etc
+  fsa0a_c_sc_wc (library)     /export/home/user/wangyl/rtlqa_env/techlib/std_cell/FrontEnd/synopsys/fsa0a_c_sc_wc.db
+  dw_foundation.sldb (library) /ecad/synopsys/synthesis_z2007.03_sp1/libraries/syn/dw_foundation.sldb
+
+1
+set_dft_configuration -scan enable -bsd disable
+Accepted dft configuration specification.
+1
+create_test_protocol
+In mode: all_dft...
+
+Information: Starting test protocol creation. (TEST-219)
+  ...reading user specified clock signals...
+Information: Identified system/test clock port hclk (45.0,55.0). (TEST-265)
+  ...reading user specified asynchronous signals...
+Warning: The output strobe for the mode is '40.000000'.
+         The output strobe inferred from the waveform table '_default_WFT_' is -1.000000.
+The output strobe will be updated
+
+1
+write_test_protocol -output $workPath/spf/current/${topModuleName}.pre.spf
+Writing test protocol file '/export/home/user/wangyl/rtlqa_env/digital/impl/dft/work/spf/current/des.pre.spf' for mode 'all_dft'...
+1
+redirect [file join $rptDir ${topModuleName}.chkdft_pre] {
+	dft_drc -verbose
+} 
+redirect [file join $rptDir ${topModuleName}.prv_dft] {
+ 	preview_dft -test_points all
+ 	preview_dft -show all
+}
+redirect [file join $rptDir ${topModuleName}.prv_script] {
+ 	preview_dft -script
+}
+set_dft_insertion_configuration -synthesis_optimization None 																-preserve_design_name true
+Accepted insert_dft configuration specification.
+1
+insert_dft 
+  Information: Using test design rule information from previous dft_drc run.
+  Architecting Scan Chains
+  Inserting Scan Cells
+  Routing Scan Chains
+  Routing Global Signals
+  Mapping New Logic
+Resetting current test mode
+
+1
+redirect [file join $rptDir ${topModuleName}.checkdft_post] {
+   dft_drc -verbose
+}
+redirect [file join $rptDir ${topModuleName}.scan_path] {
+ 	report_scan_path -view exist
+}
+redirect [file join $rptDir ${topModuleName}.coverage] {
+ 	dft_drc -coverage_estimate
+}
+if { $ReCompile == "true" } {
+  source -echo -verbose $dftScriptPath/designReCompile.tcl
+}
+#-----------------------------------#
+# Include Design Output Script
+#-----------------------------------#
+source -echo -verbose $dftScriptPath/designOutput.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      designOutput.tcl
+#
+#      DESCRIPTION:
+#         This script is used to write data in DFT flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+source -echo -verbose $synConstraintPath/namRule.tcl
+#********************************************************************
+#
+#      Copyright (c) 2007 HHIC, ALL RIGHTS RESERVED
+#
+#********************************************************************
+#
+#      FILENAME:      namRule.tcl
+#
+#      DESCRIPTION:
+#         This script is used to define naming rules in SYN flow
+#
+#      REVISION:      initial version by juxiaobo 2007/08/15
+#
+#--------------------------------------------------------------
+#-------------------------------#
+# Define Naming Rules
+#-------------------------------#
+set bus_inference_descending_sort    true
+true
+set bus_inference_style              %s\[%d\]
+%s[%d]
+set bus_naming_style                 %s\[%d\]
+%s[%d]
+set verilogout_no_tri true
+true
+set change_names_dont_change_bus_members true
+true
+set_fix_multiple_port_nets -all
+1
+define_name_rules lab_vlog -type port 			-allowed {a-zA-Z0-9[]_} 			-equal_ports_nets 			-first_restricted "0-9_" 			-max_length 256
+1
+define_name_rules lab_vlog -type net 			-allowed "a-zA-Z0-9_" 			-equal_ports_nets 			-first_restricted "_0-9" 			-max_length 256
+1
+define_name_rules lab_vlog -type cell 			-allowed "a-zA-Z0-9_" 			-first_restricted "_0-9" 			-map {{ {"\[", "_"}, {"\]", ""}, {"\[", "_"} }} 			-max_length 256
+1
+define_name_rules slash -restricted {/} -replace {_}
+1
+change_names -verbose -hier -rules slash
+
+Design          Type    Object                  New Name
+--------------------------------------------------------------------------------
+1
+change_names -verbose -hier -rules lab_vlog
+
+Design          Type    Object                  New Name
+--------------------------------------------------------------------------------
+des_key         net     wr_ptr[2]               test_so1
+des_key         net     wr_ptr[1]               wr_ptr_1_
+des_key         net     wr_ptr[0]               wr_ptr_0_
+des_iv          net     wr_ptr                  test_so1
+des_dat         net     wr_ptr                  test_so
+des_cop         net     flag[1]                 test_so
+des_cop         net     flag[0]                 flag_0_
+1
+1
+change_names -rule verilog -hier
+1
+write -f ddc -hier -o $workPath/ddc/current/$topModuleName.ddc
+Writing ddc file '/export/home/user/wangyl/rtlqa_env/digital/impl/dft/work/ddc/current/des.ddc'.
+1
+write -f verilog -hier -o $workPath/net/current/$topModuleName.v
+Writing verilog file '/export/home/user/wangyl/rtlqa_env/digital/impl/dft/work/net/current/des.v'.
+1
+write_parasitics -output $workPath/SPEF/current/${topModuleName}.spef
+Information: Writing parasitics to file '/export/home/user/wangyl/rtlqa_env/digital/impl/dft/work/SPEF/current/des.spef'. (WP-3)
+1
+write_test_protocol  -output $workPath/spf/current/$topModuleName.spf -test_mode Internal_scan
+Writing test protocol file '/export/home/user/wangyl/rtlqa_env/digital/impl/dft/work/spf/current/des.spf' for mode 'Internal_scan'...
+1
+if { $ScanCompression == "true"} {
+	write_test_protocol  -output $workPath/spf/current/$topModuleName.comp.spf -test_mode ScanCompression_mode
+}
+redirect [file join $workPath/net/current/$topModuleName.lst] {
+	echo "$topModuleName.v"
+}
+quit
+Information: Defining new variable 'minOptCond'. (CMD-041)
+Information: Defining new variable 'output_threshold_pct_rise'. (CMD-041)
+Information: Defining new variable 'wireLoadModelName'. (CMD-041)
+Information: Defining new variable 'PJT_HOME'. (CMD-041)
+Information: Defining new variable 'maxOptCond'. (CMD-041)
+Information: Defining new variable 'slew_lower_threshold_pct_fall'. (CMD-041)
+Information: Defining new variable 'slew_upper_threshold_pct_fall'. (CMD-041)
+Information: Defining new variable 'IMP_HOME'. (CMD-041)
+Information: Defining new variable 'topModuleName'. (CMD-041)
+Information: Defining new variable 'rptDir'. (CMD-041)
+Information: Defining new variable 'hlo_collapse_intermediate_hardware_alts'. (CMD-041)
+Information: Defining new variable 'slew_lower_threshold_pct_rise'. (CMD-041)
+Information: Defining new variable 'ScanChainNum'. (CMD-041)
+Information: Defining new variable 'slew_upper_threshold_pct_rise'. (CMD-041)
+Information: Defining new variable 'dftConstraintPath'. (CMD-041)
+Information: Defining new variable 'synConstraintPath'. (CMD-041)
+Information: Defining new variable 'ReadFileFormat'. (CMD-041)
+Information: Defining new variable 'input_threshold_pct_fall'. (CMD-041)
+Information: Defining new variable 'test_enable_dft_drc'. (CMD-041)
+Information: Defining new variable 'projectName'. (CMD-041)
+Information: Defining new variable 'runDFTstage'. (CMD-041)
+Information: Defining new variable 'AutoFix'. (CMD-041)
+Information: Defining new variable 'ReCompile'. (CMD-041)
+Information: Defining new variable 'bsdWorkPath'. (CMD-041)
+Information: Defining new variable 'ScanCompRate'. (CMD-041)
+Information: Defining new variable 'input_threshold_pct_rise'. (CMD-041)
+Information: Defining new variable 'minLibName'. (CMD-041)
+Information: Defining new variable 'typLibName'. (CMD-041)
+Information: Defining new variable 'workPath'. (CMD-041)
+Information: Defining new variable 'RUN_DIR'. (CMD-041)
+Information: Defining new variable 'typOptcond'. (CMD-041)
+Information: Defining new variable 'output_threshold_pct_fall'. (CMD-041)
+Information: Defining new variable 'DFTScanEnable'. (CMD-041)
+Information: Defining new variable 'ScanCompression'. (CMD-041)
+Information: Defining new variable 'ENV_HOME'. (CMD-041)
+Information: Defining new variable 'LibrarySetupPath'. (CMD-041)
+Information: Defining new variable 'synWorkPath'. (CMD-041)
+Information: Defining new variable 'runSetType'. (CMD-041)
+Information: Defining new variable 'maxLibName'. (CMD-041)
+Information: Defining new variable 'dftScriptPath'. (CMD-041)
+
+Memory usage for this session 147372 Kbytes.
+CPU usage for this session 12 seconds.
+
+Thank you...

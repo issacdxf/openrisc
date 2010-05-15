@@ -1,0 +1,1 @@
+/ecad/synopsys/leda_b200806/linux/bin/leda +tcl_shell +tcl_file ./run_leda.tcl | tee ../log/leda.log
